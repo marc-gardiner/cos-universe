@@ -1,0 +1,3579 @@
+{
+  "universe": "curse-of-strahd",
+  "genre": "game-campaign",
+  "generated_at": "2026-05-27T14:51:46.997328+00:00",
+  "character_state_continuity": {
+    "character.adventuring-party": {
+      "scenes": [
+        {
+          "scene": "scene.kasimir-approaches-party",
+          "story": "story.amber-temple",
+          "entry_state": {
+            "emotional": "wary",
+            "expectation": "A dusk elf with a specific agenda — every new contact in Barovia has one; the question is whether this agenda aligns with the party's",
+            "fear": "That Kasimir's resurrection plan will produce something worse than what he started with — that his grief will make him dangerous"
+          },
+          "exit_state": {
+            "emotional": "cautiously-hopeful",
+            "shift": "Kasimir knows the path to the Amber Temple and is willing to guide them; whatever his motives, the alliance is practically valuable — and the party has learned to take practical value where they find it in Barovia"
+          }
+        },
+        {
+          "scene": "scene.amber-temple-entry",
+          "story": "story.amber-temple",
+          "entry_state": {
+            "emotional": "reverent",
+            "expectation": "A temple means structure, purpose, knowledge — ancient and dangerous, but knowable",
+            "fear": "That the Temple is not ancient and dormant but ancient and awake; that walking in was the first mistake"
+          },
+          "exit_state": {
+            "emotional": "unsettled",
+            "shift": "The Temple is nothing like a place of worship in any tradition the party recognizes — it is a prison, and the prisoners are interested in them"
+          }
+        },
+        {
+          "scene": "scene.amber-sarcophagus-temptation",
+          "story": "story.amber-temple",
+          "entry_state": {
+            "emotional": "tempted",
+            "expectation": "The power is real, the cost is real — the question is whether the cost becomes real immediately or later, and the vestige is very comfortable with later",
+            "fear": "That accepting means becoming something they will not recognize; that refusing means failing when the power would have saved someone"
+          },
+          "exit_state": {
+            "emotional": "altered",
+            "shift": "Whether accepted or refused, the encounter with the vestige has changed something — the party member who stood at that sarcophagus now knows exactly what they are willing to trade, and that knowledge is not comfortable"
+          }
+        },
+        {
+          "scene": "scene.amber-temple-escape",
+          "story": "story.amber-temple",
+          "entry_state": {
+            "emotional": "urgent",
+            "expectation": "Getting out — the Temple has given them what it will give and taken what it will take; staying longer helps nothing",
+            "fear": "That Kasimir's confrontation with Patrina's vestige will produce something they cannot contain; that leaving will be harder than entering was"
+          },
+          "exit_state": {
+            "emotional": "weary",
+            "shift": "The party is out, which is what matters. What they carry out — in their hands and in their character sheets and in the changes written on whoever accepted a gift — is the permanent record of what the Temple cost them"
+          }
+        },
+        {
+          "scene": "scene.arabelle-missing",
+          "story": "story.arabelle-and-the-vistani",
+          "entry_state": {
+            "emotional": "alert",
+            "expectation": "The party visits the Vistani camp outside Vallaki expecting the same hospitality as Tser Pool, or to follow up on Van Richten's mention of Arabelle",
+            "fear": "That whatever has happened to Arabelle connects to forces larger than a missing child, and that helping will cost them something they cannot afford right now"
+          },
+          "exit_state": {
+            "emotional": "focused",
+            "shift": "A child is missing. The party may have more context than the Vistani about where she is, which makes their role here uncomfortably close to someone who has information and is deciding whether to share it"
+          }
+        },
+        {
+          "scene": "scene.arabelle-found",
+          "story": "story.arabelle-and-the-vistani",
+          "entry_state": {
+            "emotional": "tense",
+            "expectation": "The party expects to find Arabelle and bring her back to the camp; the complication they did not fully anticipate is what Van Richten's reasons were",
+            "fear": "That either Van Richten's motives are darker than presented, or that returning Arabelle to the Vistani camp puts her in more danger than leaving her with Van Richten"
+          },
+          "exit_state": {
+            "emotional": "heavy",
+            "shift": "The party has resolved the immediate question of where Arabelle is, but opened a larger question about what she is — and what Barovia has planned for her"
+          }
+        },
+        {
+          "scene": "scene.argynvostholt-arrival",
+          "story": "story.argynvostholt",
+          "entry_state": {
+            "emotional": "awed",
+            "expectation": "Ruins — another abandoned structure in a land full of them — but this one is large, and large ruins mean large dangers",
+            "fear": "That the dead knights within will not distinguish between the party and the enemies they have been standing vigil against for centuries"
+          },
+          "exit_state": {
+            "emotional": "sobered",
+            "shift": "The revenants are not enemies and not allies — they are something in between, trapped in a purpose that has outlasted its context; the party understands they are walking through someone else's unfinished war"
+          }
+        },
+        {
+          "scene": "scene.meeting-vladimir-horngaard",
+          "story": "story.argynvostholt",
+          "entry_state": {
+            "emotional": "determined",
+            "expectation": "A leader of the Order who will recognize the party as allies against Strahd and agree to light the beacon",
+            "fear": "That Vladimir's grief has made him unreasonable; that the one person who could activate the beacon will not"
+          },
+          "exit_state": {
+            "emotional": "conflicted",
+            "shift": "Vladimir is not wrong that Strahd deserves to suffer — but his method of ensuring that suffering has trapped his own knights as surely as Strahd's curse has trapped Barovia; the party must decide whether to work with him, around him, or in spite of him"
+          }
+        },
+        {
+          "scene": "scene.dragon-skull-quest",
+          "story": "story.argynvostholt",
+          "entry_state": {
+            "emotional": "focused",
+            "expectation": "The skull is a trophy — Strahd keeps it displayed somewhere prominent; finding it means navigating the castle with a specific object in mind",
+            "fear": "That the skull's location is guarded specifically, or that retrieving it will require a confrontation they are not yet equipped for"
+          },
+          "exit_state": {
+            "emotional": "triumphant",
+            "shift": "Taking the skull is a small act of defiance against Strahd's display of conquest — the party has reclaimed something he took, and they feel the weight of that symbolism even if they cannot name it"
+          }
+        },
+        {
+          "scene": "scene.argynvost-beacon-lit",
+          "story": "story.argynvostholt",
+          "entry_state": {
+            "emotional": "resolute",
+            "expectation": "The party places Argynvost's skull in the mausoleum (area Q16) — they know from Argynvostholt's lore what should happen, but knowing does not make the silence before it happens easier to bear",
+            "fear": "That centuries of accumulated grief cannot be undone by a single act, that Vladimir's curse is too set to release, that the beacon will not come"
+          },
+          "exit_state": {
+            "emotional": "awestruck",
+            "shift": "When the dragon's spirit rises and the tower blazes silver, the party sees for the first time in this campaign what hope looks like from the outside — not the private stubborn hope of individuals holding on, but a signal that the rest of Barovia can see. Vladimir collapses. His war is over. The silence that follows is the cleanest thing the party will experience in Barovia."
+          }
+        },
+        {
+          "scene": "scene.entering-svalich-woods",
+          "story": "story.arrival-in-barovia",
+          "entry_state": {
+            "emotional": "curious",
+            "expectation": "The party expects the woods to be an ordinary wild forest — strange perhaps, but passable and reversible",
+            "fear": "That something about this place is deeply wrong and they may have stepped into a trap"
+          },
+          "exit_state": {
+            "emotional": "overwhelmed",
+            "shift": "The party carries the visceral understanding that they cannot go back — the world they knew is no longer accessible from here"
+          }
+        },
+        {
+          "scene": "scene.village-of-barovia-arrival",
+          "story": "story.arrival-in-barovia",
+          "entry_state": {
+            "emotional": "anxious",
+            "expectation": "The party hopes to find information, safety, or at least an explanation for the strangeness they have walked through",
+            "fear": "That the people of this place cannot or will not help them, and that there is no ordinary way home"
+          },
+          "exit_state": {
+            "emotional": "dismayed",
+            "shift": "The party has seen oppression written into the faces of people who have forgotten what hope looks like — the danger is no longer abstract, it lives in every shuttered window and averted gaze"
+          }
+        },
+        {
+          "scene": "scene.meeting-ireena-and-ismark",
+          "story": "story.arrival-in-barovia",
+          "entry_state": {
+            "emotional": "helpless",
+            "expectation": "The party expects to be observers in this village — strangers in a strange land, not yet responsible for anyone's fate",
+            "fear": "That responsibility for real people's suffering is about to be placed on their shoulders before they understand the rules of this world"
+          },
+          "exit_state": {
+            "emotional": "compassionate",
+            "shift": "Ireena's situation has made the danger personal and human — the party now carries the weight of knowing there is a specific person who will be harmed if they fail"
+          }
+        },
+        {
+          "scene": "scene.strahd-first-invitation",
+          "story": "story.arrival-in-barovia",
+          "entry_state": {
+            "emotional": "nervous",
+            "expectation": "The party expected to operate unnoticed for a while longer — to gather information before the danger noticed them",
+            "fear": "That they are already known, already claimed, and that the game they have been thrust into has rules they do not understand"
+          },
+          "exit_state": {
+            "emotional": "threatened",
+            "shift": "The party understands for the first time that Strahd views them as pieces on his board — the invitation is not hospitality, it is ownership, and refusing it changes nothing"
+          }
+        },
+        {
+          "scene": "scene.departure-to-vallaki",
+          "story": "story.arrival-in-barovia",
+          "entry_state": {
+            "emotional": "worried",
+            "expectation": "The party hopes that forward motion means progress — that moving away from the village moves them away from immediate danger",
+            "fear": "That the road will confirm there is no safe place in Barovia, only different kinds of danger"
+          },
+          "exit_state": {
+            "emotional": "courageous",
+            "shift": "The party has accepted that they are not travelers passing through — they are participants in this world's suffering, and the only direction that makes sense is toward the thing that caused it"
+          }
+        },
+        {
+          "scene": "scene.approaching-castle-ravenloft",
+          "story": "story.assault-on-castle-ravenloft",
+          "entry_state": {
+            "emotional": "courageous",
+            "expectation": "The party expects the road to the castle to be the last test before the test that matters — difficult but navigable with what they now carry",
+            "fear": "That no preparation is ever truly enough, that the castle's looming presence is Strahd already winning before they arrive"
+          },
+          "exit_state": {
+            "emotional": "frightened",
+            "shift": "The castle does not need to say anything — its presence alone communicates that Strahd has been waiting, that this is his arena, and that every step taken toward those gates is taken on his terms"
+          }
+        },
+        {
+          "scene": "scene.entering-castle-ravenloft",
+          "story": "story.assault-on-castle-ravenloft",
+          "entry_state": {
+            "emotional": "scared",
+            "expectation": "The party expects combat at the gate — to fight their way in, which is something they know how to do",
+            "fear": "That the open gates are not an oversight but an invitation, and that being let in is more dangerous than being kept out"
+          },
+          "exit_state": {
+            "emotional": "overwhelmed",
+            "shift": "Inside the castle, reality bends to Strahd's will — the party has entered a place where their skills matter less than his permission, and they feel the geometry of control closing around them"
+          }
+        },
+        {
+          "scene": "scene.navigating-the-castle",
+          "story": "story.assault-on-castle-ravenloft",
+          "entry_state": {
+            "emotional": "frightened",
+            "expectation": "The party expects to navigate and fight their way through to Strahd — a terrible but comprehensible gauntlet",
+            "fear": "That the castle is infinite, that Strahd can keep them trapped and attrited until nothing is left"
+          },
+          "exit_state": {
+            "emotional": "courageous",
+            "shift": "Having survived the castle's malice — the shifting corridors, the impossible traps, the endless servants — the party arrives at Strahd carrying a grim clarity: they have passed every test except the last one"
+          }
+        },
+        {
+          "scene": "scene.confronting-strahd",
+          "story": "story.assault-on-castle-ravenloft",
+          "entry_state": {
+            "emotional": "courageous",
+            "expectation": "The party expects everything they have done to be enough — that preparation, sacrifice, and will are the variables that determine this outcome",
+            "fear": "That Strahd is simply too powerful, that centuries of existence and mastery over his domain cannot be overcome no matter what they carry"
+          },
+          "exit_state": {
+            "emotional": "overcome",
+            "shift": "The battle does not resolve into clarity — every party member carries the knowledge that they stood in that moment and were tested against something older and stranger than they are, and the outcome has changed them regardless of which direction it fell"
+          }
+        },
+        {
+          "scene": "scene.strahd-defeated",
+          "story": "story.assault-on-castle-ravenloft",
+          "entry_state": {
+            "emotional": "overwhelmed",
+            "expectation": "The party has committed everything to this moment — the expectation is survival, not triumph, as the battle reaches its climax",
+            "fear": "That Strahd will not fall, that even the Sunsword is not enough, that they will die here and the curse will deepen"
+          },
+          "exit_state": {
+            "emotional": "peaceful",
+            "shift": "When the sunlight breaks through for the first time in a century, the party does not feel triumph — they feel the ache of everything it cost and the profound quiet of a world that has exhaled a breath it has been holding for generations"
+          }
+        },
+        {
+          "scene": "scene.party-consumed-by-darkness",
+          "story": "story.assault-on-castle-ravenloft",
+          "entry_state": {
+            "emotional": "helpless",
+            "expectation": "The party entered this battle believing their preparation had tipped the odds — that sacrifice plus artifacts plus allies equals a survivable fight",
+            "fear": "That the math was always wrong, that Strahd in his own domain cannot be reduced to a calculation"
+          },
+          "exit_state": {
+            "emotional": "grief",
+            "shift": "There is no after for the party — but for anyone who witnesses or survives adjacent to this ending, what remains is the particular grief of watching people who chose hope be consumed by the darkness they walked toward"
+          }
+        },
+        {
+          "scene": "scene.strahd-redeemed",
+          "story": "story.assault-on-castle-ravenloft",
+          "entry_state": {
+            "emotional": "overwhelmed",
+            "expectation": "The party expects the battle to be decided by force — that Strahd can only be stopped, not reached",
+            "fear": "That mercy or love is not a tactical option in a fight for survival"
+          },
+          "exit_state": {
+            "emotional": "moved",
+            "shift": "Witnessing Strahd's redemption does not feel like victory — it feels like grief that came too late, and a tenderness for what love costs when it arrives after centuries of darkness; the party carries a question they cannot answer: was it worth it"
+          }
+        },
+        {
+          "scene": "scene.bones-of-st-andral-stolen",
+          "story": "story.bones-of-st-andral",
+          "entry_state": {
+            "emotional": "hopeful",
+            "expectation": "The party enters the church expecting a sanctuary — the one kind of place in Barovia where the darkness reliably cannot reach",
+            "fear": "That even the sacred spaces in Barovia are not what they should be"
+          },
+          "exit_state": {
+            "emotional": "alarmed",
+            "shift": "The sanctuary the party was counting on does not currently exist, and the window for restoring it is closing"
+          }
+        },
+        {
+          "scene": "scene.bones-recovered",
+          "story": "story.bones-of-st-andral",
+          "entry_state": {
+            "emotional": "determined",
+            "expectation": "The party expects to find the bones guarded by servants of Strahd and to have to fight their way to them",
+            "fear": "That the coffin maker's shop is more heavily fortified than it appears, or that the bones have already been moved"
+          },
+          "exit_state": {
+            "emotional": "grim-satisfaction",
+            "shift": "The party retrieved the bones, but the cost was real — the coffin maker's shop was a nest, and clearing it was not clean work"
+          }
+        },
+        {
+          "scene": "scene.bones-returned-to-church",
+          "story": "story.bones-of-st-andral",
+          "entry_state": {
+            "emotional": "determined",
+            "expectation": "The party expects to return the bones and have the church's protection restored immediately",
+            "fear": "That they will arrive too late — that the festival has already begun, or that vampire spawn are already inside"
+          },
+          "exit_state": {
+            "emotional": "relieved",
+            "shift": "The church is safe. They did the thing that needed doing, and it worked. In Barovia, this is enough to feel genuinely significant"
+          }
+        },
+        {
+          "scene": "scene.locating-holy-symbol",
+          "story": "story.collect-the-artifacts",
+          "entry_state": {
+            "emotional": "courageous",
+            "expectation": "The party expects a guarded location and a fight — they have been told where to go and they are ready to take what must be taken",
+            "fear": "That the sacred place will judge them unworthy, that holiness in this cursed land might have its own test they cannot pass"
+          },
+          "exit_state": {
+            "emotional": "proud",
+            "shift": "Holding the holy symbol in a land where faith is a form of defiance gives the party something they have lacked — a tangible piece of resistance against Strahd's total dominion"
+          }
+        },
+        {
+          "scene": "scene.retrieving-sunsword",
+          "story": "story.collect-the-artifacts",
+          "entry_state": {
+            "emotional": "hopeful",
+            "expectation": "The party expects a powerful artifact in a guarded place — a worthy challenge with a worthy prize at the end",
+            "fear": "That the Sunsword's awakening will alert Strahd and bring consequences they are not yet ready to face"
+          },
+          "exit_state": {
+            "emotional": "exposed",
+            "shift": "When the Sunsword ignites, the party feels both powerful and visible — they have declared themselves openly to Strahd, and the relief of holding the light does not erase the dread of what it has announced"
+          }
+        },
+        {
+          "scene": "scene.retrieving-tome-of-strahd",
+          "story": "story.collect-the-artifacts",
+          "entry_state": {
+            "emotional": "anxious",
+            "expectation": "The party expects the Tome to be the most dangerous retrieval — Strahd's most personal possession, most heavily guarded",
+            "fear": "That reading Strahd's private history will reveal something that makes him harder to hate, or that the knowledge within will show them how unlikely their victory truly is"
+          },
+          "exit_state": {
+            "emotional": "anguished",
+            "shift": "The Tome's contents are a wound — to know Strahd's history, his grief, and the nature of his corruption is to hold knowledge that complicates the simplicity of killing him, even as it equips them to do so"
+          }
+        },
+        {
+          "scene": "scene.artifacts-assembled",
+          "story": "story.collect-the-artifacts",
+          "entry_state": {
+            "emotional": "proud",
+            "expectation": "The party expects this moment to feel triumphant — the culmination of weeks of sacrifice finally held in their hands",
+            "fear": "That the weight of what must come next will crush the satisfaction — that holding the tools of victory does not guarantee it"
+          },
+          "exit_state": {
+            "emotional": "courageous",
+            "shift": "The party has run out of reasons to delay — holding all three artifacts, they face the truth that they have become the people this moment requires, or they have not, and there is only one way to find out"
+          }
+        },
+        {
+          "scene": "scene.death-house-entry",
+          "story": "story.death-house",
+          "entry_state": {
+            "emotional": "curious",
+            "expectation": "The children seem genuinely afraid — helping them feels like a simple, human act of decency in an otherwise overwhelming land",
+            "fear": "That what awaits inside is far worse than the mist-shrouded street outside"
+          },
+          "exit_state": {
+            "emotional": "uneasy",
+            "shift": "The door has closed. The street is gone. The party understands they have stepped into something they cannot simply step back out of"
+          }
+        },
+        {
+          "scene": "scene.death-house-attic",
+          "story": "story.death-house",
+          "entry_state": {
+            "emotional": "dread",
+            "expectation": "The party expects to find the children's parents, perhaps disturbed or mad, and to deal with whatever creature lurks below",
+            "fear": "That the full truth of this house will be more terrible than a simple monster"
+          },
+          "exit_state": {
+            "emotional": "horror",
+            "shift": "The party has discovered that the children were murdered by their own parents as cult offerings, and that they have been guided through this house by the ghosts of those children ever since"
+          }
+        },
+        {
+          "scene": "scene.death-house-escape",
+          "story": "story.death-house",
+          "entry_state": {
+            "emotional": "desperate",
+            "expectation": "The party expects the house to release them once they face whatever waits in the ritual chamber below",
+            "fear": "That the only exit requires them to become the very thing the cult was — people who sacrifice innocents to dark powers"
+          },
+          "exit_state": {
+            "emotional": "shaken",
+            "shift": "The party is outside. They are alive. But something has shifted in how they understand survival in Barovia — it is not a clean thing, and the cost of it is visible on every face"
+          }
+        },
+        {
+          "scene": "scene.festival-of-blazing-sun",
+          "story": "story.festival-of-the-blazing-sun",
+          "entry_state": {
+            "emotional": "watchful",
+            "expectation": "The party has prepared for this; they know what they want the festival to produce and have made their choices leading up to it",
+            "fear": "That the festival's outcome will be more chaotic than planned, regardless of which direction the chaos runs"
+          },
+          "exit_state": {
+            "emotional": "unsettled",
+            "shift": "Vallaki has changed — either the Baron's grip has tightened or it has broken — and the town that exists now is different from the one the party entered"
+          }
+        },
+        {
+          "scene": "scene.party-imprisoned-in-vallaki",
+          "story": "story.festival-of-the-blazing-sun",
+          "entry_state": {
+            "emotional": "furious",
+            "expectation": "The party did not expect the arrest — or expected it and could not avoid it — and is now in a situation that their resources and planning did not account for",
+            "fear": "That they will be here long enough for the larger mission to be compromised, and that getting out will require burning bridges they cannot afford to burn"
+          },
+          "exit_state": {
+            "emotional": "calculating",
+            "shift": "The party is out of the stockade by the end of this scene, one way or another, but how they got out will have shaped their remaining relationships in Vallaki"
+          }
+        },
+        {
+          "scene": "scene.searching-for-van-richten",
+          "story": "story.gather-the-allies",
+          "entry_state": {
+            "emotional": "hopeful",
+            "expectation": "The party expects to find Van Richten ready to be recruited — a legendary hunter who surely wants to finish what he started",
+            "fear": "That the man they find will be a shadow of the legend, or that he will refuse them and they will face Strahd alone"
+          },
+          "exit_state": {
+            "emotional": "confident",
+            "shift": "The search itself — the false leads, the evasive villagers, the weeks of uncertainty — has tested the party's commitment; finding Van Richten's trail means they have earned the right to knock on his door"
+          }
+        },
+        {
+          "scene": "scene.van-richten-first-contact",
+          "story": "story.gather-the-allies",
+          "entry_state": {
+            "emotional": "confident",
+            "expectation": "The party expects their arrival and the Tarokka's endorsement to be sufficient — that a legend will recognize other heroes",
+            "fear": "That Van Richten's suspicion will be a wall they cannot climb, and that the fated ally will turn them away"
+          },
+          "exit_state": {
+            "emotional": "moved",
+            "shift": "Van Richten's wariness has shown the party that past failures have costs that still compound — they realize they must prove themselves rather than simply claim their fated role"
+          }
+        },
+        {
+          "scene": "scene.convincing-van-richten",
+          "story": "story.gather-the-allies",
+          "entry_state": {
+            "emotional": "anxious",
+            "expectation": "The party expects to need to argue their case — to perform competence under a skeptic's gaze",
+            "fear": "That no argument will be enough, that Van Richten's grief and failure are a wall no evidence can breach"
+          },
+          "exit_state": {
+            "emotional": "relieved",
+            "shift": "Van Richten's agreement is not enthusiasm — it is a tired man choosing to try once more — and the party feels the gravity of what they have asked him to risk, not just what they have gained"
+          }
+        },
+        {
+          "scene": "scene.ezmerelda-joins",
+          "story": "story.gather-the-allies",
+          "entry_state": {
+            "emotional": "trusting",
+            "expectation": "The party expects Ezmerelda to be a bonus — another asset following Van Richten's lead",
+            "fear": "That she will see through them where Van Richten's hope made him generous"
+          },
+          "exit_state": {
+            "emotional": "optimistic",
+            "shift": "Ezmerelda's fearlessness is contagious — where Van Richten's decision was heavy with sacrifice, her joining feels like genuine belief that the party can win, and that belief is its own kind of armor"
+          }
+        },
+        {
+          "scene": "scene.krezk-arrival",
+          "story": "story.krezk-and-the-abbey",
+          "entry_state": {
+            "emotional": "hopeful",
+            "expectation": "The party expects a walled village to offer at least basic shelter and safety from the dangers of the Svalich Woods",
+            "fear": "That the gates will stay shut — that even in Barovia, hospitality has limits the party cannot overcome"
+          },
+          "exit_state": {
+            "emotional": "relieved",
+            "shift": "The party has passed their first test of persuasion in Krezk; they know entry was earned, not given, and that the Burgomaster's trust is conditional"
+          }
+        },
+        {
+          "scene": "scene.meeting-the-abbot",
+          "story": "story.krezk-and-the-abbey",
+          "entry_state": {
+            "emotional": "cautious",
+            "expectation": "The party expects a holy man in a holy place — sanctuary, guidance, perhaps healing",
+            "fear": "That the Abbey is another trap; that safety in Barovia is always a surface concealing something worse"
+          },
+          "exit_state": {
+            "emotional": "unsettled",
+            "shift": "The Abbot's power and certainty are undeniable, but his plan is monstrous — the party must decide what they believe about ends justifying means, and whether helping him is collaboration or strategy"
+          }
+        },
+        {
+          "scene": "scene.vasilka-revealed",
+          "story": "story.krezk-and-the-abbey",
+          "entry_state": {
+            "emotional": "apprehensive",
+            "expectation": "The party expects to see some evidence of The Abbot's project — the bride he mentioned — but imagines something abstract, unfinished",
+            "fear": "That the thing in the room will be recognizably human enough to make what The Abbot is doing undeniable"
+          },
+          "exit_state": {
+            "emotional": "horrified",
+            "shift": "The horror is not that The Abbot is evil — he is not, or was not — but that something that started with the intention to help has produced this; the party must now decide what to do with that knowledge"
+          }
+        },
+        {
+          "scene": "scene.abbot-bargain-concluded",
+          "story": "story.krezk-and-the-abbey",
+          "entry_state": {
+            "emotional": "conflicted",
+            "expectation": "The party must answer the Abbot's proposal — he has been serene and helpful and genuinely pleased by their presence, and he is also building a flesh golem from the bodies of his mongrelfolk congregation as a gift for Strahd",
+            "fear": "That accepting legitimizes what he is doing; that refusing means losing the most powerful healer in Barovia at a point in the campaign where they will need exactly that"
+          },
+          "exit_state": {
+            "emotional": "resolved",
+            "shift": "The Abbey visit ends. The party descends back to Krezk's quiet streets carrying whatever moral position they arrived at — acceptance, refusal, or the uncomfortable pragmatism of a deferred answer. The Abbot remains above them in his high place, still serene, still certain his plan will bring peace."
+          }
+        },
+        {
+          "scene": "scene.old-bonegrinder-approach",
+          "story": "story.old-bonegrinder",
+          "entry_state": {
+            "emotional": "alert",
+            "expectation": "An old woman selling food on the road is unusual but not inherently threatening — the party is tired and the smell of the pastries is genuinely wonderful",
+            "fear": "That the smell is too wonderful; that nothing in Barovia smells this good without a reason"
+          },
+          "exit_state": {
+            "emotional": "suspicious",
+            "shift": "The encounter has left the party with an unresolved question — the pies were real and the woman seemed harmless, but the windmill behind her has a particular quality that does not resolve into comfort on reflection"
+          }
+        },
+        {
+          "scene": "scene.dream-pastry-trap",
+          "story": "story.old-bonegrinder",
+          "entry_state": {
+            "emotional": "panicked",
+            "expectation": "The party expects a problem they can fight or flee from; this is a problem they cannot do either with",
+            "fear": "That the affected person will not wake up; that the dream is consuming them from inside"
+          },
+          "exit_state": {
+            "emotional": "determined",
+            "shift": "The horror of watching someone disappear into a dream has clarified what must be done — Morgantha must be confronted, and the party is no longer uncertain about whether the fight is justified"
+          }
+        },
+        {
+          "scene": "scene.morgantha-confrontation",
+          "story": "story.old-bonegrinder",
+          "entry_state": {
+            "emotional": "resolute",
+            "expectation": "A fight, or at least a direct confrontation — the party is done with subtlety",
+            "fear": "That Morgantha is more powerful than them, that the children are being used as leverage, and that winning here will cost more than they can afford"
+          },
+          "exit_state": {
+            "emotional": "exhausted",
+            "shift": "The confrontation is over, but the windmill has left a residue — whatever the outcome, the party has seen what Barovia does to the innocent when no one intervenes, and they carry that forward"
+          }
+        },
+        {
+          "scene": "scene.ruins-of-berez-approach",
+          "story": "story.ruins-of-berez",
+          "entry_state": {
+            "emotional": "dread",
+            "expectation": "Ruins mean abandoned; abandoned means empty; empty means manageable",
+            "fear": "That the ruins are not abandoned; that the stillness of the floodwater is the stillness of something waiting"
+          },
+          "exit_state": {
+            "emotional": "exposed",
+            "shift": "The party has crossed into the ruins and the feeling of being watched has not diminished — it has become a certainty; they are in someone's domain, and that someone knows it"
+          }
+        },
+        {
+          "scene": "scene.baba-lysaga-confrontation",
+          "story": "story.ruins-of-berez",
+          "entry_state": {
+            "emotional": "grim",
+            "expectation": "A hard fight against something ancient and malevolent; victory possible but not guaranteed",
+            "fear": "That Baba Lysaga is not just powerful but genuinely beyond what they can manage — that Barovia has handed them an enemy they cannot defeat"
+          },
+          "exit_state": {
+            "emotional": "drained",
+            "shift": "Baba Lysaga is not a villain with a plan; she is grief calcified into mania over centuries, and beating her feels less like triumph than like surviving a natural disaster"
+          }
+        },
+        {
+          "scene": "scene.finding-madam-eva",
+          "story": "story.tarokka-reading",
+          "entry_state": {
+            "emotional": "hopeful",
+            "expectation": "The party seeks guidance — they expect a fortune teller, mysterious but ultimately human, who might offer clues they can act on",
+            "fear": "That what they learn will be too vague to use, or will confirm that their situation is hopeless"
+          },
+          "exit_state": {
+            "emotional": "moved",
+            "shift": "Madam Eva's recognition of them — her sense that she has been waiting — removes the party's last illusion that their arrival was accidental; they feel the weight of something larger having moved to put them here"
+          }
+        },
+        {
+          "scene": "scene.tarokka-reading",
+          "story": "story.tarokka-reading",
+          "entry_state": {
+            "emotional": "nervous",
+            "expectation": "The party hopes the cards will give them something actionable — a map, a name, a plan",
+            "fear": "That what the cards reveal will demand more than they are capable of giving"
+          },
+          "exit_state": {
+            "emotional": "stunned",
+            "shift": "The reading has handed them a mission that is both entirely clear and enormously daunting — they now know exactly what must be done and exactly how far they are from being able to do it"
+          }
+        },
+        {
+          "scene": "scene.interpreting-the-reading",
+          "story": "story.tarokka-reading",
+          "entry_state": {
+            "emotional": "confused",
+            "expectation": "The party expects to debate the reading and perhaps find a reason to question it — to retain some sense that their choices are their own",
+            "fear": "That accepting the reading means accepting they are not free agents but instruments of a fate already written"
+          },
+          "exit_state": {
+            "emotional": "courageous",
+            "shift": "The party has stopped resisting the weight of the mission and chosen to carry it — the shift from refugee to quester is internal, not external, and this is the moment it happens"
+          }
+        },
+        {
+          "scene": "scene.vallaki-arrival",
+          "story": "story.vallaki-politics",
+          "entry_state": {
+            "emotional": "relieved",
+            "expectation": "A walled town suggests safety, order, and resources — the party has been in the dark long enough to want all three",
+            "fear": "That the walls are keeping something in as much as keeping something out"
+          },
+          "exit_state": {
+            "emotional": "uneasy",
+            "shift": "The town is walled and populated, which is better than the woods, but the mandatory cheer is a different kind of wrong — not supernatural, but deeply human, and perhaps more difficult to navigate"
+          }
+        },
+        {
+          "scene": "scene.meeting-baron-vallakovich",
+          "story": "story.vallaki-politics",
+          "entry_state": {
+            "emotional": "cautious",
+            "expectation": "The party hopes the Baron is a reasonable leader who might offer resources and cooperation against Strahd",
+            "fear": "That the mandatory festival notices were not exaggeration and the person running this town is genuinely dangerous in a petty, unpredictable way"
+          },
+          "exit_state": {
+            "emotional": "wary",
+            "shift": "The Baron is sincere, which makes him more dangerous than a cynical tyrant — a man who genuinely believes what he is doing is right cannot be argued out of it, only outmaneuvered"
+          }
+        },
+        {
+          "scene": "scene.festival-preparations",
+          "story": "story.vallaki-politics",
+          "entry_state": {
+            "emotional": "resigned",
+            "expectation": "The party expects the festival preparation to be perfunctory compliance with an annoying local custom",
+            "fear": "That genuine compliance means becoming part of the system, while resistance means becoming a target before they are ready"
+          },
+          "exit_state": {
+            "emotional": "calculating",
+            "shift": "The party has taken a position — visible compliance or quiet resistance — and the town has begun to form an opinion of them accordingly"
+          }
+        },
+        {
+          "scene": "scene.meeting-lady-wachter",
+          "story": "story.vallaki-politics",
+          "entry_state": {
+            "emotional": "curious",
+            "expectation": "The party expects a political opponent to the Baron — probably more reasonable, possibly useful, likely self-interested",
+            "fear": "That every powerful figure in Vallaki has an agenda that serves their own survival rather than anyone else's"
+          },
+          "exit_state": {
+            "emotional": "unsettled",
+            "shift": "Lady Wachter is clearly the more rational of the two faction leaders, which makes her devil-worship feel more deliberate and therefore more dangerous than the Baron's sincere delusion"
+          }
+        },
+        {
+          "scene": "scene.wachter-offers-alliance",
+          "story": "story.vallaki-politics",
+          "entry_state": {
+            "emotional": "conflicted",
+            "expectation": "The party must weigh two imperfect options — a delusional tyrant and a capable devil-worshipper — and decide which Vallaki serves their larger purpose better",
+            "fear": "That either choice installs a leader who will, in a different way, harm the people they have been trying to protect"
+          },
+          "exit_state": {
+            "emotional": "committed",
+            "shift": "The choice has been made. In Barovia, choices without good options are the standard, and the party is learning to make them without paralysis"
+          }
+        },
+        {
+          "scene": "scene.vallaki-political-resolution",
+          "story": "story.vallaki-politics",
+          "entry_state": {
+            "emotional": "calculating",
+            "expectation": "The party knows they cannot be in Vallaki long without choosing a side — staying neutral is itself a position, and both factions will test it before long",
+            "fear": "That the choice they make here will harden into consequences they cannot undo; that backing either faction means absorbing that faction's costs"
+          },
+          "exit_state": {
+            "emotional": "committed",
+            "shift": "The decision is made. The party knows whose house they will sleep in, whose guards will not stop them at the gates, and whose enemies they have quietly made. Vallaki is still a town under Strahd's shadow, but it is now a town they have a position in — however uncomfortable that position may be."
+          }
+        },
+        {
+          "scene": "scene.rictavio-at-blue-water-inn",
+          "story": "story.van-richten-unmasked",
+          "entry_state": {
+            "emotional": "curious",
+            "expectation": "The Blue Water Inn is where travelers and locals mix, and the party hopes to gather information in a less formal context than official meetings",
+            "fear": "That everyone in Vallaki is being watched, including at the inn, and that open conversation is a liability"
+          },
+          "exit_state": {
+            "emotional": "intrigued",
+            "shift": "Rictavio is clearly not who he says he is, and the question of who he actually is feels more important than any of the inn's other gossip"
+          }
+        },
+        {
+          "scene": "scene.van-richten-identity-revealed",
+          "story": "story.van-richten-unmasked",
+          "entry_state": {
+            "emotional": "determined",
+            "expectation": "The party expects to confront the disguised figure and confirm their suspicion that he is something more than a carnival master",
+            "fear": "That he will deny everything, or that he will confirm who he is and immediately refuse to help"
+          },
+          "exit_state": {
+            "emotional": "sobered",
+            "shift": "Van Richten is everything his reputation promised — knowledgeable, capable, and deeply damaged by the cost of what he knows — and his reluctance to engage is not cowardice but a calculation based on consequences the party cannot yet fully appreciate"
+          }
+        },
+        {
+          "scene": "scene.van-richten-knowledge-shared",
+          "story": "story.van-richten-unmasked",
+          "entry_state": {
+            "emotional": "alert",
+            "expectation": "The party knows who Van Richten is — now they need what he knows. He will share it, but on his terms, with the economy of a man who has learned not to waste effort on people who will not survive the week",
+            "fear": "That he knows too much — that his intelligence will make the scale of the threat more legible and therefore more terrifying; that the party will leave this conversation less confident than they arrived"
+          },
+          "exit_state": {
+            "emotional": "focused",
+            "shift": "The briefing ends. The party now understands the structure of what they are up against: the Tarokka reading, the three items, the Dark Powers, the anchoring mechanism. It is not comforting information. It is precise information, which is a different kind of useful. Van Richten tells them where he will be if they need him — his tower, north of the lake — and makes no promises beyond availability."
+          }
+        },
+        {
+          "scene": "scene.meeting-father-donavich",
+          "story": "story.village-of-barovia-darkness",
+          "entry_state": {
+            "emotional": "curious",
+            "expectation": "The party hopes the village priest might offer them guidance, shelter, or information about the land they have entered",
+            "fear": "That the people of this village are so broken by what they live under that no useful help can be found here"
+          },
+          "exit_state": {
+            "emotional": "somber",
+            "shift": "The party has seen what hope looks like when it has been hollowed out — Donavich is a man of faith who has lost his faith's ability to protect anyone he loves"
+          }
+        },
+        {
+          "scene": "scene.doru-confrontation",
+          "story": "story.village-of-barovia-darkness",
+          "entry_state": {
+            "emotional": "conflicted",
+            "expectation": "The party expects to find something monstrous below; they are less prepared for something that also seems like a person",
+            "fear": "That the right thing to do and the kind thing to do are not the same thing"
+          },
+          "exit_state": {
+            "emotional": "heavy",
+            "shift": "The party has made a decision that cannot be unmade, for someone else's son, in front of that someone else — and they will carry the weight of whatever they chose"
+          }
+        },
+        {
+          "scene": "scene.doru-fate-resolved",
+          "story": "story.village-of-barovia-darkness",
+          "entry_state": {
+            "emotional": "resolute",
+            "expectation": "The party returns from the church basement carrying the decision they made about Doru — whether they destroyed him or simply walked away, the outcome of that choice is now Father Donavich's to absorb",
+            "fear": "That there was no right answer, and the wrong one will haunt them; that Father Donavich's grief is too broken to be helped by anything they can do"
+          },
+          "exit_state": {
+            "emotional": "heavy",
+            "shift": "The church is quieter when they leave it. Whether Donavich weeps or prays or simply stares at the floor, something has ended here — the party steps back into the fog of Barovia's roads knowing they have just made the first irreversible decision of the campaign"
+          }
+        },
+        {
+          "scene": "scene.tser-pool-arrival",
+          "story": "story.village-of-barovia-darkness",
+          "entry_state": {
+            "emotional": "cautious",
+            "expectation": "The party hopes the Vistani camp will offer food, rest, and perhaps information — things that have been scarce since entering Barovia",
+            "fear": "That the Vistani's famous freedom of movement through Barovia comes at a cost the party does not yet understand"
+          },
+          "exit_state": {
+            "emotional": "cautiously-hopeful",
+            "shift": "The warmth of the camp and the quality of the welcome have lowered the party's guard — which is exactly what was intended, and which may be exactly right"
+          }
+        },
+        {
+          "scene": "scene.lake-zarovich-crossing",
+          "story": "story.werewolf-den",
+          "entry_state": {
+            "emotional": "wary",
+            "expectation": "A straightforward crossing — the lake is still and the tower is visible on the far side",
+            "fear": "That nothing in Barovia is ever as straightforward as it looks; that the dark water hides something"
+          },
+          "exit_state": {
+            "emotional": "tense",
+            "shift": "The crossing has passed without catastrophe, but the silence of the lake has left something behind — a sense of being observed from below, or from the grey sky, or from nowhere in particular"
+          }
+        },
+        {
+          "scene": "scene.werewolf-den-infiltration",
+          "story": "story.werewolf-den",
+          "entry_state": {
+            "emotional": "grim",
+            "expectation": "A den means a contained space, confined opponents, the possibility of stealth — if the approach is managed well, the children can be freed before Kiril knows the party is there",
+            "fear": "That the den is not as contained as it looks; that the pack has numbers and the party does not; that silver weapons will not be enough"
+          },
+          "exit_state": {
+            "emotional": "exhausted",
+            "shift": "The den is resolved, but werewolves in Barovia are not simply monsters — they are people who were cursed, and the party has had to make decisions about that distinction under pressure"
+          }
+        },
+        {
+          "scene": "scene.children-rescued",
+          "story": "story.werewolf-den",
+          "entry_state": {
+            "emotional": "urgent",
+            "expectation": "The children are in wooden cages in the shrine — the party knows where they are and must get them out before Kiril's return triggers the Die Kinder event, in which he hunts the children himself if they flee while he lives",
+            "fear": "That Kiril returns before the children are safely away; that the traumatized children will not cooperate with calm; that the party cannot fight the full pack and carry children at the same time"
+          },
+          "exit_state": {
+            "emotional": "exhausted",
+            "shift": "The children are out. They are not okay — they have been in cages in a cave full of werewolves — but they are breathing, and they are moving, and the wereraven observer from Krezk is already there to guide them west toward the village. The pack behind the party is either silent because Kiril is dead, or temporarily leaderless. Either way, the mountain cave recedes. The road down feels longer than the road up."
+          }
+        },
+        {
+          "scene": "scene.winery-quest-start",
+          "story": "story.wizard-of-wines",
+          "entry_state": {
+            "emotional": "sympathetic",
+            "expectation": "A winery problem — druids and plant creatures — sounds concrete and solvable compared to the supernatural weight of Strahd",
+            "fear": "That even a solvable problem in Barovia is more complicated than it appears, and that the Martikovs are not telling them everything"
+          },
+          "exit_state": {
+            "emotional": "committed",
+            "shift": "The party has accepted an obligation to people who need them — in Barovia, that is rare enough to matter"
+          }
+        },
+        {
+          "scene": "scene.yester-hill-ritual",
+          "story": "story.wizard-of-wines",
+          "entry_state": {
+            "emotional": "urgent",
+            "expectation": "The ritual is already underway — the party is working against a clock, not just against opponents",
+            "fear": "That they are too late; that the gem will be consumed by the ritual before they can interrupt it"
+          },
+          "exit_state": {
+            "emotional": "spent",
+            "shift": "The hill has been cleared or the ritual completed, and either way Yester Hill has left marks — on the party's resources, on the land, and on their understanding of how Strahd's influence operates through proxies who do not even know they are serving him"
+          }
+        },
+        {
+          "scene": "scene.winery-cleared",
+          "story": "story.wizard-of-wines",
+          "entry_state": {
+            "emotional": "satisfied",
+            "expectation": "A task completed; the winery clear; the Martikovs able to come home",
+            "fear": "That the victory feels too small — that clearing a winery and returning wine production to a doomed land is an insufficient use of whatever time they have"
+          },
+          "exit_state": {
+            "emotional": "grounded",
+            "shift": "The winery restoration is proof that things in Barovia can be fixed — small things, practical things; the party needed that proof more than they knew"
+          }
+        },
+        {
+          "scene": "scene.artifact-lost-to-strahd",
+          "story": "—",
+          "entry_state": {
+            "emotional": "confident",
+            "expectation": "The party expects to be the hunter in this moment — they have direction, they know what they are seeking",
+            "fear": "That Strahd is always a step ahead, that their plan is already known and already countered"
+          },
+          "exit_state": {
+            "emotional": "humiliated",
+            "shift": "Losing an artifact to Strahd does not simply set back the quest — it reveals that Strahd has been watching, toying, and waiting, and that the party's sense of control was always an illusion he permitted"
+          }
+        },
+        {
+          "scene": "scene.blinsky-toy-shop",
+          "story": "—",
+          "entry_state": {
+            "emotional": "uneasy",
+            "expectation": "A toymaker's shop in a grim town — probably just grim toys",
+            "fear": "That something about this place will make Ireena's situation more precarious than it already is"
+          },
+          "exit_state": {
+            "emotional": "disturbed",
+            "shift": "The dolls make Strahd's obsession with Ireena feel personal and immediate in a way that abstract warnings did not — he has been watching her, perhaps for years"
+          }
+        },
+        {
+          "scene": "scene.premature-castle-assault",
+          "story": "—",
+          "entry_state": {
+            "emotional": "aggressive",
+            "expectation": "The party believes their momentum and willingness to fight is enough — that courage can substitute for preparation",
+            "fear": "That hesitation is the only real enemy, that waiting any longer will cost more than going now"
+          },
+          "exit_state": {
+            "emotional": "sorrow",
+            "shift": "Being repelled by the castle is not just a tactical setback — it is Strahd teaching them that he controls the terms of this confrontation, and that they have shown him exactly what they lack"
+          }
+        },
+        {
+          "scene": "scene.svalich-woods-exhausted",
+          "story": "—",
+          "entry_state": {
+            "emotional": "frustrated",
+            "expectation": "The party expects their power and skill to overcome any obstacle — that force or magic can bend this strangeness to their will",
+            "fear": "That admitting helplessness means admitting defeat"
+          },
+          "exit_state": {
+            "emotional": "powerless",
+            "shift": "The party arrives in Barovia diminished — they have learned that pride costs them dearly here and that the curse cannot be fought with the tools they brought"
+          }
+        },
+        {
+          "scene": "scene.van-richten-refuses",
+          "story": "—",
+          "entry_state": {
+            "emotional": "nervous",
+            "expectation": "The party expects their sincerity or preparation to be visible enough to break through Van Richten's hesitation",
+            "fear": "That they have already shown some flaw — overconfidence, lack of evidence, or disrespect — that has already closed the door"
+          },
+          "exit_state": {
+            "emotional": "ashamed",
+            "shift": "The refusal confronts the party with the gap between who they believe themselves to be and who Van Richten sees — they must reckon with what they failed to demonstrate"
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "ashamed",
+        "shift": "The refusal confronts the party with the gap between who they believe themselves to be and who Van Richten sees — they must reckon with what they failed to demonstrate"
+      },
+      "latest_exit_scene": "scene.van-richten-refuses",
+      "scene_count": 74
+    },
+    "character.arabelle": {
+      "scenes": [
+        {
+          "scene": "scene.arabelle-found",
+          "story": "story.arabelle-and-the-vistani",
+          "entry_state": {
+            "emotional": "tense",
+            "expectation": "The party expects to find Arabelle and bring her back to the camp; the complication they did not fully anticipate is what Van Richten's reasons were",
+            "fear": "That either Van Richten's motives are darker than presented, or that returning Arabelle to the Vistani camp puts her in more danger than leaving her with Van Richten"
+          },
+          "exit_state": {
+            "emotional": "heavy",
+            "shift": "The party has resolved the immediate question of where Arabelle is, but opened a larger question about what she is — and what Barovia has planned for her"
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "heavy",
+        "shift": "The party has resolved the immediate question of where Arabelle is, but opened a larger question about what she is — and what Barovia has planned for her"
+      },
+      "latest_exit_scene": "scene.arabelle-found",
+      "scene_count": 1
+    },
+    "character.arrigal": {
+      "scenes": [
+        {
+          "scene": "scene.arabelle-missing",
+          "story": "story.arabelle-and-the-vistani",
+          "entry_state": {
+            "emotional": "alert",
+            "expectation": "The party visits the Vistani camp outside Vallaki expecting the same hospitality as Tser Pool, or to follow up on Van Richten's mention of Arabelle",
+            "fear": "That whatever has happened to Arabelle connects to forces larger than a missing child, and that helping will cost them something they cannot afford right now"
+          },
+          "exit_state": {
+            "emotional": "focused",
+            "shift": "A child is missing. The party may have more context than the Vistani about where she is, which makes their role here uncomfortably close to someone who has information and is deciding whether to share it"
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "focused",
+        "shift": "A child is missing. The party may have more context than the Vistani about where she is, which makes their role here uncomfortably close to someone who has information and is deciding whether to share it"
+      },
+      "latest_exit_scene": "scene.arabelle-missing",
+      "scene_count": 1
+    },
+    "character.baba-lysaga": {
+      "scenes": [
+        {
+          "scene": "scene.baba-lysaga-confrontation",
+          "story": "story.ruins-of-berez",
+          "entry_state": {
+            "emotional": "grim",
+            "expectation": "A hard fight against something ancient and malevolent; victory possible but not guaranteed",
+            "fear": "That Baba Lysaga is not just powerful but genuinely beyond what they can manage — that Barovia has handed them an enemy they cannot defeat"
+          },
+          "exit_state": {
+            "emotional": "drained",
+            "shift": "Baba Lysaga is not a villain with a plan; she is grief calcified into mania over centuries, and beating her feels less like triumph than like surviving a natural disaster"
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "drained",
+        "shift": "Baba Lysaga is not a villain with a plan; she is grief calcified into mania over centuries, and beating her feels less like triumph than like surviving a natural disaster"
+      },
+      "latest_exit_scene": "scene.baba-lysaga-confrontation",
+      "scene_count": 1
+    },
+    "character.baron-vallakovich": {
+      "scenes": [
+        {
+          "scene": "scene.festival-of-blazing-sun",
+          "story": "story.festival-of-the-blazing-sun",
+          "entry_state": {
+            "emotional": "watchful",
+            "expectation": "The party has prepared for this; they know what they want the festival to produce and have made their choices leading up to it",
+            "fear": "That the festival's outcome will be more chaotic than planned, regardless of which direction the chaos runs"
+          },
+          "exit_state": {
+            "emotional": "unsettled",
+            "shift": "Vallaki has changed — either the Baron's grip has tightened or it has broken — and the town that exists now is different from the one the party entered"
+          }
+        },
+        {
+          "scene": "scene.party-imprisoned-in-vallaki",
+          "story": "story.festival-of-the-blazing-sun",
+          "entry_state": {
+            "emotional": "furious",
+            "expectation": "The party did not expect the arrest — or expected it and could not avoid it — and is now in a situation that their resources and planning did not account for",
+            "fear": "That they will be here long enough for the larger mission to be compromised, and that getting out will require burning bridges they cannot afford to burn"
+          },
+          "exit_state": {
+            "emotional": "calculating",
+            "shift": "The party is out of the stockade by the end of this scene, one way or another, but how they got out will have shaped their remaining relationships in Vallaki"
+          }
+        },
+        {
+          "scene": "scene.meeting-baron-vallakovich",
+          "story": "story.vallaki-politics",
+          "entry_state": {
+            "emotional": "cautious",
+            "expectation": "The party hopes the Baron is a reasonable leader who might offer resources and cooperation against Strahd",
+            "fear": "That the mandatory festival notices were not exaggeration and the person running this town is genuinely dangerous in a petty, unpredictable way"
+          },
+          "exit_state": {
+            "emotional": "wary",
+            "shift": "The Baron is sincere, which makes him more dangerous than a cynical tyrant — a man who genuinely believes what he is doing is right cannot be argued out of it, only outmaneuvered"
+          }
+        },
+        {
+          "scene": "scene.vallaki-political-resolution",
+          "story": "story.vallaki-politics",
+          "entry_state": {
+            "emotional": "calculating",
+            "expectation": "The party knows they cannot be in Vallaki long without choosing a side — staying neutral is itself a position, and both factions will test it before long",
+            "fear": "That the choice they make here will harden into consequences they cannot undo; that backing either faction means absorbing that faction's costs"
+          },
+          "exit_state": {
+            "emotional": "committed",
+            "shift": "The decision is made. The party knows whose house they will sleep in, whose guards will not stop them at the gates, and whose enemies they have quietly made. Vallaki is still a town under Strahd's shadow, but it is now a town they have a position in — however uncomfortable that position may be."
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "committed",
+        "shift": "The decision is made. The party knows whose house they will sleep in, whose guards will not stop them at the gates, and whose enemies they have quietly made. Vallaki is still a town under Strahd's shadow, but it is now a town they have a position in — however uncomfortable that position may be."
+      },
+      "latest_exit_scene": "scene.vallaki-political-resolution",
+      "scene_count": 4
+    },
+    "character.blinsky": {
+      "scenes": [
+        {
+          "scene": "scene.blinsky-toy-shop",
+          "story": "—",
+          "entry_state": {
+            "emotional": "uneasy",
+            "expectation": "A toymaker's shop in a grim town — probably just grim toys",
+            "fear": "That something about this place will make Ireena's situation more precarious than it already is"
+          },
+          "exit_state": {
+            "emotional": "disturbed",
+            "shift": "The dolls make Strahd's obsession with Ireena feel personal and immediate in a way that abstract warnings did not — he has been watching her, perhaps for years"
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "disturbed",
+        "shift": "The dolls make Strahd's obsession with Ireena feel personal and immediate in a way that abstract warnings did not — he has been watching her, perhaps for years"
+      },
+      "latest_exit_scene": "scene.blinsky-toy-shop",
+      "scene_count": 1
+    },
+    "character.cyrus-belview": {
+      "scenes": [
+        {
+          "scene": "scene.meeting-the-abbot",
+          "story": "story.krezk-and-the-abbey",
+          "entry_state": {
+            "emotional": "cautious",
+            "expectation": "The party expects a holy man in a holy place — sanctuary, guidance, perhaps healing",
+            "fear": "That the Abbey is another trap; that safety in Barovia is always a surface concealing something worse"
+          },
+          "exit_state": {
+            "emotional": "unsettled",
+            "shift": "The Abbot's power and certainty are undeniable, but his plan is monstrous — the party must decide what they believe about ends justifying means, and whether helping him is collaboration or strategy"
+          }
+        },
+        {
+          "scene": "scene.vasilka-revealed",
+          "story": "story.krezk-and-the-abbey",
+          "entry_state": {
+            "emotional": "apprehensive",
+            "expectation": "The party expects to see some evidence of The Abbot's project — the bride he mentioned — but imagines something abstract, unfinished",
+            "fear": "That the thing in the room will be recognizably human enough to make what The Abbot is doing undeniable"
+          },
+          "exit_state": {
+            "emotional": "horrified",
+            "shift": "The horror is not that The Abbot is evil — he is not, or was not — but that something that started with the intention to help has produced this; the party must now decide what to do with that knowledge"
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "horrified",
+        "shift": "The horror is not that The Abbot is evil — he is not, or was not — but that something that started with the intention to help has produced this; the party must now decide what to do with that knowledge"
+      },
+      "latest_exit_scene": "scene.vasilka-revealed",
+      "scene_count": 2
+    },
+    "character.davian-martikov": {
+      "scenes": [
+        {
+          "scene": "scene.winery-quest-start",
+          "story": "story.wizard-of-wines",
+          "entry_state": {
+            "emotional": "sympathetic",
+            "expectation": "A winery problem — druids and plant creatures — sounds concrete and solvable compared to the supernatural weight of Strahd",
+            "fear": "That even a solvable problem in Barovia is more complicated than it appears, and that the Martikovs are not telling them everything"
+          },
+          "exit_state": {
+            "emotional": "committed",
+            "shift": "The party has accepted an obligation to people who need them — in Barovia, that is rare enough to matter"
+          }
+        },
+        {
+          "scene": "scene.winery-cleared",
+          "story": "story.wizard-of-wines",
+          "entry_state": {
+            "emotional": "satisfied",
+            "expectation": "A task completed; the winery clear; the Martikovs able to come home",
+            "fear": "That the victory feels too small — that clearing a winery and returning wine production to a doomed land is an insufficient use of whatever time they have"
+          },
+          "exit_state": {
+            "emotional": "grounded",
+            "shift": "The winery restoration is proof that things in Barovia can be fixed — small things, practical things; the party needed that proof more than they knew"
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "grounded",
+        "shift": "The winery restoration is proof that things in Barovia can be fixed — small things, practical things; the party needed that proof more than they knew"
+      },
+      "latest_exit_scene": "scene.winery-cleared",
+      "scene_count": 2
+    },
+    "character.dmitri-krezkov": {
+      "scenes": [
+        {
+          "scene": "scene.krezk-arrival",
+          "story": "story.krezk-and-the-abbey",
+          "entry_state": {
+            "emotional": "hopeful",
+            "expectation": "The party expects a walled village to offer at least basic shelter and safety from the dangers of the Svalich Woods",
+            "fear": "That the gates will stay shut — that even in Barovia, hospitality has limits the party cannot overcome"
+          },
+          "exit_state": {
+            "emotional": "relieved",
+            "shift": "The party has passed their first test of persuasion in Krezk; they know entry was earned, not given, and that the Burgomaster's trust is conditional"
+          }
+        },
+        {
+          "scene": "scene.abbot-bargain-concluded",
+          "story": "story.krezk-and-the-abbey",
+          "entry_state": {
+            "emotional": "conflicted",
+            "expectation": "The party must answer the Abbot's proposal — he has been serene and helpful and genuinely pleased by their presence, and he is also building a flesh golem from the bodies of his mongrelfolk congregation as a gift for Strahd",
+            "fear": "That accepting legitimizes what he is doing; that refusing means losing the most powerful healer in Barovia at a point in the campaign where they will need exactly that"
+          },
+          "exit_state": {
+            "emotional": "resolved",
+            "shift": "The Abbey visit ends. The party descends back to Krezk's quiet streets carrying whatever moral position they arrived at — acceptance, refusal, or the uncomfortable pragmatism of a deferred answer. The Abbot remains above them in his high place, still serene, still certain his plan will bring peace."
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "resolved",
+        "shift": "The Abbey visit ends. The party descends back to Krezk's quiet streets carrying whatever moral position they arrived at — acceptance, refusal, or the uncomfortable pragmatism of a deferred answer. The Abbot remains above them in his high place, still serene, still certain his plan will bring peace."
+      },
+      "latest_exit_scene": "scene.abbot-bargain-concluded",
+      "scene_count": 2
+    },
+    "character.doru": {
+      "scenes": [
+        {
+          "scene": "scene.doru-confrontation",
+          "story": "story.village-of-barovia-darkness",
+          "entry_state": {
+            "emotional": "conflicted",
+            "expectation": "The party expects to find something monstrous below; they are less prepared for something that also seems like a person",
+            "fear": "That the right thing to do and the kind thing to do are not the same thing"
+          },
+          "exit_state": {
+            "emotional": "heavy",
+            "shift": "The party has made a decision that cannot be unmade, for someone else's son, in front of that someone else — and they will carry the weight of whatever they chose"
+          }
+        },
+        {
+          "scene": "scene.doru-fate-resolved",
+          "story": "story.village-of-barovia-darkness",
+          "entry_state": {
+            "emotional": "resolute",
+            "expectation": "The party returns from the church basement carrying the decision they made about Doru — whether they destroyed him or simply walked away, the outcome of that choice is now Father Donavich's to absorb",
+            "fear": "That there was no right answer, and the wrong one will haunt them; that Father Donavich's grief is too broken to be helped by anything they can do"
+          },
+          "exit_state": {
+            "emotional": "heavy",
+            "shift": "The church is quieter when they leave it. Whether Donavich weeps or prays or simply stares at the floor, something has ended here — the party steps back into the fog of Barovia's roads knowing they have just made the first irreversible decision of the campaign"
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "heavy",
+        "shift": "The church is quieter when they leave it. Whether Donavich weeps or prays or simply stares at the floor, something has ended here — the party steps back into the fog of Barovia's roads knowing they have just made the first irreversible decision of the campaign"
+      },
+      "latest_exit_scene": "scene.doru-fate-resolved",
+      "scene_count": 2
+    },
+    "character.ezmerelda-davenir": {
+      "scenes": [
+        {
+          "scene": "scene.approaching-castle-ravenloft",
+          "story": "story.assault-on-castle-ravenloft",
+          "entry_state": {
+            "emotional": "courageous",
+            "expectation": "The party expects the road to the castle to be the last test before the test that matters — difficult but navigable with what they now carry",
+            "fear": "That no preparation is ever truly enough, that the castle's looming presence is Strahd already winning before they arrive"
+          },
+          "exit_state": {
+            "emotional": "frightened",
+            "shift": "The castle does not need to say anything — its presence alone communicates that Strahd has been waiting, that this is his arena, and that every step taken toward those gates is taken on his terms"
+          }
+        },
+        {
+          "scene": "scene.ezmerelda-joins",
+          "story": "story.gather-the-allies",
+          "entry_state": {
+            "emotional": "trusting",
+            "expectation": "The party expects Ezmerelda to be a bonus — another asset following Van Richten's lead",
+            "fear": "That she will see through them where Van Richten's hope made him generous"
+          },
+          "exit_state": {
+            "emotional": "optimistic",
+            "shift": "Ezmerelda's fearlessness is contagious — where Van Richten's decision was heavy with sacrifice, her joining feels like genuine belief that the party can win, and that belief is its own kind of armor"
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "optimistic",
+        "shift": "Ezmerelda's fearlessness is contagious — where Van Richten's decision was heavy with sacrifice, her joining feels like genuine belief that the party can win, and that belief is its own kind of armor"
+      },
+      "latest_exit_scene": "scene.ezmerelda-joins",
+      "scene_count": 2
+    },
+    "character.father-donavich": {
+      "scenes": [
+        {
+          "scene": "scene.meeting-father-donavich",
+          "story": "story.village-of-barovia-darkness",
+          "entry_state": {
+            "emotional": "curious",
+            "expectation": "The party hopes the village priest might offer them guidance, shelter, or information about the land they have entered",
+            "fear": "That the people of this village are so broken by what they live under that no useful help can be found here"
+          },
+          "exit_state": {
+            "emotional": "somber",
+            "shift": "The party has seen what hope looks like when it has been hollowed out — Donavich is a man of faith who has lost his faith's ability to protect anyone he loves"
+          }
+        },
+        {
+          "scene": "scene.doru-confrontation",
+          "story": "story.village-of-barovia-darkness",
+          "entry_state": {
+            "emotional": "conflicted",
+            "expectation": "The party expects to find something monstrous below; they are less prepared for something that also seems like a person",
+            "fear": "That the right thing to do and the kind thing to do are not the same thing"
+          },
+          "exit_state": {
+            "emotional": "heavy",
+            "shift": "The party has made a decision that cannot be unmade, for someone else's son, in front of that someone else — and they will carry the weight of whatever they chose"
+          }
+        },
+        {
+          "scene": "scene.doru-fate-resolved",
+          "story": "story.village-of-barovia-darkness",
+          "entry_state": {
+            "emotional": "resolute",
+            "expectation": "The party returns from the church basement carrying the decision they made about Doru — whether they destroyed him or simply walked away, the outcome of that choice is now Father Donavich's to absorb",
+            "fear": "That there was no right answer, and the wrong one will haunt them; that Father Donavich's grief is too broken to be helped by anything they can do"
+          },
+          "exit_state": {
+            "emotional": "heavy",
+            "shift": "The church is quieter when they leave it. Whether Donavich weeps or prays or simply stares at the floor, something has ended here — the party steps back into the fog of Barovia's roads knowing they have just made the first irreversible decision of the campaign"
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "heavy",
+        "shift": "The church is quieter when they leave it. Whether Donavich weeps or prays or simply stares at the floor, something has ended here — the party steps back into the fog of Barovia's roads knowing they have just made the first irreversible decision of the campaign"
+      },
+      "latest_exit_scene": "scene.doru-fate-resolved",
+      "scene_count": 3
+    },
+    "character.father-lucian-petrovich": {
+      "scenes": [
+        {
+          "scene": "scene.bones-of-st-andral-stolen",
+          "story": "story.bones-of-st-andral",
+          "entry_state": {
+            "emotional": "hopeful",
+            "expectation": "The party enters the church expecting a sanctuary — the one kind of place in Barovia where the darkness reliably cannot reach",
+            "fear": "That even the sacred spaces in Barovia are not what they should be"
+          },
+          "exit_state": {
+            "emotional": "alarmed",
+            "shift": "The sanctuary the party was counting on does not currently exist, and the window for restoring it is closing"
+          }
+        },
+        {
+          "scene": "scene.bones-returned-to-church",
+          "story": "story.bones-of-st-andral",
+          "entry_state": {
+            "emotional": "determined",
+            "expectation": "The party expects to return the bones and have the church's protection restored immediately",
+            "fear": "That they will arrive too late — that the festival has already begun, or that vampire spawn are already inside"
+          },
+          "exit_state": {
+            "emotional": "relieved",
+            "shift": "The church is safe. They did the thing that needed doing, and it worked. In Barovia, this is enough to feel genuinely significant"
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "relieved",
+        "shift": "The church is safe. They did the thing that needed doing, and it worked. In Barovia, this is enough to feel genuinely significant"
+      },
+      "latest_exit_scene": "scene.bones-returned-to-church",
+      "scene_count": 2
+    },
+    "character.ireena-kolyana": {
+      "scenes": [
+        {
+          "scene": "scene.meeting-ireena-and-ismark",
+          "story": "story.arrival-in-barovia",
+          "entry_state": {
+            "emotional": "helpless",
+            "expectation": "The party expects to be observers in this village — strangers in a strange land, not yet responsible for anyone's fate",
+            "fear": "That responsibility for real people's suffering is about to be placed on their shoulders before they understand the rules of this world"
+          },
+          "exit_state": {
+            "emotional": "compassionate",
+            "shift": "Ireena's situation has made the danger personal and human — the party now carries the weight of knowing there is a specific person who will be harmed if they fail"
+          }
+        },
+        {
+          "scene": "scene.departure-to-vallaki",
+          "story": "story.arrival-in-barovia",
+          "entry_state": {
+            "emotional": "worried",
+            "expectation": "The party hopes that forward motion means progress — that moving away from the village moves them away from immediate danger",
+            "fear": "That the road will confirm there is no safe place in Barovia, only different kinds of danger"
+          },
+          "exit_state": {
+            "emotional": "courageous",
+            "shift": "The party has accepted that they are not travelers passing through — they are participants in this world's suffering, and the only direction that makes sense is toward the thing that caused it"
+          }
+        },
+        {
+          "scene": "scene.confronting-strahd",
+          "story": "story.assault-on-castle-ravenloft",
+          "entry_state": {
+            "emotional": "courageous",
+            "expectation": "The party expects everything they have done to be enough — that preparation, sacrifice, and will are the variables that determine this outcome",
+            "fear": "That Strahd is simply too powerful, that centuries of existence and mastery over his domain cannot be overcome no matter what they carry"
+          },
+          "exit_state": {
+            "emotional": "overcome",
+            "shift": "The battle does not resolve into clarity — every party member carries the knowledge that they stood in that moment and were tested against something older and stranger than they are, and the outcome has changed them regardless of which direction it fell"
+          }
+        },
+        {
+          "scene": "scene.strahd-defeated",
+          "story": "story.assault-on-castle-ravenloft",
+          "entry_state": {
+            "emotional": "overwhelmed",
+            "expectation": "The party has committed everything to this moment — the expectation is survival, not triumph, as the battle reaches its climax",
+            "fear": "That Strahd will not fall, that even the Sunsword is not enough, that they will die here and the curse will deepen"
+          },
+          "exit_state": {
+            "emotional": "peaceful",
+            "shift": "When the sunlight breaks through for the first time in a century, the party does not feel triumph — they feel the ache of everything it cost and the profound quiet of a world that has exhaled a breath it has been holding for generations"
+          }
+        },
+        {
+          "scene": "scene.strahd-redeemed",
+          "story": "story.assault-on-castle-ravenloft",
+          "entry_state": {
+            "emotional": "overwhelmed",
+            "expectation": "The party expects the battle to be decided by force — that Strahd can only be stopped, not reached",
+            "fear": "That mercy or love is not a tactical option in a fight for survival"
+          },
+          "exit_state": {
+            "emotional": "moved",
+            "shift": "Witnessing Strahd's redemption does not feel like victory — it feels like grief that came too late, and a tenderness for what love costs when it arrives after centuries of darkness; the party carries a question they cannot answer: was it worth it"
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "moved",
+        "shift": "Witnessing Strahd's redemption does not feel like victory — it feels like grief that came too late, and a tenderness for what love costs when it arrives after centuries of darkness; the party carries a question they cannot answer: was it worth it"
+      },
+      "latest_exit_scene": "scene.strahd-redeemed",
+      "scene_count": 5
+    },
+    "character.ismark-kolyanovich": {
+      "scenes": [
+        {
+          "scene": "scene.meeting-ireena-and-ismark",
+          "story": "story.arrival-in-barovia",
+          "entry_state": {
+            "emotional": "helpless",
+            "expectation": "The party expects to be observers in this village — strangers in a strange land, not yet responsible for anyone's fate",
+            "fear": "That responsibility for real people's suffering is about to be placed on their shoulders before they understand the rules of this world"
+          },
+          "exit_state": {
+            "emotional": "compassionate",
+            "shift": "Ireena's situation has made the danger personal and human — the party now carries the weight of knowing there is a specific person who will be harmed if they fail"
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "compassionate",
+        "shift": "Ireena's situation has made the danger personal and human — the party now carries the weight of knowing there is a specific person who will be harmed if they fail"
+      },
+      "latest_exit_scene": "scene.meeting-ireena-and-ismark",
+      "scene_count": 1
+    },
+    "character.izek-strazni": {
+      "scenes": [
+        {
+          "scene": "scene.vallaki-political-resolution",
+          "story": "story.vallaki-politics",
+          "entry_state": {
+            "emotional": "calculating",
+            "expectation": "The party knows they cannot be in Vallaki long without choosing a side — staying neutral is itself a position, and both factions will test it before long",
+            "fear": "That the choice they make here will harden into consequences they cannot undo; that backing either faction means absorbing that faction's costs"
+          },
+          "exit_state": {
+            "emotional": "committed",
+            "shift": "The decision is made. The party knows whose house they will sleep in, whose guards will not stop them at the gates, and whose enemies they have quietly made. Vallaki is still a town under Strahd's shadow, but it is now a town they have a position in — however uncomfortable that position may be."
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "committed",
+        "shift": "The decision is made. The party knows whose house they will sleep in, whose guards will not stop them at the gates, and whose enemies they have quietly made. Vallaki is still a town under Strahd's shadow, but it is now a town they have a position in — however uncomfortable that position may be."
+      },
+      "latest_exit_scene": "scene.vallaki-political-resolution",
+      "scene_count": 1
+    },
+    "character.kasimir-velikov": {
+      "scenes": [
+        {
+          "scene": "scene.kasimir-approaches-party",
+          "story": "story.amber-temple",
+          "entry_state": {
+            "emotional": "wary",
+            "expectation": "A dusk elf with a specific agenda — every new contact in Barovia has one; the question is whether this agenda aligns with the party's",
+            "fear": "That Kasimir's resurrection plan will produce something worse than what he started with — that his grief will make him dangerous"
+          },
+          "exit_state": {
+            "emotional": "cautiously-hopeful",
+            "shift": "Kasimir knows the path to the Amber Temple and is willing to guide them; whatever his motives, the alliance is practically valuable — and the party has learned to take practical value where they find it in Barovia"
+          }
+        },
+        {
+          "scene": "scene.amber-temple-entry",
+          "story": "story.amber-temple",
+          "entry_state": {
+            "emotional": "reverent",
+            "expectation": "A temple means structure, purpose, knowledge — ancient and dangerous, but knowable",
+            "fear": "That the Temple is not ancient and dormant but ancient and awake; that walking in was the first mistake"
+          },
+          "exit_state": {
+            "emotional": "unsettled",
+            "shift": "The Temple is nothing like a place of worship in any tradition the party recognizes — it is a prison, and the prisoners are interested in them"
+          }
+        },
+        {
+          "scene": "scene.amber-temple-escape",
+          "story": "story.amber-temple",
+          "entry_state": {
+            "emotional": "urgent",
+            "expectation": "Getting out — the Temple has given them what it will give and taken what it will take; staying longer helps nothing",
+            "fear": "That Kasimir's confrontation with Patrina's vestige will produce something they cannot contain; that leaving will be harder than entering was"
+          },
+          "exit_state": {
+            "emotional": "weary",
+            "shift": "The party is out, which is what matters. What they carry out — in their hands and in their character sheets and in the changes written on whoever accepted a gift — is the permanent record of what the Temple cost them"
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "weary",
+        "shift": "The party is out, which is what matters. What they carry out — in their hands and in their character sheets and in the changes written on whoever accepted a gift — is the permanent record of what the Temple cost them"
+      },
+      "latest_exit_scene": "scene.amber-temple-escape",
+      "scene_count": 3
+    },
+    "character.kiril-stoyanovich": {
+      "scenes": [
+        {
+          "scene": "scene.werewolf-den-infiltration",
+          "story": "story.werewolf-den",
+          "entry_state": {
+            "emotional": "grim",
+            "expectation": "A den means a contained space, confined opponents, the possibility of stealth — if the approach is managed well, the children can be freed before Kiril knows the party is there",
+            "fear": "That the den is not as contained as it looks; that the pack has numbers and the party does not; that silver weapons will not be enough"
+          },
+          "exit_state": {
+            "emotional": "exhausted",
+            "shift": "The den is resolved, but werewolves in Barovia are not simply monsters — they are people who were cursed, and the party has had to make decisions about that distinction under pressure"
+          }
+        },
+        {
+          "scene": "scene.children-rescued",
+          "story": "story.werewolf-den",
+          "entry_state": {
+            "emotional": "urgent",
+            "expectation": "The children are in wooden cages in the shrine — the party knows where they are and must get them out before Kiril's return triggers the Die Kinder event, in which he hunts the children himself if they flee while he lives",
+            "fear": "That Kiril returns before the children are safely away; that the traumatized children will not cooperate with calm; that the party cannot fight the full pack and carry children at the same time"
+          },
+          "exit_state": {
+            "emotional": "exhausted",
+            "shift": "The children are out. They are not okay — they have been in cages in a cave full of werewolves — but they are breathing, and they are moving, and the wereraven observer from Krezk is already there to guide them west toward the village. The pack behind the party is either silent because Kiril is dead, or temporarily leaderless. Either way, the mountain cave recedes. The road down feels longer than the road up."
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "exhausted",
+        "shift": "The children are out. They are not okay — they have been in cages in a cave full of werewolves — but they are breathing, and they are moving, and the wereraven observer from Krezk is already there to guide them west toward the village. The pack behind the party is either silent because Kiril is dead, or temporarily leaderless. Either way, the mountain cave recedes. The road down feels longer than the road up."
+      },
+      "latest_exit_scene": "scene.children-rescued",
+      "scene_count": 2
+    },
+    "character.lady-wachter": {
+      "scenes": [
+        {
+          "scene": "scene.meeting-lady-wachter",
+          "story": "story.vallaki-politics",
+          "entry_state": {
+            "emotional": "curious",
+            "expectation": "The party expects a political opponent to the Baron — probably more reasonable, possibly useful, likely self-interested",
+            "fear": "That every powerful figure in Vallaki has an agenda that serves their own survival rather than anyone else's"
+          },
+          "exit_state": {
+            "emotional": "unsettled",
+            "shift": "Lady Wachter is clearly the more rational of the two faction leaders, which makes her devil-worship feel more deliberate and therefore more dangerous than the Baron's sincere delusion"
+          }
+        },
+        {
+          "scene": "scene.wachter-offers-alliance",
+          "story": "story.vallaki-politics",
+          "entry_state": {
+            "emotional": "conflicted",
+            "expectation": "The party must weigh two imperfect options — a delusional tyrant and a capable devil-worshipper — and decide which Vallaki serves their larger purpose better",
+            "fear": "That either choice installs a leader who will, in a different way, harm the people they have been trying to protect"
+          },
+          "exit_state": {
+            "emotional": "committed",
+            "shift": "The choice has been made. In Barovia, choices without good options are the standard, and the party is learning to make them without paralysis"
+          }
+        },
+        {
+          "scene": "scene.vallaki-political-resolution",
+          "story": "story.vallaki-politics",
+          "entry_state": {
+            "emotional": "calculating",
+            "expectation": "The party knows they cannot be in Vallaki long without choosing a side — staying neutral is itself a position, and both factions will test it before long",
+            "fear": "That the choice they make here will harden into consequences they cannot undo; that backing either faction means absorbing that faction's costs"
+          },
+          "exit_state": {
+            "emotional": "committed",
+            "shift": "The decision is made. The party knows whose house they will sleep in, whose guards will not stop them at the gates, and whose enemies they have quietly made. Vallaki is still a town under Strahd's shadow, but it is now a town they have a position in — however uncomfortable that position may be."
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "committed",
+        "shift": "The decision is made. The party knows whose house they will sleep in, whose guards will not stop them at the gates, and whose enemies they have quietly made. Vallaki is still a town under Strahd's shadow, but it is now a town they have a position in — however uncomfortable that position may be."
+      },
+      "latest_exit_scene": "scene.vallaki-political-resolution",
+      "scene_count": 3
+    },
+    "character.luvash": {
+      "scenes": [
+        {
+          "scene": "scene.arabelle-missing",
+          "story": "story.arabelle-and-the-vistani",
+          "entry_state": {
+            "emotional": "alert",
+            "expectation": "The party visits the Vistani camp outside Vallaki expecting the same hospitality as Tser Pool, or to follow up on Van Richten's mention of Arabelle",
+            "fear": "That whatever has happened to Arabelle connects to forces larger than a missing child, and that helping will cost them something they cannot afford right now"
+          },
+          "exit_state": {
+            "emotional": "focused",
+            "shift": "A child is missing. The party may have more context than the Vistani about where she is, which makes their role here uncomfortably close to someone who has information and is deciding whether to share it"
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "focused",
+        "shift": "A child is missing. The party may have more context than the Vistani about where she is, which makes their role here uncomfortably close to someone who has information and is deciding whether to share it"
+      },
+      "latest_exit_scene": "scene.arabelle-missing",
+      "scene_count": 1
+    },
+    "character.madam-eva": {
+      "scenes": [
+        {
+          "scene": "scene.finding-madam-eva",
+          "story": "story.tarokka-reading",
+          "entry_state": {
+            "emotional": "hopeful",
+            "expectation": "The party seeks guidance — they expect a fortune teller, mysterious but ultimately human, who might offer clues they can act on",
+            "fear": "That what they learn will be too vague to use, or will confirm that their situation is hopeless"
+          },
+          "exit_state": {
+            "emotional": "moved",
+            "shift": "Madam Eva's recognition of them — her sense that she has been waiting — removes the party's last illusion that their arrival was accidental; they feel the weight of something larger having moved to put them here"
+          }
+        },
+        {
+          "scene": "scene.tarokka-reading",
+          "story": "story.tarokka-reading",
+          "entry_state": {
+            "emotional": "nervous",
+            "expectation": "The party hopes the cards will give them something actionable — a map, a name, a plan",
+            "fear": "That what the cards reveal will demand more than they are capable of giving"
+          },
+          "exit_state": {
+            "emotional": "stunned",
+            "shift": "The reading has handed them a mission that is both entirely clear and enormously daunting — they now know exactly what must be done and exactly how far they are from being able to do it"
+          }
+        },
+        {
+          "scene": "scene.interpreting-the-reading",
+          "story": "story.tarokka-reading",
+          "entry_state": {
+            "emotional": "confused",
+            "expectation": "The party expects to debate the reading and perhaps find a reason to question it — to retain some sense that their choices are their own",
+            "fear": "That accepting the reading means accepting they are not free agents but instruments of a fate already written"
+          },
+          "exit_state": {
+            "emotional": "courageous",
+            "shift": "The party has stopped resisting the weight of the mission and chosen to carry it — the shift from refugee to quester is internal, not external, and this is the moment it happens"
+          }
+        },
+        {
+          "scene": "scene.tser-pool-arrival",
+          "story": "story.village-of-barovia-darkness",
+          "entry_state": {
+            "emotional": "cautious",
+            "expectation": "The party hopes the Vistani camp will offer food, rest, and perhaps information — things that have been scarce since entering Barovia",
+            "fear": "That the Vistani's famous freedom of movement through Barovia comes at a cost the party does not yet understand"
+          },
+          "exit_state": {
+            "emotional": "cautiously-hopeful",
+            "shift": "The warmth of the camp and the quality of the welcome have lowered the party's guard — which is exactly what was intended, and which may be exactly right"
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "cautiously-hopeful",
+        "shift": "The warmth of the camp and the quality of the welcome have lowered the party's guard — which is exactly what was intended, and which may be exactly right"
+      },
+      "latest_exit_scene": "scene.tser-pool-arrival",
+      "scene_count": 4
+    },
+    "character.milivoj": {
+      "scenes": [
+        {
+          "scene": "scene.bones-of-st-andral-stolen",
+          "story": "story.bones-of-st-andral",
+          "entry_state": {
+            "emotional": "hopeful",
+            "expectation": "The party enters the church expecting a sanctuary — the one kind of place in Barovia where the darkness reliably cannot reach",
+            "fear": "That even the sacred spaces in Barovia are not what they should be"
+          },
+          "exit_state": {
+            "emotional": "alarmed",
+            "shift": "The sanctuary the party was counting on does not currently exist, and the window for restoring it is closing"
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "alarmed",
+        "shift": "The sanctuary the party was counting on does not currently exist, and the window for restoring it is closing"
+      },
+      "latest_exit_scene": "scene.bones-of-st-andral-stolen",
+      "scene_count": 1
+    },
+    "character.morgantha": {
+      "scenes": [
+        {
+          "scene": "scene.old-bonegrinder-approach",
+          "story": "story.old-bonegrinder",
+          "entry_state": {
+            "emotional": "alert",
+            "expectation": "An old woman selling food on the road is unusual but not inherently threatening — the party is tired and the smell of the pastries is genuinely wonderful",
+            "fear": "That the smell is too wonderful; that nothing in Barovia smells this good without a reason"
+          },
+          "exit_state": {
+            "emotional": "suspicious",
+            "shift": "The encounter has left the party with an unresolved question — the pies were real and the woman seemed harmless, but the windmill behind her has a particular quality that does not resolve into comfort on reflection"
+          }
+        },
+        {
+          "scene": "scene.dream-pastry-trap",
+          "story": "story.old-bonegrinder",
+          "entry_state": {
+            "emotional": "panicked",
+            "expectation": "The party expects a problem they can fight or flee from; this is a problem they cannot do either with",
+            "fear": "That the affected person will not wake up; that the dream is consuming them from inside"
+          },
+          "exit_state": {
+            "emotional": "determined",
+            "shift": "The horror of watching someone disappear into a dream has clarified what must be done — Morgantha must be confronted, and the party is no longer uncertain about whether the fight is justified"
+          }
+        },
+        {
+          "scene": "scene.morgantha-confrontation",
+          "story": "story.old-bonegrinder",
+          "entry_state": {
+            "emotional": "resolute",
+            "expectation": "A fight, or at least a direct confrontation — the party is done with subtlety",
+            "fear": "That Morgantha is more powerful than them, that the children are being used as leverage, and that winning here will cost more than they can afford"
+          },
+          "exit_state": {
+            "emotional": "exhausted",
+            "shift": "The confrontation is over, but the windmill has left a residue — whatever the outcome, the party has seen what Barovia does to the innocent when no one intervenes, and they carry that forward"
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "exhausted",
+        "shift": "The confrontation is over, but the windmill has left a residue — whatever the outcome, the party has seen what Barovia does to the innocent when no one intervenes, and they carry that forward"
+      },
+      "latest_exit_scene": "scene.morgantha-confrontation",
+      "scene_count": 3
+    },
+    "character.rose-and-thorn": {
+      "scenes": [
+        {
+          "scene": "scene.death-house-entry",
+          "story": "story.death-house",
+          "entry_state": {
+            "emotional": "curious",
+            "expectation": "The children seem genuinely afraid — helping them feels like a simple, human act of decency in an otherwise overwhelming land",
+            "fear": "That what awaits inside is far worse than the mist-shrouded street outside"
+          },
+          "exit_state": {
+            "emotional": "uneasy",
+            "shift": "The door has closed. The street is gone. The party understands they have stepped into something they cannot simply step back out of"
+          }
+        },
+        {
+          "scene": "scene.death-house-attic",
+          "story": "story.death-house",
+          "entry_state": {
+            "emotional": "dread",
+            "expectation": "The party expects to find the children's parents, perhaps disturbed or mad, and to deal with whatever creature lurks below",
+            "fear": "That the full truth of this house will be more terrible than a simple monster"
+          },
+          "exit_state": {
+            "emotional": "horror",
+            "shift": "The party has discovered that the children were murdered by their own parents as cult offerings, and that they have been guided through this house by the ghosts of those children ever since"
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "horror",
+        "shift": "The party has discovered that the children were murdered by their own parents as cult offerings, and that they have been guided through this house by the ghosts of those children ever since"
+      },
+      "latest_exit_scene": "scene.death-house-attic",
+      "scene_count": 2
+    },
+    "character.rudolph-van-richten": {
+      "scenes": [
+        {
+          "scene": "scene.arabelle-found",
+          "story": "story.arabelle-and-the-vistani",
+          "entry_state": {
+            "emotional": "tense",
+            "expectation": "The party expects to find Arabelle and bring her back to the camp; the complication they did not fully anticipate is what Van Richten's reasons were",
+            "fear": "That either Van Richten's motives are darker than presented, or that returning Arabelle to the Vistani camp puts her in more danger than leaving her with Van Richten"
+          },
+          "exit_state": {
+            "emotional": "heavy",
+            "shift": "The party has resolved the immediate question of where Arabelle is, but opened a larger question about what she is — and what Barovia has planned for her"
+          }
+        },
+        {
+          "scene": "scene.approaching-castle-ravenloft",
+          "story": "story.assault-on-castle-ravenloft",
+          "entry_state": {
+            "emotional": "courageous",
+            "expectation": "The party expects the road to the castle to be the last test before the test that matters — difficult but navigable with what they now carry",
+            "fear": "That no preparation is ever truly enough, that the castle's looming presence is Strahd already winning before they arrive"
+          },
+          "exit_state": {
+            "emotional": "frightened",
+            "shift": "The castle does not need to say anything — its presence alone communicates that Strahd has been waiting, that this is his arena, and that every step taken toward those gates is taken on his terms"
+          }
+        },
+        {
+          "scene": "scene.entering-castle-ravenloft",
+          "story": "story.assault-on-castle-ravenloft",
+          "entry_state": {
+            "emotional": "scared",
+            "expectation": "The party expects combat at the gate — to fight their way in, which is something they know how to do",
+            "fear": "That the open gates are not an oversight but an invitation, and that being let in is more dangerous than being kept out"
+          },
+          "exit_state": {
+            "emotional": "overwhelmed",
+            "shift": "Inside the castle, reality bends to Strahd's will — the party has entered a place where their skills matter less than his permission, and they feel the geometry of control closing around them"
+          }
+        },
+        {
+          "scene": "scene.van-richten-first-contact",
+          "story": "story.gather-the-allies",
+          "entry_state": {
+            "emotional": "confident",
+            "expectation": "The party expects their arrival and the Tarokka's endorsement to be sufficient — that a legend will recognize other heroes",
+            "fear": "That Van Richten's suspicion will be a wall they cannot climb, and that the fated ally will turn them away"
+          },
+          "exit_state": {
+            "emotional": "moved",
+            "shift": "Van Richten's wariness has shown the party that past failures have costs that still compound — they realize they must prove themselves rather than simply claim their fated role"
+          }
+        },
+        {
+          "scene": "scene.convincing-van-richten",
+          "story": "story.gather-the-allies",
+          "entry_state": {
+            "emotional": "anxious",
+            "expectation": "The party expects to need to argue their case — to perform competence under a skeptic's gaze",
+            "fear": "That no argument will be enough, that Van Richten's grief and failure are a wall no evidence can breach"
+          },
+          "exit_state": {
+            "emotional": "relieved",
+            "shift": "Van Richten's agreement is not enthusiasm — it is a tired man choosing to try once more — and the party feels the gravity of what they have asked him to risk, not just what they have gained"
+          }
+        },
+        {
+          "scene": "scene.ezmerelda-joins",
+          "story": "story.gather-the-allies",
+          "entry_state": {
+            "emotional": "trusting",
+            "expectation": "The party expects Ezmerelda to be a bonus — another asset following Van Richten's lead",
+            "fear": "That she will see through them where Van Richten's hope made him generous"
+          },
+          "exit_state": {
+            "emotional": "optimistic",
+            "shift": "Ezmerelda's fearlessness is contagious — where Van Richten's decision was heavy with sacrifice, her joining feels like genuine belief that the party can win, and that belief is its own kind of armor"
+          }
+        },
+        {
+          "scene": "scene.rictavio-at-blue-water-inn",
+          "story": "story.van-richten-unmasked",
+          "entry_state": {
+            "emotional": "curious",
+            "expectation": "The Blue Water Inn is where travelers and locals mix, and the party hopes to gather information in a less formal context than official meetings",
+            "fear": "That everyone in Vallaki is being watched, including at the inn, and that open conversation is a liability"
+          },
+          "exit_state": {
+            "emotional": "intrigued",
+            "shift": "Rictavio is clearly not who he says he is, and the question of who he actually is feels more important than any of the inn's other gossip"
+          }
+        },
+        {
+          "scene": "scene.van-richten-identity-revealed",
+          "story": "story.van-richten-unmasked",
+          "entry_state": {
+            "emotional": "determined",
+            "expectation": "The party expects to confront the disguised figure and confirm their suspicion that he is something more than a carnival master",
+            "fear": "That he will deny everything, or that he will confirm who he is and immediately refuse to help"
+          },
+          "exit_state": {
+            "emotional": "sobered",
+            "shift": "Van Richten is everything his reputation promised — knowledgeable, capable, and deeply damaged by the cost of what he knows — and his reluctance to engage is not cowardice but a calculation based on consequences the party cannot yet fully appreciate"
+          }
+        },
+        {
+          "scene": "scene.van-richten-knowledge-shared",
+          "story": "story.van-richten-unmasked",
+          "entry_state": {
+            "emotional": "alert",
+            "expectation": "The party knows who Van Richten is — now they need what he knows. He will share it, but on his terms, with the economy of a man who has learned not to waste effort on people who will not survive the week",
+            "fear": "That he knows too much — that his intelligence will make the scale of the threat more legible and therefore more terrifying; that the party will leave this conversation less confident than they arrived"
+          },
+          "exit_state": {
+            "emotional": "focused",
+            "shift": "The briefing ends. The party now understands the structure of what they are up against: the Tarokka reading, the three items, the Dark Powers, the anchoring mechanism. It is not comforting information. It is precise information, which is a different kind of useful. Van Richten tells them where he will be if they need him — his tower, north of the lake — and makes no promises beyond availability."
+          }
+        },
+        {
+          "scene": "scene.van-richten-refuses",
+          "story": "—",
+          "entry_state": {
+            "emotional": "nervous",
+            "expectation": "The party expects their sincerity or preparation to be visible enough to break through Van Richten's hesitation",
+            "fear": "That they have already shown some flaw — overconfidence, lack of evidence, or disrespect — that has already closed the door"
+          },
+          "exit_state": {
+            "emotional": "ashamed",
+            "shift": "The refusal confronts the party with the gap between who they believe themselves to be and who Van Richten sees — they must reckon with what they failed to demonstrate"
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "ashamed",
+        "shift": "The refusal confronts the party with the gap between who they believe themselves to be and who Van Richten sees — they must reckon with what they failed to demonstrate"
+      },
+      "latest_exit_scene": "scene.van-richten-refuses",
+      "scene_count": 10
+    },
+    "character.strahd-von-zarovich": {
+      "scenes": [
+        {
+          "scene": "scene.strahd-first-invitation",
+          "story": "story.arrival-in-barovia",
+          "entry_state": {
+            "emotional": "nervous",
+            "expectation": "The party expected to operate unnoticed for a while longer — to gather information before the danger noticed them",
+            "fear": "That they are already known, already claimed, and that the game they have been thrust into has rules they do not understand"
+          },
+          "exit_state": {
+            "emotional": "threatened",
+            "shift": "The party understands for the first time that Strahd views them as pieces on his board — the invitation is not hospitality, it is ownership, and refusing it changes nothing"
+          }
+        },
+        {
+          "scene": "scene.confronting-strahd",
+          "story": "story.assault-on-castle-ravenloft",
+          "entry_state": {
+            "emotional": "courageous",
+            "expectation": "The party expects everything they have done to be enough — that preparation, sacrifice, and will are the variables that determine this outcome",
+            "fear": "That Strahd is simply too powerful, that centuries of existence and mastery over his domain cannot be overcome no matter what they carry"
+          },
+          "exit_state": {
+            "emotional": "overcome",
+            "shift": "The battle does not resolve into clarity — every party member carries the knowledge that they stood in that moment and were tested against something older and stranger than they are, and the outcome has changed them regardless of which direction it fell"
+          }
+        },
+        {
+          "scene": "scene.strahd-defeated",
+          "story": "story.assault-on-castle-ravenloft",
+          "entry_state": {
+            "emotional": "overwhelmed",
+            "expectation": "The party has committed everything to this moment — the expectation is survival, not triumph, as the battle reaches its climax",
+            "fear": "That Strahd will not fall, that even the Sunsword is not enough, that they will die here and the curse will deepen"
+          },
+          "exit_state": {
+            "emotional": "peaceful",
+            "shift": "When the sunlight breaks through for the first time in a century, the party does not feel triumph — they feel the ache of everything it cost and the profound quiet of a world that has exhaled a breath it has been holding for generations"
+          }
+        },
+        {
+          "scene": "scene.party-consumed-by-darkness",
+          "story": "story.assault-on-castle-ravenloft",
+          "entry_state": {
+            "emotional": "helpless",
+            "expectation": "The party entered this battle believing their preparation had tipped the odds — that sacrifice plus artifacts plus allies equals a survivable fight",
+            "fear": "That the math was always wrong, that Strahd in his own domain cannot be reduced to a calculation"
+          },
+          "exit_state": {
+            "emotional": "grief",
+            "shift": "There is no after for the party — but for anyone who witnesses or survives adjacent to this ending, what remains is the particular grief of watching people who chose hope be consumed by the darkness they walked toward"
+          }
+        },
+        {
+          "scene": "scene.strahd-redeemed",
+          "story": "story.assault-on-castle-ravenloft",
+          "entry_state": {
+            "emotional": "overwhelmed",
+            "expectation": "The party expects the battle to be decided by force — that Strahd can only be stopped, not reached",
+            "fear": "That mercy or love is not a tactical option in a fight for survival"
+          },
+          "exit_state": {
+            "emotional": "moved",
+            "shift": "Witnessing Strahd's redemption does not feel like victory — it feels like grief that came too late, and a tenderness for what love costs when it arrives after centuries of darkness; the party carries a question they cannot answer: was it worth it"
+          }
+        },
+        {
+          "scene": "scene.artifact-lost-to-strahd",
+          "story": "—",
+          "entry_state": {
+            "emotional": "confident",
+            "expectation": "The party expects to be the hunter in this moment — they have direction, they know what they are seeking",
+            "fear": "That Strahd is always a step ahead, that their plan is already known and already countered"
+          },
+          "exit_state": {
+            "emotional": "humiliated",
+            "shift": "Losing an artifact to Strahd does not simply set back the quest — it reveals that Strahd has been watching, toying, and waiting, and that the party's sense of control was always an illusion he permitted"
+          }
+        },
+        {
+          "scene": "scene.premature-castle-assault",
+          "story": "—",
+          "entry_state": {
+            "emotional": "aggressive",
+            "expectation": "The party believes their momentum and willingness to fight is enough — that courage can substitute for preparation",
+            "fear": "That hesitation is the only real enemy, that waiting any longer will cost more than going now"
+          },
+          "exit_state": {
+            "emotional": "sorrow",
+            "shift": "Being repelled by the castle is not just a tactical setback — it is Strahd teaching them that he controls the terms of this confrontation, and that they have shown him exactly what they lack"
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "sorrow",
+        "shift": "Being repelled by the castle is not just a tactical setback — it is Strahd teaching them that he controls the terms of this confrontation, and that they have shown him exactly what they lack"
+      },
+      "latest_exit_scene": "scene.premature-castle-assault",
+      "scene_count": 7
+    },
+    "character.the-abbot": {
+      "scenes": [
+        {
+          "scene": "scene.meeting-the-abbot",
+          "story": "story.krezk-and-the-abbey",
+          "entry_state": {
+            "emotional": "cautious",
+            "expectation": "The party expects a holy man in a holy place — sanctuary, guidance, perhaps healing",
+            "fear": "That the Abbey is another trap; that safety in Barovia is always a surface concealing something worse"
+          },
+          "exit_state": {
+            "emotional": "unsettled",
+            "shift": "The Abbot's power and certainty are undeniable, but his plan is monstrous — the party must decide what they believe about ends justifying means, and whether helping him is collaboration or strategy"
+          }
+        },
+        {
+          "scene": "scene.vasilka-revealed",
+          "story": "story.krezk-and-the-abbey",
+          "entry_state": {
+            "emotional": "apprehensive",
+            "expectation": "The party expects to see some evidence of The Abbot's project — the bride he mentioned — but imagines something abstract, unfinished",
+            "fear": "That the thing in the room will be recognizably human enough to make what The Abbot is doing undeniable"
+          },
+          "exit_state": {
+            "emotional": "horrified",
+            "shift": "The horror is not that The Abbot is evil — he is not, or was not — but that something that started with the intention to help has produced this; the party must now decide what to do with that knowledge"
+          }
+        },
+        {
+          "scene": "scene.abbot-bargain-concluded",
+          "story": "story.krezk-and-the-abbey",
+          "entry_state": {
+            "emotional": "conflicted",
+            "expectation": "The party must answer the Abbot's proposal — he has been serene and helpful and genuinely pleased by their presence, and he is also building a flesh golem from the bodies of his mongrelfolk congregation as a gift for Strahd",
+            "fear": "That accepting legitimizes what he is doing; that refusing means losing the most powerful healer in Barovia at a point in the campaign where they will need exactly that"
+          },
+          "exit_state": {
+            "emotional": "resolved",
+            "shift": "The Abbey visit ends. The party descends back to Krezk's quiet streets carrying whatever moral position they arrived at — acceptance, refusal, or the uncomfortable pragmatism of a deferred answer. The Abbot remains above them in his high place, still serene, still certain his plan will bring peace."
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "resolved",
+        "shift": "The Abbey visit ends. The party descends back to Krezk's quiet streets carrying whatever moral position they arrived at — acceptance, refusal, or the uncomfortable pragmatism of a deferred answer. The Abbot remains above them in his high place, still serene, still certain his plan will bring peace."
+      },
+      "latest_exit_scene": "scene.abbot-bargain-concluded",
+      "scene_count": 3
+    },
+    "character.vladimir-horngaard": {
+      "scenes": [
+        {
+          "scene": "scene.meeting-vladimir-horngaard",
+          "story": "story.argynvostholt",
+          "entry_state": {
+            "emotional": "determined",
+            "expectation": "A leader of the Order who will recognize the party as allies against Strahd and agree to light the beacon",
+            "fear": "That Vladimir's grief has made him unreasonable; that the one person who could activate the beacon will not"
+          },
+          "exit_state": {
+            "emotional": "conflicted",
+            "shift": "Vladimir is not wrong that Strahd deserves to suffer — but his method of ensuring that suffering has trapped his own knights as surely as Strahd's curse has trapped Barovia; the party must decide whether to work with him, around him, or in spite of him"
+          }
+        },
+        {
+          "scene": "scene.argynvost-beacon-lit",
+          "story": "story.argynvostholt",
+          "entry_state": {
+            "emotional": "resolute",
+            "expectation": "The party places Argynvost's skull in the mausoleum (area Q16) — they know from Argynvostholt's lore what should happen, but knowing does not make the silence before it happens easier to bear",
+            "fear": "That centuries of accumulated grief cannot be undone by a single act, that Vladimir's curse is too set to release, that the beacon will not come"
+          },
+          "exit_state": {
+            "emotional": "awestruck",
+            "shift": "When the dragon's spirit rises and the tower blazes silver, the party sees for the first time in this campaign what hope looks like from the outside — not the private stubborn hope of individuals holding on, but a signal that the rest of Barovia can see. Vladimir collapses. His war is over. The silence that follows is the cleanest thing the party will experience in Barovia."
+          }
+        }
+      ],
+      "latest_exit_state": {
+        "emotional": "awestruck",
+        "shift": "When the dragon's spirit rises and the tower blazes silver, the party sees for the first time in this campaign what hope looks like from the outside — not the private stubborn hope of individuals holding on, but a signal that the rest of Barovia can see. Vladimir collapses. His war is over. The silence that follows is the cleanest thing the party will experience in Barovia."
+      },
+      "latest_exit_scene": "scene.argynvost-beacon-lit",
+      "scene_count": 2
+    }
+  },
+  "satisfiable_world_state": [
+    {
+      "source": "object.abbey-sanctuary",
+      "source_type": "object",
+      "outcome": "sanctuary-offered",
+      "description": "The Abbot has offered the party shelter and protection within the Abbey, subject to conditions not yet fully disclosed",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.abbey-sanctuary",
+      "source_type": "object",
+      "outcome": "abbot-nature-revealed",
+      "description": "The party understands that the Abbot is a deva — an angelic being — whose long isolation in Barovia has corrupted his judgment",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.abbey-sanctuary",
+      "source_type": "object",
+      "outcome": "vasilka-commission-known",
+      "description": "The party knows the Abbot is building a flesh golem bride for Strahd and what he expects in return",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.abbey-sanctuary",
+      "source_type": "object",
+      "outcome": "sanctuary-accepted",
+      "description": "The party has accepted the Abbot's terms; the Abbey is a base of operations and the Abbot is a conditional ally",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.amber-sarcophagus",
+      "source_type": "object",
+      "outcome": "gift-accepted",
+      "description": "The character gains a dark power and acquires a corruption that worsens over time",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.amber-sarcophagus",
+      "source_type": "object",
+      "outcome": "gift-refused",
+      "description": "The character steps away without power or corruption",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.amber-sarcophagus",
+      "source_type": "object",
+      "outcome": "knowledge-gained",
+      "description": "The character has learned the identity and history of the vestige without accepting its gift",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.artifact-trinity",
+      "source_type": "object",
+      "outcome": "all-artifacts-held",
+      "description": "The party possesses all three artifacts: the holy symbol, the Sunsword, and the Tome of Strahd",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.artifact-trinity",
+      "source_type": "object",
+      "outcome": "party-ready-for-final-battle",
+      "description": "The party is fully prepared to confront Strahd with all necessary means",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.barovia-roads",
+      "source_type": "object",
+      "outcome": "barovia-entered",
+      "description": "The party has crossed the Svalich Woods threshold and entered the cursed realm of Barovia",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.barovia-roads",
+      "source_type": "object",
+      "outcome": "escape-impossible",
+      "description": "Any attempt to retrace the path results in the party being turned around and returned deeper into Barovia",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.barovia-roads",
+      "source_type": "object",
+      "outcome": "destination-reached",
+      "description": "The party has successfully navigated from one location to another along Barovia's roads",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.barovia-roads",
+      "source_type": "object",
+      "outcome": "resources-depleted",
+      "description": "Extended travel or resistance to the curse has cost the party supplies, spell slots, or hit points",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.blinsky-toys",
+      "source_type": "object",
+      "outcome": "toys-examined",
+      "description": "The party has noticed that many of Blinsky's toys bear a disturbing resemblance to Ireena Kolyana, revealing the depth of Strahd's obsession",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.blinsky-toys",
+      "source_type": "object",
+      "outcome": "toys-purchased",
+      "description": "The party has acquired a toy, which can be used as currency, a gift, or a prop in social interactions",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.blinsky-toys",
+      "source_type": "object",
+      "outcome": "source-traced",
+      "description": "Blinsky has revealed who commissioned the Ireena-resembling toys, pointing toward Strahd's ongoing surveillance of Ireena",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.castle-ravenloft-keys",
+      "source_type": "object",
+      "outcome": "gate-unlocked",
+      "description": "The party has a means of entering Castle Ravenloft through the front gate without forcing entry",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.castle-ravenloft-keys",
+      "source_type": "object",
+      "outcome": "passages-known",
+      "description": "The party has learned the castle's hidden passages and servant routes, allowing navigation without Strahd's awareness",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.castle-ravenloft-keys",
+      "source_type": "object",
+      "outcome": "throne-room-reached",
+      "description": "The party has successfully navigated to the throne room and can confront Strahd in his seat of power",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.death-house-haunting",
+      "source_type": "object",
+      "outcome": "trapped-inside",
+      "description": "The party has entered the Death House and the supernatural force prevents departure until the ritual is resolved",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.death-house-haunting",
+      "source_type": "object",
+      "outcome": "shadow-demon-defeated",
+      "description": "The shadow demon in the basement has been destroyed and the house's compulsion is broken",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.death-house-haunting",
+      "source_type": "object",
+      "outcome": "sacrificed-to-the-house",
+      "description": "A party member was sacrificed on the altar; the house accepted the offering and released the survivors",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.death-house-haunting",
+      "source_type": "object",
+      "outcome": "party-escaped",
+      "description": "The party has fled the Death House before it collapses; they carry the experience and any items retrieved",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.dragon-skull",
+      "source_type": "object",
+      "outcome": "skull-retrieved",
+      "description": "Argynvost's skull is in the party's possession and can be returned to Argynvostholt",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.dragon-skull",
+      "source_type": "object",
+      "outcome": "skull-lost",
+      "description": "The retrieval was interrupted and the skull remains in Strahd's trophy hall; the dragon's beacon cannot be lit",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.dragon-skull",
+      "source_type": "object",
+      "outcome": "strahd-alerted",
+      "description": "Strahd is aware the party has taken from his collection; his attention is now specifically on their presence in the castle",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.dream-pastries",
+      "source_type": "object",
+      "outcome": "consumed",
+      "description": "The character has eaten a dream pastry and is sedated in a blissful dream state for hours",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.dream-pastries",
+      "source_type": "object",
+      "outcome": "resisted",
+      "description": "The character has refused or seen through the trap and remains alert",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.expert-hunter",
+      "source_type": "object",
+      "outcome": "van-richten-allied",
+      "description": "Rudolph van Richten has pledged his knowledge and skill to the party's cause",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.expert-hunter",
+      "source_type": "object",
+      "outcome": "ezmerelda-allied",
+      "description": "Ezmerelda d'Avenir has joined the party as a fellow monster hunter",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.festival-of-blazing-sun",
+      "source_type": "object",
+      "outcome": "festival-successful",
+      "description": "The festival proceeds without incident and Baron Vallakovich's authority is maintained",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.festival-of-blazing-sun",
+      "source_type": "object",
+      "outcome": "festival-disrupted",
+      "description": "The festival collapses into chaos, triggering a political crisis that destabilizes Vallaki's leadership",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.festival-of-blazing-sun",
+      "source_type": "object",
+      "outcome": "party-arrested",
+      "description": "The party has been seized and imprisoned in the stockade for disrupting the festival or for public dissent",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.holy-symbol-of-ravenloft",
+      "source_type": "object",
+      "outcome": "holy-symbol-acquired",
+      "description": "The party has obtained the holy symbol of Ravenloft",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.settlement-gates",
+      "source_type": "object",
+      "outcome": "gates-opened",
+      "description": "The settlement has admitted the party; they have access to everything inside the walls",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.settlement-gates",
+      "source_type": "object",
+      "outcome": "gates-refused",
+      "description": "The settlement has denied entry; the party must find another approach or prove their value",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.settlement-gates",
+      "source_type": "object",
+      "outcome": "conditional-entry",
+      "description": "Entry is permitted under stated conditions; the party's standing within the settlement is provisional",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.silver-weapons",
+      "source_type": "object",
+      "outcome": "equipped",
+      "description": "A character bears a silver weapon and can harm lycanthropes, bypassing their regenerative resistance",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.silver-weapons",
+      "source_type": "object",
+      "outcome": "depleted",
+      "description": "The silver coating has worn away after sustained use and the weapon no longer bypasses lycanthrope resistance",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.silver-weapons",
+      "source_type": "object",
+      "outcome": "crafted",
+      "description": "New silver weapons have been forged from raw silver materials, adding to the party's supply",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.st-andrals-bones",
+      "source_type": "object",
+      "outcome": "bones-in-place",
+      "description": "St. Andral's Church is consecrated — undead cannot enter and the building is a genuine sanctuary",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.st-andrals-bones",
+      "source_type": "object",
+      "outcome": "bones-stolen",
+      "description": "Consecration has failed — vampire spawn and other undead can now enter St. Andral's Church",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.st-andrals-bones",
+      "source_type": "object",
+      "outcome": "bones-returned",
+      "description": "Consecration has been restored after the bones were returned to their place beneath the altar",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.strahd-dominion",
+      "source_type": "object",
+      "outcome": "strahd-aware-of-party",
+      "description": "Strahd has acknowledged the party's presence and claimed them as guests in his domain",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.strahd-dominion",
+      "source_type": "object",
+      "outcome": "castle-domain-active",
+      "description": "Inside Castle Ravenloft, Strahd's dominion over reality is absolute and unopposed",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.strahd-invitation",
+      "source_type": "object",
+      "outcome": "accepted",
+      "description": "The party travels to Castle Ravenloft for dinner with Strahd on his terms",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.strahd-invitation",
+      "source_type": "object",
+      "outcome": "ignored",
+      "description": "Strahd sends a reminder through nightmares — the invitation is repeated with greater urgency",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.strahd-invitation",
+      "source_type": "object",
+      "outcome": "intercepted",
+      "description": "The party examines the invitation's contents and gains intelligence about Strahd's intentions and the castle's layout",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.sunsword",
+      "source_type": "object",
+      "outcome": "sunsword-acquired",
+      "description": "The party has obtained the Sunsword",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.tarokka-deck",
+      "source_type": "object",
+      "outcome": "holy-symbol-location-known",
+      "description": "The location where the holy symbol of Ravenloft may be found has been revealed",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.tarokka-deck",
+      "source_type": "object",
+      "outcome": "sunsword-location-known",
+      "description": "The location where the Sunsword rests has been revealed",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.tarokka-deck",
+      "source_type": "object",
+      "outcome": "tome-location-known",
+      "description": "The location where the Tome of Strahd is hidden has been revealed",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.tarokka-deck",
+      "source_type": "object",
+      "outcome": "key-ally-identified",
+      "description": "The Tarokka has named the fated ally who will aid the party",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.tome-of-strahd",
+      "source_type": "object",
+      "outcome": "tome-acquired",
+      "description": "The party has obtained the Tome of Strahd",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.tome-of-strahd",
+      "source_type": "object",
+      "outcome": "strahd-weakness-revealed",
+      "description": "The party has learned Strahd's true weaknesses from the tome",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.village-settlement",
+      "source_type": "object",
+      "outcome": "settlement-trust-established",
+      "description": "The party is recognized as non-hostile actors within the settlement; residents will provide basic information and assistance",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.village-settlement",
+      "source_type": "object",
+      "outcome": "settlement-anchor-secured",
+      "description": "The party has a faction or individual within the settlement who vouches for them and provides ongoing support",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.village-settlement",
+      "source_type": "object",
+      "outcome": "settlement-hostile",
+      "description": "The party has alienated the settlement's authority; movement within is watched and assistance is withheld",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.village-settlement",
+      "source_type": "object",
+      "outcome": "political-alignment-declared",
+      "description": "The party has signaled alignment with one of the settlement's internal factions; the alignment has social and political consequences",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.vistani-hospitality",
+      "source_type": "object",
+      "outcome": "hospitality-received",
+      "description": "The party has been welcomed at a Vistani camp, gaining rest, food, information, and possibly trade",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.vistani-hospitality",
+      "source_type": "object",
+      "outcome": "passage-granted",
+      "description": "The Vistani have provided safe-conduct, allowing the party to travel through or with the caravan without interference from Strahd's road patrols",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.vistani-hospitality",
+      "source_type": "object",
+      "outcome": "trust-lost",
+      "description": "The party has offended or threatened the Vistani and been expelled from the camp; they are no longer welcome",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.winery-gems",
+      "source_type": "object",
+      "outcome": "gems-recovered",
+      "description": "All three gems have been returned to the Wizard of Wines winery and wine production can resume fully",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.winery-gems",
+      "source_type": "object",
+      "outcome": "gems-destroyed",
+      "description": "One or more gems have been permanently destroyed and the winery cannot achieve full production",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.winery-gems",
+      "source_type": "object",
+      "outcome": "partial-recovery",
+      "description": "Two of the three gems have been returned, allowing reduced wine production to resume",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.abbot-bargain-concluded",
+      "source_type": "scene",
+      "outcome": "abbot-stance-established",
+      "description": "The party has accepted, rejected, or left open the Abbot's offer: help him acquire a bridal gown for Vasilka in exchange for raise dead (×3) and a healing boon — or declined and left the Abbey",
+      "outcome_type": "signal"
+    },
+    {
+      "source": "scene.abbot-bargain-concluded",
+      "source_type": "scene",
+      "outcome": "krezk-visit-complete",
+      "description": "The party has fully explored Krezk and the Abbey; Burgomaster Krezkov's disposition toward them is established based on whether they acted well or ill within his village",
+      "outcome_type": "state"
+    },
+    {
+      "source": "scene.abbot-bargain-concluded",
+      "source_type": "scene",
+      "outcome": "abbey-boon-available",
+      "description": "If the party accepted the Abbot's terms, the healing boon and raise dead capacity are available to them when they return with the gown",
+      "outcome_type": "state"
+    },
+    {
+      "source": "scene.amber-sarcophagus-temptation",
+      "source_type": "scene",
+      "outcome": "dark-gift-offered",
+      "description": "A dark vestige has offered a gift; the party member has accepted or refused; the choice shapes their character's arc permanently",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.amber-temple-entry",
+      "source_type": "scene",
+      "outcome": "amber-temple-entered",
+      "description": "The party is inside the Amber Temple and aware of the dark vestiges imprisoned in the amber sarcophagi",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.amber-temple-escape",
+      "source_type": "scene",
+      "outcome": "amber-temple-complete",
+      "description": "The party has left the Amber Temple; Kasimir's quest is resolved one way or another; the party's exposure to dark gifts is their legacy here",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.approaching-castle-ravenloft",
+      "source_type": "scene",
+      "outcome": "castle-approach-begun",
+      "description": "The party has begun their journey to Castle Ravenloft",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.arabelle-found",
+      "source_type": "scene",
+      "outcome": "arabelle-located",
+      "description": "Arabelle has been found alive at Van Richten's Tower; her fate now rests with the party's choices about Van Richten and the Vistani",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.arabelle-missing",
+      "source_type": "scene",
+      "outcome": "arabelle-quest-begun",
+      "description": "The party knows Arabelle is missing and Luvash needs their help to find her; the Vistani's goodwill is contingent on resolution",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.argynvost-beacon-lit",
+      "source_type": "scene",
+      "outcome": "beacon-lit",
+      "description": "Argynvost's spirit rises from the restored skull and transforms into a brilliant silver beacon visible across all of Barovia — from Vallaki, Krezk, Berez, Old Bonegrinder, Van Richten's Tower, and the werewolf den",
+      "outcome_type": "signal"
+    },
+    {
+      "source": "scene.argynvost-beacon-lit",
+      "source_type": "scene",
+      "outcome": "revenants-at-rest",
+      "description": "Vladimir Horngaard and all the knights of the Order of the Silver Dragon lay down their arms and rest — their centuries of vigil is over; their corpses remain but their spirits are finally released",
+      "outcome_type": "state"
+    },
+    {
+      "source": "scene.argynvost-beacon-lit",
+      "source_type": "scene",
+      "outcome": "condition-dragon-skull-restored",
+      "description": "condition.dragon-skull-restored is now true — the beacon stands as visible proof that Strahd can be opposed",
+      "outcome_type": "state"
+    },
+    {
+      "source": "scene.argynvostholt-arrival",
+      "source_type": "scene",
+      "outcome": "argynvostholt-entered",
+      "description": "The party is inside Argynvostholt and has encountered the undead knights of the Order of the Silver Dragon",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.artifact-lost-to-strahd",
+      "source_type": "scene",
+      "outcome": "artifact-taken-by-strahd",
+      "description": "Strahd has intercepted the party and claimed one of the artifacts they were carrying",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.artifact-lost-to-strahd",
+      "source_type": "scene",
+      "outcome": "strahd-wields-artifact",
+      "description": "Strahd now wields the stolen artifact himself, using it to further his own power",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.artifacts-assembled",
+      "source_type": "scene",
+      "outcome": "all-artifacts-held",
+      "description": "The party now holds all three artifacts: the holy symbol, the Sunsword, and the Tome of Strahd",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.artifacts-assembled",
+      "source_type": "scene",
+      "outcome": "party-ready-for-final-battle",
+      "description": "The party is now fully prepared to confront Strahd with all the means necessary for victory",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.baba-lysaga-confrontation",
+      "source_type": "scene",
+      "outcome": "baba-lysaga-resolved",
+      "description": "Baba Lysaga is defeated or driven off; the winery gem she held can be recovered",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.blinsky-toy-shop",
+      "source_type": "scene",
+      "outcome": "blinsky-connection-discovered",
+      "description": "The party has examined Blinsky's disturbing toys and learned that a mysterious buyer commissions dolls resembling Ireena Kolyana — the connection to Strahd is now suspected or confirmed",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.bones-of-st-andral-stolen",
+      "source_type": "scene",
+      "outcome": "bones-stolen",
+      "description": "St. Andral's bones are gone; the church is no longer consecrated sanctuary and vampire spawn can now enter freely",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.bones-recovered",
+      "source_type": "scene",
+      "outcome": "bones-in-hand",
+      "description": "The party has retrieved the bones of St. Andral from the coffin maker's shop and can return them to the church",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.bones-returned-to-church",
+      "source_type": "scene",
+      "outcome": "church-reconsecrated",
+      "description": "St. Andral's Church is once again consecrated ground, safe from undead entry",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.children-rescued",
+      "source_type": "scene",
+      "outcome": "captive-children-freed",
+      "description": "The children held in the Shrine of Mother Night (area Z7) have been removed from the den — traumatized but alive",
+      "outcome_type": "signal"
+    },
+    {
+      "source": "scene.children-rescued",
+      "source_type": "scene",
+      "outcome": "kiril-threat-resolved",
+      "description": "Kiril Stoyanovich is dead, driven off, or still alive but the pack is too disrupted to pursue — the immediate lycanthropy threat to Barovia's roads is reduced",
+      "outcome_type": "state"
+    },
+    {
+      "source": "scene.children-rescued",
+      "source_type": "scene",
+      "outcome": "zuleika-debt-honored",
+      "description": "Zuleika Toranescu's cooperation — she wanted Kiril dead in exchange for Emil's release — has produced an outcome; her position within the pack is changed",
+      "outcome_type": "state"
+    },
+    {
+      "source": "scene.confronting-strahd",
+      "source_type": "scene",
+      "outcome": "strahd-defeated",
+      "description": "Strahd von Zarovich has been defeated in direct combat and destroyed",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.confronting-strahd",
+      "source_type": "scene",
+      "outcome": "party-defeated",
+      "description": "The party has been overwhelmed and destroyed by Strahd von Zarovich",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.confronting-strahd",
+      "source_type": "scene",
+      "outcome": "strahd-redeemed",
+      "description": "Strahd has been touched by love or sacrifice and chosen redemption",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.convincing-van-richten",
+      "source_type": "scene",
+      "outcome": "van-richten-allied",
+      "description": "Rudolph van Richten has agreed to join the party and lend his expertise and skill to their fight against Strahd",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.death-house-attic",
+      "source_type": "scene",
+      "outcome": "durst-secret-uncovered",
+      "description": "The party learns that Death House belongs to a cult that sacrificed children and innocents to dark powers in Strahd's name",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.death-house-entry",
+      "source_type": "scene",
+      "outcome": "death-house-entered",
+      "description": "The party is inside Death House and cannot leave until they complete the ritual or find another exit",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.death-house-escape",
+      "source_type": "scene",
+      "outcome": "death-house-survived",
+      "description": "The party has escaped Death House and understands the stakes of Barovia at a visceral, personal level",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.departure-to-vallaki",
+      "source_type": "scene",
+      "outcome": "vallaki-journey-begun",
+      "description": "The party has departed the Village of Barovia, traveling northward toward Vallaki with Ireena",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.departure-to-vallaki",
+      "source_type": "scene",
+      "outcome": "arrival-in-barovia-story-resolved",
+      "description": "The party has navigated their first moments in Barovia and chosen a direction forward",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.doru-confrontation",
+      "source_type": "scene",
+      "outcome": "doru-resolved",
+      "description": "Doru's fate has been decided — slain, freed, or left imprisoned — affecting Father Donavich's arc and the village's spiritual state",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.doru-fate-resolved",
+      "source_type": "scene",
+      "outcome": "doru-fate-decided",
+      "description": "Doru has been destroyed or released — his father's long vigil in the church basement is over",
+      "outcome_type": "signal"
+    },
+    {
+      "source": "scene.doru-fate-resolved",
+      "source_type": "scene",
+      "outcome": "donavich-arc-closed",
+      "description": "Father Donavich's arc reaches its end: grief acknowledged, prayer resumed or abandoned, the church no longer a prison",
+      "outcome_type": "state"
+    },
+    {
+      "source": "scene.doru-fate-resolved",
+      "source_type": "scene",
+      "outcome": "party-carries-the-weight",
+      "description": "The party departs Barovia's village understanding what it costs to fight here — Doru's fate follows them toward Tser Pool",
+      "outcome_type": "state"
+    },
+    {
+      "source": "scene.dragon-skull-quest",
+      "source_type": "scene",
+      "outcome": "dragon-skull-recovered",
+      "description": "Argynvost's skull has been retrieved from Castle Ravenloft and can be returned to Argynvostholt",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.dream-pastry-trap",
+      "source_type": "scene",
+      "outcome": "dream-pastry-consumed",
+      "description": "A character or NPC is sedated by dream pastry and requires magical intervention to wake",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.entering-castle-ravenloft",
+      "source_type": "scene",
+      "outcome": "castle-entered",
+      "description": "The party has breached the castle's outer defenses and entered Castle Ravenloft proper",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.entering-svalich-woods",
+      "source_type": "scene",
+      "outcome": "barovia-entered",
+      "description": "The party has crossed the Svalich Woods threshold and entered the cursed realm of Barovia",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.entering-svalich-woods",
+      "source_type": "scene",
+      "outcome": "escape-impossible",
+      "description": "Any attempt to return through the woods results in the party circling back into Barovia",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.ezmerelda-joins",
+      "source_type": "scene",
+      "outcome": "ezmerelda-allied",
+      "description": "Ezmerelda d'Avenir, the Vistani monster hunter, has joined the party's cause",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.festival-of-blazing-sun",
+      "source_type": "scene",
+      "outcome": "festival-outcome",
+      "description": "The festival has concluded — either reinforcing the Baron's authority or collapsing into disruption that opens the door to political change",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.festival-preparations",
+      "source_type": "scene",
+      "outcome": "festival-compliance-established",
+      "description": "The party has either complied with festival preparations or begun to resist the Baron's authority, establishing their political position in Vallaki",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.finding-madam-eva",
+      "source_type": "scene",
+      "outcome": "madam-eva-located",
+      "description": "The party has found Madam Eva, the Vistani seer who holds the Tarokka deck",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.finding-madam-eva",
+      "source_type": "scene",
+      "outcome": "tarokka-reading-offered",
+      "description": "Madam Eva has offered to conduct a Tarokka reading for the party",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.interpreting-the-reading",
+      "source_type": "scene",
+      "outcome": "artifacts-path-established",
+      "description": "The party has understood the Tarokka reading and established their path forward: find the artifacts and the ally, then confront Strahd",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.kasimir-approaches-party",
+      "source_type": "scene",
+      "outcome": "kasimir-alliance-offered",
+      "description": "Kasimir has proposed a mutual-aid pact — he guides the party to the Amber Temple; they help with his resurrection attempt",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.krezk-arrival",
+      "source_type": "scene",
+      "outcome": "krezk-entered",
+      "description": "The party is inside the walled village of Krezk and has access to the Abbey of Saint Markovia on the hill above",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.lake-zarovich-crossing",
+      "source_type": "scene",
+      "outcome": "lake-crossed",
+      "description": "The party has crossed Lake Zarovich and is approaching the tower on the far shore",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.locating-holy-symbol",
+      "source_type": "scene",
+      "outcome": "holy-symbol-acquired",
+      "description": "The party has located and obtained the holy symbol of Ravenloft",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.meeting-baron-vallakovich",
+      "source_type": "scene",
+      "outcome": "baron-assessed",
+      "description": "The party understands the Baron as an obstacle, potential asset, or target to be deposed depending on their strategic priorities",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.meeting-father-donavich",
+      "source_type": "scene",
+      "outcome": "donavich-met",
+      "description": "The party knows of Doru and the failed vampire-hunting expedition that preceded them into Barovia",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.meeting-ireena-and-ismark",
+      "source_type": "scene",
+      "outcome": "ireena-met",
+      "description": "The party has met Ireena Kolyana and knows of Strahd's obsession with her",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.meeting-ireena-and-ismark",
+      "source_type": "scene",
+      "outcome": "ismark-met",
+      "description": "The party has met Ismark Kolyanovich and learned of his desperate attempt to protect his sister",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.meeting-ireena-and-ismark",
+      "source_type": "scene",
+      "outcome": "party-sworn-to-protect-ireena",
+      "description": "The party has implicitly (or explicitly) accepted the burden of protecting Ireena from Strahd",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.meeting-lady-wachter",
+      "source_type": "scene",
+      "outcome": "wachter-alliance-offered",
+      "description": "Lady Wachter has offered to help the party depose the Baron in exchange for their support of her rule over Vallaki",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.meeting-the-abbot",
+      "source_type": "scene",
+      "outcome": "abbot-met",
+      "description": "The party understands the Abbey's purpose and The Abbot's bargain — he will grant boons if they help him complete the bride for Strahd",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.meeting-vladimir-horngaard",
+      "source_type": "scene",
+      "outcome": "horngaard-stance-known",
+      "description": "The party understands why Vladimir refuses to light the beacon and what it would take to change his mind — or knows they must work around him",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.morgantha-confrontation",
+      "source_type": "scene",
+      "outcome": "bonegrinder-resolved",
+      "description": "Morgantha is defeated or bargained with; captive children are freed or left; the dream pastry operation ends or continues",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.navigating-the-castle",
+      "source_type": "scene",
+      "outcome": "strahd-engaged",
+      "description": "The party has penetrated deep into the castle and is closing on Strahd's presence",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.old-bonegrinder-approach",
+      "source_type": "scene",
+      "outcome": "morgantha-encountered",
+      "description": "The party has met Morgantha and been offered dream pastries; they may suspect or know she is a night hag",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.party-consumed-by-darkness",
+      "source_type": "scene",
+      "outcome": "party-defeated",
+      "description": "The party has been defeated and destroyed by Strahd",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.party-consumed-by-darkness",
+      "source_type": "scene",
+      "outcome": "strahd-triumphant",
+      "description": "Strahd von Zarovich remains supreme in Barovia",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.party-imprisoned-in-vallaki",
+      "source_type": "scene",
+      "outcome": "imprisoned-in-vallaki",
+      "description": "The party is imprisoned in the Vallaki stockade; escape or rescue is now the immediate challenge",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.premature-castle-assault",
+      "source_type": "scene",
+      "outcome": "castle-assault-failed",
+      "description": "The party's assault on Castle Ravenloft has failed; they were not prepared and have been repelled",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.premature-castle-assault",
+      "source_type": "scene",
+      "outcome": "party-scarred-by-defeat",
+      "description": "The party has been wounded and demoralized by confronting Strahd before they were ready",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.retrieving-sunsword",
+      "source_type": "scene",
+      "outcome": "sunsword-acquired",
+      "description": "The party has located and obtained the legendary Sunsword",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.retrieving-tome-of-strahd",
+      "source_type": "scene",
+      "outcome": "tome-acquired",
+      "description": "The party has located and obtained the Tome of Strahd and learned his true weaknesses",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.rictavio-at-blue-water-inn",
+      "source_type": "scene",
+      "outcome": "rictavio-encountered",
+      "description": "The party has met the man calling himself Rictavio and suspects he is a skilled hunter or specialist operating in disguise",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.ruins-of-berez-approach",
+      "source_type": "scene",
+      "outcome": "berez-entered",
+      "description": "The party is inside the flooded ruins of Berez and in Baba Lysaga's domain",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.searching-for-van-richten",
+      "source_type": "scene",
+      "outcome": "van-richten-sought",
+      "description": "The party has begun searching for Rudolph van Richten, the legendary vampire hunter",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.strahd-defeated",
+      "source_type": "scene",
+      "outcome": "strahd-destroyed",
+      "description": "Strahd von Zarovich has been defeated and destroyed",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.strahd-defeated",
+      "source_type": "scene",
+      "outcome": "curse-broken",
+      "description": "The curse binding Barovia and Strahd has been shattered",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.strahd-defeated",
+      "source_type": "scene",
+      "outcome": "barovia-freed",
+      "description": "Barovia and its people are released from Strahd's dominion and the eternal darkness",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.strahd-first-invitation",
+      "source_type": "scene",
+      "outcome": "strahd-aware-of-party",
+      "description": "Strahd von Zarovich is now aware of the party's arrival and has claimed interest in them",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.strahd-first-invitation",
+      "source_type": "scene",
+      "outcome": "strahd-invitation-extended",
+      "description": "Strahd has formally invited the party to Castle Ravenloft",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.strahd-redeemed",
+      "source_type": "scene",
+      "outcome": "strahd-redeemed",
+      "description": "Strahd von Zarovich has been touched by love or sacrifice and the curse transforms rather than breaks",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.strahd-redeemed",
+      "source_type": "scene",
+      "outcome": "curse-transformed",
+      "description": "The eternal darkness softens but does not wholly lift; Barovia is freed from Strahd's active dominion but remains cursed",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.svalich-woods-exhausted",
+      "source_type": "scene",
+      "outcome": "barovia-entered-exhausted",
+      "description": "The party has entered Barovia but is depleted of resources (food, water, spell slots, health)",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.svalich-woods-exhausted",
+      "source_type": "scene",
+      "outcome": "resources-depleted",
+      "description": "The party has burned significant resources fighting the woods and will need to rest before proceeding",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.tarokka-reading",
+      "source_type": "scene",
+      "outcome": "holy-symbol-location-known",
+      "description": "The Tarokka reading has revealed the location where the holy symbol of Ravenloft rests",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.tarokka-reading",
+      "source_type": "scene",
+      "outcome": "sunsword-location-known",
+      "description": "The Tarokka reading has revealed the location where the legendary Sunsword is hidden",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.tarokka-reading",
+      "source_type": "scene",
+      "outcome": "tome-location-known",
+      "description": "The Tarokka reading has revealed the location where the Tome of Strahd is sealed away",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.tarokka-reading",
+      "source_type": "scene",
+      "outcome": "key-ally-identified",
+      "description": "The Tarokka reading has named the fated ally who will aid the party against Strahd",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.tser-pool-arrival",
+      "source_type": "scene",
+      "outcome": "vistani-hospitality-received",
+      "description": "The party is welcomed at Tser Pool, fed and sheltered, and has access to Madam Eva for the Tarokka reading",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.vallaki-arrival",
+      "source_type": "scene",
+      "outcome": "vallaki-entered",
+      "description": "The party is inside Vallaki and subject to the Baron's laws, including mandatory festival participation",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.vallaki-political-resolution",
+      "source_type": "scene",
+      "outcome": "vallaki-political-stance-set",
+      "description": "The party has committed to a political position in Vallaki: backing the Baron, accepting Wachter's alliance, or navigating as neutral actors",
+      "outcome_type": "signal"
+    },
+    {
+      "source": "scene.vallaki-political-resolution",
+      "source_type": "scene",
+      "outcome": "baron-standing-determined",
+      "description": "The Baron's rule is reinforced (party aligned with him) or explicitly under threat (party allied with Wachter); the political trajectory toward the festival crisis is established",
+      "outcome_type": "state"
+    },
+    {
+      "source": "scene.vallaki-political-resolution",
+      "source_type": "scene",
+      "outcome": "vallaki-anchor-established",
+      "description": "The party has a foothold in Vallaki — a faction that will vouch for them, provide shelter, or at minimum not actively work against them during the festival arc",
+      "outcome_type": "state"
+    },
+    {
+      "source": "scene.van-richten-first-contact",
+      "source_type": "scene",
+      "outcome": "van-richten-found",
+      "description": "The party has located Rudolph van Richten and made initial contact with him",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.van-richten-identity-revealed",
+      "source_type": "scene",
+      "outcome": "van-richten-unmasked",
+      "description": "Rudolph Van Richten's true identity is known to the party; he can no longer safely use the Rictavio disguise in Vallaki",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.van-richten-knowledge-shared",
+      "source_type": "scene",
+      "outcome": "strahd-intelligence-delivered",
+      "description": "Van Richten shares what he knows: Strahd's weaknesses, the three profane items (Icon of Ravenloft, Tome of Strahd, Sunsword), the Tarokka prophecy's role, and the Dark Powers that anchor him to Barovia",
+      "outcome_type": "signal"
+    },
+    {
+      "source": "scene.van-richten-knowledge-shared",
+      "source_type": "scene",
+      "outcome": "van-richten-cover-blown",
+      "description": "Van Richten's Rictavio identity is no longer viable in Vallaki; he will relocate to his tower north of the lake and can be found there",
+      "outcome_type": "state"
+    },
+    {
+      "source": "scene.van-richten-knowledge-shared",
+      "source_type": "scene",
+      "outcome": "party-has-expert-contact",
+      "description": "The party has a named contact — the greatest living vampire hunter — who will consult with them if they come to his tower",
+      "outcome_type": "state"
+    },
+    {
+      "source": "scene.van-richten-refuses",
+      "source_type": "scene",
+      "outcome": "van-richten-refuses",
+      "description": "Van Richten has refused to join the party and will not aid them",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.van-richten-refuses",
+      "source_type": "scene",
+      "outcome": "van-richten-neutral",
+      "description": "Van Richten remains neutral but will not provide assistance or support",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.vasilka-revealed",
+      "source_type": "scene",
+      "outcome": "abbey-truth-known",
+      "description": "The party knows the full extent of The Abbot's project and must decide whether to help, hinder, or ignore it",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.village-of-barovia-arrival",
+      "source_type": "scene",
+      "outcome": "village-reached",
+      "description": "The party has emerged from the Svalich Woods and arrived at the Village of Barovia",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.village-of-barovia-arrival",
+      "source_type": "scene",
+      "outcome": "fear-landscape-learned",
+      "description": "The party has seen that the people of Barovia live in constant fear and oppression",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.wachter-offers-alliance",
+      "source_type": "scene",
+      "outcome": "vallaki-allegiance-declared",
+      "description": "The party has declared or withheld allegiance to Lady Wachter's faction, shaping the political future of Vallaki",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.werewolf-den-infiltration",
+      "source_type": "scene",
+      "outcome": "werewolf-den-resolved",
+      "description": "The captive children's fate is decided; Kiril's pack is defeated, avoided, or bargained with; the lycanthropy threat in Barovia is addressed",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.winery-cleared",
+      "source_type": "scene",
+      "outcome": "winery-liberated",
+      "description": "The Wizard of Wines is clear of druids; the Martikovs can return; wine production can resume with recovered gems",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.winery-quest-start",
+      "source_type": "scene",
+      "outcome": "winery-quest-accepted",
+      "description": "The party has agreed to help the Martikovs clear the winery of druids and blights",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.yester-hill-ritual",
+      "source_type": "scene",
+      "outcome": "yester-hill-resolved",
+      "description": "The druid ritual is disrupted or completed; the winery gem is recovered or lost to the blights",
+      "outcome_type": ""
+    }
+  ],
+  "graph_gaps": {
+    "stub_nodes": [],
+    "scenes_without_world_change": [],
+    "scenes_needed_as_precond_sources_missing_wc": [],
+    "prose_preconditions": [
+      {
+        "scene": "scene.arabelle-missing",
+        "precondition": "The party has made contact with the Vistani camp outside Vallaki"
+      },
+      {
+        "scene": "scene.argynvostholt-arrival",
+        "precondition": "The party has left Vallaki and is travelling the roads of Barovia"
+      },
+      {
+        "scene": "scene.blinsky-toy-shop",
+        "precondition": "The party has entered Vallaki and has reason to explore its shops and market"
+      },
+      {
+        "scene": "scene.bones-of-st-andral-stolen",
+        "precondition": "The party has entered Vallaki and visited St. Andral's Church"
+      },
+      {
+        "scene": "scene.death-house-entry",
+        "precondition": "The party has arrived at the village of Barovia"
+      },
+      {
+        "scene": "scene.dragon-skull-quest",
+        "precondition": "The party has been inside Castle Ravenloft and is aware of Argynvost's skull"
+      },
+      {
+        "scene": "scene.dragon-skull-quest",
+        "precondition": "The party has met Vladimir Horngaard and understands the need to return the skull"
+      },
+      {
+        "scene": "scene.festival-of-blazing-sun",
+        "precondition": "The party is in Vallaki during the festival period and has participated in festival preparations"
+      },
+      {
+        "scene": "scene.kasimir-approaches-party",
+        "precondition": "The party is in or near Vallaki with enough reputation for Kasimir to approach them"
+      },
+      {
+        "scene": "scene.krezk-arrival",
+        "precondition": "The party is travelling toward the walled village of Krezk in northern Barovia"
+      },
+      {
+        "scene": "scene.lake-zarovich-crossing",
+        "precondition": "The party is in the Vallaki area and needs to cross the lake to reach Van Richten's Tower"
+      },
+      {
+        "scene": "scene.meeting-father-donavich",
+        "precondition": "The party is in the village of Barovia"
+      },
+      {
+        "scene": "scene.old-bonegrinder-approach",
+        "precondition": "The party is travelling the roads of Barovia between Barovia village and Vallaki"
+      },
+      {
+        "scene": "scene.rictavio-at-blue-water-inn",
+        "precondition": "The party has entered Vallaki and is staying at or visiting the Blue Water Inn"
+      },
+      {
+        "scene": "scene.ruins-of-berez-approach",
+        "precondition": "The party knows a stolen winery gem is held by a witch in the southern swamps"
+      },
+      {
+        "scene": "scene.tser-pool-arrival",
+        "precondition": "The party has entered Barovia through the Svalich Woods"
+      },
+      {
+        "scene": "scene.werewolf-den-infiltration",
+        "precondition": "The party knows children are being held by werewolves in the mountain den"
+      },
+      {
+        "scene": "scene.werewolf-den-infiltration",
+        "precondition": "The party has silver weapons or other means to harm lycanthropes"
+      },
+      {
+        "scene": "scene.winery-quest-start",
+        "precondition": "The party has heard that the Wizard of Wines winery has been overrun by druids and vine blights"
+      }
+    ],
+    "isolated_stories": [],
+    "scenes_not_in_any_story": [
+      "scene.artifact-lost-to-strahd",
+      "scene.blinsky-toy-shop",
+      "scene.premature-castle-assault",
+      "scene.svalich-woods-exhausted",
+      "scene.van-richten-refuses"
+    ]
+  },
+  "schema_quick_reference": {
+    "scene": {
+      "required": [
+        "id",
+        "type",
+        "primary_character",
+        "location",
+        "object",
+        "status"
+      ],
+      "key_optional": [
+        "world_change",
+        "preconditions",
+        "character_state",
+        "character_state_after",
+        "scene_type",
+        "milestone",
+        "tags"
+      ]
+    },
+    "story": {
+      "required": [
+        "id",
+        "type",
+        "status"
+      ],
+      "key_optional": [
+        "scenes",
+        "character",
+        "emotional_arc",
+        "entry_conditions",
+        "success_criteria",
+        "decision_log",
+        "milestone",
+        "tags"
+      ]
+    },
+    "character": {
+      "required": [
+        "id",
+        "type",
+        "status",
+        "owned_by"
+      ],
+      "key_optional": [
+        "aliases",
+        "tags"
+      ]
+    },
+    "location": {
+      "required": [
+        "id",
+        "type",
+        "status"
+      ],
+      "key_optional": [
+        "spine_function",
+        "tags"
+      ]
+    },
+    "object": {
+      "required": [
+        "id",
+        "type",
+        "status"
+      ],
+      "key_optional": [
+        "outcomes",
+        "exposes",
+        "tags"
+      ]
+    },
+    "rule": {
+      "required": [
+        "id",
+        "type",
+        "status",
+        "category",
+        "assertion",
+        "applies_to",
+        "review_frequency"
+      ],
+      "key_optional": [
+        "actant_roles",
+        "tags"
+      ]
+    },
+    "condition": {
+      "required": [
+        "id",
+        "type",
+        "status",
+        "assertion",
+        "satisfied_by"
+      ],
+      "key_optional": [
+        "tags"
+      ]
+    },
+    "arc": {
+      "required": [
+        "id",
+        "type",
+        "status"
+      ],
+      "key_optional": [
+        "tags"
+      ]
+    }
+  }
+}
