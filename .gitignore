@@ -15,9 +15,6 @@ node_modules/
 .untracked/
 *.local.*
 
-# Roadmap is managed locally, not tracked in the repo
-docs/ROADMAP.md
-
 # Claude Code context — local only
 CLAUDE.md
 
