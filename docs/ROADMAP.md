@@ -29,7 +29,7 @@ The architectural foundation everything else builds on. The engine must be unive
 - [ ] Write a minimal second test universe (stub, even 10 nodes) to prove universe-agnosticism
 - [ ] Build Campaign State model: played scenes → derived world-state (active conditions, unlocked scenes, story status)
 - [ ] Expose a query API: `what_is_unlocked(played_scenes)`, `active_conditions(played_scenes)`, `stories_in_progress(played_scenes)`
-- [ ] Decision: engine language — Python CLI first (fastest), or JS/TS for browser-native?
+- **Decision: TypeScript, browser-native.** Minimal friction for DMs — no install, no CLI, just a URL. The existing `viz/cos.viz.html` pattern (self-contained, open in browser) extends naturally into a full app.
 
 ---
 
@@ -113,8 +113,8 @@ To be shaped by community feedback from Phases 3–5. Candidates:
 
 | Decision | Options | Status |
 |---|---|---|
-| Engine language | Python CLI / TypeScript / Python + TS bindings | Open |
-| Hosting model | Static HTML / hosted web app / Electron / plugin | Open |
+| Engine language | **TypeScript** — browser-native, no install friction | **Resolved** |
+| Hosting model | Static HTML start → hosted web app for paid tier | Open |
 | Universe file ownership | User-supplied only / community hub / built-in bundle | Open |
 | Commercial structure | Freemium SaaS / one-time tool / DMs Guild hybrid | Open |
 | Story Complete coupling | Tight (same schema, same repo owner) / loose (published spec) | Open |
