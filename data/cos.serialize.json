@@ -3,7 +3,7 @@
     "name": "curse-of-strahd",
     "edge_count": 726,
     "schema_version": "1.4",
-    "generated_at": "2026-05-27T14:51:47.133966+00:00",
+    "generated_at": "2026-05-28T18:30:38.447848+00:00",
     "id": "universe.curse-of-strahd",
     "genre": "game-campaign",
     "node_count": 208
@@ -1299,7 +1299,9 @@
         "status": "active",
         "owned_by": "curse-of-strahd",
         "assertion": "The adventuring party has entered the Amber Temple and is aware of the dark vestiges imprisoned within.",
-        "satisfied_by": [],
+        "satisfied_by": [
+          "scene.amber-temple-entry"
+        ],
         "tags": [
           "curse-of-strahd",
           "amber-temple"
@@ -1325,7 +1327,9 @@
         "status": "active",
         "owned_by": "curse-of-strahd",
         "assertion": "The bones of Saint Andral have been returned to their proper place beneath St. Andral's Church, restoring its consecrated protection.",
-        "satisfied_by": [],
+        "satisfied_by": [
+          "scene.bones-returned-to-church"
+        ],
         "tags": [
           "curse-of-strahd",
           "vallaki",
@@ -1352,7 +1356,9 @@
         "status": "active",
         "owned_by": "curse-of-strahd",
         "assertion": "The bones of Saint Andral have been removed from St. Andral's Church, destroying its consecrated sanctuary status.",
-        "satisfied_by": [],
+        "satisfied_by": [
+          "scene.bones-of-st-andral-stolen"
+        ],
         "tags": [
           "curse-of-strahd",
           "vallaki",
@@ -1379,7 +1385,9 @@
         "status": "active",
         "owned_by": "curse-of-strahd",
         "assertion": "The skull of Argynvost the silver dragon has been returned to Argynvostholt, allowing the dragon's spirit to bless the Order of the Silver Dragon.",
-        "satisfied_by": [],
+        "satisfied_by": [
+          "scene.argynvost-beacon-lit"
+        ],
         "tags": [
           "curse-of-strahd",
           "argynvostholt",
@@ -1616,7 +1624,9 @@
         "status": "active",
         "owned_by": "curse-of-strahd",
         "assertion": "The Vallaki political situation has become unstable — either the Baron has been deposed, Lady Wachter has taken power, or open conflict has erupted in the town.",
-        "satisfied_by": [],
+        "satisfied_by": [
+          "scene.festival-of-blazing-sun"
+        ],
         "tags": [
           "curse-of-strahd",
           "vallaki",
@@ -1643,7 +1653,9 @@
         "status": "active",
         "owned_by": "curse-of-strahd",
         "assertion": "At least two of the three stolen gems have been returned to the Wizard of Wines, restoring wine production to Barovia.",
-        "satisfied_by": [],
+        "satisfied_by": [
+          "scene.winery-cleared"
+        ],
         "tags": [
           "curse-of-strahd",
           "winery",
@@ -5376,7 +5388,8 @@
         "object": "object.barovia-roads",
         "scene_type": [
           "interlude",
-          "happy-path"
+          "happy-path",
+          "resolution"
         ],
         "prominence": "major",
         "pass_threshold": 1.0,
@@ -6012,6 +6025,7 @@
         "location": "location.vallaki",
         "object": "object.festival-of-blazing-sun",
         "scene_type": [
+          "threshold",
           "resolution",
           "happy-path"
         ],
@@ -6497,7 +6511,10 @@
         "primary_character": "character.adventuring-party",
         "location": "location.lake-zarovich",
         "object": "object.barovia-roads",
-        "scene_type": "interlude",
+        "scene_type": [
+          "threshold",
+          "interlude"
+        ],
         "prominence": "minor",
         "pass_threshold": 0.75,
         "preconditions": [
@@ -7718,7 +7735,10 @@
         "primary_character": "character.adventuring-party",
         "location": "location.blue-water-inn",
         "object": "object.expert-hunter",
-        "scene_type": "standard",
+        "scene_type": [
+          "threshold",
+          "standard"
+        ],
         "prominence": "moderate",
         "pass_threshold": 0.85,
         "preconditions": [
