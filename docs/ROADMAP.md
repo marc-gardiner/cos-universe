@@ -156,6 +156,60 @@ Map each played scene to its impact on Barovia's political factions (Lady Wachte
 
 ---
 
+## Butterfly Effect — Curated Scenario Backlog
+
+Pre-computed, narrative-focused consequence scenarios for `viz/butterfly-effect-v2.html`. Each scenario presents a decision point, two or more paths, and three cascading consequence levels (That Night / The Sessions That Follow / Campaign Echo). Content is authored from graph data — `world_change` signals, scene prose, and character arcs — not live inference.
+
+5 scenarios shipped: Doru's Fate, Vallaki's Soul, Van Richten's Allegiance, The Dark Gift, Strahd's End.
+
+Tier 1 = direct graph branching · Tier 2 = graph-supported + canon extrapolation · Tier 3 = canon-primary
+
+### Phase 1 — Entering the Curse ✓ (7 scenarios shipped)
+
+### Phase 2 — Vallaki ✓ (10 scenarios shipped)
+
+### Phase 3 — The Wilderness
+
+- [ ] **Morgantha's Operation** — destroy it, free the dreamers, buy from her, or negotiate [T1] `scene.dream-pastry-trap`
+- [ ] **The Winery — Which Front First** — Yester Hill or Berez; one threat grows while you address the other [T1] `scene.winery-quest-start`
+- [ ] **Yester Hill — the Ritual Already Running** — stop it with force, find its source, or let it complete [T1] `scene.yester-hill-ritual`
+- [ ] **Baba Lysaga — What the Ruins Reveal** — Berez's history shows Strahd's personal obliteration of a village: use it or leave it [T2] `scene.baba-lysaga-confrontation`
+- [ ] **The Werewolf Den — What About Zuleika** — Emil's wife offers to help if you free her husband: do you trust a werewolf [T1] `scene.werewolf-den-infiltration`
+- [ ] **The Children Who Can't Come Back** — some captives have been bitten and will turn: not yet monsters [T2] `scene.children-rescued` · `rule.werewolf-curse-transmission`
+- [ ] **Van Richten's Intelligence** — what he tells you is more terrifying than expected: how does this change strategy [T1] `scene.van-richten-knowledge-shared`
+- [ ] **Luvash and the Vistani — Who Gets the Truth** — Luvash wants Arabelle back; Arrigal wants her found for different reasons [T2] `scene.arabelle-missing`
+- [ ] **The Wereravens — How Deep You Use the Network** — the Martikov intelligence network spans Barovia; committing them puts civilians at risk [T2] `scene.winery-quest-start` · `story.wizard-of-wines`
+
+### Phase 4 — Krezk & Deeper Wilderness
+
+- [ ] **Dmitri Krezkov's Gate** — Krezk is sealed: what do you offer or demonstrate to earn entrance [T1] `scene.krezk-arrival`
+- [ ] **Ireena at the Blessed Pool** — something happens that cannot be undone: let it complete or intervene [T2] `scene.krezk-arrival` · `story.krezk-and-the-abbey`
+- [ ] **The Abbot's Bargain** — help find a wedding gown for Strahd's intended bride in exchange for Raise Dead [T1] `scene.abbot-bargain-concluded`
+- [ ] **Kasimir's Sister** — help him resurrect Patrina at the Amber Temple, knowing why she was imprisoned there [T2] `scene.amber-temple-entry` · `story.amber-temple`
+- [ ] **Vladimir Horngaard** — he won't let the Order's revenants fight Strahd: convince him or work around him entirely [T1] `scene.meeting-vladimir-horngaard`
+- [ ] **The Midnight Riders** — Argynvostholt's revenants patrol the roads: engage, recruit, or avoid [T2] `scene.argynvostholt-arrival`
+- [ ] **Argynvost's Beacon** — returning the dragon skull lights a beacon of hope, but requires entering Ravenloft before you're ready [T1] `scene.argynvost-beacon-lit` · `condition.dragon-skull-restored`
+- [ ] **The Dark Powers — What You Choose to Understand** — engage with the Temple's history of how Strahd made his bargain, or treat it as a dungeon to loot [T3] `rule.dark-powers-corruption` · `story.amber-temple`
+
+### Phase 5 — Collecting the Artifacts
+
+- [ ] **The Sunsword — What It Costs to Claim It** — the blade belonged to Sergei, Strahd's murdered brother: claiming it is symbolic as much as tactical [T2] `scene.retrieving-sunsword`
+- [ ] **The Tome of Strahd — the Man Before the Monster** — reading it reveals his full history: does this change how you fight him [T2] `scene.retrieving-tome-of-strahd`
+- [ ] **An Artifact Lost to Strahd** — the graph's highest branch score (8): how do you recover it and what does the failure cost [T1] `scene.artifact-lost-to-strahd` · `condition.all-artifacts-held`
+- [ ] **Premature Castle Assault** — attacking Ravenloft before all artifacts are held: what does arriving damaged look like [T1] `scene.premature-castle-assault`
+- [ ] **Lycanthropy — a Party Member Bitten** — seek a cure (the Abbot can help, at a cost), accept it, or attempt to control it [T2] `rule.werewolf-curse-transmission` · `scene.abbot-bargain-concluded`
+- [ ] **The Wereravens in the Endgame** — committing the Martikov network for the Ravenloft assault at civilian risk [T2] `story.wizard-of-wines` · `story.assault-on-castle-ravenloft`
+
+### Phase 6 — Castle Ravenloft & Endgame
+
+- [ ] **Strahd's Dinner** — if the party attends, they learn things; but Strahd also learns things: was it worth the access [T2] `condition.strahd-invitation-received`
+- [ ] **Escher's Crisis** — Strahd's consort is miserable: is there enough of him left to turn against his master [T2] `character.escher`
+- [ ] **Rahadin — the History the Chamberlain Carries** — he betrayed his own people to serve Strahd for centuries: use his dusk elf history against him or just fight [T2] `character.rahadin`
+- [ ] **The Vampire Brides** — Anastrasya, Ludmilla, and Volenta have distinct agendas: fight all three, negotiate with one, or turn them on each other [T2] `character.anastrasya-karelova` · `character.ludmilla-vilisevic` · `character.volenta-popofsky`
+- [ ] **Barovia After — the World You Built** — the Barovia that exists after Strahd is entirely shaped by the 49 choices before it [T3] `story.assault-on-castle-ravenloft`
+
+---
+
 ## Phase 5 — Session Prep Assistant (AI-powered)
 
 **Problem it solves:** DMs spend 2–4 hours per session on prep that is largely re-deriving context the campaign state already contains. The community accepts AI as a *collaborator*, not an oracle — but distrusts free-generation tools because of hallucinated lore. The moat here is graph-grounded output: the AI cannot invent scene availability or NPC facts because the graph already computed them. Claude only writes prose around deterministic inputs.

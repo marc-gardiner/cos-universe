@@ -1,0 +1,1905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Butterfly Effect — Curse of Strahd</title>
+  <meta name="description" content="Every choice made in Barovia sends ripples forward. An interactive tool for seeing how party decisions cascade into long-term campaign consequences.">
+  <meta property="og:title" content="The Butterfly Effect — Curse of Strahd Campaign Engine">
+  <meta property="og:description" content="Select a decision point. Watch the consequences unfold across three time horizons. Built on a 208-node narrative graph of the Curse of Strahd universe.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── DESIGN SYSTEM TOKENS (Gothic Horror v1.0) ── */
+    :root {
+      --color-abyss-void:        #0D0D0F;
+      --color-abyss-crypt:       #141418;
+      --color-abyss-mausoleum:   #1C1C22;
+      --color-abyss-shadow:      #252530;
+      --color-abyss-iron:        #2E2E3A;
+
+      --color-shroud-primary:    #F0EDE8;
+      --color-shroud-secondary:  #B8B3AB;
+      --color-shroud-muted:      #7A756D;
+      --color-shroud-bone:       #E8E0D0;
+      --color-shroud-parchment:  #C9B99A;
+
+      --color-accent-crimson-base:     #C0392B;
+      --color-accent-crimson-vivid:    #E74C3C;
+      --color-accent-crimson-faint:    #2A1210;
+      --color-accent-crimson-emphasis: #FF6B6B;
+
+      --color-accent-spectre-base:     #27AE60;
+      --color-accent-spectre-vivid:    #2ECC71;
+      --color-accent-spectre-faint:    #0A1F12;
+      --color-accent-spectre-emphasis: #58D68D;
+
+      --color-accent-ochre-base:       #D4A017;
+      --color-accent-ochre-vivid:      #F0C040;
+      --color-accent-ochre-faint:      #1F1800;
+      --color-accent-ochre-emphasis:   #F7D070;
+
+      --color-interactive-focus-ring:    #E8E0D0;
+      --color-interactive-disabled:      #3D3D48;
+      --color-interactive-disabled-text: #5A5560;
+
+      --font-display: 'Cinzel', 'Palatino Linotype', Georgia, serif;
+      --font-ui:      'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+
+      --motion-fast:       100ms;
+      --motion-normal:     150ms;
+      --motion-deliberate: 250ms;
+      --motion-ritual:     400ms;
+      --ease-sharp:  cubic-bezier(0.4, 0, 0.2, 1);
+      --ease-emerge: cubic-bezier(0, 0, 0.2, 1);
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-ui);
+      background: var(--color-abyss-void);
+      color: var(--color-shroud-primary);
+      min-height: 100vh;
+      font-size: 1rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--color-interactive-focus-ring);
+      outline-offset: 3px;
+      border-radius: 0;
+      box-shadow: 0 0 0 6px rgba(232, 224, 208, 0.12);
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      background: var(--color-abyss-crypt);
+      border-bottom: 1px solid var(--color-abyss-iron);
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .site-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(201,185,154,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .site-header__eyebrow {
+      font-family: var(--font-ui);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-shroud-parchment);
+      margin-bottom: 1.25rem;
+    }
+
+    .site-header__ornament {
+      display: block;
+      margin: 0 auto 1.25rem;
+      color: var(--color-shroud-parchment);
+      opacity: 0.45;
+    }
+
+    .site-header__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 7vw, 3.75rem);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--color-shroud-primary);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .site-header__rule {
+      width: 4rem;
+      height: 1px;
+      background: var(--color-shroud-parchment);
+      opacity: 0.35;
+      margin: 0 auto 1rem;
+      border: none;
+    }
+
+    .site-header__subtitle {
+      font-size: 1rem;
+      color: var(--color-shroud-secondary);
+      max-width: 52ch;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    /* ── MAIN CONTAINER ── */
+    .main {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    @media (max-width: 640px) {
+      .main { padding: 2rem 1rem 3rem; }
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-family: var(--font-ui);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-shroud-muted);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--color-abyss-iron);
+    }
+
+    /* ── PHASE GROUPING ── */
+    .scenario-phase {
+      margin-top: 3rem;
+    }
+    .scenario-phase:first-child {
+      margin-top: 0;
+    }
+    .phase-label {
+      font-family: var(--font-display);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-shroud-parchment);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.625rem;
+      border-bottom: 1px solid var(--color-abyss-iron);
+    }
+
+    /* ── SCENARIO GRID ── */
+    .scenario-grid {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 900px) {
+      .scenario-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 560px) {
+      .scenario-grid { grid-template-columns: 1fr; gap: 0.875rem; }
+    }
+
+    /* ── SCENARIO CARD ── */
+    .scenario-card {
+      background: var(--color-abyss-crypt);
+      border: 1px solid var(--color-abyss-iron);
+      border-top: 3px solid var(--card-accent, var(--color-abyss-iron));
+      padding: 1.5rem;
+      cursor: pointer;
+      text-align: left;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      transition: border-color var(--motion-normal) var(--ease-sharp),
+                  background var(--motion-normal) var(--ease-sharp);
+      position: relative;
+    }
+
+    .scenario-card:hover {
+      background: var(--color-abyss-shadow);
+      border-color: var(--color-shroud-muted);
+      border-top-color: var(--card-accent, var(--color-shroud-muted));
+    }
+
+    .scenario-card__ornament {
+      width: 36px;
+      height: 36px;
+      color: var(--color-shroud-parchment);
+      opacity: 0.6;
+      margin-bottom: 1rem;
+      flex-shrink: 0;
+    }
+
+    .scenario-card__session {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-shroud-parchment);
+      margin-bottom: 0.5rem;
+    }
+
+    .scenario-card__title {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--color-shroud-primary);
+      line-height: 1.2;
+      margin-bottom: 0.375rem;
+    }
+
+    .scenario-card__location {
+      font-size: 0.8125rem;
+      color: var(--color-shroud-muted);
+      margin-bottom: 1rem;
+    }
+
+    .scenario-card__teaser {
+      font-size: 0.9375rem;
+      color: var(--color-shroud-secondary);
+      line-height: 1.6;
+      flex: 1;
+      margin-bottom: 1.25rem;
+    }
+
+    .scenario-card__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-shroud-bone);
+      margin-top: auto;
+    }
+
+    .scenario-card__cta-arrow {
+      transition: transform var(--motion-fast) var(--ease-sharp);
+    }
+
+    .scenario-card:hover .scenario-card__cta-arrow {
+      transform: translateX(4px);
+    }
+
+    /* ── DETAIL HEADER ── */
+    .detail-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn-back {
+      background: transparent;
+      border: 1px solid var(--color-abyss-iron);
+      color: var(--color-shroud-secondary);
+      font-family: var(--font-ui);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: 0 1rem;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color var(--motion-fast), border-color var(--motion-fast);
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+    }
+
+    .btn-back:hover {
+      color: var(--color-shroud-primary);
+      border-color: var(--color-shroud-muted);
+    }
+
+    .detail-eyebrow {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-shroud-parchment);
+      margin-bottom: 0.5rem;
+    }
+
+    .detail-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--color-shroud-primary);
+      line-height: 1.15;
+      margin-bottom: 0.25rem;
+    }
+
+    .detail-location {
+      font-size: 0.875rem;
+      color: var(--color-shroud-muted);
+    }
+
+    /* ── DECISION PROMPT ── */
+    .decision-prompt {
+      background: var(--color-abyss-mausoleum);
+      border: 1px solid var(--color-abyss-iron);
+      border-left: 3px solid var(--color-shroud-parchment);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .decision-prompt__label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-shroud-parchment);
+      margin-bottom: 0.75rem;
+    }
+
+    .decision-prompt__text {
+      font-size: 1.0625rem;
+      color: var(--color-shroud-primary);
+      line-height: 1.65;
+      font-style: italic;
+    }
+
+    /* ── PATH GRID ── */
+    .path-grid {
+      display: grid;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .path-grid--2 { grid-template-columns: 1fr 1fr; }
+    .path-grid--3 { grid-template-columns: 1fr 1fr 1fr; }
+
+    @media (max-width: 640px) {
+      .path-grid--2,
+      .path-grid--3 { grid-template-columns: 1fr; }
+    }
+
+    .path-btn {
+      background: var(--color-abyss-crypt);
+      border: 1px solid var(--color-abyss-iron);
+      border-top: 3px solid var(--path-color, var(--color-shroud-muted));
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      text-align: left;
+      width: 100%;
+      min-height: 88px;
+      transition: border-color var(--motion-normal) var(--ease-sharp),
+                  background var(--motion-normal) var(--ease-sharp);
+    }
+
+    .path-btn:hover {
+      background: var(--color-abyss-shadow);
+      border-color: var(--path-color, var(--color-shroud-muted));
+      border-top-color: var(--path-color, var(--color-shroud-muted));
+    }
+
+    .path-btn--danger  { --path-color: var(--color-accent-crimson-vivid); }
+    .path-btn--warning { --path-color: var(--color-accent-ochre-vivid); }
+    .path-btn--spectre { --path-color: var(--color-accent-spectre-vivid); }
+    .path-btn--neutral { --path-color: var(--color-shroud-parchment); }
+
+    .path-btn__label {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: var(--color-shroud-primary);
+      line-height: 1.3;
+      margin-bottom: 0.25rem;
+    }
+
+    .path-btn__sublabel {
+      font-size: 0.875rem;
+      color: var(--color-shroud-muted);
+      font-style: italic;
+    }
+
+    /* ── CASCADE ── */
+    .cascade-wrap {
+      animation: emerge var(--motion-deliberate) var(--ease-emerge) both;
+    }
+
+    @keyframes emerge {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .cascade-path-label {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: var(--color-shroud-primary);
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--color-abyss-iron);
+    }
+
+    .cascade-track {
+      position: relative;
+      padding-left: 3.5rem;
+    }
+
+    .cascade-track::before {
+      content: '';
+      position: absolute;
+      left: 1.125rem;
+      top: 1.5rem;
+      bottom: 1.5rem;
+      width: 1px;
+      background: linear-gradient(
+        to bottom,
+        var(--color-shroud-parchment) 0%,
+        rgba(201,185,154,0.2) 60%,
+        transparent 100%
+      );
+      animation: line-draw 0.7s var(--ease-emerge) both 0.1s;
+    }
+
+    @keyframes line-draw {
+      from { transform: scaleY(0); transform-origin: top; }
+      to   { transform: scaleY(1); transform-origin: top; }
+    }
+
+    @media (max-width: 560px) {
+      .cascade-track { padding-left: 2.5rem; }
+      .cascade-track::before { left: 0.75rem; }
+    }
+
+    .cascade-item {
+      position: relative;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transform: translateX(-6px);
+    }
+
+    .cascade-item.visible {
+      animation: item-emerge var(--motion-deliberate) var(--ease-emerge) forwards;
+    }
+
+    @keyframes item-emerge {
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .cascade-node {
+      position: absolute;
+      left: -3.5rem;
+      top: 1rem;
+      width: 2.25rem;
+      height: 2.25rem;
+      border: 1px solid var(--node-color, var(--color-shroud-parchment));
+      background: var(--color-abyss-void);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 560px) {
+      .cascade-node {
+        left: -2.5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        top: 1.125rem;
+      }
+      .cascade-node-num { display: none; }
+    }
+
+    .cascade-node-num {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--node-color, var(--color-shroud-parchment));
+      line-height: 1;
+    }
+
+    .cascade-card {
+      background: var(--color-abyss-crypt);
+      border: 1px solid var(--color-abyss-iron);
+      border-left: 3px solid var(--node-color, var(--color-shroud-parchment));
+      padding: 1.25rem 1.5rem 1.5rem;
+    }
+
+    .cascade-horizon {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--node-color, var(--color-shroud-parchment));
+      margin-bottom: 0.75rem;
+    }
+
+    .cascade-horizon::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--color-abyss-iron);
+    }
+
+    .cascade-card-title {
+      font-family: var(--font-display);
+      font-size: 1.1875rem;
+      font-weight: 600;
+      letter-spacing: 0.025em;
+      color: var(--color-shroud-primary);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .cascade-card-body {
+      font-size: 0.9375rem;
+      color: var(--color-shroud-secondary);
+      line-height: 1.7;
+    }
+
+    /* Node tones by level */
+    .cascade-item--1 { --node-color: var(--color-accent-ochre-vivid); }
+    .cascade-item--2 { --node-color: var(--color-shroud-bone); }
+    .cascade-item--3 { --node-color: var(--color-accent-crimson-emphasis); }
+
+    /* ── ALTERNATE PATHS BAR ── */
+    .alt-bar {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--color-abyss-iron);
+    }
+
+    .alt-bar__label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-shroud-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .alt-bar__buttons {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-alt {
+      background: transparent;
+      border: 1px solid var(--color-abyss-iron);
+      color: var(--color-shroud-secondary);
+      font-family: var(--font-ui);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: 0 1rem;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color var(--motion-fast), border-color var(--motion-fast);
+    }
+
+    .btn-alt:hover {
+      color: var(--color-shroud-primary);
+      border-color: var(--color-shroud-muted);
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      border-top: 1px solid var(--color-abyss-iron);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .site-footer p {
+      font-size: 0.75rem;
+      color: var(--color-shroud-muted);
+      line-height: 1.7;
+      max-width: 60ch;
+      margin: 0 auto;
+    }
+
+    .site-footer a {
+      color: var(--color-shroud-parchment);
+      text-decoration: none;
+    }
+
+    .site-footer a:hover { text-decoration: underline; }
+
+    /* ── REDUCED MOTION ── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .cascade-item { opacity: 1 !important; transform: none !important; }
+      .cascade-track::before { animation: none; transform: none; }
+    }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <p class="site-header__eyebrow">Story Complete — Curse of Strahd Universe</p>
+  <svg class="site-header__ornament" aria-hidden="true" focusable="false" width="56" height="32" viewBox="0 0 56 32">
+    <path d="M28 16 C23 9 10 2 2 7 C-2 11 6 20 16 20 C21 20 25 19 28 16Z" fill="currentColor"/>
+    <path d="M28 16 C33 9 46 2 54 7 C58 11 50 20 40 20 C35 20 31 19 28 16Z" fill="currentColor"/>
+    <ellipse cx="28" cy="16" rx="3.5" ry="4" fill="currentColor" opacity="0.4"/>
+    <circle cx="24" cy="14" r="1" fill="var(--color-abyss-void)" opacity="0.7"/>
+    <circle cx="32" cy="14" r="1" fill="var(--color-abyss-void)" opacity="0.7"/>
+    <path d="M26 10 L28 7 L30 10" stroke="currentColor" stroke-width="0.6" fill="none" opacity="0.5"/>
+    <path d="M25 22 Q28 28 31 22" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.4"/>
+  </svg>
+  <h1 class="site-header__title">The Butterfly Effect</h1>
+  <hr class="site-header__rule">
+  <p class="site-header__subtitle">
+    Every choice made in Barovia sends ripples forward through time.
+    Select a decision point to trace how a single moment reshapes the campaign ahead.
+  </p>
+</header>
+
+<main class="main" id="main-content" tabindex="-1">
+  <!-- Rendered by JavaScript -->
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <p>
+    Built on the <strong>Story Complete</strong> narrative engine &mdash; a 208-node, 726-edge graph of the Curse of Strahd universe.<br>
+    All consequences derived from campaign canon. Fan content under the
+    <a href="https://company.wizards.com/en/legal/fancontentpolicy" rel="noopener noreferrer">WotC Fan Content Policy</a>.
+    Non-commercial use only.
+  </p>
+</footer>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────────────────────────
+
+const SCENARIOS = [
+  {
+    id: 'doru-fate', phase: 0,
+    title: "Doru's Fate",
+    location: "Village of Barovia — The Church",
+    session: "Sessions 1–2",
+    teaser: "A son became a monster. His father still loves him. The party holds the power to end this — and no clean way to use it.",
+    accent: 'var(--color-accent-crimson-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false">
+      <line x1="18" y1="3" x2="18" y2="33" stroke="currentColor" stroke-width="1.5"/>
+      <line x1="7" y1="12" x2="29" y2="12" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M14 27 Q18 34 22 27" stroke="currentColor" stroke-width="1" fill="none" opacity="0.45"/>
+      <circle cx="18" cy="3" r="1.5" fill="currentColor" opacity="0.7"/>
+    </svg>`,
+    prompt: "Father Donavich's son Doru became a vampire spawn when he led an assault on Castle Ravenloft months ago. He's chained in the church basement, starving, begging. His father has not left the church since. What does the party do?",
+    paths: [
+      {
+        id: 'destroy',
+        label: 'Destroy Doru',
+        sublabel: 'End his suffering',
+        tone: 'danger',
+        consequences: [
+          {
+            label: 'That Night',
+            title: "Donavich's Vigil Ends",
+            body: "Father Donavich weeps openly. The sound carries through the church floor above. When the party ascends, he is at the altar, hands clasped, saying his first real prayer in months. He thanks them in a voice that no longer sounds like a man performing hope. The church door opens for the first time in weeks. Cold air and candlelight, together."
+          },
+          {
+            label: 'The Sessions That Follow',
+            title: "A Church That Functions Again",
+            body: "The village of Barovia gains a working sanctuary. Donavich performs Kolyan Indirovich's burial rites with grief, not guilt. Survivors seeking blessing or shelter find it here. The party earns something rarer than gold in Barovia: a moment of genuine grace, freely given. Small. Real. The kind of thing this land does not usually allow."
+          },
+          {
+            label: 'Campaign Echo',
+            title: "The Logic That Follows Them",
+            body: "At the Amber Temple, when a vestige offers power in exchange for something the character cannot name, they will feel the shape of this choice again. They have already made a trade where something went — irreplaceably — and something came back that seemed worth the weight. The vestige knows this pattern. It uses it."
+          }
+        ]
+      },
+      {
+        id: 'spare',
+        label: 'Leave Him Chained',
+        sublabel: 'Mercy, or inability to act',
+        tone: 'warning',
+        consequences: [
+          {
+            label: 'That Night',
+            title: "The Church Stays Locked",
+            body: "Father Donavich remains divided — grateful the party spoke with Doru at all, devastated they didn't end it. He cannot resume his duties. The burial of Kolyan Indirovich is performed without rites, without a priest, with Ismark saying words he half-remembers from a time when the village still functioned. Nobody says it's wrong. Nobody says anything."
+          },
+          {
+            label: 'The Sessions That Follow',
+            title: "No Sanctuary in the Village",
+            body: "Without a functioning church, the village has no organized protection or spiritual shelter. Donavich's prayers are not said. When the party later needs a blessing before a dangerous crossing or an honest ally in Barovia's village, there is nothing here to give them. The choice to spare compounds quietly. Merciful decisions in Barovia often do."
+          },
+          {
+            label: 'Campaign Echo',
+            title: "What the Darkness Keeps Score Of",
+            body: "Weeks later, Strahd's wolves make another pass through the village. Without protective rites, without a functioning church, two more families disappear into the mists. Word reaches the party via a letter from Ismark. They made a merciful choice. The darkness was not merciful back. In Barovia, every decision not made is also a decision."
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'vallaki-soul', phase: 0,
+    title: "Vallaki's Soul",
+    location: "Vallaki — The Political Fault Line",
+    session: "Sessions 3–5",
+    teaser: "Two rulers, two visions for a town that might not survive either one. The party must choose a side — or become the consequence of not choosing.",
+    accent: 'var(--color-accent-ochre-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false">
+      <path d="M7 28 L18 7 L29 28 Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      <line x1="11" y1="28" x2="25" y2="28" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M15 21 L18 7 L21 21" stroke="currentColor" stroke-width="0.7" fill="none" opacity="0.35"/>
+      <circle cx="18" cy="7" r="2" fill="currentColor" opacity="0.55"/>
+      <line x1="12" y1="20" x2="24" y2="20" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
+    </svg>`,
+    prompt: "Baron Vallakovich rules Vallaki through mandatory festivals and compulsory optimism — with Izek Strazni enforcing both. Lady Wachter waits in the wings, politically sophisticated and pragmatic about Strahd. The party cannot move through Vallaki without signaling where they stand.",
+    paths: [
+      {
+        id: 'baron',
+        label: 'Back the Baron',
+        sublabel: 'Compliance as strategy',
+        tone: 'warning',
+        consequences: [
+          {
+            label: 'That Night',
+            title: "Inside the Machine",
+            body: "Festival compliance becomes the party's cover. The Baron is grateful in the particular way of a man who has gotten what he wants and therefore trusts you. Izek Strazni is suspicious — he is always suspicious — but he stands down. The party has access to the burgomaster's resources. They have also agreed, implicitly, to the festival's terms."
+          },
+          {
+            label: 'The Sessions That Follow',
+            title: "Legitimate, and Watched",
+            body: "The Baron's favor opens certain doors. The Blue Water Inn remains safe. Wachter's people watch the party with quiet, measured calculation — not hostility, not yet. When the bones of St. Andral are stolen and the church is desecrated, the Baron's response is political rather than practical. He cares about optics. The party must solve the crisis without institutional support."
+          },
+          {
+            label: 'Campaign Echo',
+            title: "Izek's Long Memory",
+            body: "Izek Strazni has noticed Ireena Kolyana. This matters more than anything else in Vallaki's political story. By the time the party is ready to move on, Izek is a specific threat attached to a specific person they have sworn to protect. The Baron still does not know what to do about his captain. He never will. That is the party's problem now."
+          }
+        ]
+      },
+      {
+        id: 'wachter',
+        label: "Wachter's Alliance",
+        sublabel: 'Pragmatism at a price',
+        tone: 'neutral',
+        consequences: [
+          {
+            label: 'That Night',
+            title: "The Colder Option",
+            body: "Lady Wachter's precision cuts through the festival machinery. The Baron's authority begins to crack. Izek doesn't know who to arrest. The party has a safe house and a sophisticated ally — and an asterisk: Wachter's relationship with Strahd is complicated. She is not his servant. She is not his enemy. These are not the same thing."
+          },
+          {
+            label: 'The Sessions That Follow',
+            title: "A Useful Ally, Carefully",
+            body: "Wachter's intelligence network is real and valuable. The compulsory happiness ends, or at least loses its enforcement arm. But every conversation with Lady Wachter has the quality of a transaction. She is helping because it costs her nothing yet. When it costs her something, the calculation will change. The party will feel the moment when it does."
+          },
+          {
+            label: 'Campaign Echo',
+            title: "What Pragmatism Asks For",
+            body: "When the party needs Vallaki as a staging ground for the approach to Ravenloft, they discover Wachter has been thinking about this question since they left. Her answer is practical and cold: what is her incentive to participate in a conflict she can survive by not joining? The party must give her a reason. It will cost them something. She has already decided what."
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'van-richten', phase: 0,
+    title: "Van Richten's Allegiance",
+    location: "Barovia — Wherever He Hides",
+    session: "Sessions 6–8",
+    teaser: "The greatest monster hunter in the world is hiding in Barovia, alone. He has watched adventuring parties fail here before. He knows how this usually ends.",
+    accent: 'var(--color-accent-spectre-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false">
+      <line x1="18" y1="5" x2="18" y2="31" stroke="currentColor" stroke-width="2"/>
+      <path d="M12 11 L18 5 L24 11" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      <line x1="10" y1="20" x2="26" y2="20" stroke="currentColor" stroke-width="1.2" opacity="0.55"/>
+      <circle cx="18" cy="31" r="2.5" stroke="currentColor" stroke-width="1" fill="none"/>
+    </svg>`,
+    prompt: "The party has found Rudolph van Richten — old, scarred, hiding for good reasons. He has seen other groups arrive in Barovia carrying hope and leave in coffins. His first instinct is suspicion. Their next few minutes will determine whether Barovia's most dangerous ally joins them or lets them walk away alone.",
+    paths: [
+      {
+        id: 'convince',
+        label: 'Van Richten Joins',
+        sublabel: 'He sees something worth fighting for',
+        tone: 'spectre',
+        consequences: [
+          {
+            label: 'That Night',
+            title: "The Old Man Decides",
+            body: "The expression that crosses Van Richten's face is not hope. He has learned not to carry hope across long distances. It is something more useful: clarity. He was going to die here anyway. At least this way there's a chance it means something. He gathers very little, because he has spent years making himself easy to leave without regret."
+          },
+          {
+            label: 'The Sessions That Follow',
+            title: "Ezmerelda, and Two Kinds of Expertise",
+            body: "Ezmerelda d'Avenir arrives shortly after — she has been tracking Van Richten, and his commitment brings her into the circle. The party's ally structure shifts: two of the most dangerous people in Barovia are now working together for the first time in years, which is not comfortable for either of them, and immediately apparent to everyone. They manage. Barely."
+          },
+          {
+            label: 'Campaign Echo',
+            title: "The Difference Pattern-Matching Makes",
+            body: "In Castle Ravenloft, facing Rahadin in the corridor before the throne room, it is Van Richten who reads the chamberlain's killing position before the initiative roll is called. His decades of survival — of learning what predators look like a moment before they strike — saves a life that the odds said was already lost. He says nothing about it afterward. This is how he has always worked."
+          }
+        ]
+      },
+      {
+        id: 'refuse',
+        label: 'Van Richten Refuses',
+        sublabel: 'He has seen this before',
+        tone: 'danger',
+        consequences: [
+          {
+            label: 'That Night',
+            title: "The Door That Closes",
+            body: "He does not throw them out. He simply does not follow. The door closes behind them with the particular weight of a door that knows it's not being opened again. The party has the shape of what they hoped for and the absence of it. These are not the same size. The walk back to wherever they are staying is long."
+          },
+          {
+            label: 'The Sessions That Follow',
+            title: "Ezmerelda Arrives, Differently",
+            body: "Ezmerelda d'Avenir still appears — she is hunting Van Richten too. But without his commitment, her presence is more complicated. She is watching for him, not fighting beside him. Her attention is divided. She is still formidable, still a person with her own reasons. But the version of her that arrives when Van Richten is already committed is not the version that arrives when she is still searching."
+          },
+          {
+            label: 'Campaign Echo',
+            title: "The Seat at the Table That Stayed Empty",
+            body: "The final approach to Castle Ravenloft runs shorter of exactly the expertise Van Richten would have carried. The party adapts. But there is a moment — during the castle approach, when Strahd is demonstrating that he knows their names and their histories — that someone remembers a scarred old man who also knew. Who chose not to come. Who was probably right."
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'dark-gift', phase: 0,
+    title: "The Dark Gift",
+    location: "The Amber Temple — Deep Barovia",
+    session: "Sessions 9–11",
+    teaser: "Power is offered. The vestige asks for nothing, immediately. The cost will become clear later. This is how all the best traps are set.",
+    accent: 'var(--color-shroud-parchment)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false">
+      <path d="M18 3 L28 14 L18 33 L8 14 Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      <line x1="8" y1="14" x2="28" y2="14" stroke="currentColor" stroke-width="0.9" opacity="0.45"/>
+      <path d="M18 3 L8 14 L18 20 L28 14 L18 3 Z" stroke="currentColor" stroke-width="0.7" fill="none" opacity="0.3"/>
+      <circle cx="18" cy="3" r="1.5" fill="currentColor" opacity="0.8"/>
+    </svg>`,
+    prompt: "Deep in the Amber Temple, a sarcophagus calls to one party member in a way that cannot be explained to the others. A vestige stirs inside. It offers power — real power, the kind that might actually make the difference. The ask is not immediate. It explains, carefully, that the cost comes later.",
+    paths: [
+      {
+        id: 'accept',
+        label: 'Accept the Dark Gift',
+        sublabel: 'The power is real',
+        tone: 'danger',
+        consequences: [
+          {
+            label: 'That Night',
+            title: "It Keeps Its Word",
+            body: "The vestige delivers exactly what it promised. The power is real, immediate, undeniable. On the walk out of the Amber Temple, the character notices a small dark mark somewhere on their skin — wrist, collarbone, behind the ear. And a voice that is not quite a voice. Not threatening. Almost companionable. This is how it begins."
+          },
+          {
+            label: 'The Sessions That Follow',
+            title: "The Small Tilts",
+            body: "The character is more capable. They are also incrementally less themselves. Small choices begin to shift — when violence is an option it feels more efficient than it used to, and arguments for restraint feel more abstract. The other party members notice before the character does. This is also how it begins."
+          },
+          {
+            label: 'Campaign Echo',
+            title: "What Strahd Recognizes",
+            body: "In their first direct confrontation, Strahd addresses the character by name — not with contempt, but with something closer to recognition. He pauses mid-sentence to study them. 'You've spoken to them,' he says. 'They whispered to me once, too. How do you like what they gave you?' The party realizes: Strahd's power came from the same source. The character is walking the same road — further down it than they thought."
+          }
+        ]
+      },
+      {
+        id: 'refuse',
+        label: 'Refuse the Dark Gift',
+        sublabel: 'Some prices are too clear',
+        tone: 'spectre',
+        consequences: [
+          {
+            label: 'That Night',
+            title: "The Offer Is Withdrawn",
+            body: "The vestige withdraws. Not dramatically — no anger, no curse, no pronouncement. It simply is no longer there. The character walks out of the Amber Temple carrying nothing new except the knowledge that the offer was made and they said no. For now. The qualifier stays with them whether they invite it or not."
+          },
+          {
+            label: 'The Sessions That Follow',
+            title: "Nothing Has Changed — That's Also Something",
+            body: "The character is exactly who they were before the Amber Temple. This is neither comfortable nor uncomfortable; it is simply true. The other party members who made different choices are already different. The character who refused is a fixed point. They will find out what that costs and what it provides — probably in the same moment."
+          },
+          {
+            label: 'Campaign Echo',
+            title: "The One the Vestiges Cannot Reach",
+            body: "In the final confrontation with Strahd, as the dark powers underlying his strength reach toward the party, they find one character they cannot grip. The vestiges have no purchase on someone who refused their offer with full understanding of what they were refusing. In a battle fought partly on spiritual terrain, being genuinely uncorrupted turns out to be a kind of armor that Strahd's oldest spells were not written to bypass."
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'strahd-end', phase: 0,
+    title: "Strahd's End",
+    location: "Castle Ravenloft — The Final Confrontation",
+    session: "The Finale",
+    teaser: "Four centuries of curse. Three artifacts. One vampire lord who has done this before. What happens next determines what Barovia becomes.",
+    accent: 'var(--color-shroud-muted)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false">
+      <path d="M6 30 L6 15 Q6 7 18 7 Q30 7 30 15 L30 30" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      <line x1="3" y1="30" x2="33" y2="30" stroke="currentColor" stroke-width="1.5"/>
+      <rect x="14" y="20" width="8" height="10" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5"/>
+      <rect x="9" y="13" width="5" height="5" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.35"/>
+      <rect x="22" y="13" width="5" height="5" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.35"/>
+      <line x1="18" y1="7" x2="18" y2="4" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+    </svg>`,
+    prompt: "The party stands before Strahd von Zarovich in the highest chamber of Castle Ravenloft. They hold three artifacts. They have allies they bled to find. Strahd holds four centuries of practice at exactly this moment. What happens here determines what Barovia is — or whether Barovia continues.",
+    paths: [
+      {
+        id: 'defeat',
+        label: 'Strahd Defeated',
+        sublabel: 'The curse breaks',
+        tone: 'spectre',
+        consequences: [
+          {
+            label: 'That Night',
+            title: "The Mists Begin to Move",
+            body: "The vampire lord falls. The dark powers holding Barovia sealed for four centuries do not vanish instantly — they release the way a grip releases, incrementally, finger by finger. The mists that have walled this land from the world beyond begin to thin. Slowly at first. Then all at once. The party stands in the tower and watches something they will not have a word for until much later."
+          },
+          {
+            label: 'The Sessions That Follow',
+            title: "People Who Have Never Seen the Sun",
+            body: "The people of Barovia emerge into light their grandparents' grandparents have not seen. Some weep. Some simply stand with their faces tilted up. The party has done something real and permanent and cannot take it back, which is a gift they have not often been allowed to keep. This one holds. Ismark finds them. He doesn't say anything for a while."
+          },
+          {
+            label: 'Campaign Echo',
+            title: "The World Will Never Know",
+            body: "The world outside the mists will not know what happened here. No monument. No official record. No audience for what was paid. The party carries it for the rest of their lives — the knowledge of what was traded, what was lost, what the valley smelled like when the first wind that hadn't been filtered through Strahd's domain finally arrived. They will not be able to describe it to people who weren't there. They will try anyway."
+          }
+        ]
+      },
+      {
+        id: 'redeem',
+        label: 'Strahd Redeemed',
+        sublabel: 'The rarest ending',
+        tone: 'neutral',
+        consequences: [
+          {
+            label: 'That Night',
+            title: "He Remembers What He Was",
+            body: "This path does not open easily. It requires that the party has done everything right — with Ireena, with the artifacts, with a dozen small choices they may not have known were being counted. But if they have: in the right moment, with the right words, Strahd von Zarovich looks at them and remembers who he was before all of this. The mists respond differently. Not breaking. Dissolving."
+          },
+          {
+            label: 'The Sessions That Follow',
+            title: "A Different Kind of Ending",
+            body: "Barovia's curse does not simply break — it resolves. The process is slower, stranger, and more complete than defeat. The people do not just survive; there is a mourning period, an accounting, a genuine new beginning that has to be built rather than simply freed. Madam Eva says nothing about it, which means more than most of the things people say."
+          },
+          {
+            label: 'Campaign Echo',
+            title: "The Question Mark That Remains",
+            body: "The party is no longer sure what they defeated. They know Strahd as the monster, the obsession, the lord of a cursed land. The redeemed Strahd is something the campaign never fully prepared them to name. Not a threat — but not nothing. He carries four centuries of what he did to this land and its people. So does the land. So do the people. The ending is complete. It is also not over."
+          }
+        ]
+      },
+      {
+        id: 'fall',
+        label: 'The Party Falls',
+        sublabel: 'He has done this before',
+        tone: 'danger',
+        consequences: [
+          {
+            label: 'That Night',
+            title: "The Darkness Wins",
+            body: "Not because the party wasn't good. Not because they didn't try. Because Strahd is older and stronger and more familiar with this battlefield than any group arriving at the end of a campaign can fully account for. It doesn't end with drama. There is a moment when the last party member falls, and then there is silence, and the silence has been here before and is comfortable with it."
+          },
+          {
+            label: 'The Sessions That Follow',
+            title: "A Record in His Library",
+            body: "Strahd wins. He always wins eventually. The books in his library have entries going back centuries — names, groups, what they tried, how they failed, what they almost did that might have worked. These particular people tried harder than most. He will remember them. He has a good memory. The entry for this party is longer than average. He reads it sometimes."
+          },
+          {
+            label: 'Campaign Echo',
+            title: "The Mists That Don't Part",
+            body: "Barovia does not end. The mists remain. Somewhere, drawn by the same dark invitation that brought this party, another group of adventurers will stumble through the border mists with no idea where they are. And Strahd, who has done this many times, who has learned which approaches are interesting and which are not, will be waiting. He has gotten very good at waiting."
+          }
+        ]
+      }
+    ]
+  },
+
+  // ── PHASE 1 — ENTERING THE CURSE ─────────────────────────────────────────────
+
+  {
+    id: 'rose-and-thorn', phase: 1,
+    title: "Rose and Thorn's Request",
+    location: "Death House — The Attic",
+    session: "Sessions 1–2",
+    teaser: "Two children died here. They remember being children. They have one request — the kind answered yes or no.",
+    accent: 'var(--color-accent-ochre-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><circle cx="12" cy="18" r="5" stroke="currentColor" stroke-width="1.2" fill="none"/><circle cx="24" cy="18" r="5" stroke="currentColor" stroke-width="1.2" fill="none"/><line x1="17" y1="18" x2="19" y2="18" stroke="currentColor" stroke-width="1" opacity="0.5"/><path d="M12 8 L12 13 M12 23 L12 28 M24 8 L24 13 M24 23 L24 28" stroke="currentColor" stroke-width="0.8" opacity="0.4"/></svg>`,
+    prompt: "Rose and Thorn Durst are ghosts. They are also children who remember being afraid and betrayed. They want to escape Death House by possessing party members — just to feel something solid again. The party can say yes, say no, or say nothing. Each is an answer.",
+    paths: [
+      {
+        id: 'allow', label: 'Allow Possession', sublabel: 'A mercy with a cost', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'Cold From the Inside',
+            body: "The possession is less like violation and more like sharing — the party member feels cold from within, and the child feels warm in a way absent since before they can measure. The house reacts. Whatever animates Death House has been waiting for exactly this configuration of yes." },
+          { label: 'The Sessions That Follow', title: 'The Children Stay at the Edge',
+            body: "Rose and Thorn cannot go far — something holds them to the property's boundary. But they can be seen through windows, in the yard, watching the road. They are still watching when the party passes through on the way to Vallaki. They seem neither happy nor unhappy. They seem held." },
+          { label: 'Campaign Echo', title: 'The Template the Vestiges Use',
+            body: "At the Amber Temple, when a vestige reaches toward a character, the cold from the attic is the template their mind uses to understand what is happening. Not a warning — a recognition. The question is the same: what does consent mean when the asking is gentle and the door has been open a long time?" }
+        ]
+      },
+      {
+        id: 'refuse', label: 'Refuse', sublabel: 'They already knew the answer', tone: 'danger',
+        consequences: [
+          { label: 'That Night', title: 'The Sound Children Make',
+            body: "The ghosts make a sound that children make when they asked already knowing the answer. Then they are simply elsewhere in the house. The attic feels emptier than its actual contents explain. The party continues downward into a building that did not need to become more hostile." },
+          { label: 'The Sessions That Follow', title: 'The House Keeps Its Purpose',
+            body: "Without the release of the children's departure, the house's animating purpose intensifies. The cult altar below is exactly as active as it was. The party moves through Death House carrying the weight of a refusal the building has incorporated into its ongoing argument." },
+          { label: 'Campaign Echo', title: 'The Pattern Barovia Returns To',
+            body: "Throughout the campaign, the party will encounter parents who fail children and children who cannot escape what parents did. The refusal at Death House is the first data point. Barovia returns to this pattern. The data accumulates regardless of whether the party notices it." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'accepting-barovia', phase: 1,
+    title: "Accepting Barovia",
+    location: "The Svalich Woods — The Border Mists",
+    session: "Session 1",
+    teaser: "The mists did not ask permission. The question is whether you spend your first hour fighting what you cannot change.",
+    accent: 'var(--color-shroud-muted)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><path d="M5 18 Q10 12 18 18 Q26 24 31 18" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M5 24 Q10 18 18 24 Q26 30 31 24" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.4"/><path d="M5 12 Q10 6 18 12 Q26 18 31 12" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.4"/></svg>`,
+    prompt: "The mists close behind the party as they enter the Svalich Woods. The particular silence where the world they knew used to be is there, and some parties spend their first hour trying to push back through it. When they stop determines what they arrive at Barovia's village carrying.",
+    paths: [
+      {
+        id: 'fight', label: 'Fight the Mists', sublabel: 'Resources burned on a closed door', tone: 'danger',
+        consequences: [
+          { label: 'That Night', title: 'The Same Stretch of Woods',
+            body: "Every attempt to find the boundary produces the same result: more road, more fog, the same stretch of forest repeating in a way that is not magic but feels like it. The party burns spell slots on this. They arrive at the Village of Barovia depleted — exactly the wrong condition for what they find there." },
+          { label: 'The Sessions That Follow', title: "Barovia's First Lesson",
+            body: "The resource deficit compounds. The village is not safe, the church is occupied, there is no inn. The first encounters happen with the party already behind. Barovia teaches this immediately: you cannot spend your way out of this place. The mists were not the real enemy." },
+          { label: 'Campaign Echo', title: 'The Familiar Shape of Containment',
+            body: "Late in the campaign, facing another situation they cannot simply exit, the memory of the first hour is available. It does not help. But it is familiar, which is different from help and occasionally more useful." }
+        ]
+      },
+      {
+        id: 'accept', label: 'Accept and Conserve', sublabel: 'Accurate assessment of what matters', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'Arriving With What They Have',
+            body: "The decision to stop fighting the boundary is accurate assessment. The party arrives at the Village of Barovia with resources intact. The darkness ahead is real. They face it with what they have rather than what they spent on what they couldn't change." },
+          { label: 'The Sessions That Follow', title: 'Margin in Barovia',
+            body: "The conserved resources create margin in the early game. Margin in Barovia is rare. Every spell slot not spent at the border is available for Ireena, for Father Donavich, for the road to Vallaki. The early game rewards exactly this calculation." },
+          { label: 'Campaign Echo', title: 'The Known Shape of Impossible Doors',
+            body: "Characters who accepted the mists in Session 1 have longer familiarity with the thing you cannot change. When the same feeling arrives at the endgame — the impossibility of the task, the closed door behind — they have done this before. Familiar does not mean easy. It means known." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'strahd-first-invitation', phase: 1,
+    title: "Strahd's First Invitation",
+    location: "Village of Barovia — The Road",
+    session: "Sessions 1–2",
+    teaser: "The most dangerous man in Barovia has invited you to dinner. He knows your name. You learned his five minutes ago.",
+    accent: 'var(--color-accent-crimson-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><rect x="6" y="10" width="24" height="16" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M6 15 L18 22 L30 15" stroke="currentColor" stroke-width="1" opacity="0.6"/><line x1="18" y1="4" x2="18" y2="10" stroke="currentColor" stroke-width="1" opacity="0.4"/></svg>`,
+    prompt: "A black carriage materializes from the mists. The letter inside bears Strahd von Zarovich's seal and is addressed to each party member by name — names they have told no one in Barovia. The carriage will wait. The invitation is genuine, which is not the same as being safe.",
+    paths: [
+      {
+        id: 'accept', label: 'Accept the Invitation', sublabel: 'Intelligence at a cost', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'A Dinner That Functions as a Demonstration',
+            body: "Castle Ravenloft at first viewing is not what the word usually means — it is older and more complete. The dinner is civil, which is almost more disturbing than the alternative. Strahd asks questions whose answers he already knows. The party learns things about their enemy. Their enemy already knew these things about them." },
+          { label: 'The Sessions That Follow', title: 'He Does Not Move Immediately',
+            body: "Strahd has watched parties arrive in Barovia before. The ones who accept invitations leave carrying specific information that shapes everything afterward. The party knows how he sounds when he is being pleasant. This is more useful than they expect, and more terrible." },
+          { label: 'Campaign Echo', title: 'The Gap Before the Attack',
+            body: "When the final confrontation arrives, the party has been inside Castle Ravenloft. They know what the throne room sounds like. When Strahd is present and not yet committed to violence, they recognize the gap. It is shorter than they expected. They are less surprised." }
+        ]
+      },
+      {
+        id: 'refuse', label: 'Refuse the Carriage', sublabel: 'The intelligence not gathered', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'The Carriage Waits, Then Leaves',
+            body: "The party walks on, carrying the refusal and the question of whether they made a tactical error or a moral one. Strahd is not offended — offense requires expectations, and he has very few left about adventurers arriving in his domain. He simply updates his understanding of this particular group." },
+          { label: 'The Sessions That Follow', title: 'Learning the Harder Way',
+            body: "The intelligence they would have gathered at dinner is not gathered. They learn through Blinsky's dolls, through Ireena's terror, through the record of what Strahd has done to this valley. The picture is the same. The frame is different. Sometimes what you refuse shapes you more than what you accept." },
+          { label: 'Campaign Echo', title: 'The Unfamiliar Castle',
+            body: "The party enters Castle Ravenloft for the final assault with no familiarity with its interior. They have maps of a kind. The maps do not capture what it feels like to be inside something built to be the last thing you see. This is workable. It is not the same as having walked those halls before." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'promise-to-ireena', phase: 1,
+    title: "The Promise to Ireena",
+    location: "Village of Barovia — Kolyan's House",
+    session: "Sessions 1–2",
+    teaser: "The promise is easy to make. Barovia will spend the next ten sessions showing you what it costs.",
+    accent: 'var(--color-accent-ochre-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><path d="M18 5 C11 5 7 11 7 16 C7 23 18 31 18 31 C18 31 29 23 29 16 C29 11 25 5 18 5 Z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M13 16 L16 19 L23 13" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.7"/></svg>`,
+    prompt: "Ireena Kolyana does not ask to be protected — she has been surviving Strahd's attentions alone. Ismark asks. The party must decide what shape their commitment takes: constant escort, strategic positioning, or the nominal protection of a promise that Barovia will test to destruction.",
+    paths: [
+      {
+        id: 'constant', label: 'Constant Escort', sublabel: 'She is always with you', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'A Target in the Middle of the Party',
+            body: "Keeping Ireena close changes the party's tactical posture immediately. She is capable, but she is also the subject of a specific, centuries-old obsession. Being near her means being near what Strahd wants. Every encounter has a slightly different shape when his most-wanted person is standing in the middle of it." },
+          { label: 'The Sessions That Follow', title: 'A Relationship Rather Than a Responsibility',
+            body: "The party learns what it means to protect someone who does not want to be protected, who has been surviving independently, and who has her own opinions about when to fight and when to flee. By Krezk, the party will understand Ireena better than almost anyone in Barovia. This costs something. It is worth paying." },
+          { label: 'Campaign Echo', title: 'The Consequence of Following Through',
+            body: "What happens at the Blessed Pool in Krezk is shaped entirely by what the promise has cost the party by then. They have carried her through Barovia's full darkness. When the pool calls to her and Sergei appears, they will feel the shape of a choice they cannot stop. They brought her here. This is the consequence." }
+        ]
+      },
+      {
+        id: 'strategic', label: 'Strategic Positioning', sublabel: 'Safe locations, for now', tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: "The Plan Works Until It Doesn't",
+            body: "Keeping Ireena in known safe locations while the party ranges freely is defensible. The Blue Water Inn has guards. Krezk has walls. The plan works until it doesn't — in Barovia the gap between those two states is much shorter than expected." },
+          { label: 'The Sessions That Follow', title: '"Safe Location" Keeps Narrowing',
+            body: "The arrangement creates tactical flexibility. The party can move faster, take more risks. But 'safe location' in Barovia is a category that keeps narrowing. By the time the party reaches the wilderness, there are very few places definitively outside Strahd's reach. The plan adapts. The plan keeps adapting." },
+          { label: 'Campaign Echo', title: 'The First Time Cold',
+            body: "At some point Ireena's safety and the campaign's progress are in direct tension. Parties who kept her close have already rehearsed making that trade. Parties who kept her positioned strategically make it cold, the first time. One of these is easier. It is not clear which." }
+        ]
+      },
+      {
+        id: 'nominal', label: 'Nominal Protection', sublabel: 'A promise with generous terms', tone: 'danger',
+        consequences: [
+          { label: 'That Night', title: 'Barovia Tests It Immediately',
+            body: "The promise is made. Its terms are general enough to be plausible. Barovia begins testing those terms against their limits immediately. Each night Ireena spends somewhere the party considers safe but hasn't checked is a data point in the probability that the promise was aspirational." },
+          { label: 'The Sessions That Follow', title: 'The Difference Between a Promise and an Intention',
+            body: "Nominal protection produces nominal results. Ireena survives through her own capability, through luck, through Strahd's preference for her intact. The party learns that in Barovia the gap between promise and intention is measured in consequences. They are learning this at Ireena's expense." },
+          { label: 'Campaign Echo', title: 'What Barovia Does Not Forget',
+            body: "The campaign's ending and Ireena's fate are not independent variables. The degree to which the party followed through on their initial commitment shapes which conclusions are available to them. Barovia does not forget what was promised." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'ismarks-ask', phase: 1,
+    title: "Ismark's Ask",
+    location: "Village of Barovia — The Road South",
+    session: "Sessions 1–2",
+    teaser: "He wants to come with you. He also knows he should stay. The village doesn't care which one you tell him.",
+    accent: 'var(--color-shroud-muted)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><circle cx="18" cy="12" r="5" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 30 C8 23 28 23 28 30" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="24" y1="18" x2="32" y2="18" stroke="currentColor" stroke-width="1" opacity="0.5"/><path d="M28 15 L32 18 L28 21" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5"/></svg>`,
+    prompt: "Ismark Kolyanovich has buried his father, seen his sister into the party's protection, and is standing at the edge of a village that needs whatever leadership it can find. He would like to travel to Vallaki. He would also like to not be responsible for a broken settlement. These desires are not compatible.",
+    paths: [
+      {
+        id: 'travel', label: 'Ismark Travels with the Party', sublabel: 'An ally with an asterisk', tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: 'He Packs Quickly',
+            body: "He packs quickly, which tells you something about how long he has been waiting to leave. The village watches from windows as the group departs. Nobody comes out. There is nothing the village could say that would change what Ismark has decided, and everyone knows this, including Ismark." },
+          { label: 'The Sessions That Follow', title: 'A Capable Ally With One Interior',
+            body: "Ismark is a competent fighter and a useful source of knowledge about Vallaki's politics. He is also carrying significant survivor's guilt about the village, which manifests as occasional paralysis in moments requiring immediate decision. The party gets capability and complication in the same person." },
+          { label: 'Campaign Echo', title: 'The Village He Left',
+            body: "When the party passes back through the Village of Barovia later in the campaign, it is in worse shape than when they left. Ismark knows this and doesn't say so. Whether having him made the party more effective than what was lost to the village is unanswerable. Barovia is full of questions like this." }
+        ]
+      },
+      {
+        id: 'stays', label: 'Ismark Stays', sublabel: 'The right answer, and he knows it', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'He Already Knew',
+            body: "He nods. Not a surprised nod — he already knew what the right answer was. The village has a leader again, which is a technical improvement over none. Whether Ismark's leadership is enough for what Barovia will require is a different question, and not one the party can answer tonight." },
+          { label: 'The Sessions That Follow', title: 'Dispatches From the Village',
+            body: "The party receives word from Ismark occasionally via the informal message network — a wereraven carrying a note, a traveler passing a letter. The village is surviving. Just. Each message has the quality of a report from someone who has made peace with the situation being what it is." },
+          { label: 'Campaign Echo', title: 'The Man Who Was Always There',
+            body: "If the party breaks Barovia's curse, the first person to walk out of the village into sunlight is Ismark, because he was always there. He stayed. That fact is small and nearly without weight in the context of what the campaign cost. But it is a fact, and it is his." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'the-fifth-card', phase: 1,
+    title: "The Fifth Card",
+    location: "Tser Pool — Madam Eva's Camp",
+    session: "Sessions 1–2",
+    teaser: "The Tarokka reading names the ally Barovia has prepared for you. Every ally is a different campaign.",
+    accent: 'var(--color-shroud-parchment)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><rect x="11" y="4" width="14" height="20" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="14" y1="9" x2="22" y2="9" stroke="currentColor" stroke-width="0.8" opacity="0.5"/><line x1="14" y1="13" x2="22" y2="13" stroke="currentColor" stroke-width="0.8" opacity="0.5"/><line x1="14" y1="17" x2="19" y2="17" stroke="currentColor" stroke-width="0.8" opacity="0.5"/><path d="M10 28 L18 32 L26 28" stroke="currentColor" stroke-width="1" fill="none" opacity="0.4"/></svg>`,
+    prompt: "Madam Eva lays the fifth card of the Tarokka reading on the table. The fated ally — Barovia's own champion assigned to the party by whatever forces speak through cards and mist — has been named. Every possible ally waits somewhere in Barovia. The reading has decided which one is theirs.",
+    paths: [
+      {
+        id: 'ezmerelda', label: "Ezmerelda d'Avenir", sublabel: "The hunter's apprentice", tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'She Is Somewhere in Barovia Already',
+            body: "The ally the cards chose is not in the room. She is in Barovia, hunting, tracking the one person she came here to find. The reading has named her, which means the party's path and hers are now converging in the way Tarokka predictions arrange such things." },
+          { label: 'The Sessions That Follow', title: 'Two Kinds of Expertise, Together for the First Time',
+            body: "When Ezmerelda d'Avenir finally appears, she arrives already oriented — some part of Barovia's fate has been pointing toward this meeting since Madam Eva turned that card. She is the most capable fighting ally available and the one with the most complicated relationship to the mission. Both are simultaneously true." },
+          { label: 'Campaign Echo', title: 'The Difference the Right Ally Makes',
+            body: "At Castle Ravenloft, Ezmerelda's training — decades of hunting things that should not exist — applies directly to what Strahd is. The party has not recruited a fighter. They have recruited someone who has spent her adult life preparing for exactly this. The gap between a good ally and the right ally is measurable in the castle's final corridor." }
+        ]
+      },
+      {
+        id: 'van-richten-named', label: 'Rudolph van Richten', sublabel: 'Named before he agrees', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'The Reading Makes It Fate',
+            body: "The reading has named an old man who has already decided he is done. He does not know he was named. When the party finds him, they carry the knowledge that whatever speaks through Madam Eva's cards believes Van Richten has something left to give. Whether this helps them convince him is uncertain. It helps them try." },
+          { label: 'The Sessions That Follow', title: 'Named but Not Yet Recruited',
+            body: "Van Richten's recruitment is not guaranteed by the prophecy — the reading names the potential ally, not the outcome. The party must still convince a man who has watched parties fail here before. The cards saying he is the one does not make him willing. It makes him findable." },
+          { label: 'Campaign Echo', title: 'What Fate Meant by His Name',
+            body: "If Van Richten joins and contributes to Strahd's defeat, the party will remember the reading named him before they knew to look. If he refuses, they carry the knowledge that fate identified a possibility they couldn't convert. In either case, the reading was accurate. Accuracy and utility are different things." }
+        ]
+      },
+      {
+        id: 'ireena-champion', label: 'Ireena Kolyana', sublabel: 'The protected becomes the champion', tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: 'The Reading Sees Her Differently',
+            body: "The reading names the person the party has been protecting as the person supposed to protect the party. This is not as surprising as it seems — Ireena is capable and fierce and has survived years of Strahd's direct attention. The reading is reminding the party she is not a victim. She is a person." },
+          { label: 'The Sessions That Follow', title: 'The Shift From Protected to Partner',
+            body: "Moving Ireena from protected person to active ally changes the dynamic in ways both tactical and personal. She fights now without needing the party's permission. She makes her own decisions. The party gains a formidable companion and loses the comfortable simplicity of protection as a one-way responsibility." },
+          { label: 'Campaign Echo', title: 'A Choice Made as an Equal',
+            body: "At the Blessed Pool in Krezk, what happens is still beyond the party's ability to stop. But the choice Ireena makes — and she makes a choice — is made as a person who has been treated as an equal. This changes who makes the decision, not the decision itself." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'strahd-at-tser-pool', phase: 1,
+    title: "Strahd at Tser Pool",
+    location: "Tser Pool — Vistani Encampment",
+    session: "Sessions 1–2",
+    teaser: "The vampire lord arrives while you are eating Vistani food and processing a prophecy. He is dressed for an evening, not a battle.",
+    accent: 'var(--color-accent-crimson-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><path d="M18 5 L22 15 L33 15 L24 22 L27 32 L18 26 L9 32 L12 22 L3 15 L14 15 Z" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.6"/><circle cx="18" cy="18" r="4" stroke="currentColor" stroke-width="1" fill="none" opacity="0.4"/></svg>`,
+    prompt: "Strahd von Zarovich appears at Tser Pool while the party camps with the Vistani. He is civil, formal, and here to see Ireena specifically. He is aware of the party. He is not currently concerned by the party. The Vistani give him room. The question is what the party does with the space between 'civil visit' and 'combat.'",
+    paths: [
+      {
+        id: 'intervene', label: 'Intervene — Force a Confrontation', sublabel: 'You know how this ends', tone: 'danger',
+        consequences: [
+          { label: 'That Night', title: 'Educational in the Way Failure Always Is',
+            body: "The confrontation is a demonstration. This is what 'not fighting in earnest' looks like when your opponent is four centuries old and genuinely amused. The party takes significant damage. Strahd takes their measure with clinical interest. He leaves when he has learned what he came to learn." },
+          { label: 'The Sessions That Follow', title: 'Intelligence Flowing the Wrong Direction',
+            body: "Strahd now knows what the party looks like when angry. He knows their tactics, spells, and decision-making under pressure. The intelligence flows entirely in one direction. The party's ability to surprise him in the final confrontation is diminished by exactly how much he learned at Tser Pool." },
+          { label: 'Campaign Echo', title: 'The Man Who Has Been Studying Them',
+            body: "In Castle Ravenloft, Strahd has arranged things specifically accounting for what he observed. The trap that nearly kills the party's best fighter is positioned exactly where their instincts say to go. He has been waiting for this since Tser Pool. They chose the confrontation. He learned from it." }
+        ]
+      },
+      {
+        id: 'observe', label: 'Observe — Let the Visit Proceed', sublabel: 'Watch. Learn. Remember.', tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: 'What He Looks Like With Her',
+            body: "Watching Strahd with Ireena is uncomfortable in a specific, useful way. The party sees how he speaks to her — with care that is not kindness, familiarity she cannot escape. They see what she looks like when he is near: not afraid exactly, but constrained. This information shapes everything the party does with her afterward." },
+          { label: 'The Sessions That Follow', title: 'His Vulnerability, Named',
+            body: "The intelligence gathered — Strahd's restraint, his preference for Ireena above everything else — applies throughout. The party understands their enemy's specific attachment. He wants her alive. This means she is leverage he will not eliminate. Power the party can use, if they can stomach what using it requires." },
+          { label: 'Campaign Echo', title: 'The Gap Known Since Tser Pool',
+            body: "At the final confrontation, the party knows how Strahd reacts to Ireena's presence from direct observation. They know his control frays around her. There are moments when what he wants overwhelms what he intends. This is not a weapon. It is a gap. Gaps in Barovia are rare. They have known about this one for a long time." }
+        ]
+      },
+      {
+        id: 'retreat', label: 'Retreat — Remove Ireena', sublabel: 'Tactical withdrawal, information traded', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'He Notices the Departure',
+            body: "Getting Ireena out before Strahd reaches her is reasonable. It is also observed. What Strahd concludes — that the party will prioritize her safety over confrontation, that she is their primary concern — is information he did not previously have. The Vistani watch with the resignation of people who have seen this play before." },
+          { label: 'The Sessions That Follow', title: 'What He Now Knows About Them',
+            body: "Strahd recalibrates around the party's demonstrated priorities. He knows they will protect Ireena. He knows they will sacrifice tactical position to do it. Every encounter for the rest of the campaign includes this calculation on his side: where is she, and what will they give up to keep her safe?" },
+          { label: 'Campaign Echo', title: 'The Gap Between Protection and Immunity',
+            body: "In the endgame, Strahd's most effective gambit separates Ireena from the party. They have gotten good at protecting her. But getting good at protection and being immune to the leverage that makes protection necessary are not the same thing. He has been waiting for a moment when that gap opens wide enough." }
+        ]
+      }
+    ]
+  },
+
+  // ── PHASE 2 — VALLAKI ─────────────────────────────────────────────────────────
+
+  {
+    id: 'st-andral-bones', phase: 2,
+    title: "St. Andral's Bones",
+    location: "Vallaki — St. Andral's Church",
+    session: "Sessions 3–4",
+    teaser: "The church was the only safe place in Vallaki. Someone stole the reason it was safe.",
+    accent: 'var(--color-accent-spectre-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><line x1="18" y1="4" x2="18" y2="32" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="13" x2="28" y2="13" stroke="currentColor" stroke-width="1.5"/><path d="M11 32 L25 32" stroke="currentColor" stroke-width="1.5"/></svg>`,
+    prompt: "The bones of St. Andral — holy relics that consecrate the church as sanctuary against undead — have been stolen. Altar boy Milivoj took them. Henrik the coffin maker was the intermediary. Vampire spawn wait in the coffin shop for the right moment. The party has a timeline and a chain of custody. What they do with both determines whether Vallaki has a church after the festival.",
+    paths: [
+      {
+        id: 'recover', label: 'Recover the Bones', sublabel: 'Before the festival, before the attack', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'The Church Reconsecrates',
+            body: "The bones are returned to their reliquary. The church reconsecrates. The vampire spawn Henrik was hiding — creatures Strahd placed to exploit exactly this vulnerability — are now locked out of the one safe building in Vallaki. Father Petrovich says a prayer that functions as thanks." },
+          { label: 'The Sessions That Follow', title: 'The Stable Point',
+            body: "St. Andral's church functions as a sanctuary for the rest of the Vallaki arc. The party can sleep there, leave Ireena there, use it as a base. The value of a consecrated space in a town where everything is politically precarious is difficult to overstate." },
+          { label: 'Campaign Echo', title: 'The Clearest Example',
+            body: "The church in Vallaki — consecrated and functional — becomes a reference point for what the party accomplished. When they need to explain to NPCs what they did here, the church is the clearest example: something that was about to be destroyed, isn't. The Barovian people have an intuitive understanding of what maintained churches mean." }
+        ]
+      },
+      {
+        id: 'fail', label: 'Fail to Recover in Time', sublabel: 'The festival night attack', tone: 'danger',
+        consequences: [
+          { label: 'That Night', title: 'The Festival Ends, Then the Spawn Come',
+            body: "The festival completes with compulsory happiness and a bonfire. Then the spawn come. The church, unconsecrated, cannot stop them. What follows is not a battle — it is a massacre with survivors. Father Petrovich survives through the stubbornness of a man who refuses to abandon his church." },
+          { label: 'The Sessions That Follow', title: 'Vallaki Loses Its Sanctuary',
+            body: "Without the church, the town has no organized spiritual shelter. The political fallout from the festival-night attack combines with whatever the party has done to the Baron's authority and produces a town in genuine crisis. The cost of incomplete action is not 'no benefit' — it is partial benefit plus the full weight of failure." },
+          { label: 'Campaign Echo', title: 'The Town That Reflects What Was Left Behind',
+            body: "When the party passes through Vallaki in the endgame, the church is rebuilding — or it isn't. This depends on what they did during the festival attack. The village they find reflects what they left behind. In Barovia, the campaign's second act is always partly a report on the first act's unfinished business." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'festival-blazing-sun', phase: 2,
+    title: "The Festival of the Blazing Sun",
+    location: "Vallaki — Town Square",
+    session: "Sessions 3–4",
+    teaser: "Baron Vallakovich has declared happiness mandatory and the festival will prove it. The party arrived one week too early to avoid being part of the proof.",
+    accent: 'var(--color-accent-ochre-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><circle cx="18" cy="18" r="7" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="18" y1="4" x2="18" y2="8" stroke="currentColor" stroke-width="1.2"/><line x1="18" y1="28" x2="18" y2="32" stroke="currentColor" stroke-width="1.2"/><line x1="4" y1="18" x2="8" y2="18" stroke="currentColor" stroke-width="1.2"/><line x1="28" y1="18" x2="32" y2="18" stroke="currentColor" stroke-width="1.2"/><line x1="8.5" y1="8.5" x2="11.3" y2="11.3" stroke="currentColor" stroke-width="1"/><line x1="24.7" y1="24.7" x2="27.5" y2="27.5" stroke="currentColor" stroke-width="1"/><line x1="27.5" y1="8.5" x2="24.7" y2="11.3" stroke="currentColor" stroke-width="1"/><line x1="11.3" y1="24.7" x2="8.5" y2="27.5" stroke="currentColor" stroke-width="1"/></svg>`,
+    prompt: "The Festival of the Blazing Sun is mandatory, organized, and supervised by Izek Strazni with the enthusiasm of a man who enjoys enforcement. The Baron requires visible happiness. The party has a week in Vallaki and a growing awareness that the political situation here is a pressure vessel. The festival can pass without incident, or it can become the moment the pressure fails.",
+    paths: [
+      {
+        id: 'controlled', label: 'Navigate to a Controlled Outcome', sublabel: 'Problems deferred, not solved', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'The Festival Completes',
+            body: "The festival completes. The Baron declares it a triumph of optimism. Izek watches the crowd and does not look satisfied — satisfaction requires achieving a goal, and his goal was always a moving target. The party got through without incident. In Vallaki, that is the best possible outcome, and everyone knows the festival always has incidents." },
+          { label: 'The Sessions That Follow', title: 'Time Purchased',
+            body: "The controlled festival buys time. The Baron's authority is intact, meaning the political standoff between his faction and Lady Wachter's continues on its existing timeline. The party has more room to move, more access, more time to find what they need in Vallaki before the situation deteriorates on its own schedule." },
+          { label: 'Campaign Echo', title: 'The Town That Survived',
+            body: "Vallaki is still standing when the party passes through on the way to Ravenloft. The institutional fabric of the town — its merchants, its walls, its people — survived the festival and its aftermath. The town that survives is different from the town that collapses. The party helped determine which one they passed through at the end." }
+        ]
+      },
+      {
+        id: 'chaos', label: 'Let Chaos Ignite', sublabel: 'The pressure vessel fails', tone: 'danger',
+        consequences: [
+          { label: 'That Night', title: 'The Festival Collapses',
+            body: "The festival collapses. Someone says the wrong thing, Izek makes one arrest too many, or the party takes an action that disrupts the Baron's careful management of mass happiness. The bonfire is still burning when the crowd stops performing joy and starts performing something else." },
+          { label: 'The Sessions That Follow', title: 'Opportunity and Catastrophe',
+            body: "The political crisis is both opportunity and catastrophe. Lady Wachter's faction moves faster than expected. The Baron's response is disproportionate, which accelerates rather than contains the situation. The party is in the middle of a political realignment they may have caused or merely hastened. The town's people will remember who was there." },
+          { label: 'Campaign Echo', title: 'The Town That Grew From Chaos',
+            body: "Vallaki after the political crisis is a different place. Lady Wachter's control — if the crisis went her way — means a town calmer, colder, and more aware that the calm is maintained at a cost. The party chose chaos. What grew in the aftermath is what they live with for the rest of the campaign." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'vallaki-stockade', phase: 2,
+    title: "The Vallaki Stockade",
+    location: "Vallaki — The Stockade",
+    session: "Sessions 3–4",
+    teaser: "The Baron's prison holds troublemakers and people who didn't smile convincingly enough. The party is now among them.",
+    accent: 'var(--color-accent-crimson-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><rect x="8" y="8" width="20" height="22" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="14" y1="8" x2="14" y2="30" stroke="currentColor" stroke-width="0.8" opacity="0.5"/><line x1="22" y1="8" x2="22" y2="30" stroke="currentColor" stroke-width="0.8" opacity="0.5"/><rect x="14" y="18" width="8" height="6" stroke="currentColor" stroke-width="1" fill="none" opacity="0.7"/></svg>`,
+    prompt: "The party is in the Vallaki stockade. How they got here is less important than what they do next. The stockade has guards, other prisoners, and a specific vulnerability that rewards a specific kind of attention. The party can escape quietly, escape loudly, or find something useful in the problem before they solve it.",
+    paths: [
+      {
+        id: 'quiet', label: 'Quiet Escape', sublabel: "Nothing broken that didn't need to be", tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'The Empty Cell',
+            body: "The party is out before anyone useful is awake. They leave the way experienced people leave spaces: nothing broken that didn't need breaking, no one harmed who was only doing a poor job. The guards' rounds complete without incident. By morning, the party is somewhere else in Vallaki, and the stockade has a mystery it will not solve." },
+          { label: 'The Sessions That Follow', title: 'Underestimated and Respected',
+            body: "The quiet exit preserves the party's options. The Baron still doesn't know what to make of them. Lady Wachter's people have an impression of a group that can get out of situations without burning the room. Being underestimated by the powerful and respected by the pragmatic is an excellent position in Vallaki." },
+          { label: 'Campaign Echo', title: 'A Reputation for Precision',
+            body: "The restraint of the quiet escape becomes part of the party's reputation in Barovia. The wereraven network carries word of people who solve problems without creating the next three. This reputation opens specific doors at specific moments — particularly with groups who have reason to trust that precision." }
+        ]
+      },
+      {
+        id: 'loud', label: 'Loud Escape — Burn the Room', sublabel: "Izek's professional attention", tone: 'danger',
+        consequences: [
+          { label: 'That Night', title: 'Conspicuous',
+            body: "The escape is complete and conspicuous. Several guards will recover. The stockade has structural damage. Izek Strazni, who was asleep an hour ago, is now awake conducting an assessment. The party is out, which is the important thing. The party is also now the specific subject of Izek Strazni's professional attention." },
+          { label: 'The Sessions That Follow', title: "Izek's Methodical Interest",
+            body: "Izek is methodical, physically overwhelming, and not subject to the political considerations that constrain the Baron. He does not need evidence — he needs sufficient certainty. The party burned the stockade exit. Izek will work backward from that fire for the rest of their time in Vallaki." },
+          { label: 'Campaign Echo', title: 'The Burning Room',
+            body: "The party's relationship with Izek Strazni — which escalates from stockade escape to whatever the final encounter produces — is shaped by how they left. A man who was professionally offended in Session 3 carries that offense through the campaign. Where it ends depends on the party. Where it started was the burning room." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'blinsky-dolls', phase: 2,
+    title: "Blinsky's Dolls",
+    location: "Vallaki — Blinsky's Toy Shop",
+    session: "Sessions 3–4",
+    teaser: "The toymaker makes whatever he is commissioned to make. Someone has been commissioning dolls that look exactly like Ireena Kolyana.",
+    accent: 'var(--color-accent-ochre-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><circle cx="18" cy="11" r="5" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M12 18 C12 14 24 14 24 18 L24 28 L12 28 Z" stroke="currentColor" stroke-width="1.2" fill="none"/><line x1="12" y1="22" x2="10" y2="28" stroke="currentColor" stroke-width="1"/><line x1="24" y1="22" x2="26" y2="28" stroke="currentColor" stroke-width="1"/></svg>`,
+    prompt: "Blinsky's shop sells unusual toys, and one toy in particular that is alarming. Someone has been ordering dolls that match Ireena Kolyana's appearance with specific accuracy — accuracy requiring close study of the subject. Blinsky knows who the commissioner is. The party knows who Ireena is. The connection between these two facts is waiting to be acknowledged.",
+    paths: [
+      {
+        id: 'follow-commission', label: 'Follow the Commission to Izek', sublabel: 'The fixation confirmed', tone: 'danger',
+        consequences: [
+          { label: 'That Night', title: 'Izek Strazni',
+            body: "The commissioner is Izek Strazni. The party has known he is dangerous in the way men with power and no self-reflection are dangerous. They now know he has a specific, personal fixation on a specific woman under their protection. These two facts, combined, produce urgency that was not present before." },
+          { label: 'The Sessions That Follow', title: 'An Active Threat, Not Background Noise',
+            body: "Izek's fixation on Ireena is now an active threat rather than a background condition. The party must manage a man who is both an instrument of the state and personally motivated in ways that don't answer to the state. The options are confrontation, misdirection, or withdrawal. All three have consequences." },
+          { label: 'Campaign Echo', title: 'The Warning That Was Visible Early',
+            body: "Whether Izek finds Ireena depends on choices made across the Vallaki arc. The dolls were a warning, visible early enough to change the outcome. Parties who act on it have a different Vallaki. The commission was not subtle — Blinsky was not hiding it. Strahd, who arranged the fixation, was not hiding it either." }
+        ]
+      },
+      {
+        id: 'note', label: 'Note and Move On', sublabel: "The threat Izek is counting on you ignoring", tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'Added to the List',
+            body: "The dolls are documented, mentally, for later consideration. The party has a list of threats in Vallaki and the dolls have joined it. There is a reasonable argument that the Blinsky information is less immediately pressing than the bones, the festival, and the political situation. This argument is correct. It is also the argument Izek Strazni is counting on." },
+          { label: 'The Sessions That Follow', title: 'The Threat That Addresses Itself',
+            body: "The threat not addressed in time becomes the threat that addresses itself. Izek's obsession with Ireena proceeds on its own timeline, independent of the party's attention. When it becomes urgent, the party will wish they treated the dolls as the escalation warning they were." },
+          { label: 'Campaign Echo', title: 'Evidence That Was Still Useful',
+            body: "What happens with Izek Strazni is determined by whether the party moved on the Blinsky information early enough. The doll in the shop was not a subtle signal — it was a literal object of evidence pointing directly at a specific threat to a specific person. The campaign rewards parties who follow evidence chains while the evidence is still useful." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'izek-obsession', phase: 2,
+    title: "Izek Strazni's Obsession",
+    location: "Vallaki — The Streets",
+    session: "Sessions 3–5",
+    teaser: "He has been dreaming about her for years. He doesn't know her name. He recognizes her face the moment he sees it.",
+    accent: 'var(--color-accent-crimson-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><path d="M18 5 L28 15 L28 25 L18 31 L8 25 L8 15 Z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M14 16 L22 16 M18 12 L18 20" stroke="currentColor" stroke-width="1.2" opacity="0.5"/><circle cx="18" cy="18" r="3" stroke="currentColor" stroke-width="0.8" fill="none"/></svg>`,
+    prompt: "Izek Strazni has been dreaming of a woman's face for years — a face that matches Ireena Kolyana's exactly, despite never having met her. When he sees her in Vallaki, the connection is immediate. The party must decide what to do with a man who is both the Baron's enforcer and a person experiencing something that cannot easily be classified as either threat or tragedy.",
+    paths: [
+      {
+        id: 'confront', label: 'Confront Izek Directly', sublabel: 'End the threat definitively', tone: 'danger',
+        consequences: [
+          { label: 'That Night', title: 'The Enforcer Falls',
+            body: "Confronting Izek directly means fighting a man with a devil arm, the Baron's authority, and nothing left to lose once the obsession is named. The fight is survivable. The political fallout from killing the Baron's captain in Vallaki's streets is a different problem — one that intersects with the festival, the bones, and Lady Wachter's calculations." },
+          { label: 'The Sessions That Follow', title: "The Baron's Problem Becomes the Party's",
+            body: "Without Izek, the Baron's enforcement capability collapses. This accelerates the political crisis. Lady Wachter's faction sees the opening. The town destabilizes faster than expected. The party solved the Izek problem and created the next three problems in the process — which is exactly the thing quiet escapes are designed to avoid." },
+          { label: 'Campaign Echo', title: 'What the Obsession Was About',
+            body: "Izek Strazni was Ireena's lost brother — separated in childhood, shaped by Barovia into something unrecognizable. The party that killed him killed a man whose connection to her was real. Whether this matters for the campaign's resolution depends entirely on what the party did with the knowledge before and after they learned it." }
+        ]
+      },
+      {
+        id: 'weaponize', label: 'Weaponize the Fixation', sublabel: 'Use what he feels against the Baron', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'A Lever That Works Once',
+            body: "The party that understands Izek's obsession has a lever: a man whose loyalty to the Baron is conditional on the Baron not interfering with his dreams. Used carefully, this fracture can be exploited. Used once. Izek is not sophisticated, but he is not stupid, and a lever discovered is a lever neutralized." },
+          { label: 'The Sessions That Follow', title: 'The Baron Without His Enforcer',
+            body: "Izek's divided loyalties — between his official role and his personal fixation — create margin the party can work with. The margin is real and limited. A man in Izek's position cannot be reliably manipulated across multiple sessions. The question is whether one well-placed use changes the Vallaki arc enough to be worth the risk." },
+          { label: 'Campaign Echo', title: 'A Tool With Feelings',
+            body: "Using Izek as a lever requires treating his obsession as a mechanism rather than a tragedy. The party can make this calculation. The results are real. So is the cost of having treated a man's last genuine feeling as a manipulation target. In Barovia, this kind of accounting tends to come due eventually." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'coffin-maker', phase: 2,
+    title: "The Coffin Maker",
+    location: "Vallaki — Henrik's Shop",
+    session: "Sessions 3–4",
+    teaser: "Henrik hid vampire spawn in his shop in exchange for something. He seems to have decided this was a mistake. It is too late for that decision.",
+    accent: 'var(--color-shroud-muted)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><path d="M12 5 L24 5 L28 12 L28 28 L8 28 L8 12 Z" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="8" y1="16" x2="28" y2="16" stroke="currentColor" stroke-width="0.8" opacity="0.4"/><path d="M15 21 L21 21" stroke="currentColor" stroke-width="1" opacity="0.5"/></svg>`,
+    prompt: "Henrik van der Voort, the coffin maker, colluded with Strahd's vampires to steal St. Andral's bones — letting vampire spawn hide in the shop in exchange for his own protection. The party has found the bones and dealt with the spawn. Henrik is here, trembling and alive. What happens to him now is the party's decision.",
+    paths: [
+      {
+        id: 'public', label: 'Punish Him Publicly', sublabel: 'Justice visible to Vallaki', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'The Town Sees What the Party Does',
+            body: "A public reckoning with Henrik sends a signal to Vallaki: the party holds people accountable. This is both useful and double-edged. The Baron's people note it. Lady Wachter's people note it differently. Vallaki is a town that reads signals carefully, because the signals have been enforced by someone with a devil arm for years." },
+          { label: 'The Sessions That Follow', title: 'A Reputation for Consequences',
+            body: "The party is known in Vallaki now as people who follow crimes to their sources and act on what they find. This closes certain doors — people with things to hide become less cooperative — and opens others. Father Petrovich treats them differently. The political calculation around them shifts." },
+          { label: 'Campaign Echo', title: 'The Standard They Set',
+            body: "The public punishment of Henrik becomes the implicit standard by which the party is measured in Vallaki's final accounting. They were people who acted on what they found. Whether this produced more justice than mercy, or more enemies than allies, is a question with an answer only the campaign's back half can provide." }
+        ]
+      },
+      {
+        id: 'release', label: 'Release Him', sublabel: 'Mercy the town will not understand', tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: 'A Confused Town',
+            body: "Releasing Henrik confuses Vallaki's social logic. He hid monsters. The party found the monsters. The party let the man who hid them go. This is mercy, or pragmatism, or something the town does not have a word for in its current political vocabulary, where everything is either enforcement or its absence." },
+          { label: 'The Sessions That Follow', title: 'A Debt Henrik Does Not Know How to Pay',
+            body: "Henrik is not a man who knows what to do with gratitude. He is alive when he had reason to expect otherwise. He remembers the party made this happen. This is not a resource with an immediate use, but Barovia is a place where people who owe the party strange, specific debts become valuable later in unexpected ways." },
+          { label: 'Campaign Echo', title: 'The Accounting of Mercy',
+            body: "What the party chose to do with Henrik — a man guilty of a serious crime, genuinely remorseful, and not otherwise threatening — is one of Barovia's calibration points. The campaign shows what mercy costs and what it buys. Whether the exchange rate was favorable depends on what Barovia needed them to be." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'arrigal-spy', phase: 2,
+    title: "Arrigal — the Spy in the Camp",
+    location: "Vallaki — Vistani Camp",
+    session: "Sessions 3–5",
+    teaser: "Arrigal is Strahd's agent. He is also Arabelle's uncle. He is also a man with his own calculation about what Barovia owes him.",
+    accent: 'var(--color-accent-crimson-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><circle cx="18" cy="18" r="10" stroke="currentColor" stroke-width="1.2" fill="none"/><circle cx="18" cy="18" r="4" stroke="currentColor" stroke-width="1" fill="none" opacity="0.6"/><line x1="18" y1="8" x2="18" y2="14" stroke="currentColor" stroke-width="0.8" opacity="0.4"/><line x1="18" y1="22" x2="18" y2="28" stroke="currentColor" stroke-width="0.8" opacity="0.4"/><line x1="8" y1="18" x2="14" y2="18" stroke="currentColor" stroke-width="0.8" opacity="0.4"/><line x1="22" y1="18" x2="28" y2="18" stroke="currentColor" stroke-width="0.8" opacity="0.4"/></svg>`,
+    prompt: "Arrigal is Strahd's spy in the Vistani camp — positioned there to monitor the party and report on Arabelle. He has been doing this work for years with the particular competence of a man who has made peace with who he is. The party has learned this. They must decide what to do with the knowledge before he learns they have it.",
+    paths: [
+      {
+        id: 'expose', label: 'Expose Him to Luvash', sublabel: 'Let the camp decide', tone: 'danger',
+        consequences: [
+          { label: 'That Night', title: 'The Camp Fractures',
+            body: "Exposing Arrigal to Luvash produces an immediate, irreversible fracture in the Vistani camp. Luvash's response is visceral — Arrigal is his brother, Arabelle is his daughter, and the betrayal is personal as well as political. What happens to Arrigal depends on whether the party stays to see it through or delivers the information and steps back." },
+          { label: 'The Sessions That Follow', title: 'A Camp With a Wound',
+            body: "The Vistani camp near Vallaki is functional but damaged. Luvash trusts the party more and trusts his own judgment less — a man who did not see his own brother's betrayal is not sure what else he has been missing. The party's relationship with the camp is more direct, and more fraught." },
+          { label: 'Campaign Echo', title: 'Strahd Without a Source',
+            body: "With Arrigal removed from his position, Strahd loses a specific intelligence channel near Vallaki. He has others. But the party that exposed Arrigal has demonstrated willingness to do so — to name the spy, accept the consequences, and trust the camp with the fallout. This is a demonstration Strahd registers." }
+        ]
+      },
+      {
+        id: 'use-quietly', label: 'Use the Knowledge Quietly', sublabel: 'Let him think he is safe', tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: 'A Double Agent the Party Controls',
+            body: "The party that knows Arrigal is a spy and says nothing to Luvash has a specific, time-limited asset: information about what Strahd is receiving. Arrigal does not know his cover is broken. The party can feed him specific things, shape what Strahd hears, or simply observe what he reports. This is useful exactly until he finds out." },
+          { label: 'The Sessions That Follow', title: 'The Intelligence the Party Shapes',
+            body: "Managing a double agent in Barovia is possible. It is also a calculation that requires the party to consistently lie by omission to Luvash, who trusts them. The gap between 'useful deception' and 'becoming the kind of people Barovia makes you into' is narrower than it looks from the outside." },
+          { label: 'Campaign Echo', title: 'What They Became While Managing the Asset',
+            body: "The intelligence the party gathered by running Arrigal as an asset produced real results. So did the three sessions of managing the situation without telling Luvash the truth. In Barovia, the distinction between the choices that made them effective and the choices that changed them is one of the things the campaign finally forces them to reckon with." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'arabelle-after', phase: 2,
+    title: "Arabelle — What Happens After",
+    location: "Van Richten's Tower — The Aftermath",
+    session: "Sessions 4–6",
+    teaser: "Arabelle is alive. She was held at Van Richten's Tower, which is its own complication. Her return to Luvash is not the only option the party has.",
+    accent: 'var(--color-accent-spectre-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><circle cx="18" cy="14" r="7" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M9 30 C9 23 27 23 27 30" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="18" y1="21" x2="18" y2="25" stroke="currentColor" stroke-width="1" opacity="0.5"/></svg>`,
+    prompt: "Arabelle has been found alive at Van Richten's Tower, where she was kept for reasons the party may not fully understand yet. Her father Luvash is waiting. Arrigal has his own interest in her return. Van Richten has opinions about her safety. The party holds the immediate decision: who does she go to, and how?",
+    paths: [
+      {
+        id: 'luvash', label: 'Return Her to Luvash', sublabel: 'The expected answer', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: "Luvash's Relief",
+            body: "Luvash's response to Arabelle's return is not gratitude — it is relief so large it is indistinguishable from grief. He holds her and does not let go for a long time. The camp has a night that is genuinely different from any night in recent memory. The party receives something rarer than gold: genuine goodwill from people who have reason to be skeptical." },
+          { label: 'The Sessions That Follow', title: 'The Vistani Network Opens',
+            body: "The Vistani near Vallaki become a genuine resource — information, transport, shelter, and the particular intelligence that comes from people who travel Barovia freely. The return of Arabelle was the price of access to a network the party could not have purchased. They paid it by doing the right thing, which is the most Barovia tends to offer." },
+          { label: 'Campaign Echo', title: 'The Network at the Endgame',
+            body: "When the party approaches Castle Ravenloft, the Vistani intelligence network — activated by Arabelle's safe return — is one of the advantages they carry. Information about patrol routes, about which roads Strahd's servants monitor, about the timing of his awareness. Small advantages at the scale of an endgame become decisive." }
+        ]
+      },
+      {
+        id: 'party', label: 'Keep Arabelle with the Party', sublabel: 'For her safety, for now', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'A Child in a Campaign',
+            body: "Arabelle is not a passive ward — she is clever, perceptive, and has a disconcerting tendency to understand more than she should. Keeping her with the party is immediately complicated by the realities of a campaign moving through Barovia's wilderness. She is safe in the specific sense that the party can see her. She is safe in no other sense." },
+          { label: 'The Sessions That Follow', title: 'Luvash Is Not Patient',
+            body: "Luvash expected his daughter back. He is receiving updates. The updates are not the same as his daughter. His patience, which was not unlimited to begin with, is not improving. The party has Arabelle and a deteriorating relationship with the Vistani camp — two things that were not supposed to be in opposition." },
+          { label: 'Campaign Echo', title: 'The Resolution and Its Cost',
+            body: "Eventually Arabelle returns to Luvash — the party cannot keep her indefinitely across a campaign. How this is resolved, and when, determines whether the Vistani intelligence network is available for the endgame or whether it was spent on managing a mistake made in an earlier session." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'rictavio-unmasked', phase: 2,
+    title: "Rictavio Unmasked — the Arabelle Fork",
+    location: "Vallaki — Blue Water Inn & Van Richten's Tower",
+    session: "Sessions 4–5",
+    teaser: "When Van Richten's cover breaks, Arabelle goes missing simultaneously. Two crises, one party. Which one first?",
+    accent: 'var(--color-accent-ochre-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><path d="M8 8 L28 28 M28 8 L8 28" stroke="currentColor" stroke-width="0.8" opacity="0.3"/><circle cx="18" cy="8" r="4" stroke="currentColor" stroke-width="1.2" fill="none"/><circle cx="18" cy="28" r="4" stroke="currentColor" stroke-width="1.2" fill="none"/><line x1="18" y1="12" x2="18" y2="24" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" opacity="0.5"/></svg>`,
+    prompt: "Rictavio's true identity as Rudolph van Richten is exposed in Vallaki — the disguise that kept him safe can no longer hold. Simultaneously, Arabelle has gone missing from the Vistani camp. Both situations are urgent. Both require immediate attention. The party has one party.",
+    paths: [
+      {
+        id: 'van-richten-first', label: 'Van Richten First', sublabel: 'Secure your most powerful ally', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'The Safer Ally, the Longer Search',
+            body: "Getting Van Richten out of Vallaki before the Baron's people find him is the correct priority if the party is playing a long game. He is safe. He relocates to his tower. The Arabelle crisis runs an additional hour without the party's involvement. In Barovia, an unattended crisis tends to develop in the direction of maximum difficulty." },
+          { label: 'The Sessions That Follow', title: 'Van Richten Committed, Arabelle Complicated',
+            body: "Van Richten's commitment is secured by the party's demonstrated willingness to prioritize his safety. Arabelle's situation, when the party arrives at the tower, has developed. Whether this development is recoverable depends on exactly what the intervening time allowed to happen — a calculation the party made implicitly when they chose their first priority." },
+          { label: 'Campaign Echo', title: 'The Trade-Off That Shaped the Alliance',
+            body: "The party's choices when the two crises arrived simultaneously determined which allies they had, in what condition, for the rest of the campaign. Van Richten committed and capable is worth a great deal. Whether Arabelle's situation cost something that couldn't be recovered is the question the endgame forces the party to answer." }
+        ]
+      },
+      {
+        id: 'arabelle-first', label: 'Arabelle First', sublabel: 'The child cannot wait', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'The Child Found, the Ally Exposed',
+            body: "The party reaches Arabelle while Van Richten handles his own situation. He is capable — he has been surviving in Barovia alone for years — but the exposure costs him Vallaki as a base. He relocates under more pressure than the party managed to take off him. He arrives at his tower with fewer resources than if the party had come first." },
+          { label: 'The Sessions That Follow', title: "Van Richten's Diminished Position",
+            body: "Van Richten is available. He is also depleted in specific ways — equipment left behind, contacts burned, the particular kind of wariness that comes from narrowly evading a situation you couldn't prepare for. He is still the most dangerous person in Barovia who can be recruited. He is just not quite the person he would have been." },
+          { label: 'Campaign Echo', title: "What Arabelle's Safety Was Worth",
+            body: "The party chose Arabelle over Van Richten's optimal outcome. What this cost, and what it returned in terms of Vistani goodwill and Arabelle's own significance, is the campaign's accounting. In Barovia, every choice in a fork is simultaneously a sacrifice and an investment. The ledger closes at the endgame." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'wachterhaus-cult', phase: 2,
+    title: "The Wachterhaus Cult",
+    location: "Vallaki — Wachterhaus",
+    session: "Sessions 3–5",
+    teaser: "Lady Wachter runs a devil-worshipping cult. This is her private business. The party now knows about it.",
+    accent: 'var(--color-shroud-parchment)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><path d="M18 4 L18 32 M10 12 L26 12 M7 20 L29 20" stroke="currentColor" stroke-width="1" opacity="0.5"/><circle cx="18" cy="12" r="3" stroke="currentColor" stroke-width="1.2" fill="none"/><circle cx="18" cy="20" r="3" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>`,
+    prompt: "Lady Wachter's household conceals a cult devoted to a devil — not Strahd, not the Dark Powers, but a different entity entirely. She considers this her private spiritual arrangement. The party has discovered this. They can expose it, leverage it, or ignore it. Each option shapes their relationship with Vallaki's most politically capable operator.",
+    paths: [
+      {
+        id: 'expose', label: 'Expose the Cult', sublabel: 'Justice, at a political cost', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'The Useful Ally Becomes an Enemy',
+            body: "Exposing the cult removes Lady Wachter from the political equation. It also removes the party's most sophisticated Vallaki ally. The Baron's authority may survive without the opposition, or it may not — but the party has eliminated the option of working with Wachter. In Barovia, closed options tend not to reopen." },
+          { label: 'The Sessions That Follow', title: 'Vallaki Without Its Smartest Actor',
+            body: "The political situation in Vallaki without Lady Wachter is less stable, not more. The Baron's unchecked authority produces worse outcomes than the contested authority she represented. The party did a just thing. Just things in Barovia often produce complicated outcomes." },
+          { label: 'Campaign Echo', title: 'The Absence That Shapes the Endgame',
+            body: "When the party needs Vallaki as a staging ground for the approach to Ravenloft, the political situation they find reflects what they left. The absence of Wachter — the one person who could have stabilized the town after the Baron fell — is felt. Justice and strategic wisdom are not always the same choice." }
+        ]
+      },
+      {
+        id: 'leverage', label: 'Leverage It', sublabel: 'A lever over an intelligent woman', tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: 'The Leverage Is Real and Limited',
+            body: "Lady Wachter is not naive. She knows what the party has and what it means. The leverage is real — she would rather it not be public — but it is limited. A woman who survived years in Vallaki by being the most careful actor in the room does not suddenly become careless because someone learned her secret. She negotiates from a weakened position. She is still negotiating." },
+          { label: 'The Sessions That Follow', title: 'A Useful Alliance on Worse Terms',
+            body: "The alliance with Wachter holds, under the shadow of what the party knows. She delivers what she commits to — she has no alternative. The quality of the collaboration is real. The relationship underneath it has been changed in a specific direction. She is cooperative. She is not an ally." },
+          { label: 'Campaign Echo', title: 'What the Leverage Cost the Relationship',
+            body: "When the party eventually needs Lady Wachter to do something genuinely dangerous — something leverage cannot compel — the difference between an ally and a person under pressure becomes decisive. The leverage that produced compliance in Sessions 3–5 produces calculation in the endgame. She does what she calculates is in her interest. This is not the same as what the party needs." }
+        ]
+      }
+    ]
+  }
+];
+
+// ── STATE ────────────────────────────────────────────────────────────────────
+
+const state = { view: 'grid', scenarioId: null, pathId: null };
+const main  = document.getElementById('main-content');
+
+// ── RENDER ───────────────────────────────────────────────────────────────────
+
+function render() {
+  if (state.view === 'grid')     renderGrid();
+  else if (state.view === 'scenario') renderScenario();
+  else if (state.view === 'cascade')  renderCascade();
+}
+
+function navigate(updates) {
+  Object.assign(state, updates);
+  render();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  main.focus({ preventScroll: true });
+}
+
+// ── GRID VIEW ────────────────────────────────────────────────────────────────
+
+const PHASE_LABELS = {
+  0: 'Featured',
+  1: 'Phase 1 — Entering the Curse',
+  2: 'Phase 2 — Vallaki'
+};
+
+function cardHtml(s) {
+  return `
+    <li role="listitem">
+      <button
+        class="scenario-card"
+        data-id="${s.id}"
+        style="--card-accent: ${s.accent}"
+        aria-label="Explore: ${s.title}"
+      >
+        <div class="scenario-card__ornament">${s.ornament}</div>
+        <span class="scenario-card__session">${s.session}</span>
+        <span class="scenario-card__title">${s.title}</span>
+        <p class="scenario-card__location">${s.location}</p>
+        <p class="scenario-card__teaser">${s.teaser}</p>
+        <span class="scenario-card__cta" aria-hidden="true">
+          Trace the consequences
+          <svg class="scenario-card__cta-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none" focusable="false">
+            <path d="M8 3L13 8L8 13M13 8H2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+      </button>
+    </li>
+  `;
+}
+
+function renderGrid() {
+  const phases = [0, 1, 2];
+  const groups = phases
+    .map(p => ({ phase: p, label: PHASE_LABELS[p], scenarios: SCENARIOS.filter(s => s.phase === p) }))
+    .filter(g => g.scenarios.length > 0);
+
+  main.innerHTML = `
+    <p class="section-label" aria-live="polite">Choose a Decision Point</p>
+    ${groups.map(g => `
+      <div class="scenario-phase">
+        <p class="phase-label">${g.label}</p>
+        <ul class="scenario-grid" role="list">
+          ${g.scenarios.map(cardHtml).join('')}
+        </ul>
+      </div>
+    `).join('')}
+  `;
+
+  main.querySelectorAll('.scenario-card').forEach(btn => {
+    btn.addEventListener('click', () =>
+      navigate({ view: 'scenario', scenarioId: btn.dataset.id, pathId: null })
+    );
+  });
+}
+
+// ── SCENARIO VIEW ────────────────────────────────────────────────────────────
+
+function renderScenario() {
+  const s = SCENARIOS.find(x => x.id === state.scenarioId);
+  const count = s.paths.length;
+
+  main.innerHTML = `
+    <div style="animation: emerge var(--motion-deliberate) var(--ease-emerge) both;">
+      <div class="detail-header">
+        <button class="btn-back" id="btn-back" aria-label="Back to all scenarios">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+            <path d="M8 13L3 8L8 3M3 8H13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          All Scenarios
+        </button>
+        <div>
+          <p class="detail-eyebrow">${s.session}</p>
+          <h2 class="detail-title">${s.title}</h2>
+          <p class="detail-location">${s.location}</p>
+        </div>
+      </div>
+
+      <div class="decision-prompt">
+        <p class="decision-prompt__label">The Moment of Decision</p>
+        <p class="decision-prompt__text">${s.prompt}</p>
+      </div>
+
+      <p class="section-label">Which path does the party take?</p>
+
+      <div class="path-grid path-grid--${count}">
+        ${s.paths.map(p => `
+          <button class="path-btn path-btn--${p.tone}" data-path="${p.id}"
+            aria-label="Choose: ${p.label}">
+            <div class="path-btn__label">${p.label}</div>
+            <div class="path-btn__sublabel">${p.sublabel}</div>
+          </button>
+        `).join('')}
+      </div>
+    </div>
+  `;
+
+  document.getElementById('btn-back').addEventListener('click', () =>
+    navigate({ view: 'grid', scenarioId: null, pathId: null })
+  );
+
+  main.querySelectorAll('.path-btn').forEach(btn => {
+    btn.addEventListener('click', () =>
+      navigate({ view: 'cascade', pathId: btn.dataset.path })
+    );
+  });
+}
+
+// ── CASCADE VIEW ─────────────────────────────────────────────────────────────
+
+function renderCascade() {
+  const s    = SCENARIOS.find(x => x.id === state.scenarioId);
+  const path = s.paths.find(p => p.id === state.pathId);
+  const alts = s.paths.filter(p => p.id !== state.pathId);
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  main.innerHTML = `
+    <div class="cascade-wrap">
+      <div class="detail-header">
+        <button class="btn-back" id="btn-back" aria-label="Back to choose a path">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+            <path d="M8 13L3 8L8 3M3 8H13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Choose Again
+        </button>
+        <div>
+          <p class="detail-eyebrow">${s.session} &mdash; ${s.title}</p>
+          <h2 class="detail-title">${path.label}</h2>
+          <p class="detail-location">${s.location}</p>
+        </div>
+      </div>
+
+      <div class="decision-prompt">
+        <p class="decision-prompt__label">The Path Taken</p>
+        <p class="decision-prompt__text">${path.sublabel}. Every choice in Barovia has a weight. Here is where this one lands.</p>
+      </div>
+
+      <p class="section-label">The Consequence Cascade</p>
+
+      <div class="cascade-track" role="list" aria-label="Consequences across three time horizons">
+        ${path.consequences.map((c, i) => `
+          <div class="cascade-item cascade-item--${i + 1}${reduced ? ' visible' : ''}"
+               data-index="${i}" role="listitem">
+            <div class="cascade-node" aria-hidden="true">
+              <span class="cascade-node-num">${i + 1}</span>
+            </div>
+            <div class="cascade-card">
+              <div class="cascade-horizon">${c.label}</div>
+              <h3 class="cascade-card-title">${c.title}</h3>
+              <p class="cascade-card-body">${c.body}</p>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+
+      <div class="alt-bar">
+        <p class="alt-bar__label">Explore alternate paths</p>
+        <div class="alt-bar__buttons">
+          ${alts.map(alt => `
+            <button class="btn-alt" data-alt="${alt.id}">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                <path d="M8 2L5 7H11L8 2Z M8 14V7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              What if: ${alt.label}
+            </button>
+          `).join('')}
+          <button class="btn-alt" id="btn-all-scenarios">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+              <rect x="1.5" y="1.5" width="5" height="5" stroke="currentColor" stroke-width="1.2"/>
+              <rect x="9.5" y="1.5" width="5" height="5" stroke="currentColor" stroke-width="1.2"/>
+              <rect x="1.5" y="9.5" width="5" height="5" stroke="currentColor" stroke-width="1.2"/>
+              <rect x="9.5" y="9.5" width="5" height="5" stroke="currentColor" stroke-width="1.2"/>
+            </svg>
+            All Scenarios
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Staggered entrance animation
+  if (!reduced) {
+    main.querySelectorAll('.cascade-item').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), 180 + i * 220);
+    });
+  }
+
+  document.getElementById('btn-back').addEventListener('click', () =>
+    navigate({ view: 'scenario', pathId: null })
+  );
+
+  document.getElementById('btn-all-scenarios').addEventListener('click', () =>
+    navigate({ view: 'grid', scenarioId: null, pathId: null })
+  );
+
+  main.querySelectorAll('.btn-alt[data-alt]').forEach(btn => {
+    btn.addEventListener('click', () =>
+      navigate({ pathId: btn.dataset.alt })
+    );
+  });
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+
+// Inject emerge animation keyframes dynamically (avoids duplicate in CSS)
+const style = document.createElement('style');
+style.textContent = `@keyframes emerge { from { opacity:0; transform:translateY(6px);} to { opacity:1; transform:translateY(0);} }`;
+document.head.appendChild(style);
+
+render();
+</script>
+</body>
+</html>
