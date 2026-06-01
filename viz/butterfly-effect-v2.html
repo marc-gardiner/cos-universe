@@ -1993,6 +1993,376 @@ const SCENARIOS = [
     ]
   },
 
+  // ── PHASE 4 — KREZK & DEEPER WILDERNESS ─────────────────────────────────────
+
+  {
+    id: 'dmitri-krezkovs-gate', phase: 4,
+    title: "Dmitri Krezkov's Gate",
+    location: "Krezk — The Village Gate",
+    session: "Sessions 6–8",
+    teaser: "The gate is shut. The man on the other side is frightened and grieving. You need to be inside. This is a conversation that cannot become a siege.",
+    accent: 'var(--color-shroud-parchment)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><rect x="8" y="10" width="20" height="20" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M15 30 L15 22 Q18 19 21 22 L21 30" stroke="currentColor" stroke-width="1.2" fill="none"/><line x1="8" y1="16" x2="28" y2="16" stroke="currentColor" stroke-width="0.8" opacity="0.5"/><path d="M16 6 L18 4 L20 6 L22 4" stroke="currentColor" stroke-width="1" fill="none" opacity="0.6"/></svg>`,
+    prompt: "Krezk's gates are shut. Burgomaster Dmitri Krezkov has buried his son this week and closed the village to strangers. He is not wrong to do this — the roads outside are exactly as dangerous as he fears. The party needs to get inside. The reasons range from Ireena's safety to the Abbey to simple geography. Dmitri is a man who has recently lost everything, talking through a gate to more strangers carrying more requests.",
+    paths: [
+      {
+        id: 'deliver', label: 'Deliver Something Krezk Needs', sublabel: 'Wine, aid — something real', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'The Gate Opens for Evidence',
+            body: "The party arrived with something Krezk needed and was not in a position to get itself. The gate opened because something tangible changed on the other side of it. Dmitri is a man who responds to evidence rather than argument — proof of the party's usefulness is proof he can use to justify the risk. The village opens. The village is exactly as grieving as the gate implied." },
+          { label: 'The Sessions That Follow', title: 'Guests Who Arrived Carrying Something',
+            body: "Having entered as people who delivered something, the party has a specific relationship with Krezk — they are not guests, exactly, but not strangers either. The burgomaster will speak with them. The village will speak with them. Whatever they learn here is learned in a community that owes them something small and specific." },
+          { label: 'Campaign Echo', title: 'The Village That Remembers Usefulness',
+            body: "Krezk remembers what the party brought. When the final approach to Ravenloft requires passage through the wilderness, the village is not closed to them. Small communities remember both cruelty and usefulness with equal precision." }
+        ]
+      },
+      {
+        id: 'invoke-authority', label: 'Invoke Authority', sublabel: "A name that opens gates", tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'The Credential Opens the Gate',
+            body: "The name opens the gate — or the letter does, or the credential. Dmitri respects the structures of power in Barovia, imperfect as they are, because the alternative to structures of power is the road outside. The party enters as guests of an authority rather than as people who provided something. This is a different kind of entry." },
+          { label: 'The Sessions That Follow', title: 'The Distance Borrowed Authority Creates',
+            body: "Inside Krezk, the authority that opened the gate shapes how the village relates to the party. They are here because of someone else's word. The village is polite in the way people are polite to guests they did not invite. The information available here is available — but filtered through the particular distance that borrowed authority creates." },
+          { label: 'Campaign Echo', title: "The Lender's History",
+            body: "The credential that opened Krezk's gate belonged to someone else. When that authority's reputation shifts — the Baron's fate, or whatever happens to the named ally — the party's standing in Krezk shifts with it. In Barovia, borrowed legitimacy borrows the lender's history." }
+        ]
+      },
+      {
+        id: 'circumvent', label: 'Circumvent the Gate', sublabel: 'Walls are for people who ask permission', tone: 'danger',
+        consequences: [
+          { label: 'That Night', title: 'A Tactical Success Becomes a Social Problem',
+            body: "The party goes over the wall, through a gap, or past the gate by another method. They are inside Krezk without Dmitri's knowledge or consent. The tactical success immediately becomes a complicated social situation when the first villager sees them somewhere they shouldn't be, without any explanation Krezk finds satisfying." },
+          { label: 'The Sessions That Follow', title: 'Operating Under the Shadow of an Unauthorized Entry',
+            body: "The village knows they got in wrong. The information and resources available are available, but extracted from a community that is watching the people who did not respect the gate. In Barovia, communities that feel violated are communities with long memories and closed mouths." },
+          { label: 'Campaign Echo', title: 'Somewhere That Remembers Them',
+            body: "Krezk's gate was the first line of a relationship the party chose not to have. When they need the village as a waypoint or haven on the final approach, they are not returning to somewhere that remembers them well. They are returning to somewhere that remembers them." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'ireena-blessed-pool', phase: 4,
+    title: "Ireena at the Blessed Pool",
+    location: "Krezk — The Blessed Pool",
+    session: "Sessions 6–9",
+    teaser: "He has her name. He says he loves her. He is the murdered brother of the man who has been hunting her across centuries. The pool is calling. This cannot be undone.",
+    accent: 'var(--color-accent-spectre-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><ellipse cx="18" cy="22" rx="11" ry="5" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.6"/><path d="M12 22 Q18 12 24 22" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="18" cy="11" r="3" stroke="currentColor" stroke-width="1" fill="none" opacity="0.8"/><path d="M15 9 L13 5 M21 9 L23 5" stroke="currentColor" stroke-width="0.8" opacity="0.5"/></svg>`,
+    prompt: "The spirit that appears in the pool at Krezk is Sergei von Zarovich — Strahd's murdered younger brother, the man Ireena was before she was Ireena. He calls to her by a name she has never heard. The pool responds. Something is happening that has its own momentum, and the party has to decide, in the specific moment it is happening, whether to let it complete.",
+    paths: [
+      {
+        id: 'let-complete', label: 'Let It Complete', sublabel: 'She is finally free of him', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'Something That Has Ended',
+            body: "Sergei and Ireena go into the pool together. The party watches. She looks, in the moment before she is gone, like someone who has stopped running. She is no longer in Barovia. She is no longer accessible to Strahd. She is no longer accessible to the party. This is a thing that has ended, and endings in Barovia rarely feel like relief." },
+          { label: 'The Sessions That Follow', title: 'Strahd Knowing',
+            body: "Strahd knows. He has senses that extend through Barovia's mists, and Tatyana is a presence he has tracked for centuries. What he does with knowing — whether it makes him reckless, more dangerous, broken in a specific way — is how the campaign shapes his final form." },
+          { label: 'Campaign Echo', title: 'Grief Made Monstrous, or Grief Made Hollow',
+            body: "Strahd goes into the endgame having lost Tatyana again. Four centuries of pursuit, ended at a pool he cannot enter. Whether this makes him more dangerous or more vulnerable is the specific texture of the final confrontation the party now faces. They did not choose to fight a grieving monster. But that is what the pool at Krezk produced." }
+        ]
+      },
+      {
+        id: 'intervene', label: 'Intervene — Pull Her Back', sublabel: "She doesn't get to choose if she's gone", tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'The Party Stopped Something',
+            body: "The party intervenes. Ireena comes back — briefly Tatyana, confused, then herself again. The pool closes. Sergei's spirit is no longer visible. The choice is in the room with all of them: the party decided that Ireena staying was more important than whatever was happening to her in that moment. She was moving toward something. They stopped her." },
+          { label: 'The Sessions That Follow', title: 'Someone Who Saw the Other Side',
+            body: "Ireena continues. She is herself. She is also someone who saw something in that pool and was brought back from it. Strahd's pursuit continues because the thing he has been pursuing for four centuries is still in Barovia. What Ireena saw, and what she makes of being pulled back, is a conversation the party now has to have or avoid." },
+          { label: 'Campaign Echo', title: 'The Cost of Following Through',
+            body: "They brought her back. She is there at the endgame — capable, present, shaped by everything she has survived. Strahd is still coming. The party chose to keep fighting alongside someone they pulled back from her exit. Whether she is grateful or something more complicated is a question only the conversation after the pool can answer." }
+        ]
+      },
+      {
+        id: 'speak-first', label: 'Speak to Sergei Before Acting', sublabel: 'Ask what he is offering before you stop it', tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: 'A Decision Made With Information',
+            body: "The party speaks to Sergei before acting — or tries to. He is not fully present in the way living people are present. What passes between them is enough to establish what is happening: she goes with him, or she doesn't. He cannot force it. The party's intervention is, in the end, the choice they came to, but they made it with more information than they had before the conversation." },
+          { label: 'The Sessions That Follow', title: 'What Ireena Knows About the Party',
+            body: "Ireena remembers the pool differently when the party tried to understand before they decided. She knows they chose her presence deliberately, not reflexively. What this means for what she's willing to do alongside them is something the campaign now has room to explore." },
+          { label: 'Campaign Echo', title: 'Eyes Open',
+            body: "The party understood what they were refusing before they refused it. Sergei's offer, Tatyana's rest, the end of the cycle — they saw it and chose the fight anyway. Whatever the final confrontation costs, it is a cost the party accepted knowing what the alternative was. This is the specific weight of a decision made with eyes open." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'abbots-bargain', phase: 4,
+    title: "The Abbot's Bargain",
+    location: "Krezk — The Abbey of Saint Markovia",
+    session: "Sessions 7–10",
+    teaser: "He can raise the dead. His price is finding a wedding gown for the bride he's building Strahd out of spare parts. Somewhere in this request is a line.",
+    accent: 'var(--color-shroud-parchment)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><path d="M18 4 L18 32" stroke="currentColor" stroke-width="1.5"/><path d="M10 14 L26 14 M10 22 L26 22" stroke="currentColor" stroke-width="1" opacity="0.6"/><circle cx="18" cy="9" r="3" stroke="currentColor" stroke-width="1" fill="none"/><path d="M12 28 L24 28" stroke="currentColor" stroke-width="1.2"/></svg>`,
+    prompt: "The Abbot of Saint Markovia has been in Barovia for one hundred years, perfecting a project: a flesh golem bride, built to specification, intended to cure Strahd of his obsession with Tatyana. He needs a wedding gown to complete her. He can cast Raise Dead. The exchange is what it is. The party either needs what he can do, or they don't.",
+    paths: [
+      {
+        id: 'find-gown', label: 'Find the Gown', sublabel: 'The transaction is clean until it isn\'t', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'An Errand With a Moral Inventory',
+            body: "Finding the gown is an errand with a destination — Vallaki's seamstress or somewhere the party identifies through investigation. The errand is manageable. What makes it complicated is what the party is doing while they run it: supplying a resource to a fallen celestial building an engineered bride for a vampire, on the theory that the whole project produces a net reduction in suffering." },
+          { label: 'The Sessions That Follow', title: 'The Project Continues',
+            body: "The gown is delivered. The Abbot's work continues. If the party needed Raise Dead, they receive it. What they leave behind is a project they facilitated: Vasilka, the flesh golem bride, will be complete. When she is presented to Strahd, his response is part of the campaign's outcome. The gown the party found is part of that response." },
+          { label: 'Campaign Echo', title: 'Barovia\'s Most Sincere Failed Solution',
+            body: "The bride the Abbot built with the party's help is part of Barovia's landscape at the endgame. What Strahd makes of her — contempt, grief, something more complicated — shapes the texture of the final encounter. The party funded one of Barovia's more sincere efforts at solving the Strahd problem. The effort's failure or success is not fully in their hands." }
+        ]
+      },
+      {
+        id: 'refuse-abbot', label: 'Refuse', sublabel: 'The price is wrong', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'The Abbot Is Not Surprised',
+            body: "The party declines. The Abbot is not offended — he has been here a hundred years, and nothing about the party's refusal is new information about what adventurers are like. He will find another way to complete his project or he won't. The party leaves the Abbey without the resource, carrying a refusal they made for reasons that may or may not have been the right ones." },
+          { label: 'The Sessions That Follow', title: 'Principle in Barovia Has a Price',
+            body: "Without the Abbot's cooperation, whatever the party needs from his specific capacity — Raise Dead, information about the Abbey's history, resources within Krezk — is either unavailable or acquired through other means at greater cost. Refusing the Abbot is a principled position. Principle in Barovia has costs that other places do not charge." },
+          { label: 'Campaign Echo', title: 'A Thread the Party Removed Themselves From',
+            body: "The Abbot completed his project without the party's gown, or he didn't. Vasilka exists or she doesn't. The presentation to Strahd happens or it doesn't. The party's refusal removed them from one thread of Barovia's attempt to solve its own problem. Whether that thread mattered is something the endgame answers, not the refusal." }
+        ]
+      },
+      {
+        id: 'investigate-abbot', label: 'Investigate Before Deciding', sublabel: 'The Abbot is not what he appears', tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: 'What One Hundred Years Does to a Deva',
+            body: "Investigating the Abbot reveals what a century in Barovia has done to a celestial — the corruption, the certainty, the specific failure mode of a divine being who has forgotten how to question his own conclusions. This information changes what the transaction means. The party now knows who they are bargaining with. Some find this convincing. Others find it disqualifying." },
+          { label: 'The Sessions That Follow', title: 'A Comprehensible Resource',
+            body: "What the party learns shapes every subsequent interaction with the Abbey. The Abbot is no longer a cryptic resource — he is a comprehensible one, with specific vulnerabilities and a specific arc. Whether the party helps him, exposes him, or tries to help him remember what he was, the campaign has a thread here that the investigation opened and refusing to look would have left closed." },
+          { label: 'Campaign Echo', title: 'Understanding Something Too Well to Fix It',
+            body: "The Abbot's fate — restored, destroyed, continuing — is part of Barovia's landscape at the endgame. The party who investigated are the only people in the campaign who understand what he became and why. That understanding either produces an outcome the investigation made possible, or it produces the specific grief of understanding something too well to fix it." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'kasimirs-sister', phase: 4,
+    title: "Kasimir's Sister",
+    location: "Barovia — The Road to the Amber Temple",
+    session: "Sessions 8–11",
+    teaser: "He killed his sister to stop Strahd from having her. He has been mourning her for four hundred years. He wants her back, and he's found where the power to do it lives.",
+    accent: 'var(--color-accent-ochre-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><path d="M18 4 L22 14 L32 14 L24 20 L27 30 L18 24 L9 30 L12 20 L4 14 L14 14 Z" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.6"/><circle cx="18" cy="18" r="4" stroke="currentColor" stroke-width="1" fill="none"/></svg>`,
+    prompt: "Kasimir Velikov led the execution of his own sister Patrina four hundred years ago, because she was consorting with Strahd. He was trying to save her from what Strahd would make of her. He has been wrong about whether he succeeded for four hundred years. He has found the Amber Temple and believes he can resurrect her there. The party has to decide whether to help a man atone for a murder by enabling a resurrection they cannot fully evaluate.",
+    paths: [
+      {
+        id: 'guide-kasimir', label: 'Guide Him to the Temple', sublabel: 'His debt to her is his to carry', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'Certainty Meets the Temple',
+            body: "The party takes Kasimir to the Amber Temple. His plan is specific — the vestiges there have power over life and death, and he believes he can use that power without losing himself. He has been thinking about this for centuries. His confidence is the confidence of someone who has rehearsed a plan so many times it no longer looks like a plan to them. The temple has its own opinions about certainty." },
+          { label: 'The Sessions That Follow', title: 'The Temple Answers in Its Own Way',
+            body: "Inside the Amber Temple, Kasimir's resolution meets the vestiges' actual texture. Whether he succeeds and at what cost, whether he is corrupted, whether Patrina is what he expected — these are questions the temple answers in its own specific way. The party has brought someone to a place that corrupts, knowing it corrupts, because his claim on the choice was his to make. They carry what happens to him." },
+          { label: 'Campaign Echo', title: 'What Barovia Does With Patrina',
+            body: "Patrina Velikov, if she exists at the endgame, is part of Barovia's landscape — her history with Strahd, her dusk elf allegiances, what four centuries of entombment in a dark power made of her. The party helped bring her back. What Barovia does with her is now in motion." }
+        ]
+      },
+      {
+        id: 'warn-kasimir', label: 'Tell Him What the Temple Contains', sublabel: 'He deserves to know what he\'s walking into', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'He Thanks Them and Continues Planning',
+            body: "The party tells Kasimir what the Amber Temple is — what the vestiges are, what they offer, what corruption looks like when it works slowly. He listens. He has been planning this for four hundred years. He thanks them for the information and continues planning. The party has given him what they knew and he has used it to decide anyway. This is not a failure of communication." },
+          { label: 'The Sessions That Follow', title: 'Better Informed, Not Necessarily Safer',
+            body: "Kasimir enters the temple knowing more than he would have. Whether caution improves outcomes when the thing you're cautious about is a vestige of ancient evil — whether this makes him more careful or simply more afraid of being careful — is something the temple demonstrates rather than argues. He is better informed. Information in Barovia frequently helps and rarely saves." },
+          { label: 'Campaign Echo', title: 'A Choice Made Clearly',
+            body: "Whatever Kasimir became, the party watched him go into the temple understanding what he was going toward. They are not responsible for a decision they provided full information for. They are witnesses to what happened to a person who chose, clearly and completely, to attempt the impossible for a specific person he wronged. Barovia has a lot of those. Not all of them are dusk elf wizards." }
+        ]
+      },
+      {
+        id: 'deny-kasimir', label: 'Deny Him Access', sublabel: 'You cannot unsee what the temple does to people', tone: 'danger',
+        consequences: [
+          { label: 'That Night', title: 'He Waits',
+            body: "The party refuses to take Kasimir, or prevents him from entering, or forecloses the option by other means. He accepts this with the patience of someone who has waited four hundred years and can wait longer. The party has made a decision about what he should or shouldn't attempt and enforced it. Kasimir's debt to his sister remains unpaid. He remains in Barovia, with it." },
+          { label: 'The Sessions That Follow', title: 'An Alliance With a Refusal Between Them',
+            body: "The party has an ally of reduced trust and a man carrying four hundred years of unresolved guilt. Kasimir is useful — he knows things, his people know things — but the decision the party made about his sister is between them. He does not say so. The party knows." },
+          { label: 'Campaign Echo', title: 'The Specific Texture of a Refused Grief',
+            body: "Patrina Velikov is not resurrected. Kasimir continues. What he does with the fact that the party decided his business for him — whether this sharpens or softens his willingness to help at the endgame — is the specific texture of an alliance built on a refusal. He is still there. He still knows things. The refusal is also still there." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'vladimir-horngaard', phase: 4,
+    title: "Vladimir Horngaard",
+    location: "Argynvostholt — The Great Hall",
+    session: "Sessions 7–10",
+    teaser: "He has spent four centuries hating Strahd. He will not help destroy him. These two facts are not a contradiction — they are his entire purpose.",
+    accent: 'var(--color-shroud-muted)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><path d="M18 4 L18 28 M10 12 L18 6 L26 12" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 28 L24 28" stroke="currentColor" stroke-width="1.2"/><path d="M14 22 L22 22 M11 17 L25 17" stroke="currentColor" stroke-width="0.8" opacity="0.5"/></svg>`,
+    prompt: "Vladimir Horngaard died fighting Strahd's armies. He rose as a revenant and built an order of undead knights committed to protecting Barovia. He will not allow them to fight against Strahd. His reasoning is: if Strahd dies, the revenants' purpose ends, and purpose is the only thing keeping them from being simply the dead. He needs the enemy he cannot defeat because the alternative is nothing. This is coherent.",
+    paths: [
+      {
+        id: 'change-his-mind', label: 'Attempt to Change His Mind', sublabel: 'Four centuries of conviction versus one conversation', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'The Quality of the Argument Matters Less Than the Structure',
+            body: "The argument the party makes has been made by no one, because no one else knew what Vladimir Horngaard was or had enough context to confront him directly. His convictions are four centuries old. They are held by someone who died for them and rose to continue holding them. The quality of the argument matters less than the structure of what he has built his existence around." },
+          { label: 'The Sessions That Follow', title: 'Either an Extraordinary Resource or a Changed Man',
+            body: "If the party succeeds — through persuasion, through evidence, through finding the specific argument his convictions have a gap for — they receive something extraordinary: a revenant warlord who has reoriented his purpose. If they fail, they have had a conversation Vladimir Horngaard will think about for the rest of his undead existence without acting on. Either way, the conversation happened." },
+          { label: 'Campaign Echo', title: 'The Endgame With or Without the Order',
+            body: "Whether Vladimir's revenants march on Ravenloft alongside the party or remain in Argynvostholt, the conversation in the great hall is part of what the final approach is built from. If they march, the endgame has a quality it would not have otherwise. If they remain, the party fights Strahd knowing what they were not able to convince someone of, and what that person chose instead." }
+        ]
+      },
+      {
+        id: 'work-around', label: 'Work Around Him', sublabel: 'The knights make their own choices', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'Insubordination in an Order of Undead Knights',
+            body: "Vladimir's revenants have individual wills — they are not puppets, they are knights who chose to follow him. The party recruits specific individuals, or finds the ones whose purpose has more room for flexibility. This is insubordination within an order of undead knights, and Vladimir notices. His response is that of a commander whose authority has been circumvented. He is not pleased. He is also not fully capable of stopping it." },
+          { label: 'The Sessions That Follow', title: 'A Strained Order',
+            body: "Individual revenants committed to the party's cause are a resource — not the full order, but real and significant. Vladimir's authority over them is strained. The party has operated within Argynvostholt by treating his command as advisory. The remaining revenants know. The order's internal dynamics shift." },
+          { label: 'Campaign Echo', title: 'The Knights Who Chose',
+            body: "The revenants who followed the party rather than Vladimir's orders are at the endgame because they chose to be. Their choice cost them the order's coherence. What this means for Argynvostholt after the campaign ends — whether the order can reconstitute, whether Vladimir forgives insubordination in the face of success — is Barovia's accounting, not the party's." }
+        ]
+      },
+      {
+        id: 'accept-leave', label: 'Accept His Position and Leave', sublabel: 'This resource was never available', tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: 'What Barovia Does to Purpose',
+            body: "The party understands Vladimir's argument, finds it coherent or finds it tragic, and accepts that the revenants of Argynvostholt are not going to be their allies. They leave the great hall with nothing they entered with and a clearer understanding of what Barovia does to purpose when the war never ends. There is something in this that is very Barovian." },
+          { label: 'The Sessions That Follow', title: 'The Subtraction, Not the Catastrophe',
+            body: "The wilderness campaign and the approach to Ravenloft proceeds without the Order of the Silver Dragon. This is a subtraction, not a catastrophe — the party was not counting on a resource they didn't know they couldn't have. What they learned from Vladimir stays: why he chose stasis, what it costs a person to make purpose more important than resolution, what four centuries of that choice looks like in a face." },
+          { label: 'Campaign Echo', title: 'The Order, Still Waiting',
+            body: "The revenants of Argynvostholt remain in Argynvostholt. Whether the beacon changes this, whether the campaign's resolution changes this, is a question the party's choice to leave the great hall without a fight leaves open. The revenants are still protecting, still caught, still Vladimir's order. They were always going to be." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'midnight-riders', phase: 4,
+    title: "The Midnight Riders",
+    location: "Barovia — The Wilderness Road",
+    session: "Sessions 6–10",
+    teaser: "They patrol the roads. They are trying to protect the innocent. They cannot always tell who is innocent anymore.",
+    accent: 'var(--color-accent-crimson-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><path d="M6 28 L12 10 L18 20 L24 10 L30 28" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="9" y1="22" x2="27" y2="22" stroke="currentColor" stroke-width="0.8" opacity="0.4"/><circle cx="18" cy="10" r="2.5" stroke="currentColor" stroke-width="1" fill="none" opacity="0.6"/></svg>`,
+    prompt: "The revenants of the Order of the Silver Dragon patrol the Barovian roads at night. They were paladins of a just order who died protecting the innocent. They are still trying to protect the innocent. After four hundred years, their judgment about who qualifies has developed specific gaps that make them dangerous to living travelers regardless of alignment. The party meets them on the road.",
+    paths: [
+      {
+        id: 'fight', label: 'Fight Through', sublabel: 'The distinction between alive and undead matters more than justice did', tone: 'danger',
+        consequences: [
+          { label: 'That Night', title: 'Both Sides Trying to Do the Right Thing',
+            body: "The fight is real. The revenants are not enemies in the way goblin raiders are enemies — they are a different kind of wrong, the kind where both sides are trying to do the right thing and the result is violence. The party wins or the party runs or the party loses a piece of what they came into the road carrying. The revenants, if defeated, rise again. Revenants do." },
+          { label: 'The Sessions That Follow', title: 'Classified Under People Who Attacked Us',
+            body: "The revenants' memory of the party's violence is specific and long-term. They file this under 'people who attacked us' rather than 'people we attacked.' When the party travels these roads again, the assessment has been updated. The reputation the party is building in Barovia has another data point." },
+          { label: 'Campaign Echo', title: 'The Encounter Still in Their Memory',
+            body: "The Order of the Silver Dragon's revenants are still on the road at the endgame. The encounter on the Wilderness Road is in their memory. Whether this matters when the party needs to pass — or needs allies — depends on whether they ever did anything to address what that encounter produced." }
+        ]
+      },
+      {
+        id: 'negotiate', label: 'Identify and Negotiate', sublabel: 'Paladins who remember justice can sometimes be reminded of it', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'Undead Who Remember What Justice Looked Like',
+            body: "Identifying as people with a just purpose and making that case to a group of undead knights who remember what justice looked like takes time and requires the party to mean it. The revenants are difficult to convince — their categories have simplified over four centuries. But they are not beyond argument, which is the specific difference between a revenant and a mindless undead." },
+          { label: 'The Sessions That Follow', title: 'Road-Patrolling Undead Knights Who Know Your Face',
+            body: "Having navigated the encounter without violence, the party has something rare in Barovia: undead who know their faces and have not filed them under a hostile category. The revenants patrol these roads. Having a relationship with road-patrolling undead knights is a specific kind of useful in the wilderness phase." },
+          { label: 'Campaign Echo', title: 'Built on a Conversation That Didn\'t Become a Fight',
+            body: "The revenants remember the party as people who spoke to them rather than through them. What this means when the endgame arrives — whether the Order becomes a resource, whether they join the assault, whether they simply let the party pass when it matters — is built on the conversation that didn't become a fight." }
+        ]
+      },
+      {
+        id: 'avoid', label: 'Avoid Entirely', sublabel: 'Not every encounter needs to be an encounter', tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: 'Nothing Built in Either Direction',
+            body: "The party identifies the patrol, takes a route that avoids it, or uses concealment to pass without contact. The revenants continue their patrol. The party continues its travel. No relationship is built and no violence happens and the specific thing the encounter would have produced — information, rapport, conflict, understanding — is not produced." },
+          { label: 'The Sessions That Follow', title: 'The Wilderness Without the Encounter',
+            body: "The wilderness phase proceeds without the encounter. The party learns about the Order of the Silver Dragon through other means — Argynvostholt itself, if they go there, or reputation if they don't. The encounter on the road left no trace in either direction." },
+          { label: 'Campaign Echo', title: 'The Uncertainty Avoidance Purchased',
+            body: "The patrols at the endgame are an unknown quantity in the way things are unknown when they were never engaged. The party has avoided them rather than understood them. Whether this means the road to Ravenloft is clear, or whether the patrol is simply somewhere the party doesn't know about, is the uncertainty avoidance purchased." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'argynvosts-beacon', phase: 4,
+    title: "Argynvost's Beacon",
+    location: "Argynvostholt — The Beacon Tower / Castle Ravenloft",
+    session: "Sessions 8–12",
+    teaser: "The beacon requires the dragon's skull. The skull is in Ravenloft. Entering Ravenloft before you're ready has a name in Barovia: it's called a story about a party that died there.",
+    accent: 'var(--color-accent-ochre-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><path d="M18 4 L20 14 L30 14 L22 20 L25 30 L18 25 L11 30 L14 20 L6 14 L16 14 Z" stroke="currentColor" stroke-width="1.2" fill="none"/><circle cx="18" cy="17" r="3" stroke="currentColor" stroke-width="1" fill="none" opacity="0.8"/><line x1="18" y1="4" x2="18" y2="8" stroke="currentColor" stroke-width="2" opacity="0.7"/></svg>`,
+    prompt: "The beacon of Argynvostholt was a dragon's light. Its skull is in Castle Ravenloft, a trophy. Returning it would relight the beacon, releasing the revenants from their tormented vigil and providing something real against the darkness. To retrieve the skull requires entering Castle Ravenloft. The party may not be ready. Readiness in Barovia is a moving threshold that never quite arrives.",
+    paths: [
+      {
+        id: 'enter-now', label: 'Enter Ravenloft for the Skull Now', sublabel: 'If the reason is right, the timing is workable', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'A Different Kind of Entry',
+            body: "The party enters Castle Ravenloft before the endgame for a specific purpose: the skull, not Strahd. This is a different kind of entry than the final confrontation — targeted, with a clear exit condition, requiring the party to navigate the castle without committing to the fight they came for later. Strahd notices. He is always in the castle in the way the castle's owner is always there even when they're not." },
+          { label: 'The Sessions That Follow', title: 'The Castle Entered and Exited',
+            body: "They got the skull, or they didn't. If they succeeded, the beacon is possible; the party has demonstrated they can enter Ravenloft and exit it, which changes their tactical relationship with the castle for the endgame. If they failed, they carry the failure forward — and Strahd has a specific encounter to remember them by." },
+          { label: 'Campaign Echo', title: 'The Second Time They Know the Shape',
+            body: "The beacon lit is different from the beacon unlit in ways that ripple through the final confrontation. Revenants released from their vigil change the landscape of Argynvostholt and potentially the assault on Ravenloft. The party entered Ravenloft once for the skull. The second time, they know the shape of what they're walking into." }
+        ]
+      },
+      {
+        id: 'wait', label: 'Wait Until the Party Is Stronger', sublabel: "The beacon has been dark for four centuries", tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'Accurate Assessment or Fear in a Different Form',
+            body: "The party identifies what needs to happen and chooses not to do it yet. The beacon remains dark. The revenants remain trapped. The decision to wait is accurate assessment of current capability — or it is fear in a form that looks like strategy. Barovia provides insufficient information to distinguish between them." },
+          { label: 'The Sessions That Follow', title: 'Ready Never Quite Arriving',
+            body: "Every session the party grows stronger, the beacon remains dark. The revenants continue their patrol. The window in which the beacon matters for the campaign is open, and every session that passes before the skull is retrieved is a session in which the revenants were not free. This may or may not matter. It depends on when ready finally arrives." },
+          { label: 'Campaign Echo', title: 'Tested by What the Endgame Actually Needed',
+            body: "The party enters the endgame with or without the beacon lit, depending on whether later arrived before it ran out of time to matter. The skull is still in Ravenloft, or it has been retrieved. The revenants are still trapped, or they are free. The choice to wait is tested by what the endgame actually needed." }
+        ]
+      },
+      {
+        id: 'another-way', label: 'Seek Another Way to Help the Revenants', sublabel: 'Perhaps the beacon is not the only door', tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: 'Alternatives Have the Quality of Things That Work Less Reliably',
+            body: "The party investigates whether there is another way to release the revenants — through Vladimir's conviction, through the vestiges, through something in the order's history that wasn't the skull and the beacon. The investigation finds what there is to find, which may or may not be an alternative. The beacon has a specific requirement. Alternatives have the quality of things that work less reliably than the straightforward answer." },
+          { label: 'The Sessions That Follow', title: 'The Effort Producing the Result It Produces',
+            body: "Whatever the party attempts in lieu of the skull, it produces the result it produces. Barovia respects the effort but not above the outcome. The revenants' condition is changed by what changed it, not by what was intended." },
+          { label: 'Campaign Echo', title: 'The Path That Shaped the Readiness',
+            body: "The beacon is lit or dark at the endgame. The revenants are free or trapped. The path to that outcome — whether it required Ravenloft or circumvented it — shaped the party's readiness and their relationship with Argynvostholt. Some campaigns light the beacon through the front door. Some light it another way. Some arrive at Ravenloft with the revenants still watching the dark." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'dark-powers-understanding', phase: 4,
+    title: "The Dark Powers — What You Choose to Understand",
+    location: "The Amber Temple — Strahd's Sanctum",
+    session: "Sessions 9–12",
+    teaser: "The man who became the monster stood here and made a choice. The record of that choice is on the walls. Reading it is optional. What it does to how you kill him is not.",
+    accent: 'var(--color-shroud-muted)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><rect x="7" y="7" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1.5" fill="none" transform="rotate(45 18 18)"/><circle cx="18" cy="18" r="4" stroke="currentColor" stroke-width="1" fill="none"/><line x1="18" y1="9" x2="18" y2="13" stroke="currentColor" stroke-width="1" opacity="0.5"/><line x1="18" y1="23" x2="18" y2="27" stroke="currentColor" stroke-width="1" opacity="0.5"/><line x1="9" y1="18" x2="13" y2="18" stroke="currentColor" stroke-width="1" opacity="0.5"/><line x1="23" y1="18" x2="27" y2="18" stroke="currentColor" stroke-width="1" opacity="0.5"/></svg>`,
+    prompt: "The Amber Temple is where Strahd made his pact with the Dark Powers. The evidence is on the walls and in the amber sarcophagi — the history of what he chose and why, the man he was before he chose it, the grief and fury of someone who watched his brother marry the woman he could not stop loving. Reading this is not required. The temple has things the party came for. They can take them and leave. What they understand about who they're going to kill is optional.",
+    paths: [
+      {
+        id: 'engage-deeply', label: 'Engage Deeply — Read the History', sublabel: 'The man before the monster is still there', tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: 'The Mechanism of What He Became',
+            body: "Reading what the temple contains — the records, the inscriptions, the history of Strahd's choice — produces a specific kind of knowledge: the grief and fury of a man who loved his brother's intended more than he could bear, who watched Sergei marry Tatyana, who made a bargain that felt like the only door left in a room that kept closing. The knowledge does not excuse the centuries. It makes the centuries comprehensible." },
+          { label: 'The Sessions That Follow', title: 'The Texture of the Encounters That Follow',
+            body: "The party carries the knowledge through the remaining campaign. It changes the texture of the Strahd encounters that follow — not strategically, but emotionally. They know what he was before. They know the specific mechanism of what he became. When he speaks about Tatyana, they understand what he is speaking about in a way that was not available before the temple." },
+          { label: 'Campaign Echo', title: 'What the Party Does at the Last Moment',
+            body: "The final confrontation happens with both parties knowing something important: the party knows who Strahd was, and Strahd has always known what he became. Whether this knowledge produces mercy, or anger, or the specific kind of grief that makes a fight harder to finish, depends on the party. The temple gave them the information. What they do with it at the last moment is theirs." }
+        ]
+      },
+      {
+        id: 'treat-as-dungeon', label: 'Treat It as a Dungeon', sublabel: 'Take what\'s useful and leave', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'An Efficient Passage',
+            body: "The party moves through the Amber Temple efficiently — identify the vestiges, assess the risk of corruption, take what they came for, leave what they don't need. The history on the walls is noted and not read. Strahd is a target. Understanding him more than necessary to kill him is an investment the party has decided not to make." },
+          { label: 'The Sessions That Follow', title: 'Resources Without Context',
+            body: "The party leaves the Amber Temple with resources they came for. The temple's function as a tactical resource was used. Its function as a record of what Barovia is and why was not. This is a choice with no obvious consequence — until the final confrontation requires something more than tactics." },
+          { label: 'Campaign Echo', title: 'The Gap in the Final Confrontation',
+            body: "They reach the endgame without the temple's context. Strahd is the obstacle, legible as an antagonist but not as a man who chose this. Whether the party needed to understand him to address him, or whether killing him was always the point and context is a luxury — this is the specific question the dungeon-only approach forces the endgame to answer." }
+        ]
+      },
+      {
+        id: 'refuse-vestiges', label: 'Refuse Any Contact with the Vestiges', sublabel: 'The corruption is real and not worth the intelligence', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'Carrying Nothing From the Dark Powers',
+            body: "The party enters, navigates the temple's dangers without engaging the vestiges or their amber sarcophagi, and extracts what they came for without contact. The corruption does not happen because the contact did not happen. The history on the walls is passed. The party leaves with less than they could have carried, and without what they could not have carried safely." },
+          { label: 'The Sessions That Follow', title: 'Not Carrying Anything the Vestiges Attached',
+            body: "The careful passage through the temple produced a result: no corruption, no dark gifts, no history of Strahd's bargain through the vestiges' frame. The party moves forward as they arrived — maybe lighter in resources, but not carrying anything the Dark Powers attached to their souls. In Barovia, carrying nothing from the Dark Powers is an accomplishment." },
+          { label: 'Campaign Echo', title: 'Careful Where Care Was Hard',
+            body: "The party reaches Castle Ravenloft without dark gifts and without the vestige's price. They are what they were before the temple. Whatever they understand about Strahd, they understand from what they learned on the road — not from the records of the choice he made. The endgame begins with a party that was careful where care was hard. This is its own kind of rare." }
+        ]
+      }
+    ]
+  },
+
   {
     id: 'wereravens-network', phase: 3,
     title: "The Wereravens — How Deep You Use the Network",
@@ -2066,7 +2436,8 @@ const PHASE_LABELS = {
   0: 'Featured',
   1: 'Phase 1 — Entering the Curse',
   2: 'Phase 2 — Vallaki',
-  3: 'Phase 3 — The Wilderness'
+  3: 'Phase 3 — The Wilderness',
+  4: 'Phase 4 — Krezk & Deeper Wilderness'
 };
 
 function cardHtml(s) {
@@ -2095,7 +2466,7 @@ function cardHtml(s) {
 }
 
 function renderGrid() {
-  const phases = [0, 1, 2, 3];
+  const phases = [0, 1, 2, 3, 4];
   const groups = phases
     .map(p => ({ phase: p, label: PHASE_LABELS[p], scenarios: SCENARIOS.filter(s => s.phase === p) }))
     .filter(g => g.scenarios.length > 0);
