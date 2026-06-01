@@ -168,17 +168,7 @@ Tier 1 = direct graph branching · Tier 2 = graph-supported + canon extrapolatio
 
 ### Phase 2 — Vallaki ✓ (10 scenarios shipped)
 
-### Phase 3 — The Wilderness
-
-- [ ] **Morgantha's Operation** — destroy it, free the dreamers, buy from her, or negotiate [T1] `scene.dream-pastry-trap`
-- [ ] **The Winery — Which Front First** — Yester Hill or Berez; one threat grows while you address the other [T1] `scene.winery-quest-start`
-- [ ] **Yester Hill — the Ritual Already Running** — stop it with force, find its source, or let it complete [T1] `scene.yester-hill-ritual`
-- [ ] **Baba Lysaga — What the Ruins Reveal** — Berez's history shows Strahd's personal obliteration of a village: use it or leave it [T2] `scene.baba-lysaga-confrontation`
-- [ ] **The Werewolf Den — What About Zuleika** — Emil's wife offers to help if you free her husband: do you trust a werewolf [T1] `scene.werewolf-den-infiltration`
-- [ ] **The Children Who Can't Come Back** — some captives have been bitten and will turn: not yet monsters [T2] `scene.children-rescued` · `rule.werewolf-curse-transmission`
-- [ ] **Van Richten's Intelligence** — what he tells you is more terrifying than expected: how does this change strategy [T1] `scene.van-richten-knowledge-shared`
-- [ ] **Luvash and the Vistani — Who Gets the Truth** — Luvash wants Arabelle back; Arrigal wants her found for different reasons [T2] `scene.arabelle-missing`
-- [ ] **The Wereravens — How Deep You Use the Network** — the Martikov intelligence network spans Barovia; committing them puts civilians at risk [T2] `scene.winery-quest-start` · `story.wizard-of-wines`
+### Phase 3 — The Wilderness ✓ (9 scenarios shipped)
 
 ### Phase 4 — Krezk & Deeper Wilderness
 
