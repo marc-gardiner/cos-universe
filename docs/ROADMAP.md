@@ -170,16 +170,7 @@ Tier 1 = direct graph branching · Tier 2 = graph-supported + canon extrapolatio
 
 ### Phase 3 — The Wilderness ✓ (9 scenarios shipped)
 
-### Phase 4 — Krezk & Deeper Wilderness
-
-- [ ] **Dmitri Krezkov's Gate** — Krezk is sealed: what do you offer or demonstrate to earn entrance [T1] `scene.krezk-arrival`
-- [ ] **Ireena at the Blessed Pool** — something happens that cannot be undone: let it complete or intervene [T2] `scene.krezk-arrival` · `story.krezk-and-the-abbey`
-- [ ] **The Abbot's Bargain** — help find a wedding gown for Strahd's intended bride in exchange for Raise Dead [T1] `scene.abbot-bargain-concluded`
-- [ ] **Kasimir's Sister** — help him resurrect Patrina at the Amber Temple, knowing why she was imprisoned there [T2] `scene.amber-temple-entry` · `story.amber-temple`
-- [ ] **Vladimir Horngaard** — he won't let the Order's revenants fight Strahd: convince him or work around him entirely [T1] `scene.meeting-vladimir-horngaard`
-- [ ] **The Midnight Riders** — Argynvostholt's revenants patrol the roads: engage, recruit, or avoid [T2] `scene.argynvostholt-arrival`
-- [ ] **Argynvost's Beacon** — returning the dragon skull lights a beacon of hope, but requires entering Ravenloft before you're ready [T1] `scene.argynvost-beacon-lit` · `condition.dragon-skull-restored`
-- [ ] **The Dark Powers — What You Choose to Understand** — engage with the Temple's history of how Strahd made his bargain, or treat it as a dungeon to loot [T3] `rule.dark-powers-corruption` · `story.amber-temple`
+### Phase 4 — Krezk & Deeper Wilderness ✓ (8 scenarios shipped)
 
 ### Phase 5 — Collecting the Artifacts
 
