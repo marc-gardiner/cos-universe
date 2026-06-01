@@ -1665,6 +1665,378 @@ const SCENARIOS = [
         ]
       }
     ]
+  },
+
+  // ── PHASE 3 — THE WILDERNESS ──────────────────────────────────────────────────
+
+  {
+    id: 'morgantha-operation', phase: 3,
+    title: "Morgantha's Operation",
+    location: "The Old Bonegrinder — Wilderness Road",
+    session: "Sessions 5–7",
+    teaser: "The dream pastries make Barovia's misery bearable. The women selling them are night hags. These facts are related.",
+    accent: 'var(--color-accent-crimson-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><circle cx="18" cy="18" r="2.5" stroke="currentColor" stroke-width="1" fill="none"/><path d="M18 15.5 L16 4 L18 9 L20 4 Z" stroke="currentColor" stroke-width="1" fill="none" opacity="0.7"/><path d="M20.5 18 L32 16 L27 18 L32 20 Z" stroke="currentColor" stroke-width="1" fill="none" opacity="0.7"/><path d="M18 20.5 L20 32 L18 27 L16 32 Z" stroke="currentColor" stroke-width="1" fill="none" opacity="0.7"/><path d="M15.5 18 L4 20 L9 18 L4 16 Z" stroke="currentColor" stroke-width="1" fill="none" opacity="0.7"/><line x1="18" y1="20.5" x2="18" y2="32" stroke="currentColor" stroke-width="1.5" opacity="0.3"/></svg>`,
+    prompt: "Old Bonegrinder is a functioning business. Morgantha and her daughters trade dream pastries — narcotics that let Barovians escape the waking nightmare of their lives, powered by the souls of captives ground to paste inside the mill. The party can destroy the operation, negotiate with the hags for something they uniquely possess, or leave the mill running and not look back at what they saw inside.",
+    paths: [
+      {
+        id: 'destroy', label: 'Destroy the Operation', sublabel: 'The mill burns; Morgantha escapes', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'The Hags Are Not Destroyed',
+            body: "The mill burns. The captives inside — what the hags' process has left of them — are freed. Morgantha and her daughters escape into the mists, because this is what night hags do when a situation becomes inconvenient. The operation is ended. Its operators are not. The party has eliminated a soul-grinding business and made three night hags specifically, personally interested in them." },
+          { label: 'The Sessions That Follow', title: 'Morgantha Has Time to Think',
+            body: "Night hags are patient and creative and have specific methods for harassing parties in their sleep. Morgantha appears in the sessions that follow at the worst possible moment — not to fight, but to extract costs. The Barovians who relied on the dream pastries have nothing to escape into. This is probably better for them. It does not feel better to them, and they remember who ended it." },
+          { label: 'Campaign Echo', title: 'The Accounting She Has Prepared',
+            body: "In the final approach to Castle Ravenloft, the party encounters what Morgantha has been building since they burned her mill. Night hags do not retaliate immediately. They come back at maximum inconvenience, with maximum precision, after months of planning. She has found the maximum. The party burned something that belonged to her. She has been thinking about what belongs to them." }
+        ]
+      },
+      {
+        id: 'negotiate', label: 'Negotiate for Terms', sublabel: "She has things no one else does", tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: 'A Business Conversation',
+            body: "Morgantha is a businesswoman. The negotiation is functional — she has things the party needs (prophetic insight, specific objects, access to things only night hags can access), and they have something she finds interesting enough to trade for. The captives in the mill are not part of the deal. This is the part of the conversation the party carries out with them when they leave." },
+          { label: 'The Sessions That Follow', title: 'What She Provided Was Real',
+            body: "What Morgantha provided is real and immediately useful. The mill continues operating. The Barovians continue paying. The party used the operation as a resource and left the mechanism intact. In Barovia, this is a calculation — the thing you need weighed against the thing you left running. Like most calculations here, the accounting does not wait for you to be ready." },
+          { label: 'Campaign Echo', title: 'The Deal Remembered',
+            body: "When the party passes Old Bonegrinder again, or encounters one of the dreamers Morgantha was processing, the agreement they made is present — not as guilt, because guilt is a luxury Barovia does not always allow, but as context. They knew what the mill was and used the knowing. Morgantha kept her end. This is the specific kind of trade Barovia records without comment." }
+        ]
+      },
+      {
+        id: 'look-away', label: 'Leave the Mill Running', sublabel: "The Barovians need their escape", tone: 'danger',
+        consequences: [
+          { label: 'That Night', title: 'The Mill Keeps Turning',
+            body: "The party has seen what the mill is and decided not to act. The Barovians need whatever escape they can find. The captives inside are — it is complicated. The party continues on the road. The mill keeps turning. The specific smell of the place is something several party members will remember at inopportune moments for the rest of the campaign." },
+          { label: 'The Sessions That Follow', title: 'The Hags Noted the Passage',
+            body: "Morgantha noticed the party's decision. She has adjusted her opinion of them accordingly. The mill operates. The Barovians who use the pastries keep using them. The party chose not to be the thing that ended this, for whatever reason — tactical, practical, or otherwise. Barovia accepted the decision without comment, which is not the same as without consequence." },
+          { label: 'Campaign Echo', title: 'The Information Delivered Without Accusation',
+            body: "Late in the campaign, a Barovian who owes the party something mentions a relative taken by the mill — someone who went in and did not come out as a person. The party chose not to shut it down when they could. The speaker does not know the party saw it. This is not an accusation. It is simply information, delivered in context, which is the most honest thing Barovia does." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'winery-which-front', phase: 3,
+    title: "The Winery — Which Front First",
+    location: "The Wizard of Wines — Winery Road",
+    session: "Sessions 5–7",
+    teaser: "Two threats are dismantling the winery simultaneously. Addressing one means the other runs unchecked.",
+    accent: 'var(--color-accent-ochre-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><line x1="18" y1="5" x2="18" y2="16" stroke="currentColor" stroke-width="1.5"/><path d="M18 16 L10 29" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M18 16 L26 29" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="10" cy="29" r="2.5" stroke="currentColor" stroke-width="1" fill="none" opacity="0.6"/><circle cx="26" cy="29" r="2.5" stroke="currentColor" stroke-width="1" fill="none" opacity="0.6"/></svg>`,
+    prompt: "The Wizard of Wines is under assault from two directions simultaneously: druids at Yester Hill performing a ritual to blight the vines, and Baba Lysaga's forces moving through the ruins of Berez. The Martikov family needs both threats addressed. The party has the capacity to address one. The other will develop in their absence.",
+    paths: [
+      {
+        id: 'yester-first', label: 'Yester Hill First', sublabel: 'The active ritual, the growing ruins', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'The Ritual Interrupted, Berez Continuing',
+            body: "The party moves on the hill. The druids are disrupted before the ritual reaches its full completion. The vine blighting is partial — the Martikovs lose some of the harvest but not all of it. What Baba Lysaga's forces were assembling at Berez has another night, another morning, whatever the intervening time allows, to develop without interference." },
+          { label: 'The Sessions That Follow', title: 'Berez Has Had Time',
+            body: "When the party reaches the ruins, they find a situation that has been developing without them. Whatever Baba Lysaga was building or completing has had more time than it should have. The tactical problem is harder. The winery is producing — the Martikov network is intact and functional — which matters more than the grapes, and both parties know it." },
+          { label: 'Campaign Echo', title: 'The Foundation They Chose to Preserve',
+            body: "The Wizard of Wines survives and the wereraven network functions. The party chose the vines over the ruins, and the back half of the campaign reflects that choice: the Martikov intelligence advantage is available at full strength when it matters most. The cost at Berez was real. The foundation was worth it. These two sentences are both true, and do not cancel each other." }
+        ]
+      },
+      {
+        id: 'berez-first', label: 'Berez First', sublabel: 'The ruins, while the ritual completes', tone: 'danger',
+        consequences: [
+          { label: 'That Night', title: 'The Ruins Interrupted, Yester Hill Completing',
+            body: "The party moves on Berez. What Baba Lysaga was assembling there is stopped. At Yester Hill, the ritual completes its first stage without opposition. The druids do something in the dark that the party does not witness. The Martikovs lose a significant portion of the harvest. They report this with the particular grimness of people who have weathered worse." },
+          { label: 'The Sessions That Follow', title: 'What the Ritual Completed',
+            body: "The winery is damaged but not destroyed. The Martikovs are pragmatic — they helped, and the help mattered, but the vines took the full hit. What the Yester Hill ritual completed begins to make itself felt in the broader wilderness: something in Barovia has changed in the direction the druids intended. The party will encounter what this means before the wilderness phase ends." },
+          { label: 'Campaign Echo', title: 'Berez Resolved, Yester Hill Paid For',
+            body: "The Berez threat is ended. Yester Hill cost something the party is still accounting for in the campaign's second half. The calculation of which front mattered more was made with incomplete information — as most of the campaign's real decisions are. The party made it in a direction they had reasons for. Barovia does not grade on intent." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'yester-hill-ritual', phase: 3,
+    title: "Yester Hill — the Ritual Already Running",
+    location: "Yester Hill — The Druidic Circle",
+    session: "Sessions 5–7",
+    teaser: "The druids have been working for hours. The ritual is not beginning — it is most of the way through.",
+    accent: 'var(--color-shroud-muted)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><path d="M4 28 Q18 10 32 28" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="18" cy="20" r="6" stroke="currentColor" stroke-width="1" fill="none" opacity="0.6"/><line x1="18" y1="14" x2="18" y2="11" stroke="currentColor" stroke-width="0.8" opacity="0.5"/><line x1="24" y1="20" x2="27" y2="20" stroke="currentColor" stroke-width="0.8" opacity="0.5"/><line x1="12" y1="20" x2="9" y2="20" stroke="currentColor" stroke-width="0.8" opacity="0.5"/><line x1="22.2" y1="15.8" x2="24.3" y2="13.7" stroke="currentColor" stroke-width="0.8" opacity="0.5"/><line x1="13.8" y1="15.8" x2="11.7" y2="13.7" stroke="currentColor" stroke-width="0.8" opacity="0.5"/></svg>`,
+    prompt: "The party arrives at Yester Hill to find the ritual already in progress. The druids are deep in it — hours of work already complete, the black seed planted, the first stage nearly done. There are three approaches: direct assault, targeting the ritual's source rather than its practitioners, or stepping back to observe what the ritual actually produces before deciding whether to stop it.",
+    paths: [
+      {
+        id: 'force', label: 'Direct Assault', sublabel: 'Disruption through combat', tone: 'danger',
+        consequences: [
+          { label: 'That Night', title: 'The Ritual Interrupted, Not Ended',
+            body: "The assault on the hill is immediately contested. The druids are deep in the ritual and do not stop easily — they have been building toward this for weeks. The party fights through to the center. The ritual disrupts. A disrupted ritual is not the same as a cancelled one: partial completion produces partial effects, and what the blighting does to the vines is reduced but present." },
+          { label: 'The Sessions That Follow', title: 'A Hard Win With Loose Ends',
+            body: "The party took significant damage. The druids who survived scattered into the forest. The vine blighting is real but limited — the Martikovs lose some production and retain the rest. The cost of the direct approach is carried in the resources spent: spell slots, hit points, and the knowledge that the hill's practitioners are still out there and remember the party's faces." },
+          { label: 'Campaign Echo', title: 'The Druids Who Survived',
+            body: "The druids who fled the hill are still in the forest when the wilderness phase converges on Castle Ravenloft. They have not forgotten the assault. They have reorganized around it. The partial victory at Yester Hill produced a partial problem — not eliminated, not resolved, redistributed. In Barovia, redistributed threats have a way of accumulating interest." }
+        ]
+      },
+      {
+        id: 'source', label: 'Find the Source', sublabel: 'Target the mechanism, not the people', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'The Black Seed',
+            body: "Instead of the direct assault, the party identifies what the ritual is actually doing — the black seed, the specific node of the druidic mechanism that anchors the whole working. Targeting the source rather than the practitioners collapses the ritual more completely than combat would have. The druids scatter without the ritual holding them. The vines survive intact." },
+          { label: 'The Sessions That Follow', title: 'The Complete Solution',
+            body: "The complete collapse of the ritual — as opposed to the disruption-through-combat version — means the vine blighting doesn't happen at all. The Martikov harvest survives in full. The wereraven network is intact and grateful. The party found the precise path through a complex problem, which is the approach Van Richten has been explaining since they recruited him." },
+          { label: 'Campaign Echo', title: 'Precision and Its Reputation',
+            body: "The precise solution at Yester Hill enters the party's reputation in the wilderness — people who find the source rather than fighting the symptoms. The wereraven network's full gratitude translates into endgame intelligence at exactly the moment they need it most. In Barovia, being known as people who find the mechanism is a specific kind of advantage." }
+        ]
+      },
+      {
+        id: 'observe', label: 'Let It Complete — Watch First', sublabel: 'Learn what it produces before intervening', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'The Ritual Seen Through',
+            body: "The party steps back and observes. The ritual completes its full stage without interference. The party now understands what it was — what the druids are building toward, who is directing them, what the completed blighting looks like and what it signals. This is intelligence they could not have gathered through combat. The cost is the ritual's full effect on the Martikovs' harvest." },
+          { label: 'The Sessions That Follow', title: 'The Harvest and the Knowledge',
+            body: "The winery takes the full hit. The Martikovs are not pleased with the party. The alliance holds — they helped with Berez, they ended the druid threat after the observation — but the vines suffered because the party watched instead of acted. What the party gained is a comprehensive understanding of the druidic ritual system: who controls it, what it is for, what comes next." },
+          { label: 'Campaign Echo', title: 'What the Watching Cost and Bought',
+            body: "The intelligence gathered at Yester Hill — about the ritual's hierarchy, its relationship to Strahd, and what the druids are building toward in the endgame — applies precisely in the final wilderness convergence. Whether this knowledge was worth the harvest is a question with a concrete answer by the time the campaign reaches Ravenloft. The endgame tells the party whether what they observed was the thing they needed to know." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'baba-lysaga-ruins', phase: 3,
+    title: "Baba Lysaga — What the Ruins Reveal",
+    location: "Berez — The Ruined Village",
+    session: "Sessions 5–7",
+    teaser: "Strahd destroyed this village himself. Not through servants — himself, personally, because someone here loved someone he loved. The ruins remember.",
+    accent: 'var(--color-shroud-parchment)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><path d="M6 28 L6 12 L10 8 L14 12 L14 28" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M22 28 L22 15 L26 11 L30 15 L30 28" stroke="currentColor" stroke-width="1.2" fill="none"/><line x1="4" y1="28" x2="32" y2="28" stroke="currentColor" stroke-width="1.5"/><path d="M14 28 L14 20 L22 20 L22 28" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.4"/><line x1="10" y1="12" x2="14" y2="8" stroke="currentColor" stroke-width="0.8" opacity="0.3"/></svg>`,
+    prompt: "The ruins of Berez are not ancient decay — they are a specific act. Strahd von Zarovich obliterated this village personally, with his own power, because a man in it loved Marina Ulrich (an ancestor of Ireena), and Strahd could not tolerate someone else's love existing in proximity to his. The party finds this history in the ruins. What they do with the understanding is a choice.",
+    paths: [
+      {
+        id: 'use-it', label: 'Use the History', sublabel: "His obsession is also his weakness", tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'What the Ruins Are Evidence Of',
+            body: "The party finds what remains of Marina's story in the rubble — evidence of a village destroyed not by strategy, but by a centuries-old emotional response that Strahd cannot control or acknowledge. He did not send agents. He came himself. He destroyed an entire settlement because it contained love directed at someone who looked like her. The intelligence is devastating and specific." },
+          { label: 'The Sessions That Follow', title: 'The Shape of His Control',
+            body: "Understanding that Strahd's obsession makes him destroy what he most wants to preserve is a specific tactical reframe. Every encounter with him that involves Ireena is now understood differently — he is not in control, and has never been in control, around this one thing. The party that knows this has a different relationship to his apparent omnipotence than the party that doesn't." },
+          { label: 'Campaign Echo', title: 'The Gap the Ruins Named',
+            body: "In the final confrontation, the party that understood Berez has something available — a specific angle on Strahd's centuries of uncontrolled response to Ireena, a way of positioning the encounter to exploit the gap between what he wants and what he does. He destroyed a village to protect something he could not bear to lose. He will destroy the confrontation the same way, if the party holds the right thing in front of him." }
+        ]
+      },
+      {
+        id: 'leave-it', label: 'Leave the History Behind', sublabel: 'The tactical problem is the target', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'Baba Lysaga Is the Mission',
+            body: "The party finds the ruins, registers the history, and continues with the tactical problem. Baba Lysaga is the target. The backstory of Berez is the backstory of Berez. The party is here to shut down a threat to the winery, not to excavate the psychological history of a four-hundred-year-old vampire lord." },
+          { label: 'The Sessions That Follow', title: 'The Mission on Its Own Terms',
+            body: "The Baba Lysaga operation succeeds on its terms. The ruins are ruins. The party carries out of Berez exactly what they brought: tactical capability, reduced by the fight, not supplemented by understanding. In Barovia this is a coherent choice. Understanding Strahd is not a prerequisite for defeating him. It is one route. The party chose the other one." },
+          { label: 'Campaign Echo', title: 'What They Arrived With',
+            body: "The final confrontation arrives with the party's understanding of Strahd at the level they gathered it — from Van Richten's briefing, from direct encounters, from what the campaign has accumulated. Berez would have added something specific about the gap in his control. They didn't take it. The confrontation is still winnable. It uses different tools than the ones that history would have given them." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'werewolf-den-zuleika', phase: 3,
+    title: "The Werewolf Den — What About Zuleika",
+    location: "The Werewolf Den — Mount Baratok",
+    session: "Sessions 6–8",
+    teaser: "Emil's wife offers to help if the party frees her husband. She is a werewolf. Her motivations align with theirs right now. 'Right now' is doing a lot of work in that sentence.",
+    accent: 'var(--color-accent-crimson-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><path d="M7 26 C7 14 10 8 18 6 C26 8 29 14 29 26" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="5" y1="26" x2="31" y2="26" stroke="currentColor" stroke-width="1.5"/><path d="M15 17 L18 10 L21 17" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.5"/><circle cx="18" cy="20" r="2" stroke="currentColor" stroke-width="1" fill="none" opacity="0.4"/></svg>`,
+    prompt: "Zuleika Toranescu — Emil's wife, a werewolf of the pack — approaches the party with an offer. She knows the den's layout, guard patterns, and where the captive children are held. She will share all of it if the party helps free Emil, who was displaced as pack leader by the brutal Kiril Stoyanovich. Her motivations and the party's currently point in the same direction.",
+    paths: [
+      {
+        id: 'trust', label: 'Trust Zuleika', sublabel: 'Her knowledge is real; so is her interest', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: "What She Knows Is Accurate",
+            body: "Zuleika's help is specific and correct. The den's guard patterns are exactly as she described. The captive children are where she said. The infiltration that would have cost the party significant resources runs cleaner than it would have without her. Emil's situation — with Kiril Stoyanovich now running the pack — is a separate and complicated problem, but the children are found." },
+          { label: 'The Sessions That Follow', title: 'An Alliance That Lasted Exactly Long Enough',
+            body: "The alliance with Zuleika produced the specific result she needed: the party has reason to help Emil, and she has delivered what she promised. She is not a reliable long-term ally — she is a werewolf with a specific goal who found the party's specific goal useful. In Barovia, this is what trust often looks like. Both parties got something real." },
+          { label: 'Campaign Echo', title: 'The Information That Came With Her Trust',
+            body: "What Zuleika knew about the pack's relationship with Strahd — what Kiril has agreed to, and what that agreement means for the wider wilderness — is intelligence that proves relevant when the campaign approaches the endgame. The party that trusted her arrived at Ravenloft knowing something about the werewolf pack's disposition that the party that refused had to learn through harder contact." }
+        ]
+      },
+      {
+        id: 'refuse', label: 'Refuse the Alliance', sublabel: 'Handle it without werewolf debt', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'The Hard Way Through',
+            body: "The party handles the den without Zuleika's help. It is harder. They burn spell slots on guard positions they have to locate themselves. They spend time they do not have on reconnaissance. The children are found. The cost is higher in resources and higher in hours than it would have been with a guide who knew the space. The party did it without making an alliance with a werewolf." },
+          { label: 'The Sessions That Follow', title: 'The Price of Caution',
+            body: "The resource expenditure at the den compounds into the rest of the wilderness phase. Every spell slot and hit point burned without Zuleika's help is a resource unavailable later. The wilderness is long and the later encounters do not care about the earlier ones. The caution about Zuleika was reasonable. Whether it was correct depends on what those resources would have bought." },
+          { label: 'Campaign Echo', title: 'Clean Hands and Their Cost',
+            body: "The endgame arrives with the party having paid the den's full price and carrying no obligation to a werewolf. These facts exist together. Barovia does not offer clean trades — only trades where the cost is clear and the benefit is clear, and occasionally both are high at the same time. The refusal was a choice about what kind of party they wanted to be. The campaign records it." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'children-bitten', phase: 3,
+    title: "The Children Who Can't Come Back",
+    location: "The Werewolf Den — The Captive Pen",
+    session: "Sessions 6–8",
+    teaser: "Some of the captives have been bitten and will turn. They are children. They are not yet monsters. The party decides what that distinction costs.",
+    accent: 'var(--color-shroud-secondary)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><circle cx="14" cy="10" r="3.5" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M10 17 C10 14 18 14 18 17 L18 25 L10 25 Z" stroke="currentColor" stroke-width="1.2" fill="none"/><line x1="18" y1="20" x2="25" y2="20" stroke="currentColor" stroke-width="1" opacity="0.5" stroke-dasharray="2 2"/><circle cx="28" cy="20" r="3" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5"/></svg>`,
+    prompt: "The children rescued from the werewolf den are not all unharmed. Some were bitten before the party arrived. The werewolf curse will take them — the timeline is not infinite, and what they become when it completes is not a version of what they are now. The party must decide: pursue a cure on the road, make the decision now while the children are still themselves, or carry them forward and defer the decision until it becomes unavoidable.",
+    paths: [
+      {
+        id: 'seek-cure', label: 'Seek a Cure', sublabel: "The Abbot can help. Clarify the cost first.", tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'The Commitment and What It Requires',
+            body: "The party commits to finding a cure. The options are the Abbot at the Abbey of St. Markovia — who can help, at a cost that will only become clear upon arrival — or Van Richten, who knows the curse's mechanics and has specific, sobering opinions about what is actually possible. The bitten children travel with the party. This is immediately complicated in ways that are immediately apparent." },
+          { label: 'The Sessions That Follow', title: 'The Campaign Reshaped by the Commitment',
+            body: "The push toward a cure reshapes the next several sessions. The party moves with urgency and a specific constraint — the children are a responsibility that limits tactical options and accelerates timelines. When the Abbot's price is finally named, it is the kind of price Barovia charges for things that are presented as gifts. The party learns what cure means here." },
+          { label: 'Campaign Echo', title: 'What the Cure Cost',
+            body: "Whether the children survive human depends on what the party was willing to pay and when they were willing to pay it. In the best outcome, they do, and the party carries the knowledge of what that required. In the worst, the party carried hope through several sessions and arrived at a door Barovia had already decided to keep closed. Both outcomes are Barovia's answer to the same question." }
+        ]
+      },
+      {
+        id: 'mercy', label: 'End It Before the Turn', sublabel: 'The decision made while they are still themselves', tone: 'danger',
+        consequences: [
+          { label: 'That Night', title: 'The Camp Quiet Afterward',
+            body: "The party makes the decision before the children become something else. The reasoning is coherent: they are bitten, the curse will take them, waiting makes the decision harder without making it different. The decision is made. The camp is very quiet afterward. The party breaks camp in the morning without discussing what happened the previous night. This is not resolution. It is the form resolution takes in Barovia." },
+          { label: 'The Sessions That Follow', title: 'What Gets Carried',
+            body: "The decision travels with the party through the rest of the wilderness phase without being named. It surfaces at odd moments — a dream that one character wakes from without wanting to describe, a beat of hesitation before the party moves into the next den or ruin. Barovia has asked the party to make decisions like this before. This one marks the people who made it in a specific way." },
+          { label: 'Campaign Echo', title: 'The Accounting the Campaign Keeps',
+            body: "By the endgame, the wilderness decisions have accumulated into a texture. The mercy at the den is part of it — one of the moments where the party chose to stop something before it became something worse. Whether this was mercy or expediency is a question the campaign holds open without answering. The endgame does not resolve it. It simply includes it in what the party is when they reach the castle." }
+        ]
+      },
+      {
+        id: 'defer', label: 'Carry Them Forward', sublabel: 'Find a solution on the road', tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: 'The Plan That Assumes the Road Cooperates',
+            body: "The party brings the bitten children out of the den. The plan is to find a solution while traveling. This is a reasonable plan that assumes the road offers solutions on a schedule compatible with the curse's progression. Barovia's road does not make this guarantee. The children are safe in the specific sense that the party can see them. They are safe in no other sense." },
+          { label: 'The Sessions That Follow', title: 'The Question That Gets Harder',
+            body: "The children travel with the party. The curse is progressing. The wilderness phase runs with this additional weight on every session — managing the children's safety, tracking the timeline, making smaller decisions that defer the larger one. Every session, the deferral becomes slightly more expensive. Barovia is patient about this kind of compounding." },
+          { label: 'Campaign Echo', title: 'The Decision Barovia Forced Eventually',
+            body: "How this resolves — cure found in time, mercy extended too late, or the children completing the turn — determines the kind of party the characters understand themselves to be. The choice to defer was a choice. Barovia extended the deferral exactly as long as it needed to in order to ensure that when the decision finally arrived, it cost as much as it possibly could." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'van-richten-intelligence', phase: 3,
+    title: "Van Richten's Intelligence",
+    location: "Van Richten's Tower — The Study",
+    session: "Sessions 6–8",
+    teaser: "He tells the party what he actually knows about Strahd. It is more terrifying than they were prepared for.",
+    accent: 'var(--color-accent-spectre-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><path d="M5 10 L18 6 L31 10 L31 28 L18 24 L5 28 Z" stroke="currentColor" stroke-width="1.2" fill="none"/><line x1="18" y1="6" x2="18" y2="24" stroke="currentColor" stroke-width="1" opacity="0.5"/><line x1="8" y1="14" x2="15" y2="14" stroke="currentColor" stroke-width="0.8" opacity="0.4"/><line x1="8" y1="18" x2="15" y2="18" stroke="currentColor" stroke-width="0.8" opacity="0.4"/><line x1="21" y1="14" x2="28" y2="14" stroke="currentColor" stroke-width="0.8" opacity="0.4"/><line x1="21" y1="18" x2="28" y2="18" stroke="currentColor" stroke-width="0.8" opacity="0.4"/></svg>`,
+    prompt: "Van Richten has agreed to share what he actually knows about Strahd von Zarovich — not what circulates in adventurer circles, but what he has verified through years of study. What he tells the party is accurate. It is also more detailed and more alarming than they anticipated. The question is what the party does with that information.",
+    paths: [
+      {
+        id: 'adjust', label: 'Adjust the Strategy', sublabel: 'The intelligence changes the plan', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'The Recalibration',
+            body: "Van Richten tells the party what he knows — the full picture. The party listens and then sits with it for a while. What he has described changes the plan: not the goal, but the method, the approach, the assessment of which allies matter and which tools will actually work when the party reaches the castle's highest room. The recalibration is uncomfortable. It is also accurate." },
+          { label: 'The Sessions That Follow', title: 'Moving With Knowledge',
+            body: "The party's adjusted approach produces a different wilderness phase. They engage specific encounters differently based on what Van Richten described. Some of what he told them becomes immediately applicable; some of it is for later. They move through the remaining wilderness as people who know, in specific detail, what they are walking toward." },
+          { label: 'Campaign Echo', title: 'Preparation as Intelligence',
+            body: "Inside Castle Ravenloft, in the moments that matter most, the party recognizes situations Van Richten described. Not predicted — he was careful about that distinction. Described: this is how he operates in this kind of space, this is where his control is real and where it performs, this is the gap between what he says and what he does. Preparation as intelligence, not prophecy. The difference is enough." }
+        ]
+      },
+      {
+        id: 'press-ahead', label: 'Press Ahead', sublabel: 'Being more afraid does not change the mission', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'Known and Not Changed',
+            body: "Van Richten's intelligence is received and assessed. It is more terrifying than expected. The party has already decided to fight Strahd; knowing more about how dangerous he is does not change the decision. They press ahead. This is either clarity about what the mission requires or refusal to let the information land fully, and it is not possible to know which from inside the decision." },
+          { label: 'The Sessions That Follow', title: 'The Cognitive Dissonance',
+            body: "The party continues through the wilderness on the original trajectory. Van Richten's intelligence is present — they know what he knows, they have not forgotten it — but it has not changed their approach. Walking toward something that you now know is more dangerous than you thought is a specific kind of experience. It produces a specific kind of person by the time the campaign reaches the castle." },
+          { label: 'Campaign Echo', title: 'Verified by Experience',
+            body: "The party arrives at Castle Ravenloft having integrated Van Richten's intelligence not through revised strategy but through everything that followed. Every encounter in the campaign's second half was lived confirmation of what he told them. They understand it now not as information but as verified facts about a place they have been preparing to enter. The wilderness phase was the preparation." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'luvash-truth', phase: 3,
+    title: "Luvash and the Vistani — Who Gets the Truth",
+    location: "The Vistani Camp — Outside Vallaki",
+    session: "Sessions 4–7",
+    teaser: "Luvash wants his daughter back. Arrigal wants her found for reasons that are not Luvash's. The party holds information both of them want.",
+    accent: 'var(--color-accent-ochre-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><path d="M18 8 C15 12 13 16 14 20 C15 24 17 26 18 26 C19 26 21 24 22 20 C23 16 21 12 18 8 Z" stroke="currentColor" stroke-width="1.2" fill="none"/><line x1="8" y1="29" x2="28" y2="29" stroke="currentColor" stroke-width="1.5"/><line x1="10" y1="27" x2="13" y2="29" stroke="currentColor" stroke-width="1"/><line x1="23" y1="29" x2="26" y2="27" stroke="currentColor" stroke-width="1"/><line x1="18" y1="26" x2="18" y2="29" stroke="currentColor" stroke-width="1" opacity="0.5"/></svg>`,
+    prompt: "The party has information about Arabelle — where she is, what her situation is, what has happened to her. Luvash, her father, is desperate. Arrigal, her uncle, is also asking questions — but Arrigal is Strahd's spy, and what he does with information about Arabelle is not the same thing Luvash would do with it. The party must decide who gets the truth, when, and how much of it.",
+    paths: [
+      {
+        id: 'tell-luvash', label: 'Tell Luvash Everything', sublabel: 'Direct and honest; Arrigal becomes a problem', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: "Luvash With Full Information",
+            body: "Luvash receives everything the party knows about Arabelle. His response is complicated — the relief of a parent who now knows, combined with the particular grief of someone who has been kept at a distance from a situation involving their child. He handles it better than Arrigal would have wanted him to. The camp's internal dynamic shifts around what Luvash now knows." },
+          { label: 'The Sessions That Follow', title: 'A More Capable, More Volatile Ally',
+            body: "Luvash with full information is both more capable and more volatile. He has placed Arrigal's behavior in a specific light, whether or not the party named him directly. The camp is not the same as it was. Luvash's trust in the party is real and unconditional — the trust of a man who has been told the truth when he needed it — and this is worth something specific later." },
+          { label: 'Campaign Echo', title: 'The Network Built on Honesty',
+            body: "The Vistani network in the endgame is the network the party built: one formed through direct honesty with Luvash at a moment when honesty was complicated. Direct allies behave differently than managed ones. When the party needs the Vistani to do something dangerous in the final approach to Ravenloft, the relationship the party built is the relationship they call on." }
+        ]
+      },
+      {
+        id: 'use-arrigal', label: 'Feed Arrigal Shaped Information', sublabel: 'Use the spy to move Strahd', tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: 'A Sophisticated Gambit',
+            body: "The party tells Arrigal a version of the truth — information shaped for his role as a conduit to Strahd. This requires the party to know Arrigal is a spy, be willing to use him as such, and be confident that what reaches Strahd through this channel is more useful than what would have been gained by telling Luvash directly. All three conditions must hold." },
+          { label: 'The Sessions That Follow', title: 'The Deception Layer Requires Maintenance',
+            body: "Arrigal is capable and will notice inconsistencies if the story is not tight. Strahd is more capable, and if the information contradicts his other intelligence, he recalibrates. The party has introduced a deception layer into the information war around Arabelle. Deception layers require ongoing attention. The wilderness phase has other demands that do not pause for this one." },
+          { label: 'Campaign Echo', title: 'Whether the Gambit Landed',
+            body: "The endgame answers concretely whether the shaped intelligence moved Strahd where the party intended. Either it did, and they arrive at the castle with a specific advantage they manufactured, or it didn't, and what they spent — the relationship with Luvash, the Vistani standing — was spent on an attempt that didn't convert. The ledger closes at Ravenloft, either way." }
+        ]
+      },
+      {
+        id: 'hold', label: 'Hold the Information', sublabel: 'Tell neither until the situation is controlled', tone: 'danger',
+        consequences: [
+          { label: 'That Night', title: 'Information About a Missing Child, Held',
+            body: "The party holds what they know. Luvash is desperate and the party has information that would help him. Arrigal is probing and the party is not giving him what he is looking for. This is a temporary position. Information about a missing child cannot be held indefinitely without the holding becoming its own kind of action, with its own kind of consequences." },
+          { label: 'The Sessions That Follow', title: 'Luvash Eroding, Arrigal Adjusting',
+            body: "The information is held until the situation reaches a point where releasing it costs less than continuing to withhold it. Luvash's trust erodes incrementally — he can sense he is being managed. Arrigal adjusts his approach based on what he is not being told. The information becomes less useful the longer it is held, because the situation it is relevant to keeps developing without it." },
+          { label: 'Campaign Echo', title: 'The Network the Withholding Built',
+            body: "What the party eventually did with the information about Arabelle, and when, determines the state of the Vistani network in the endgame. The network built through managed honesty is different from the one built through direct trust — not necessarily worse, but different, and the endgame uses what was built rather than what was intended." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'wereravens-network', phase: 3,
+    title: "The Wereravens — How Deep You Use the Network",
+    location: "The Wizard of Wines — The Martikov Family",
+    session: "Sessions 5–8",
+    teaser: "The Martikov intelligence network spans all of Barovia. Fully committing it gives the party an advantage unlike any other. It also puts people in danger who did not choose to be soldiers.",
+    accent: 'var(--color-accent-spectre-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><path d="M18 17 C12 13 4 15 4 21 C4 23 6 24 8 23 C10 22 12 19 15 18" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M18 17 C24 13 32 15 32 21 C32 23 30 24 28 23 C26 22 24 19 21 18" stroke="currentColor" stroke-width="1.2" fill="none"/><circle cx="18" cy="15" r="3" stroke="currentColor" stroke-width="1" fill="none"/><line x1="18" y1="18" x2="18" y2="27" stroke="currentColor" stroke-width="1" opacity="0.5"/><path d="M15 27 L21 27" stroke="currentColor" stroke-width="1.2"/></svg>`,
+    prompt: "The Martikov family's wereraven network spans Barovia — they carry messages, monitor roads, and can mobilize resources across the whole domain. The party has earned their trust by helping at the winery. The question now is how much of that trust to spend. Full commitment gives unprecedented intelligence advantage. It also puts people with children and vineyards and lives in the path of Strahd's attention.",
+    paths: [
+      {
+        id: 'full-commit', label: 'Full Commitment', sublabel: 'Every wereraven, all in', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'The Network Activated',
+            body: "The party commits the Martikov network fully. Every wereraven in Barovia becomes an active participant in what the party is doing. The intelligence is unprecedented — patrol routes, which roads are watched, what the castle's external rhythms look like, what Strahd knows and when he knows it. The Martikovs understand exactly what this exposure means and agree anyway." },
+          { label: 'The Sessions That Follow', title: 'The Intelligence Dividend',
+            body: "The intelligence advantage is real and immediate. The party moves through the wilderness with a level of situational awareness that changes the character of encounters — things that would have been ambushes become encounters, things that would have been blocked become navigable. The cost is that Strahd's intelligence apparatus knows the network has been activated, even without knowing its details." },
+          { label: 'Campaign Echo', title: 'What Was Spent and What Was Built',
+            body: "The endgame arrives with the full network deployed and some of the Martikovs having paid costs for it. The castle approach is better-prepared than any approach without it. The party committed civilians to a war they were already surviving in, rather than a war they were choosing to fight. In Barovia, this distinction matters less than intended. The intelligence advantage was real. So was the price." }
+        ]
+      },
+      {
+        id: 'selective', label: 'Selective Use', sublabel: 'Intelligence, not action', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'The Network as Eyes, Not Hands',
+            body: "The party uses the network for intelligence but not direct action. The wereravens carry information, monitor movement, and identify threats — but they are not weapons, and the party treats them accordingly. The Martikovs appreciate this distinction, in the specific way that people who have been asked to be soldiers appreciate not being asked." },
+          { label: 'The Sessions That Follow', title: 'Sustainable Intelligence',
+            body: "The selective approach produces reliable intelligence without the visibility of full commitment. The network operates at a level that does not attract Strahd's specific attention. The Martikovs remain capable of functioning after the party's campaign ends — which matters for what Barovia becomes if the curse breaks. The party built something they did not immediately spend." },
+          { label: 'Campaign Echo', title: 'A Healthy Network at the Endgame',
+            body: "The Martikov network is intact and trusted at the endgame. The final approach to Ravenloft uses wereraven intelligence in a targeted, specific way — the kind of use the network was designed for. What the party receives is what a healthy, trust-based network produces when called upon carefully. They protected something in order to use it well. Both halves of that sentence are true." }
+        ]
+      },
+      {
+        id: 'minimal', label: 'Minimal Exposure', sublabel: "Don't ask for more than they've already offered", tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: 'Taking What Is Given',
+            body: "The party takes what the Martikovs offer without asking for more. Enough information to move safely. Enough goodwill to rely on when the road requires it. The wereravens are not committed to anything beyond what their hospitality already implied. The Martikovs are quietly grateful for the restraint, which tells the party something about what full commitment would have cost them." },
+          { label: 'The Sessions That Follow', title: 'Working With Less',
+            body: "The minimal approach means the party works with less intelligence than they could have had. This is a choice about what they were willing to ask for, made for reasons that may or may not have been the right ones. The wilderness phase runs without the full wereraven advantage. The party compensates through other means. It is possible. It is also work that the network would have done for them." },
+          { label: 'Campaign Echo', title: 'The Pristine Asset',
+            body: "The Martikov network is fully intact at the endgame — the party did not spend it, so all of it is still there. The question is whether what they preserved is more useful than what they could have learned. Some campaigns reach Ravenloft with the entire network available and undepleted. The network survives. Whether it was ever fully used is a question those campaigns answer differently." }
+        ]
+      }
+    ]
   }
 ];
 
@@ -1693,7 +2065,8 @@ function navigate(updates) {
 const PHASE_LABELS = {
   0: 'Featured',
   1: 'Phase 1 — Entering the Curse',
-  2: 'Phase 2 — Vallaki'
+  2: 'Phase 2 — Vallaki',
+  3: 'Phase 3 — The Wilderness'
 };
 
 function cardHtml(s) {
@@ -1722,7 +2095,7 @@ function cardHtml(s) {
 }
 
 function renderGrid() {
-  const phases = [0, 1, 2];
+  const phases = [0, 1, 2, 3];
   const groups = phases
     .map(p => ({ phase: p, label: PHASE_LABELS[p], scenarios: SCENARIOS.filter(s => s.phase === p) }))
     .filter(g => g.scenarios.length > 0);
