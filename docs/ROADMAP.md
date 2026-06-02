@@ -156,6 +156,28 @@ Map each played scene to its impact on Barovia's political factions (Lady Wachte
 
 ---
 
+## Butterfly Effect — Curated Scenario Backlog
+
+Pre-computed, narrative-focused consequence scenarios for `viz/butterfly-effect-v2.html`. Each scenario presents a decision point, two or more paths, and three cascading consequence levels (That Night / The Sessions That Follow / Campaign Echo). Content is authored from graph data — `world_change` signals, scene prose, and character arcs — not live inference.
+
+5 scenarios shipped: Doru's Fate, Vallaki's Soul, Van Richten's Allegiance, The Dark Gift, Strahd's End.
+
+Tier 1 = direct graph branching · Tier 2 = graph-supported + canon extrapolation · Tier 3 = canon-primary
+
+### Phase 1 — Entering the Curse ✓ (7 scenarios shipped)
+
+### Phase 2 — Vallaki ✓ (10 scenarios shipped)
+
+### Phase 3 — The Wilderness ✓ (9 scenarios shipped)
+
+### Phase 4 — Krezk & Deeper Wilderness ✓ (8 scenarios shipped)
+
+### Phase 5 — Collecting the Artifacts ✓ (6 scenarios shipped)
+
+### Phase 6 — Castle Ravenloft & Endgame ✓ (5 scenarios shipped)
+
+---
+
 ## Phase 5 — Session Prep Assistant (AI-powered)
 
 **Problem it solves:** DMs spend 2–4 hours per session on prep that is largely re-deriving context the campaign state already contains. The community accepts AI as a *collaborator*, not an oracle — but distrusts free-generation tools because of hallucinated lore. The moat here is graph-grounded output: the AI cannot invent scene availability or NPC facts because the graph already computed them. Claude only writes prose around deterministic inputs.
