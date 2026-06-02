@@ -1,7 +1,7 @@
 {
   "universe": "curse-of-strahd",
   "genre": "game-campaign",
-  "generated_at": "2026-05-28T18:30:33.102134+00:00",
+  "generated_at": "2026-06-02T13:30:53.185124+00:00",
   "character_state_continuity": {
     "character.adventuring-party": {
       "scenes": [
@@ -237,6 +237,19 @@
           "exit_state": {
             "emotional": "courageous",
             "shift": "Having survived the castle's malice — the shifting corridors, the impossible traps, the endless servants — the party arrives at Strahd carrying a grim clarity: they have passed every test except the last one"
+          }
+        },
+        {
+          "scene": "scene.heart-of-sorrow-confrontation",
+          "story": "story.assault-on-castle-ravenloft",
+          "entry_state": {
+            "emotional": "determined",
+            "expectation": "The party has fought through the castle's defenses and now climbs toward the highest tower — they are looking for the source of Strahd's apparent invulnerability, because something has been absorbing what should have been killing blows",
+            "fear": "That they will destroy the Heart and it will not matter — that even without it, Strahd is simply beyond them"
+          },
+          "exit_state": {
+            "emotional": "resolute",
+            "shift": "Destroying the Heart of Sorrow is a mechanical victory but also a conceptual one: the party has stripped Strahd of his home-field protection and proven they can reach him. They are no longer fighting on his terms entirely."
           }
         },
         {
@@ -669,6 +682,19 @@
           }
         },
         {
+          "scene": "scene.blinsky-toy-shop",
+          "story": "story.vallaki-politics",
+          "entry_state": {
+            "emotional": "uneasy",
+            "expectation": "A toymaker's shop in a grim town — probably just grim toys",
+            "fear": "That something about this place will make Ireena's situation more precarious than it already is"
+          },
+          "exit_state": {
+            "emotional": "disturbed",
+            "shift": "The dolls make Strahd's obsession with Ireena feel personal and immediate in a way that abstract warnings did not — he has been watching her, perhaps for years"
+          }
+        },
+        {
           "scene": "scene.meeting-baron-vallakovich",
           "story": "story.vallaki-politics",
           "entry_state": {
@@ -916,19 +942,6 @@
           }
         },
         {
-          "scene": "scene.blinsky-toy-shop",
-          "story": "—",
-          "entry_state": {
-            "emotional": "uneasy",
-            "expectation": "A toymaker's shop in a grim town — probably just grim toys",
-            "fear": "That something about this place will make Ireena's situation more precarious than it already is"
-          },
-          "exit_state": {
-            "emotional": "disturbed",
-            "shift": "The dolls make Strahd's obsession with Ireena feel personal and immediate in a way that abstract warnings did not — he has been watching her, perhaps for years"
-          }
-        },
-        {
           "scene": "scene.premature-castle-assault",
           "story": "—",
           "entry_state": {
@@ -973,7 +986,7 @@
         "shift": "The refusal confronts the party with the gap between who they believe themselves to be and who Van Richten sees — they must reckon with what they failed to demonstrate"
       },
       "latest_exit_scene": "scene.van-richten-refuses",
-      "scene_count": 74
+      "scene_count": 75
     },
     "character.arabelle": {
       "scenes": [
@@ -1110,7 +1123,7 @@
       "scenes": [
         {
           "scene": "scene.blinsky-toy-shop",
-          "story": "—",
+          "story": "story.vallaki-politics",
           "entry_state": {
             "emotional": "uneasy",
             "expectation": "A toymaker's shop in a grim town — probably just grim toys",
@@ -1460,14 +1473,27 @@
             "emotional": "moved",
             "shift": "Witnessing Strahd's redemption does not feel like victory — it feels like grief that came too late, and a tenderness for what love costs when it arrives after centuries of darkness; the party carries a question they cannot answer: was it worth it"
           }
+        },
+        {
+          "scene": "scene.izek-confronts-ireena",
+          "story": "story.vallaki-politics",
+          "entry_state": {
+            "emotional": "anxious",
+            "expectation": "The party has seen Ireena's face in Blinsky's dolls and has been watching for whoever commissioned them — finding the Baron's own enforcer is not the answer they expected",
+            "fear": "That Izek's reaction to seeing Ireena will be violent and uncontrollable, and that Ireena is in immediate danger from someone the Baron will not restrain"
+          },
+          "exit_state": {
+            "emotional": "confused",
+            "shift": "The sibling revelation reframes Izek from a purely hostile obstacle into something more complicated — he is dangerous and the party cannot trust him, but the compulsion driving his behavior is not Strahd's obsession, it is something older and more human, which makes the danger harder to categorize"
+          }
         }
       ],
       "latest_exit_state": {
-        "emotional": "moved",
-        "shift": "Witnessing Strahd's redemption does not feel like victory — it feels like grief that came too late, and a tenderness for what love costs when it arrives after centuries of darkness; the party carries a question they cannot answer: was it worth it"
+        "emotional": "confused",
+        "shift": "The sibling revelation reframes Izek from a purely hostile obstacle into something more complicated — he is dangerous and the party cannot trust him, but the compulsion driving his behavior is not Strahd's obsession, it is something older and more human, which makes the danger harder to categorize"
       },
-      "latest_exit_scene": "scene.strahd-redeemed",
-      "scene_count": 5
+      "latest_exit_scene": "scene.izek-confronts-ireena",
+      "scene_count": 6
     },
     "character.ismark-kolyanovich": {
       "scenes": [
@@ -1495,6 +1521,19 @@
     "character.izek-strazni": {
       "scenes": [
         {
+          "scene": "scene.izek-confronts-ireena",
+          "story": "story.vallaki-politics",
+          "entry_state": {
+            "emotional": "anxious",
+            "expectation": "The party has seen Ireena's face in Blinsky's dolls and has been watching for whoever commissioned them — finding the Baron's own enforcer is not the answer they expected",
+            "fear": "That Izek's reaction to seeing Ireena will be violent and uncontrollable, and that Ireena is in immediate danger from someone the Baron will not restrain"
+          },
+          "exit_state": {
+            "emotional": "confused",
+            "shift": "The sibling revelation reframes Izek from a purely hostile obstacle into something more complicated — he is dangerous and the party cannot trust him, but the compulsion driving his behavior is not Strahd's obsession, it is something older and more human, which makes the danger harder to categorize"
+          }
+        },
+        {
           "scene": "scene.vallaki-political-resolution",
           "story": "story.vallaki-politics",
           "entry_state": {
@@ -1513,7 +1552,7 @@
         "shift": "The decision is made. The party knows whose house they will sleep in, whose guards will not stop them at the gates, and whose enemies they have quietly made. Vallaki is still a town under Strahd's shadow, but it is now a town they have a position in — however uncomfortable that position may be."
       },
       "latest_exit_scene": "scene.vallaki-political-resolution",
-      "scene_count": 1
+      "scene_count": 2
     },
     "character.kasimir-velikov": {
       "scenes": [
@@ -2402,10 +2441,17 @@
       "outcome_type": ""
     },
     {
-      "source": "object.holy-symbol-of-ravenloft",
+      "source": "object.heart-of-sorrow",
+      "source_type": "object",
+      "outcome": "heart-of-sorrow-destroyed",
+      "description": "The Heart of Sorrow has been destroyed; Strahd is now vulnerable to permanent defeat",
+      "outcome_type": ""
+    },
+    {
+      "source": "object.holy-symbol-of-ravenkind",
       "source_type": "object",
       "outcome": "holy-symbol-acquired",
-      "description": "The party has obtained the holy symbol of Ravenloft",
+      "description": "The party has obtained the Holy Symbol of Ravenkind",
       "outcome_type": ""
     },
     {
@@ -2962,10 +3008,24 @@
       "outcome_type": ""
     },
     {
+      "source": "scene.heart-of-sorrow-confrontation",
+      "source_type": "scene",
+      "outcome": "heart-of-sorrow-destroyed",
+      "description": "The Heart of Sorrow has been destroyed; Strahd is now vulnerable to permanent defeat inside Castle Ravenloft",
+      "outcome_type": ""
+    },
+    {
       "source": "scene.interpreting-the-reading",
       "source_type": "scene",
       "outcome": "artifacts-path-established",
       "description": "The party has understood the Tarokka reading and established their path forward: find the artifacts and the ally, then confront Strahd",
+      "outcome_type": ""
+    },
+    {
+      "source": "scene.izek-confronts-ireena",
+      "source_type": "scene",
+      "outcome": "izek-ireena-sibling-connection-revealed",
+      "description": "The party has discovered that Izek Strazni and Ireena Kolyana are biological siblings, separated in childhood after the wolf attack that cost Izek his arm",
       "outcome_type": ""
     },
     {
@@ -3460,7 +3520,6 @@
     "isolated_stories": [],
     "scenes_not_in_any_story": [
       "scene.artifact-lost-to-strahd",
-      "scene.blinsky-toy-shop",
       "scene.premature-castle-assault",
       "scene.svalich-woods-exhausted",
       "scene.van-richten-refuses"
