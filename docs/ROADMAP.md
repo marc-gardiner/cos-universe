@@ -172,22 +172,9 @@ Tier 1 = direct graph branching · Tier 2 = graph-supported + canon extrapolatio
 
 ### Phase 4 — Krezk & Deeper Wilderness ✓ (8 scenarios shipped)
 
-### Phase 5 — Collecting the Artifacts
+### Phase 5 — Collecting the Artifacts ✓ (6 scenarios shipped)
 
-- [ ] **The Sunsword — What It Costs to Claim It** — the blade belonged to Sergei, Strahd's murdered brother: claiming it is symbolic as much as tactical [T2] `scene.retrieving-sunsword`
-- [ ] **The Tome of Strahd — the Man Before the Monster** — reading it reveals his full history: does this change how you fight him [T2] `scene.retrieving-tome-of-strahd`
-- [ ] **An Artifact Lost to Strahd** — the graph's highest branch score (8): how do you recover it and what does the failure cost [T1] `scene.artifact-lost-to-strahd` · `condition.all-artifacts-held`
-- [ ] **Premature Castle Assault** — attacking Ravenloft before all artifacts are held: what does arriving damaged look like [T1] `scene.premature-castle-assault`
-- [ ] **Lycanthropy — a Party Member Bitten** — seek a cure (the Abbot can help, at a cost), accept it, or attempt to control it [T2] `rule.werewolf-curse-transmission` · `scene.abbot-bargain-concluded`
-- [ ] **The Wereravens in the Endgame** — committing the Martikov network for the Ravenloft assault at civilian risk [T2] `story.wizard-of-wines` · `story.assault-on-castle-ravenloft`
-
-### Phase 6 — Castle Ravenloft & Endgame
-
-- [ ] **Strahd's Dinner** — if the party attends, they learn things; but Strahd also learns things: was it worth the access [T2] `condition.strahd-invitation-received`
-- [ ] **Escher's Crisis** — Strahd's consort is miserable: is there enough of him left to turn against his master [T2] `character.escher`
-- [ ] **Rahadin — the History the Chamberlain Carries** — he betrayed his own people to serve Strahd for centuries: use his dusk elf history against him or just fight [T2] `character.rahadin`
-- [ ] **The Vampire Brides** — Anastrasya, Ludmilla, and Volenta have distinct agendas: fight all three, negotiate with one, or turn them on each other [T2] `character.anastrasya-karelova` · `character.ludmilla-vilisevic` · `character.volenta-popofsky`
-- [ ] **Barovia After — the World You Built** — the Barovia that exists after Strahd is entirely shaped by the 49 choices before it [T3] `story.assault-on-castle-ravenloft`
+### Phase 6 — Castle Ravenloft & Endgame ✓ (5 scenarios shipped)
 
 ---
 

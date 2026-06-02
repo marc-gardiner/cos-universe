@@ -340,6 +340,82 @@
       color: var(--color-shroud-muted);
     }
 
+    /* ── GRAPH METADATA ── */
+    .scenario-card__prereqs {
+      font-size: 0.6875rem;
+      color: var(--color-shroud-muted);
+      margin-bottom: 0.625rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .scenario-card__prereqs-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--color-shroud-muted);
+      flex-shrink: 0;
+      opacity: 0.5;
+    }
+    .scenario-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.375rem;
+      margin-bottom: 1.25rem;
+    }
+    .scenario-meta__tag {
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-shroud-muted);
+      border: 1px solid var(--color-abyss-iron);
+      padding: 0.2rem 0.5rem;
+      border-radius: 2px;
+    }
+    .scenario-meta__tag--scene {
+      color: var(--color-shroud-parchment);
+      border-color: var(--color-shroud-muted);
+      opacity: 0.55;
+    }
+    .prereq-strip {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      padding: 0.75rem 1rem;
+      background: var(--color-abyss-crypt);
+      border: 1px solid var(--color-abyss-iron);
+      border-left: 2px solid var(--color-shroud-muted);
+    }
+    .prereq-strip__label {
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-shroud-muted);
+      white-space: nowrap;
+    }
+    .prereq-strip__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.375rem;
+    }
+    .prereq-link {
+      font-size: 0.75rem;
+      color: var(--color-shroud-parchment);
+      background: transparent;
+      border: 1px solid var(--color-abyss-iron);
+      padding: 0.2rem 0.625rem;
+      cursor: pointer;
+      font-family: var(--font-ui);
+      transition: border-color var(--motion-fast), color var(--motion-fast);
+    }
+    .prereq-link:hover {
+      border-color: var(--color-shroud-muted);
+      color: var(--color-shroud-primary);
+    }
+
     /* ── DECISION PROMPT ── */
     .decision-prompt {
       background: var(--color-abyss-mausoleum);
@@ -691,6 +767,9 @@
 const SCENARIOS = [
   {
     id: 'doru-fate', phase: 0,
+    sceneRef: ["scene.doru-confrontation", "scene.doru-fate-resolved"],
+    locationRef: 'location.village-of-barovia',
+    prereqs: [],
     title: "Doru's Fate",
     location: "Village of Barovia — The Church",
     session: "Sessions 1–2",
@@ -702,7 +781,7 @@ const SCENARIOS = [
       <path d="M14 27 Q18 34 22 27" stroke="currentColor" stroke-width="1" fill="none" opacity="0.45"/>
       <circle cx="18" cy="3" r="1.5" fill="currentColor" opacity="0.7"/>
     </svg>`,
-    prompt: "Father Donavich's son Doru became a vampire spawn when he led an assault on Castle Ravenloft months ago. He's chained in the church basement, starving, begging. His father has not left the church since. What does the party do?",
+    prompt: "Father Donavich's son Doru became a vampire spawn when he led a march on Castle Ravenloft months ago. He's chained in the church basement, starving, begging. His father has not left the church since. What does the party do?",
     paths: [
       {
         id: 'destroy',
@@ -755,6 +834,9 @@ const SCENARIOS = [
 
   {
     id: 'vallaki-soul', phase: 0,
+    sceneRef: ["scene.meeting-baron-vallakovich", "scene.meeting-lady-wachter", "scene.wachter-offers-alliance", "scene.vallaki-political-resolution"],
+    locationRef: 'location.vallaki',
+    prereqs: ["ismarks-ask"],
     title: "Vallaki's Soul",
     location: "Vallaki — The Political Fault Line",
     session: "Sessions 3–5",
@@ -820,6 +902,9 @@ const SCENARIOS = [
 
   {
     id: 'van-richten', phase: 0,
+    sceneRef: ["scene.convincing-van-richten", "scene.van-richten-refuses"],
+    locationRef: 'location.barovia-realm',
+    prereqs: ["the-fifth-card"],
     title: "Van Richten's Allegiance",
     location: "Barovia — Wherever He Hides",
     session: "Sessions 6–8",
@@ -884,6 +969,9 @@ const SCENARIOS = [
 
   {
     id: 'dark-gift', phase: 0,
+    sceneRef: ["scene.amber-sarcophagus-temptation", "scene.amber-temple-escape"],
+    locationRef: 'location.amber-temple',
+    prereqs: ["dark-powers-understanding"],
     title: "The Dark Gift",
     location: "The Amber Temple — Deep Barovia",
     session: "Sessions 9–11",
@@ -948,6 +1036,9 @@ const SCENARIOS = [
 
   {
     id: 'strahd-end', phase: 0,
+    sceneRef: ["scene.confronting-strahd", "scene.strahd-defeated", "scene.strahd-redeemed", "scene.party-consumed-by-darkness"],
+    locationRef: 'location.castle-ravenloft',
+    prereqs: ["vampire-brides", "sunsword-cost", "tome-comprehension"],
     title: "Strahd's End",
     location: "Castle Ravenloft — The Final Confrontation",
     session: "The Finale",
@@ -1039,6 +1130,9 @@ const SCENARIOS = [
 
   {
     id: 'rose-and-thorn', phase: 1,
+    sceneRef: ["scene.death-house-entry", "scene.death-house-attic", "scene.death-house-escape"],
+    locationRef: 'location.death-house',
+    prereqs: ["accepting-barovia"],
     title: "Rose and Thorn's Request",
     location: "Death House — The Attic",
     session: "Sessions 1–2",
@@ -1074,6 +1168,9 @@ const SCENARIOS = [
 
   {
     id: 'accepting-barovia', phase: 1,
+    sceneRef: ["scene.entering-svalich-woods"],
+    locationRef: 'location.svalich-woods',
+    prereqs: [],
     title: "Accepting Barovia",
     location: "The Svalich Woods — The Border Mists",
     session: "Session 1",
@@ -1109,6 +1206,9 @@ const SCENARIOS = [
 
   {
     id: 'strahd-first-invitation', phase: 1,
+    sceneRef: ["scene.strahd-first-invitation"],
+    locationRef: 'location.village-of-barovia',
+    prereqs: ["promise-to-ireena"],
     title: "Strahd's First Invitation",
     location: "Village of Barovia — The Road",
     session: "Sessions 1–2",
@@ -1144,6 +1244,9 @@ const SCENARIOS = [
 
   {
     id: 'promise-to-ireena', phase: 1,
+    sceneRef: ["scene.meeting-ireena-and-ismark"],
+    locationRef: 'location.village-of-barovia',
+    prereqs: ["doru-fate"],
     title: "The Promise to Ireena",
     location: "Village of Barovia — Kolyan's House",
     session: "Sessions 1–2",
@@ -1190,6 +1293,9 @@ const SCENARIOS = [
 
   {
     id: 'ismarks-ask', phase: 1,
+    sceneRef: ["scene.meeting-ireena-and-ismark", "scene.departure-to-vallaki"],
+    locationRef: 'location.village-of-barovia',
+    prereqs: ["promise-to-ireena"],
     title: "Ismark's Ask",
     location: "Village of Barovia — The Road South",
     session: "Sessions 1–2",
@@ -1225,6 +1331,9 @@ const SCENARIOS = [
 
   {
     id: 'the-fifth-card', phase: 1,
+    sceneRef: ["scene.tarokka-reading", "scene.interpreting-the-reading"],
+    locationRef: 'location.barovia-realm',
+    prereqs: ["strahd-at-tser-pool"],
     title: "The Fifth Card",
     location: "Tser Pool — Madam Eva's Camp",
     session: "Sessions 1–2",
@@ -1271,6 +1380,9 @@ const SCENARIOS = [
 
   {
     id: 'strahd-at-tser-pool', phase: 1,
+    sceneRef: ["scene.tser-pool-arrival"],
+    locationRef: 'location.tser-pool-encampment',
+    prereqs: ["ismarks-ask"],
     title: "Strahd at Tser Pool",
     location: "Tser Pool — Vistani Encampment",
     session: "Sessions 1–2",
@@ -1319,6 +1431,9 @@ const SCENARIOS = [
 
   {
     id: 'st-andral-bones', phase: 2,
+    sceneRef: ["scene.bones-of-st-andral-stolen", "scene.bones-recovered", "scene.bones-returned-to-church"],
+    locationRef: 'location.st-andrals-church',
+    prereqs: ["vallaki-soul"],
     title: "St. Andral's Bones",
     location: "Vallaki — St. Andral's Church",
     session: "Sessions 3–4",
@@ -1354,6 +1469,9 @@ const SCENARIOS = [
 
   {
     id: 'festival-blazing-sun', phase: 2,
+    sceneRef: ["scene.festival-preparations", "scene.festival-of-blazing-sun"],
+    locationRef: 'location.vallaki',
+    prereqs: ["vallaki-soul"],
     title: "The Festival of the Blazing Sun",
     location: "Vallaki — Town Square",
     session: "Sessions 3–4",
@@ -1389,6 +1507,9 @@ const SCENARIOS = [
 
   {
     id: 'vallaki-stockade', phase: 2,
+    sceneRef: ["scene.party-imprisoned-in-vallaki"],
+    locationRef: 'location.vallaki-stockade',
+    prereqs: ["festival-blazing-sun"],
     title: "The Vallaki Stockade",
     location: "Vallaki — The Stockade",
     session: "Sessions 3–4",
@@ -1424,6 +1545,9 @@ const SCENARIOS = [
 
   {
     id: 'blinsky-dolls', phase: 2,
+    sceneRef: ["scene.blinsky-toy-shop", "scene.izek-confronts-ireena"],
+    locationRef: 'location.vallaki',
+    prereqs: ["vallaki-soul"],
     title: "Blinsky's Dolls",
     location: "Vallaki — Blinsky's Toy Shop",
     session: "Sessions 3–4",
@@ -1459,6 +1583,9 @@ const SCENARIOS = [
 
   {
     id: 'izek-obsession', phase: 2,
+    sceneRef: ["scene.izek-confronts-ireena"],
+    locationRef: 'location.vallaki',
+    prereqs: ["blinsky-dolls"],
     title: "Izek Strazni's Obsession",
     location: "Vallaki — The Streets",
     session: "Sessions 3–5",
@@ -1494,6 +1621,9 @@ const SCENARIOS = [
 
   {
     id: 'coffin-maker', phase: 2,
+    sceneRef: ["scene.bones-of-st-andral-stolen", "scene.bones-recovered"],
+    locationRef: 'location.coffin-makers-shop',
+    prereqs: ["st-andral-bones"],
     title: "The Coffin Maker",
     location: "Vallaki — Henrik's Shop",
     session: "Sessions 3–4",
@@ -1529,6 +1659,9 @@ const SCENARIOS = [
 
   {
     id: 'arrigal-spy', phase: 2,
+    sceneRef: [],
+    locationRef: 'location.vistani-camp-vallaki',
+    prereqs: ["arabelle-after"],
     title: "Arrigal — the Spy in the Camp",
     location: "Vallaki — Vistani Camp",
     session: "Sessions 3–5",
@@ -1564,6 +1697,9 @@ const SCENARIOS = [
 
   {
     id: 'arabelle-after', phase: 2,
+    sceneRef: ["scene.arabelle-missing", "scene.arabelle-found"],
+    locationRef: 'location.van-richtens-tower',
+    prereqs: ["luvash-truth"],
     title: "Arabelle — What Happens After",
     location: "Van Richten's Tower — The Aftermath",
     session: "Sessions 4–6",
@@ -1599,6 +1735,9 @@ const SCENARIOS = [
 
   {
     id: 'rictavio-unmasked', phase: 2,
+    sceneRef: ["scene.rictavio-at-blue-water-inn", "scene.van-richten-identity-revealed", "scene.van-richten-knowledge-shared"],
+    locationRef: 'location.blue-water-inn',
+    prereqs: ["vallaki-soul"],
     title: "Rictavio Unmasked — the Arabelle Fork",
     location: "Vallaki — Blue Water Inn & Van Richten's Tower",
     session: "Sessions 4–5",
@@ -1634,6 +1773,9 @@ const SCENARIOS = [
 
   {
     id: 'wachterhaus-cult', phase: 2,
+    sceneRef: ["scene.meeting-lady-wachter", "scene.wachter-offers-alliance"],
+    locationRef: 'location.wachterhaus',
+    prereqs: ["vallaki-soul"],
     title: "The Wachterhaus Cult",
     location: "Vallaki — Wachterhaus",
     session: "Sessions 3–5",
@@ -1671,6 +1813,9 @@ const SCENARIOS = [
 
   {
     id: 'morgantha-operation', phase: 3,
+    sceneRef: ["scene.old-bonegrinder-approach", "scene.dream-pastry-trap", "scene.morgantha-confrontation"],
+    locationRef: 'location.old-bonegrinder',
+    prereqs: ["ismarks-ask"],
     title: "Morgantha's Operation",
     location: "The Old Bonegrinder — Wilderness Road",
     session: "Sessions 5–7",
@@ -1717,6 +1862,9 @@ const SCENARIOS = [
 
   {
     id: 'winery-which-front', phase: 3,
+    sceneRef: ["scene.winery-quest-start", "scene.winery-cleared", "scene.yester-hill-ritual"],
+    locationRef: 'location.wizard-of-wines',
+    prereqs: ["the-fifth-card"],
     title: "The Winery — Which Front First",
     location: "The Wizard of Wines — Winery Road",
     session: "Sessions 5–7",
@@ -1752,6 +1900,9 @@ const SCENARIOS = [
 
   {
     id: 'yester-hill-ritual', phase: 3,
+    sceneRef: ["scene.yester-hill-ritual"],
+    locationRef: 'location.yester-hill',
+    prereqs: ["winery-which-front"],
     title: "Yester Hill — the Ritual Already Running",
     location: "Yester Hill — The Druidic Circle",
     session: "Sessions 5–7",
@@ -1798,6 +1949,9 @@ const SCENARIOS = [
 
   {
     id: 'baba-lysaga-ruins', phase: 3,
+    sceneRef: ["scene.ruins-of-berez-approach", "scene.baba-lysaga-confrontation"],
+    locationRef: 'location.ruins-of-berez',
+    prereqs: ["winery-which-front"],
     title: "Baba Lysaga — What the Ruins Reveal",
     location: "Berez — The Ruined Village",
     session: "Sessions 5–7",
@@ -1833,6 +1987,9 @@ const SCENARIOS = [
 
   {
     id: 'werewolf-den-zuleika', phase: 3,
+    sceneRef: ["scene.werewolf-den-infiltration", "scene.children-rescued"],
+    locationRef: 'location.werewolf-den',
+    prereqs: ["the-fifth-card"],
     title: "The Werewolf Den — What About Zuleika",
     location: "The Werewolf Den — Mount Baratok",
     session: "Sessions 6–8",
@@ -1868,6 +2025,9 @@ const SCENARIOS = [
 
   {
     id: 'children-bitten', phase: 3,
+    sceneRef: ["scene.werewolf-den-infiltration"],
+    locationRef: 'location.werewolf-den',
+    prereqs: ["werewolf-den-zuleika"],
     title: "The Children Who Can't Come Back",
     location: "The Werewolf Den — The Captive Pen",
     session: "Sessions 6–8",
@@ -1914,6 +2074,9 @@ const SCENARIOS = [
 
   {
     id: 'van-richten-intelligence', phase: 3,
+    sceneRef: ["scene.searching-for-van-richten", "scene.van-richten-first-contact", "scene.van-richten-knowledge-shared"],
+    locationRef: 'location.barovia-realm',
+    prereqs: ["the-fifth-card"],
     title: "Van Richten's Intelligence",
     location: "Van Richten's Tower — The Study",
     session: "Sessions 6–8",
@@ -1949,6 +2112,9 @@ const SCENARIOS = [
 
   {
     id: 'luvash-truth', phase: 3,
+    sceneRef: ["scene.arabelle-missing", "scene.arabelle-found"],
+    locationRef: 'location.vistani-camp-vallaki',
+    prereqs: ["vallaki-soul"],
     title: "Luvash and the Vistani — Who Gets the Truth",
     location: "The Vistani Camp — Outside Vallaki",
     session: "Sessions 4–7",
@@ -1997,6 +2163,9 @@ const SCENARIOS = [
 
   {
     id: 'dmitri-krezkovs-gate', phase: 4,
+    sceneRef: ["scene.krezk-arrival"],
+    locationRef: 'location.krezk',
+    prereqs: ["ismarks-ask"],
     title: "Dmitri Krezkov's Gate",
     location: "Krezk — The Village Gate",
     session: "Sessions 6–8",
@@ -2043,6 +2212,9 @@ const SCENARIOS = [
 
   {
     id: 'ireena-blessed-pool', phase: 4,
+    sceneRef: ["scene.krezk-arrival", "scene.lake-zarovich-crossing"],
+    locationRef: 'location.krezk',
+    prereqs: ["dmitri-krezkovs-gate"],
     title: "Ireena at the Blessed Pool",
     location: "Krezk — The Blessed Pool",
     session: "Sessions 6–9",
@@ -2089,6 +2261,9 @@ const SCENARIOS = [
 
   {
     id: 'abbots-bargain', phase: 4,
+    sceneRef: ["scene.meeting-the-abbot", "scene.vasilka-revealed", "scene.abbot-bargain-concluded"],
+    locationRef: 'location.abbey-of-saint-markovia',
+    prereqs: ["dmitri-krezkovs-gate"],
     title: "The Abbot's Bargain",
     location: "Krezk — The Abbey of Saint Markovia",
     session: "Sessions 7–10",
@@ -2135,6 +2310,9 @@ const SCENARIOS = [
 
   {
     id: 'kasimirs-sister', phase: 4,
+    sceneRef: ["scene.kasimir-approaches-party"],
+    locationRef: 'location.vistani-camp-vallaki',
+    prereqs: ["vallaki-soul"],
     title: "Kasimir's Sister",
     location: "Barovia — The Road to the Amber Temple",
     session: "Sessions 8–11",
@@ -2181,6 +2359,9 @@ const SCENARIOS = [
 
   {
     id: 'vladimir-horngaard', phase: 4,
+    sceneRef: ["scene.argynvostholt-arrival", "scene.meeting-vladimir-horngaard"],
+    locationRef: 'location.argynvostholt',
+    prereqs: ["the-fifth-card"],
     title: "Vladimir Horngaard",
     location: "Argynvostholt — The Great Hall",
     session: "Sessions 7–10",
@@ -2227,6 +2408,9 @@ const SCENARIOS = [
 
   {
     id: 'midnight-riders', phase: 4,
+    sceneRef: ["scene.meeting-vladimir-horngaard", "scene.dragon-skull-quest"],
+    locationRef: 'location.argynvostholt',
+    prereqs: ["vladimir-horngaard"],
     title: "The Midnight Riders",
     location: "Barovia — The Wilderness Road",
     session: "Sessions 6–10",
@@ -2273,6 +2457,9 @@ const SCENARIOS = [
 
   {
     id: 'argynvosts-beacon', phase: 4,
+    sceneRef: ["scene.dragon-skull-quest", "scene.argynvost-beacon-lit"],
+    locationRef: 'location.argynvostholt',
+    prereqs: ["midnight-riders"],
     title: "Argynvost's Beacon",
     location: "Argynvostholt — The Beacon Tower / Castle Ravenloft",
     session: "Sessions 8–12",
@@ -2319,6 +2506,9 @@ const SCENARIOS = [
 
   {
     id: 'dark-powers-understanding', phase: 4,
+    sceneRef: ["scene.amber-temple-entry", "scene.amber-sarcophagus-temptation", "scene.amber-temple-escape"],
+    locationRef: 'location.amber-temple',
+    prereqs: ["kasimirs-sister"],
     title: "The Dark Powers — What You Choose to Understand",
     location: "The Amber Temple — Strahd's Sanctum",
     session: "Sessions 9–12",
@@ -2365,6 +2555,9 @@ const SCENARIOS = [
 
   {
     id: 'wereravens-network', phase: 3,
+    sceneRef: ["scene.winery-quest-start", "scene.winery-cleared"],
+    locationRef: 'location.wizard-of-wines',
+    prereqs: ["winery-which-front"],
     title: "The Wereravens — How Deep You Use the Network",
     location: "The Wizard of Wines — The Martikov Family",
     session: "Sessions 5–8",
@@ -2407,6 +2600,534 @@ const SCENARIOS = [
         ]
       }
     ]
+  },
+
+  {
+    id: 'sunsword-cost', phase: 5,
+    sceneRef: ["scene.retrieving-sunsword", "scene.artifacts-assembled"],
+    locationRef: 'location.barovia-realm',
+    prereqs: ["the-fifth-card"],
+    title: "The Sunsword — What It Costs to Claim It",
+    location: "Campaign-Determined Location — Wherever the Cards Led",
+    session: "Sessions 9–13",
+    teaser: "The blade belonged to Sergei. Strahd's brother. The man he killed on the day that broke everything. The weapon knows what it was made to do.",
+    accent: 'var(--color-accent-ochre-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><line x1="18" y1="4" x2="18" y2="28" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="14" x2="24" y2="14" stroke="currentColor" stroke-width="1.2"/><circle cx="18" cy="10" r="3" stroke="currentColor" stroke-width="1" fill="none" opacity="0.6"/><path d="M14 7 Q18 4 22 7" stroke="currentColor" stroke-width="0.8" opacity="0.35" fill="none"/></svg>`,
+    prompt: "The Sunsword is not a weapon in the way most weapons are weapons. It was Sergei von Zarovich's — Strahd's younger brother, the man whose wedding became the event the party has spent the entire campaign surviving the consequences of. The blade generates light that unmakes darkness. Strahd knows this blade. When the party claims it, they are holding the most specific grief in Barovia — and the most specific threat.",
+    paths: [
+      {
+        id: 'knowing', label: 'Claim It, Knowing What It Is', sublabel: "Sergei's blade, not just a tool", tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'The Weight of What You Are Carrying',
+            body: "The blade is warm in a way that fire is not — something older, steadier. The party carries it out of wherever the cards led and into the road between that place and the castle. They know what they are holding: the weapon of the man Strahd could not be, used to undo what Strahd became. The symbolism is not lost on the party. It will not be lost on Strahd either." },
+          { label: 'The Sessions That Follow', title: 'Strahd Moves Differently',
+            body: "Strahd's behavior shifts — not dramatically, but detectably. He has been watching adventurers arrive in Barovia for centuries, and he has seen what parties do when they carry the things they are supposed to carry. The Sunsword changes his timing. He does not move immediately. He is assessing whether the party understands what they have, or merely whether they have it. The distinction matters to him." },
+          { label: 'Campaign Echo', title: 'What the Blade Knows',
+            body: "In the final confrontation, the party fights Strahd with Sergei's weapon. This is not lost on anyone in the room. Strahd will reference it — not as weakness but as acknowledgment. The blade was made to end darkness, and the darkness it was made to end is very specifically him. Parties who understood what they were carrying arrive at this moment with something like clarity. The blade does not hesitate. Whether the party does depends on what they understood about what they were holding all along." }
+        ]
+      },
+      {
+        id: 'tactical', label: 'Claim It as a Weapon', sublabel: 'Radiant damage, tactical advantage', tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: 'A Very Good Sword',
+            body: "The party claims the Sunsword and evaluates it correctly: an exceptionally powerful weapon against the specific enemies this campaign contains. It generates light, it deals radiant damage, it has mechanical advantages that are real and relevant. The party moves out with it. The weapon is what it does. This is a defensible reading of the situation." },
+          { label: 'The Sessions That Follow', title: 'The Advantage Is Real',
+            body: "The tactical value of the Sunsword is everything the party assessed. Undead encounters run differently when the weapon is present. The party is more capable, more efficient, and better positioned for the endgame than they would have been without it. The blade delivers what its statistics promise. Strahd notes its presence with something that is not quite surprise and adjusts his approach accordingly, as he adjusts to everything." },
+          { label: 'Campaign Echo', title: 'The Final Confrontation',
+            body: "The blade is used against Strahd in the throne room of his castle. It works exactly as described. He may observe that the party is wielding Sergei's weapon — he will not explain what that observation costs him to make. Parties who treated the Sunsword as a tactical asset fight a very effective fight. The fight is the same fight, and it is won or lost on the same terms. Strahd does not offer the context. He offers the confrontation." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'tome-comprehension', phase: 5,
+    sceneRef: ["scene.retrieving-tome-of-strahd", "scene.artifacts-assembled"],
+    locationRef: 'location.barovia-realm',
+    prereqs: ["the-fifth-card"],
+    title: "The Tome of Strahd — the Man Before the Monster",
+    location: "Campaign-Determined Location — Wherever the Cards Led",
+    session: "Sessions 9–13",
+    teaser: "Reading it doesn't make him sympathetic. It makes him comprehensible. This is its own kind of damage.",
+    accent: 'var(--color-shroud-parchment)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><rect x="8" y="6" width="18" height="24" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="12" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="0.8" opacity="0.6"/><line x1="12" y1="16" x2="22" y2="16" stroke="currentColor" stroke-width="0.8" opacity="0.6"/><line x1="12" y1="20" x2="19" y2="20" stroke="currentColor" stroke-width="0.8" opacity="0.4"/><path d="M8 9 C6 9 6 27 8 27" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5"/></svg>`,
+    prompt: "The Tome of Strahd is his private record — his history before the dark powers offered him a bargain, his feelings about Tatyana, about Sergei, about the choice he made and has been living inside for four centuries. Reading it is not required to fight him. It is required to understand what fighting him means. The question is whether the party wants that understanding before they enter the castle.",
+    paths: [
+      {
+        id: 'read-fully', label: 'Read Every Word', sublabel: 'The man before the monster', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'The Record of a Man Who Chose This',
+            body: "The Tome is a genuine document, written before and during his transformation, and it is not what the party expected. He was a general. He was a brother. He was in love with a woman who loved someone else, and he chose to stop being the kind of person who accepts that kind of loss. The party finishes reading knowing something they cannot unknow: Strahd was not always a monster. He became one on purpose. The precise moment is documented in his own hand." },
+          { label: 'The Sessions That Follow', title: 'Fighting a Person',
+            body: "The sessions between finding the Tome and the final confrontation run differently for parties that read it fully. They fight a person — not a creature, not a force, not an obstacle, but a man who made a specific choice and has been living its consequences for centuries. This does not make him sympathetic. It makes him comprehensible, which is harder. They know what he wanted. They know what he gave up to get it. They know it did not work." },
+          { label: 'Campaign Echo', title: 'The Confrontation With a Man',
+            body: "In the throne room, having read his own account of who he was, the party fights Strahd with more information than most parties carry into that room. He will not acknowledge that they read it — he does not need to. The fight is shaped by what they understood. Some parties, after reading the Tome, attempt to address the man before the monster. This is almost never tactically efficient. It is sometimes the right thing to do anyway." }
+        ]
+      },
+      {
+        id: 'tactical-read', label: 'Extract the Intelligence', sublabel: 'Weaknesses, patterns, history', tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: 'Useful Information',
+            body: "The party reads for tactical relevance: his known methods, what he values, what has driven him over four centuries, documented patterns in how he approaches enemies. This is real intelligence. The Tome contains it. The party notes what is useful and puts the rest aside. What he writes about Tatyana, about the moment of choice, about the grief that preceded it — these are filed as context rather than read as a record of a person." },
+          { label: 'The Sessions That Follow', title: 'Prepared Without Understanding',
+            body: "The tactical intelligence from the Tome is good and the party uses it well. They know his history in outline. They understand his priorities, his methods, the categories of thing he finds interesting. They are prepared for the endgame in the specific, practical ways that preparation helps. The other material — what was in the Tome that was not tactical — is still there, unread. This is a reasonable choice. It is also a choice." },
+          { label: 'Campaign Echo', title: 'The Fight They Prepared For',
+            body: "The final confrontation runs against the shape of what the party studied. The intelligence holds. Strahd behaves recognizably like the entity documented in the Tome, which is most of him. What they did not read does not ambush them during the fight. It may arrive later, after — the specific feeling of having fought something and won without quite having understood what it was. This is not regret. It is a different kind of knowledge." }
+        ]
+      },
+      {
+        id: 'destroy', label: 'Destroy It Unread', sublabel: 'Some things change you permanently', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'The Information Not Gathered',
+            body: "The party decides not to read the Tome — or decides partway through and burns what remains. The choice is defensible: whatever is in there, Strahd wrote it, which means it was written by something that has been alive for four centuries and is not inclined toward the party's benefit. The Tome goes into the fire. The information inside it goes with it. The party continues without it." },
+          { label: 'The Sessions That Follow', title: 'Fighting Without His Account',
+            body: "The party knows Strahd from what they have witnessed, from what Barovia has shown them, from the effects of his choices rather than his record of them. This is most of what there is to know. The Tome would have added something. What it would have added remains unavailable. The endgame approaches on the basis of what the party saw rather than what he wrote." },
+          { label: 'Campaign Echo', title: 'The Fight Against What He Is',
+            body: "They fight the monster, not the man. This is not a worse fight — it may be a cleaner one. The parties who burned the Tome enter the throne room without the particular weight of having read a four-centuries-old grief in its author's handwriting. They fight what Strahd is. Strahd, for his part, notices nothing different in their approach. He does not know what they chose to burn. He only knows what they do next." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'artifact-lost', phase: 5,
+    sceneRef: ["scene.artifact-lost-to-strahd"],
+    locationRef: 'location.barovia-realm',
+    prereqs: ["the-fifth-card"],
+    title: "An Artifact Lost to Strahd",
+    location: "Castle Ravenloft — After the Theft",
+    session: "Sessions 9–13",
+    teaser: "The graph has a branch score of 8 at this node. That is a lot of doors that only open in one direction.",
+    accent: 'var(--color-accent-crimson-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><circle cx="18" cy="18" r="10" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M13 13 L23 23 M23 13 L13 23" stroke="currentColor" stroke-width="1.5" opacity="0.6"/><circle cx="18" cy="18" r="4" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.3"/></svg>`,
+    prompt: "Strahd has one of the artifacts. This is not a situation the party prepared for — the plan assumed they would hold everything before the assault. Instead, one of the three is inside the castle, and the party is outside it. The question is whether they go in now to retrieve it, find a workaround, or advance to the endgame knowing they are arriving incomplete.",
+    paths: [
+      {
+        id: 'recover-now', label: 'Enter Ravenloft to Recover It', sublabel: 'Before you are ready', tone: 'danger',
+        consequences: [
+          { label: 'That Night', title: 'The Castle at the Wrong Time',
+            body: "The party enters Castle Ravenloft earlier than planned, underprepared and operating in an environment they did not intend to enter yet. Strahd knows they are there — the castle knows — and he has the artifact. This is a retrieval operation inside the stronghold of the most dangerous entity in Barovia, conducted without the conditions the plan required. The castle has more exits than it has arrivals. The party will learn this." },
+          { label: 'The Sessions That Follow', title: 'What the Premature Entry Costs',
+            body: "The party emerges from the retrieval with the artifact — or without it, having paid a price in resources and injury and time. Either outcome produces a different endgame than the plan anticipated. The resources spent inside Ravenloft are not available for the assault. The map of the castle is now partly known from direct experience, which is not the same as intelligence and is better than nothing. Strahd has observed the party's capabilities under pressure." },
+          { label: 'Campaign Echo', title: 'The Second Entry',
+            body: "The final assault on Castle Ravenloft is the second time most of the party has been inside it. The first visit happened at the wrong time, under the wrong conditions. The second visit is the assault itself, with everything they recovered and everything they spent. Parties who went in once to retrieve the artifact know what the castle sounds like when it is not expecting them. They also know what it sounds like when it is." }
+        ]
+      },
+      {
+        id: 'workaround', label: 'Find a Workaround', sublabel: 'The plan changes, not the destination', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'Rewriting the Endgame Plan',
+            body: "The plan assumed three artifacts. The plan now requires adjustment. The party has the other artifacts, the other resources, the full investment of the wilderness phase — and one piece is missing. They assess the gap. Barovia has offered workarounds before: an ally who can substitute for an asset, a condition that can be satisfied differently, a path that does not require the precise configuration the plan specified. Whether one exists for this situation is the question they now spend the sessions finding out." },
+          { label: 'The Sessions That Follow', title: 'The Adapted Approach',
+            body: "The workaround exists or it does not. If it exists, the sessions resolving it are some of the most creative the campaign has produced — the party solving a problem that was not on the plan's list of problems. If it does not exist, the party faces the endgame knowing a piece is missing and adapting to that reality. Either outcome is workable. Neither is what was intended. Barovia rarely delivers what was intended." },
+          { label: 'Campaign Echo', title: 'The Assault With What You Have',
+            body: "The party enters the endgame with what they found, built, and adapted. The missing artifact is either replaced, compensated for, or faced as a deficit. The final confrontation reflects which outcome they reached. Strahd has an artifact and knows the party may not have all three. Whether he is correct about that depends on what the party found in the sessions between the loss and the assault." }
+        ]
+      },
+      {
+        id: 'advance-incomplete', label: 'Advance Anyway', sublabel: 'Arrive incomplete and fight', tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: 'The Known Deficit',
+            body: "The party decides: they go in without the artifact. The decision is not irrational — the alternatives have costs too, and there is an argument that the best Strahd encounter is the one that happens before he can further prepare. They proceed on this logic. The deficit is real and they know it. The plan proceeds with the known hole in it." },
+          { label: 'The Sessions That Follow', title: 'Compensating for the Gap',
+            body: "The assault plan builds around the missing artifact rather than pretending it is present. Allies are deployed differently. The approach route is chosen based on what the party can achieve rather than what the plan assumed. The gap produces creative constraint: the endgame is not the endgame they planned, and adapting to the one they have produces a party that understands their own capabilities more accurately than planning usually allows." },
+          { label: 'Campaign Echo', title: 'What the Fight Proves',
+            body: "The final confrontation happens without all three artifacts. Strahd is aware of the deficit. The fight reflects the gap. Whether the party wins depends on what they brought that they did not know they had — allies, tactics, specific knowledge, the accumulated weight of every choice in Barovia that led to this room. Some parties beat Strahd without all three artifacts. It is harder. It is possible. What it proves about the party is something they will be telling for years." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'premature-assault', phase: 5,
+    sceneRef: ["scene.approaching-castle-ravenloft", "scene.premature-castle-assault"],
+    locationRef: 'location.castle-ravenloft',
+    prereqs: ["strahd-first-invitation"],
+    title: "Premature Castle Assault",
+    location: "Castle Ravenloft — The Gates",
+    session: "Sessions 10–13",
+    teaser: "The castle was built to receive this. Strahd has been waiting for this exact approach. The question is whether the party arrives at the right time or his.",
+    accent: 'var(--color-accent-crimson-base)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><rect x="8" y="14" width="20" height="16" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 14 L8 8 L14 8 L14 14 M22 14 L22 8 L28 8 L28 14" stroke="currentColor" stroke-width="1.2" fill="none"/><line x1="18" y1="14" x2="18" y2="30" stroke="currentColor" stroke-width="1" opacity="0.5"/><rect x="14" y="22" width="8" height="8" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.4"/></svg>`,
+    prompt: "The party is at the gates of Castle Ravenloft before the plan said they should be. Not all the artifacts are held. Not all the allies are secured. The castle is there, the party is there, and the decision about whether to press the assault or withdraw has to be made now, in the fog, in front of the gates. In Barovia, the fog does not clear while decisions are deferred.",
+    paths: [
+      {
+        id: 'press', label: 'Press the Assault', sublabel: 'Commit to the fight, incomplete', tone: 'danger',
+        consequences: [
+          { label: 'That Night', title: 'The Castle as It Was Designed to Function',
+            body: "Castle Ravenloft is not a dungeon in the way most dungeons are dungeons. It is a machine built by a specific mind over four centuries for a specific purpose. That purpose is this — the party at the gates, pressing an assault the castle was designed to receive. The fight begins. The castle functions as intended. Whether the party can overwhelm the design with what they brought is the question the assault immediately begins answering." },
+          { label: 'The Sessions That Follow', title: 'The Cost of Early Entry',
+            body: "The premature assault produces a particular kind of campaign session: difficult, attritional, and expensive. What was missing from the preparation becomes visible in the castle's interior — the gap is not abstract anymore. The party pays for each missing element in the specific currency the castle demands. Some gaps cost spell slots. Some cost time. Some cost party members, temporarily or otherwise. The castle is patient about collecting." },
+          { label: 'Campaign Echo', title: 'What Arrived Damaged',
+            body: "The party reaches Strahd carrying the accumulated cost of arriving early. If they reached him at all, they did so having answered a harder version of every question the castle poses. The endgame is shaped by what they spent to get there. Strahd receives parties that arrive damaged with a particular kind of attention — not contempt, something more considered. He has seen this before. He finds it informative." }
+        ]
+      },
+      {
+        id: 'withdraw', label: 'Tactical Withdrawal', sublabel: 'Retreat and complete the preparation', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'The Castle Watches You Leave',
+            body: "The party withdraws. The castle remains. This is not failure — it is accurate assessment of a situation that was not ready to be resolved. The party withdraws carrying the knowledge of how close they came and what it looked like when they were close. That knowledge is worth something. The preparation they left to complete is now the only thing between them and the assault they came to deliver." },
+          { label: 'The Sessions That Follow', title: 'Completing What Was Missing',
+            body: "The sessions between the withdrawal and the assault are the most focused the campaign has produced. The party knows exactly what they lacked and they are now acquiring only that. The diffuse preparation of the earlier campaign has concentrated into a specific list. Barovia cooperates with this about as much as Barovia cooperates with anything — which is to say: the obstacles are real, the clock is running, and what gets completed is what the party finds a way to complete." },
+          { label: 'Campaign Echo', title: 'The Assault They Were Ready For',
+            body: "The party enters Castle Ravenloft having completed what the first approach revealed as missing. They are more prepared than they would have been on the first attempt. The castle does not acknowledge this — it functions the same way it functions for everyone. But the party moves through it differently. The withdrawal was not retreat. It was reconnaissance with consequences." }
+        ]
+      },
+      {
+        id: 'negotiate', label: 'Force Negotiation', sublabel: 'Demand terms at the gate', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'Strahd Accepts the Meeting',
+            body: "The party signals for parley rather than assault. Strahd accepts — not from weakness, from interest. A party that arrives at his gates underprepared and then requests negotiation is a party he finds worth examining. He meets them or sends representation. The conversation happens at the gate of his castle, which is his ground in every sense. He knows what they have and what they lack. He will not offer them a fair deal. He will offer them an accurate one." },
+          { label: 'The Sessions That Follow', title: 'What Negotiation with Strahd Looks Like',
+            body: "The negotiation produces terms, and the terms reflect who has the advantage. Strahd will not give the party what they came to get. He may give them something — time, information, a concession that functions as a trap — and the sessions following the negotiation involve the party decoding which category the concession falls into. Negotiating with an entity who has been doing this for four centuries is an educational experience." },
+          { label: 'Campaign Echo', title: 'The Deal and What It Cost',
+            body: "The party enters the endgame having made terms with Strahd before the final confrontation. The terms were his terms, shaped by his assessment of their position. Whether those terms helped or hurt depends on what the party understood about what they were agreeing to. Strahd's deals are not traps in the simple sense — they are accurate reflections of his interests. The party's interests were also present in the negotiation. Whether both could coexist in the outcome is what the final confrontation resolves." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'lycanthropy-bitten', phase: 5,
+    sceneRef: ["scene.werewolf-den-infiltration"],
+    locationRef: 'location.werewolf-den',
+    prereqs: ["werewolf-den-zuleika"],
+    title: "Lycanthropy — a Party Member Bitten",
+    location: "The Wilderness — After the Den",
+    session: "Sessions 8–12",
+    teaser: "The curse is progressing. The Abbot can help, at a cost. The cost is the kind that sounds reasonable until you hear what it is.",
+    accent: 'var(--color-shroud-muted)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><path d="M22 6 A10 10 0 0 0 10 18 A10 10 0 0 0 22 30" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="9" cy="12" r="1.5" fill="currentColor" opacity="0.5"/><circle cx="7" cy="18" r="1.5" fill="currentColor" opacity="0.5"/><circle cx="9" cy="24" r="1.5" fill="currentColor" opacity="0.5"/><path d="M22 18 L30 14 M22 18 L30 22" stroke="currentColor" stroke-width="1" opacity="0.4" fill="none"/></svg>`,
+    prompt: "A party member has been bitten by a werewolf and the curse is taking hold. The Abbot of Krezk has the ability to remove the lycanthropy — he is one of very few entities in Barovia capable of it. His price is not money. His price is participation in his project, which the party may or may not have already encountered and formed opinions about. The alternative is not simple either: lycanthropy in Barovia is not what it is in other places. The curse here has a particular weight.",
+    paths: [
+      {
+        id: 'abbot-cure', label: "Seek the Abbot's Cure", sublabel: 'The price is his to name', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'The Abbot Names His Terms',
+            body: "The Abbot agrees to remove the curse. His terms are what they are — involvement in the creation of his bride for Strahd, or another form of participation in the work he believes will end Barovia's suffering. He presents this as reasonable. It may be the most reasonable thing available. The party can pay his price or leave with the curse still progressing. The Abbot does not adjust his terms based on how the party feels about them." },
+          { label: 'The Sessions That Follow', title: 'The Cure and Its Context',
+            body: "The curse is lifted. The party member is restored. The Abbot's involvement in the campaign now has a different texture — the party interacted with him at a moment of real vulnerability and made a real decision about his terms. Whatever they paid, they paid it in full, and the Abbot delivered what he promised. He remembers the transaction. The party will encounter what they agreed to somewhere in the sessions that follow." },
+          { label: 'Campaign Echo', title: 'The Abbot in the Endgame',
+            body: "The Abbot's project reaches its conclusion one way or another before the campaign ends. The party is entangled in it — they paid his price, which means they are part of how that conclusion unfolds. The endgame has this additional thread. Whether the Abbot is an asset, a liability, or a completed obligation when the final assault begins depends on what happened with his project and what the party chose to do when they could choose." }
+        ]
+      },
+      {
+        id: 'weaponize', label: 'Control and Use the Curse', sublabel: 'What Barovia made, put to work', tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: 'Accepting What Cannot Be Changed',
+            body: "The party decides the curse is now part of the campaign rather than a problem to solve. The bitten character is still the bitten character — their abilities, relationships, and role in the party do not change in fundamental ways. What changes is the addition of lycanthropy, which in Barovia has particular properties. The party assesses what those properties offer rather than what they cost. This requires a specific kind of relationship with what Barovia does to people." },
+          { label: 'The Sessions That Follow', title: 'A Different Kind of Asset',
+            body: "The lycanthropic party member navigates the wilderness differently now. Some encounters run along new lines. The werewolf den, if not yet resolved, presents a different set of options. The curse that was an attack becomes a tool — not because the curse changed, but because the party changed their relationship to it. This is not easy. The curse is still a curse. The party is carrying it deliberately, which is different from ignoring it." },
+          { label: 'Campaign Echo', title: 'What the Curse Did to the Character',
+            body: "The endgame arrives with the bitten character carrying months of campaign under the curse. Who they are at the final confrontation is shaped by what that time cost them — what the curse changed, what they held onto, what they let go. The party fights Strahd with a member who has been inside a Barovian curse long enough to understand it from the inside. This is not nothing. It is not the same as being cured. It is what the character carried here, and what they use now." }
+        ]
+      },
+      {
+        id: 'seek-another-way', label: 'Find Another Path', sublabel: "The Abbot's price is too high", tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'The Price Refused',
+            body: "The party refuses the Abbot's terms. This is defensible — his terms are not neutral, and participating in his project has consequences the party may not be willing to bear. They leave Krezk with the curse still progressing and the timeline now an active factor. Removing lycanthropy without the Abbot requires alternatives that Barovia does not make easy to find. The party begins looking for them." },
+          { label: 'The Sessions That Follow', title: 'The Search for What the Abbot Offered Simply',
+            body: "The alternatives to the Abbot's cure exist in principle. In practice, Barovia hides them. The party spends sessions pursuing options that may or may not materialize — a sufficiently powerful cleric, an unusual ritual, a specific location with the right properties. The curse progresses while they search. What they find or fail to find shapes the rest of the campaign in ways the Abbot would have resolved cleanly, at a price." },
+          { label: 'Campaign Echo', title: 'The Unresolved Curse',
+            body: "The party arrives at the endgame with the situation in some state of resolution — cured through alternative means, controlled through discipline, or carried into the assault as a known variable. The Abbot's simple offer was declined. What replaced it is what the party built from what Barovia offered instead. Strahd's domain contains the curse and the people carrying it. The final confrontation includes this character, as they are, in whatever state they arrived." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'wereravens-endgame', phase: 5,
+    sceneRef: ["scene.winery-cleared"],
+    locationRef: 'location.wizard-of-wines',
+    prereqs: ["wereravens-network"],
+    title: "The Wereravens in the Endgame",
+    location: "Castle Ravenloft — The Final Approach",
+    session: "Sessions 12–14",
+    teaser: "The Martikov network survived Strahd for generations by being careful. What the party is about to ask them to do is not careful.",
+    accent: 'var(--color-accent-spectre-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><path d="M18 8 C14 12 6 10 6 16 C6 19 9 21 12 19" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M18 8 C22 12 30 10 30 16 C30 19 27 21 24 19" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M12 19 C14 23 18 28 18 28 C18 28 22 23 24 19" stroke="currentColor" stroke-width="1.2" fill="none"/><circle cx="18" cy="8" r="2" stroke="currentColor" stroke-width="0.8" fill="none"/></svg>`,
+    prompt: "The Martikov wereraven network has survived Strahd for generations through intelligence, restraint, and a very clear understanding of what they could and could not afford to do openly. Now the party is asking them to commit to the assault on Castle Ravenloft itself — not as eyes in the sky but as a fighting force in the final confrontation. The Martikovs have a winery, children, decades of careful survival. They will say yes if the party asks. The party must decide whether to ask.",
+    paths: [
+      {
+        id: 'full-assault', label: 'Commit Them Fully', sublabel: 'Every wereraven at the walls', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'The Network Deployed as a Weapon',
+            body: "The Martikovs understand what is being asked and they agree — not because the party compelled them but because they, too, have been waiting for this. Every wereraven the family can mobilize is redirected to the assault. The attack on Ravenloft now includes aerial reconnaissance, active distraction of the castle's external defenses, and wereraven combat support. The party is not fighting alone. The Martikovs are fighting alongside them, visibly and completely." },
+          { label: 'The Sessions That Follow', title: 'The Cost of Visibility',
+            body: "The full commitment produces real tactical benefit — the assault is better supported, certain chokepoints are more navigable, the castle's attention is divided in ways that help the party inside. It also produces visibility the Martikovs have spent generations avoiding. Strahd's intelligence apparatus notes the Martikov network's open involvement. Whatever comes after the assault, the wereravens are no longer operating from shadow. They traded their most important protective asset for the party's best chance at the endgame." },
+          { label: 'Campaign Echo', title: 'What Was Spent and What It Bought',
+            body: "The assault ends one way or another. If it succeeds, the Martikovs helped break the curse that imprisoned Barovia — the thing they have been surviving for generations. What they spent to help break it is significant. If Barovia is freed, they are part of the reason, and what they gave up in the process is part of the price. If the assault does not immediately succeed, the Martikovs are now more exposed than they have ever been, in a domain they survived by being careful. Both outcomes follow from the same decision." }
+        ]
+      },
+      {
+        id: 'support-only', label: 'Distraction and Intelligence', sublabel: 'Eyes, not swords', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'The Network as Support Structure',
+            body: "The party asks the Martikovs for what they were built to provide: information, distraction, surveillance, and communication. Not direct combat. The wereravens carry updates between party members in the castle, monitor external patrols, and create controlled distractions at moments the party specifies. They are not soldiers and the party is not asking them to be. The Martikovs are visibly relieved and immediately more effective as a result." },
+          { label: 'The Sessions That Follow', title: 'Sustainable Advantage',
+            body: "The intelligence and communication support from the network is real and useful — the assault runs better with eyes the party controls than without. The Martikovs operate within what they know how to do, under less exposure, and with more remaining capacity if the assault requires more than one session to resolve. The party fights the castle without asking civilians to absorb what the castle delivers to soldiers. This is a meaningful distinction in Barovia." },
+          { label: 'Campaign Echo', title: 'A Network That Survived',
+            body: "The assault concludes and the Martikov network is largely intact — the people with children, the people with a winery, the people who have survived by knowing their limits. Whatever Barovia becomes after the assault, they are still there and still capable. Parties who protected the network while using it have built something that exists beyond the campaign. The wereravens watched the endgame from the sky and delivered information that helped the party win it. They did not die for it." }
+        ]
+      },
+      {
+        id: 'spare-them', label: 'Send Them Home', sublabel: "Don't bring civilians to this fight", tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: 'The Assault Without the Network',
+            body: "The party releases the Martikov network from the assault entirely — no aerial support, no distraction operations, no communication relay. The Martikovs offer. The party declines. The assault proceeds with only the party and whatever other allies were secured. The castle is the castle regardless of what support surrounds it. The party fights it with what they brought, which is what they always intended." },
+          { label: 'The Sessions That Follow', title: 'A Harder Fight, Without the Exposure',
+            body: "The assault is harder without the network's support. Certain approaches that would have been navigable with aerial intelligence are navigated by other means or not navigated at all. The party spends more resources, takes more damage, and solves more problems through direct engagement than coordination. This is a significant cost. It is also a decision the party made deliberately, and the Martikovs — somewhere outside the castle walls — are alive because of it." },
+          { label: 'Campaign Echo', title: 'The Intact Network',
+            body: "The campaign ends with the Martikov network fully intact, unexposed, and uncollected. If the assault succeeds and the curse breaks, Barovia is freed and the wereravens are still there — the complete network, able to become whatever the freed Barovia needs. If the assault does not immediately succeed, the network is available for what comes next. The party protected an asset by not using it. Whether that was the right trade depends on what the asset was worth." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'strahds-dinner', phase: 6,
+    sceneRef: ["scene.approaching-castle-ravenloft", "scene.entering-castle-ravenloft", "scene.navigating-the-castle"],
+    locationRef: 'location.castle-ravenloft',
+    prereqs: ["sunsword-cost", "tome-comprehension"],
+    title: "Strahd's Dinner",
+    location: "Castle Ravenloft — The Dining Hall",
+    session: "Sessions 11–14",
+    teaser: "The host knows something about each of you he should not know. The meal is excellent. The question is what he learned from watching you eat it.",
+    accent: 'var(--color-accent-crimson-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><path d="M12 8 L12 20 C12 24 14 26 18 26 C22 26 24 24 24 20 L24 8" stroke="currentColor" stroke-width="1.2" fill="none"/><line x1="18" y1="26" x2="18" y2="32" stroke="currentColor" stroke-width="1.2"/><line x1="13" y1="32" x2="23" y2="32" stroke="currentColor" stroke-width="1"/><line x1="12" y1="14" x2="24" y2="14" stroke="currentColor" stroke-width="0.8" opacity="0.5"/></svg>`,
+    prompt: "Strahd has invited the party to dinner inside Castle Ravenloft. The invitation is genuine — the food is real, the wine is real, the conversation is real. Strahd is also a centuries-old predator who has done this before and has specific reasons for wanting the party at his table. The party can treat the dinner as an opportunity to gather intelligence, as a social engagement to be survived, or as a trap to close off as quickly as possible.",
+    paths: [
+      {
+        id: 'intelligence', label: 'Work the Table', sublabel: 'Gather everything, reveal nothing', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'Two Intelligence Operations at One Dinner',
+            body: "The party probes for information — the castle's layout, what Strahd values, who he watches, what the table's seating arrangement implies about his court. Strahd does the same thing. He is better at it, has been doing it for four centuries, and finds the party's probing interesting rather than threatening. Both parties leave the table with more than they arrived with. The question is who gained the greater advantage from the exchange." },
+          { label: 'The Sessions That Follow', title: 'What Was Learned, and at What Cost',
+            body: "The intelligence gathered at the dinner is real and useful. It shapes how the party approaches the castle and its inhabitants for the rest of the campaign. It also means Strahd has a detailed read on each party member — their habits under social pressure, what they reach for when uncertain, where they looked when certain questions were asked. This information sits in the room at the final confrontation. He will not announce that he has it." },
+          { label: 'Campaign Echo', title: 'The Dinner Before the Fight',
+            body: "The final confrontation is between people who have sat at the same table. Strahd has had the dinner in his memory every session since — not as sentiment but as data. The party has had it too. The fight happens in the context of that shared meal, that shared assessment, that specific evening when both sides looked directly at each other. This does not make the fight easier. It makes it something different from what it would have been without it." }
+        ]
+      },
+      {
+        id: 'guests', label: 'Attend as Guests', sublabel: 'Receive what is offered', tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: 'A Dinner That Functions as a Dinner',
+            body: "The party attends without a specific agenda. The food is served. Strahd speaks. The conversation is what it is — a host learning his guests, guests attempting to understand their host, four centuries of context on one side and considerably less on the other. The party receives what Strahd chooses to offer: information selected by him, an impression of the castle shaped by him, a version of himself curated for this specific audience." },
+          { label: 'The Sessions That Follow', title: 'A Curated Picture',
+            body: "The information from the dinner is good but incomplete — Strahd is excellent at showing exactly what he intends to show. The party has a sense of him that is accurate as far as it goes and carefully bounded where it might cost him something. This is still more than most adventurers in Barovia carry. The sessions that follow are navigated with the benefit of a dinner where the host talked freely about himself to an audience he expected to die before the knowledge mattered." },
+          { label: 'Campaign Echo', title: 'What He Chose to Show',
+            body: "The final confrontation includes everything Strahd showed the party at that table. He chose it deliberately. The party has spent the campaign learning what the curated version of him omitted. The confrontation is between the full version and a party carrying both what he gave them and what they found themselves. Some of what he showed them was true. Some was a specific kind of weapon, deployed in advance." }
+        ]
+      },
+      {
+        id: 'survive', label: 'Get Out Clean', sublabel: 'Minimize exposure, exit intact', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'A Short Dinner',
+            body: "The party attends, says as little as possible, and exits as soon as the social minimum has been met. They give Strahd very little to work with. He finds this less interesting than the alternative and more revealing than they intended — parties that close themselves off at the dinner table are telling him something specific about their assessment of risk. He notes this. The intelligence from the dinner is minimal. So is the exposure." },
+          { label: 'The Sessions That Follow', title: 'The Advantage Not Taken',
+            body: "The party chose caution and got caution's results: limited information, limited risk. Strahd has a narrow read on them — not a deep one. They have not played cards they did not need to play. The dinner produced neither the intelligence windfall of active engagement nor the curated offering of passive reception. It produced the absence of a dinner, which is its own kind of data in both directions." },
+          { label: 'Campaign Echo', title: 'Strangers at the Final Confrontation',
+            body: "The final confrontation happens between people who were briefly in the same room and told each other almost nothing. The party fought the campaign without the dinner's information. Strahd fought it without the dinner's read on them. The confrontation is between the versions of each other they built through the campaign rather than through the table. This is a different kind of fight. It is not a worse one." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'eschers-crisis', phase: 6,
+    sceneRef: ["scene.navigating-the-castle"],
+    locationRef: 'location.castle-ravenloft',
+    prereqs: ["strahds-dinner"],
+    title: "Escher's Crisis",
+    location: "Castle Ravenloft — Strahd's Court",
+    session: "Sessions 12–15",
+    teaser: "He remembers being a person. Whether that memory is enough to matter is the question the party is about to put to the test.",
+    accent: 'var(--color-accent-ochre-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><circle cx="18" cy="14" r="6" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M14 20 C10 24 10 30 18 30 C26 30 26 24 22 20" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M15 10 L13 7 M21 10 L23 7" stroke="currentColor" stroke-width="0.8" opacity="0.4"/></svg>`,
+    prompt: "Escher is Strahd's favorite consort — young, turned at considerable cost to the person he was, and miserable in a way he has mostly stopped showing. He has been watching Strahd's court from the inside for years. He knows things. He also knows what happened to the last person who acted on knowing things. The party has encountered him. The question is what they do with that encounter.",
+    paths: [
+      {
+        id: 'turn-him', label: 'Attempt to Turn Him Against Strahd', sublabel: 'The person he remembers being', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'The Attempt and What It Costs Him',
+            body: "The party makes the appeal — to who Escher was, to what he remembers, to the specific misery he has been living inside Strahd's court. He hears it. Whether he acts on it depends on whether the party's read of how much of the person remains is accurate. If it is, the attempt begins a thread that will require more from him than the party asked for and more from him than he thought he still had. If it is not, the attempt goes to Strahd, and the party has revealed a tactic." },
+          { label: 'The Sessions That Follow', title: 'An Ally Inside the Castle',
+            body: "If Escher turns — partially, tentatively, at considerable personal cost — the party has access they would not otherwise have: intelligence from inside Strahd's court, warning before certain encounters, a crack in the castle's otherwise unified front. The cost is that Escher is in danger every session this is active, and if he is discovered, what happens to him is documented in what Strahd has already done to people who disappointed him." },
+          { label: 'Campaign Echo', title: 'What the Turn Meant',
+            body: "The endgame is different with Escher's involvement or without it. If he survived to act in the final confrontation, the party carries the weight of what they asked him to do and what it cost him. If he did not survive, the party carries a different weight. Either way, the choice to attempt the turn and what came of it is part of what the campaign was. In Barovia, the specific people you tried to save are the measure of the campaign's character." }
+        ]
+      },
+      {
+        id: 'intelligence-only', label: 'Extract Intelligence Without Risking Him', sublabel: 'Use what he knows, protect what he is', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'A Limited Transaction',
+            body: "The party takes what Escher can offer without asking him to choose sides — some information, some awareness of patterns in the castle, the specific knowledge a person develops after years inside an environment. They do not ask him to act against Strahd openly. He appreciates the restraint in a way that tells them something about what has been asked of him before. The transaction is small on both sides. It is also clean." },
+          { label: 'The Sessions That Follow', title: 'Intelligence at a Safe Level',
+            body: "The information from Escher is good and specifically costs him very little to provide — nothing that would mark him as a traitor if observed. The party navigates the castle with better situational awareness than they would have had without the limited relationship. Escher continues to exist in Strahd's court, which is the worst experience available to him and also the only one he has. The party chose not to make it more dangerous. This is its own kind of consideration." },
+          { label: 'Campaign Echo', title: 'The One Who Was Not Asked to Risk More',
+            body: "Escher survives to the end of the campaign because the party chose not to put him in the position that would have killed him. Whether that is kindness or missed opportunity depends on what the party could have done with his full cooperation and what it would have cost him to provide it. In the endgame, he is still inside the castle — which is where he will remain, after, unless the party finds a different answer for what happens to the people Strahd made." }
+        ]
+      },
+      {
+        id: 'treat-as-enemy', label: 'Treat Him as What He Is', sublabel: "He is in Strahd's court. Act accordingly.", tone: 'danger',
+        consequences: [
+          { label: 'That Night', title: 'The Simpler Assessment',
+            body: "The party treats Escher as a vampire spawn who has aligned himself with Strahd, regardless of the circumstances of that alignment. This is defensible — he has been inside Strahd's court and has not acted against it. The party proceeds without attempting to access whatever remains of the person he was. This is the cleaner approach. It is also the one that forecloses what might have been there." },
+          { label: 'The Sessions That Follow', title: 'One Less Variable',
+            body: "Without the Escher thread, the castle is navigated without that particular intelligence asset or that particular liability. The party does not carry the weight of whether he survived the choice they asked him to make. They fight the castle as the castle presents itself — which is formidable, fully opposed, and consistent. Some campaigns find the consistency a relief after the complexity of what Barovia has already asked of them." },
+          { label: 'Campaign Echo', title: 'The Person Not Reached',
+            body: "After the campaign ends, Escher's fate is determined by what the endgame left behind. Parties who did not attempt to reach him never learn what he might have chosen. He was there, in the castle, miserable and capable and carrying years of specific knowledge about Strahd's inner life. What he would have done with a genuine appeal is a question those campaigns did not put to the test. In Barovia, that is not a criticism. It is a different campaign." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'rahadin-history', phase: 6,
+    sceneRef: ["scene.navigating-the-castle"],
+    locationRef: 'location.castle-ravenloft',
+    prereqs: ["strahds-dinner"],
+    title: "Rahadin — the History the Chamberlain Carries",
+    location: "Castle Ravenloft — The Chamberlain's Domain",
+    session: "Sessions 12–15",
+    teaser: "He betrayed his own people to serve Strahd for centuries. He has been carrying this long enough that the weight may no longer register as weight.",
+    accent: 'var(--color-shroud-muted)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><path d="M18 6 L18 30" stroke="currentColor" stroke-width="1.5"/><path d="M8 12 L18 6 L28 12" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5"/><path d="M10 18 L18 14 L26 18" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.35"/><circle cx="18" cy="30" r="2" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.4"/></svg>`,
+    prompt: "Rahadin is Strahd's chamberlain — a dusk elf who, centuries ago, helped Strahd massacre his own people because they rejected Strahd's intended bride from among them. He has served faithfully since. He is extraordinarily dangerous, deeply loyal, and carrying a history that the dusk elf remnant in Barovia has not forgotten and has never had the power to address. The party knows this history. The question is whether to use it.",
+    paths: [
+      {
+        id: 'confront-history', label: 'Confront Him With What He Did', sublabel: 'Use his history as a weapon', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'The History He Already Knows',
+            body: "The party raises what Rahadin did to the dusk elves — the massacre, the betrayal, what was lost. He already knows. He has known for centuries. The question is whether knowing produces anything in him that the party can reach. His response tells them more about what centuries of service to Strahd does to a person than anything else in the castle. He may be reachable. He may be exactly what centuries of service produced and nothing more." },
+          { label: 'The Sessions That Follow', title: 'The Crack, or Its Absence',
+            body: "If the confrontation found something — a hesitation, a moment where the history registered as more than history — the thread that follows is one of the most complicated the campaign has produced: a deeply loyal chamberlain who may be fractionally less loyal after the party named what he did. If nothing was found, the confrontation simply told Rahadin what the party knows and that they are willing to use it. Either outcome changes what he brings to the final confrontation." },
+          { label: 'Campaign Echo', title: 'What the History Cost Him and What It Cost You',
+            body: "Rahadin's final encounter is shaped by what the party understood about him. Parties who confronted his history fight a chamberlain who knows they see him as more than a sword. Whether that knowledge made him easier or harder to face depends on what it found in him — which is what the confrontation was always trying to determine. In Barovia, the people who chose badly long ago do not automatically become easier to kill for having chosen badly. They became who they are from it." }
+        ]
+      },
+      {
+        id: 'offer-out', label: 'Offer Him a Way Out', sublabel: "It may not be too late for a different choice", tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'The Offer He Has Not Received Before',
+            body: "The party offers Rahadin something the centuries have not offered him: a way out of what he chose. Not forgiveness — the dusk elves he helped destroy are not there to offer forgiveness, and the party does not represent them. But a way out of continuing to serve the thing that had him destroy them. He hears this. What he does with it depends on whether anything in him was waiting for this question or whether the centuries have closed that door completely." },
+          { label: 'The Sessions That Follow', title: 'A Chamberlain With an Open Question',
+            body: "Whether Rahadin acts on the offer or rejects it, the offer itself has introduced a variable. He is now navigating the remaining campaign carrying a question about his own choices that the party introduced deliberately. This may manifest as hesitation at a critical moment, as unusual behavior the party can read if they are paying attention, or as nothing visible at all. The offer was made. What it became is what the sessions reveal." },
+          { label: 'Campaign Echo', title: 'The Answer He Gave',
+            body: "The endgame delivers Rahadin's answer to the party's offer. If he acted on it, the final confrontation is different in specific ways. If he did not, the party fights him knowing they gave him the choice and he made his. Either answer is a complete answer. In Barovia, the people who carry centuries of bad choices are not obligated to change them because someone asked. The offer was the party's to make. The answer was his." }
+        ]
+      },
+      {
+        id: 'just-fight', label: 'Fight the Chamberlain', sublabel: 'His history is his. This is yours.', tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: 'The Most Dangerous Thing in the Castle That Is Not Strahd',
+            body: "Rahadin is extraordinarily capable, centuries-trained, and completely committed. The party fights him as what he is rather than as what he was or might have been. This is an accurate assessment of the threat. The fight is hard — everything about Rahadin's centuries of service has been preparation for exactly this. The party comes through or they do not, based on what they brought to the encounter rather than what they understood about the man in it." },
+          { label: 'The Sessions That Follow', title: 'The Chamberlain Handled',
+            body: "Rahadin is no longer a variable. The castle is navigable without its chamberlain's specific involvement. The sessions that follow proceed without the thread of what Rahadin might have been or done. The party fought the most loyal entity in Strahd's service and defeated it on those terms. This is a significant accomplishment that required significant resources. It does not leave questions behind the way the other approaches do." },
+          { label: 'Campaign Echo', title: 'The Clean Outcome',
+            body: "The endgame proceeds without Rahadin. What he carried — his history, his loyalty, the specific relationship he had with Strahd that four centuries produced — is resolved. The party did not engage with what he was or had been. They engaged with what he did and what he would have continued doing. Clarity is underrated in a place that specializes in making everything complicated." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'vampire-brides', phase: 6,
+    sceneRef: ["scene.navigating-the-castle", "scene.heart-of-sorrow-confrontation"],
+    locationRef: 'location.castle-ravenloft',
+    prereqs: ["strahds-dinner"],
+    title: "The Vampire Brides",
+    location: "Castle Ravenloft — Their Domain",
+    session: "Sessions 12–15",
+    teaser: "Anastrasya plays politics. Ludmilla studies everything. Volenta enjoys the work. Three agendas, one castle. The party has options that do not involve fighting all three at once.",
+    accent: 'var(--color-accent-crimson-base)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><circle cx="10" cy="20" r="5" stroke="currentColor" stroke-width="1.2" fill="none"/><circle cx="26" cy="20" r="5" stroke="currentColor" stroke-width="1.2" fill="none"/><circle cx="18" cy="10" r="5" stroke="currentColor" stroke-width="1.2" fill="none"/><line x1="14" y1="16" x2="21" y2="14" stroke="currentColor" stroke-width="0.7" opacity="0.4"/><line x1="15" y1="20" x2="21" y2="20" stroke="currentColor" stroke-width="0.7" opacity="0.4"/></svg>`,
+    prompt: "The three consorts are not a unified front. Anastrasya Karelova has been playing court politics since before the party arrived in Barovia. Ludmilla Vilisevic treats the castle as a laboratory and the party as a problem to be solved correctly. Volenta Popofsky finds the whole situation entertaining in ways that suggest very different threat models. They have coexisted inside Strahd's court for years, which means their agendas are already in tension. The party can engage that tension or ignore it.",
+    paths: [
+      {
+        id: 'fight-all', label: 'Take All Three', sublabel: 'Unified threat, unified response', tone: 'danger',
+        consequences: [
+          { label: 'That Night', title: 'Three Distinct Problems Simultaneously',
+            body: "The party engages all three consorts without attempting to separate or exploit their distinct agendas. This is the most expensive approach: Anastrasya defends politically, Ludmilla defends analytically, Volenta defends with enthusiasm. Fighting all three requires handling three genuinely different threat profiles at once. The party's resources reflect this requirement. The outcome is determined by what they brought, not what they understood." },
+          { label: 'The Sessions That Follow', title: 'The Resource Cost',
+            body: "The three-front engagement depleted the party's endgame resources in a specific way. Every resource spent fighting all three at once is unavailable for what comes after. The castle had three significant obstacles in that encounter and the party met them all simultaneously. This is a statement about the party's capability. It may not be the statement they would have chosen to make if the alternative had been more visible." },
+          { label: 'Campaign Echo', title: 'What Was Left After',
+            body: "The final confrontation with Strahd occurs with the party carrying the cost of the consort encounter. He is aware of what it took to clear that room. He adjusts his expectations accordingly — upward for the party's capability, downward for their endgame resources. Both adjustments are accurate. The fight is against someone who saw what the party just did and is the hardest thing in the castle regardless." }
+        ]
+      },
+      {
+        id: 'negotiate-one', label: 'Negotiate With One', sublabel: 'Find the agenda that aligns with your survival', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'An Agreement That Serves Distinct Interests',
+            body: "The party identifies which of the three has interests that include not dying to an adventuring party today. Anastrasya understands survival as a political calculation. Ludmilla might be persuaded that the party's success advances research she could not otherwise complete. The negotiation requires understanding which calculus applies and speaking to it accurately. If the party reads correctly, one becomes neutral while two become the fight. This is better than three becoming the fight." },
+          { label: 'The Sessions That Follow', title: 'A Temporary Alignment',
+            body: "The agreement holds for the duration it needs to hold — which is not forever, is not trust, and is not warmth. It is two parties whose interests briefly overlap. The party moves through the castle with one fewer active opponent and one entity whose neutrality they cannot take for granted. The sessions that follow are navigated with the understanding that the agreement is as strong as the interests that produced it and no stronger." },
+          { label: 'Campaign Echo', title: 'The Negotiation and What It Bought',
+            body: "The endgame arrives with one of the three having chosen a different relationship with the party's success. Whether that translates to assistance, absence, or simple non-interference depends on what the party negotiated and what the consort calculated when they agreed. Strahd knows something about what happened in that room. He finds it more interesting than a simple fight would have been. The party traded complexity for a better fight. Whether the trade was correct is what the endgame determines." }
+        ]
+      },
+      {
+        id: 'divide-them', label: 'Turn Them Against Each Other', sublabel: 'Their agendas are already in tension', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'The Fault Lines That Were Already There',
+            body: "The party identifies the specific tensions between the three — what Anastrasya wants that Ludmilla's methods threaten, what Volenta's behavior costs Anastrasya's political positioning, the accumulated friction of years inside the same court with competing agendas. They apply pressure to the right points. The consorts' energy redirects toward each other. This is the highest-leverage approach and the one that requires the most accurate read of the court's internal dynamics." },
+          { label: 'The Sessions That Follow', title: 'The Unstable Outcome',
+            body: "The court fracture produces unusual sessions — the party navigating a castle where the consorts are partially occupied with each other. Intelligence that would have been inaccessible becomes accessible. Encounters that would have been three-front become simpler. The instability also produces unpredictability: the consorts are not focused entities in this state, which means they do things that would not have happened in a unified front. Some of those things help. Some create new problems." },
+          { label: 'Campaign Echo', title: 'A Court in Disarray',
+            body: "Strahd enters the final confrontation with his court less coherent than it was. He is aware of what the party did and how. He finds it impressive — not in a way that benefits the party, but as accurate recognition of a skillfully executed maneuver. The final confrontation happens against a Strahd whose court has been disrupted by the party's specific intelligence advantage. He is still the hardest thing in the castle. The disruption was significant. Both are true." }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'barovia-after', phase: 6,
+    sceneRef: ["scene.strahd-defeated", "scene.strahd-redeemed"],
+    locationRef: 'location.barovia-realm',
+    prereqs: ["strahd-end"],
+    title: "Barovia After — the World You Built",
+    location: "Barovia — After the Curse Breaks",
+    session: "After the Final Session",
+    teaser: "The mists lift. What is underneath them is the sum of every choice the party made in the valley. Barovia does not rebuild from nothing. It rebuilds from what was left.",
+    accent: 'var(--color-accent-spectre-vivid)',
+    ornament: `<svg viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false"><path d="M6 26 Q12 18 18 22 Q24 26 30 14" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M22 10 L30 14 L26 22" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5"/><circle cx="18" cy="7" r="4" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5"/><line x1="18" y1="3" x2="18" y2="1" stroke="currentColor" stroke-width="1" opacity="0.3"/><line x1="14.5" y1="4.5" x2="12.5" y2="2.5" stroke="currentColor" stroke-width="0.8" opacity="0.3"/><line x1="21.5" y1="4.5" x2="23.5" y2="2.5" stroke="currentColor" stroke-width="0.8" opacity="0.3"/></svg>`,
+    prompt: "The curse is broken. Strahd is gone. The mists that trapped Barovia for centuries have lifted, and the valley is, for the first time in living memory, open. What Barovia becomes is not determined by this moment — it was determined by every choice the party made in the forty-something sessions that preceded it. The people who survived are the foundation. The institutions that held are the scaffolding. The relationships the party built are the reason some of it is possible at all.",
+    paths: [
+      {
+        id: 'built-foundation', label: 'A Barovia That Can Rebuild', sublabel: 'The institutions held', tone: 'spectre',
+        consequences: [
+          { label: 'That Night', title: 'The Mists Lift Over Something That Was Tended',
+            body: "The curse breaks over a Barovia where the party chose, session by session, to protect what was there. St. Andral's Church stands. Vallaki stabilized under leadership the party helped shape. The Martikovs and their network are intact. The wereravens are alive. Father Lucian is alive. The people left have the institutions they need to begin. Barovia does not know what a valley without the curse feels like. It is about to find out with more structure than it might have had." },
+          { label: 'The Sessions That Follow', title: 'What Structure Makes Possible',
+            body: "Barovia's first months after the curse are difficult but not catastrophic — the infrastructure to handle difficulty is present. The Church provides continuity. The political structure in Vallaki, imperfect as the party left it, is functional. The Martikovs can resume supplying wine and information without the shadow of Strahd's attention. The valley has lost centuries to the curse. It has not lost the ability to rebuild. These are different losses, and the party protected the second." },
+          { label: 'Campaign Echo', title: 'The Long Consequence of Small Protections',
+            body: "The Barovia that eventually joins the wider world is recognizably descended from the Barovia the party moved through. The specific people who survived are the specific people who passed things forward. Father Lucian's church becomes what its congregation needs. The Martikovs' winery becomes what the valley's economy is built around. The party's choices compounded in the direction of preservation, and preservation compounded in the direction of something worth having. This is a rarer outcome than it sounds." }
+        ]
+      },
+      {
+        id: 'paid-price', label: 'A Barovia That Survived, Barely', sublabel: 'Free, but wounded by the cost', tone: 'warning',
+        consequences: [
+          { label: 'That Night', title: 'The Mists Lift Over Damage',
+            body: "The curse breaks over a Barovia that is free and diminished. The party's efficient choices — the path through the campaign that minimized cost to the party and sometimes transferred it to the valley — produced a Barovia with fewer intact institutions than it might have had. The church was desecrated and may or may not have recovered. Vallaki went through political chaos that left the wrong people in place or no one in place. Some key people who might have anchored the recovery did not survive. The valley is free. Freedom from the curse does not automatically reconstruct what the campaign cost." },
+          { label: 'The Sessions That Follow', title: 'Rebuilding Without the Scaffolding',
+            body: "The early months after the curse are harder than they would have been with intact institutions. Problems that the existing structure would have contained have to be managed directly. Leadership vacuums exist where the party's choices created them. The Barovians are resilient — they survived Strahd — but resilience is not the same as capacity. The valley rebuilds, because people rebuild, but it rebuilds more slowly and with more visible cost than the alternative path would have produced." },
+          { label: 'Campaign Echo', title: 'Free Is Still Free',
+            body: "The Barovia that eventually joins the wider world is free, which is the thing that mattered most and the thing that Strahd's defeat produced regardless of the campaign's other costs. The specific shape of the damage is the specific shape of the choices made. Some of those choices were correct given what the party was facing. Some were efficient in ways that transferred cost to Barovia. In Barovia, cost is paid by Barovia. The mists lifted. What was underneath them is what was left." }
+        ]
+      },
+      {
+        id: 'built-people', label: 'A Barovia Built Around People', sublabel: 'The relationships the party forged', tone: 'neutral',
+        consequences: [
+          { label: 'That Night', title: 'The Mists Lift Over Specific Faces',
+            body: "The curse breaks over a Barovia where the party invested in people more than institutions. Van Richten is alive and knows more about what happened than anyone else in the valley. Kasimir has what he sought, or its resolution. The wereravens are alive and know the party by name. The party did not save every institution — some fell in the course of the campaign — but the specific people they chose to invest in are there, alive, carrying the knowledge of what happened and the capacity to transmit it." },
+          { label: 'The Sessions That Follow', title: 'What People Can Do That Institutions Cannot',
+            body: "The early months after the curse reveal what the party's relational investment produced. Van Richten's expertise shapes how Barovia understands what it survived. Kasimir's knowledge of the valley's dusk elf history becomes part of what the valley knows about itself. The Martikovs, trusted by the party and therefore trusted by the party's account, become trusted by the valley. The people the party built relationships with become the connective tissue of what Barovia grows into. Institutions can be rebuilt. Specific knowledge and trust cannot be replaced." },
+          { label: 'Campaign Echo', title: 'The Valley That Remembers Who Helped',
+            body: "The Barovia that eventually joins the wider world has a specific memory of the party — not as legends but as people who knew specific Barovians by name, who kept specific promises, who chose specific relationships over easier paths. The party is remembered in the way the specific people they saved remember them: accurately, particularly, with the weight of what those people know the party actually did. This is not fame. It is the rarer thing — being remembered correctly by people who were there." }
+        ]
+      }
+    ]
   }
 ];
 
@@ -2437,10 +3158,20 @@ const PHASE_LABELS = {
   1: 'Phase 1 — Entering the Curse',
   2: 'Phase 2 — Vallaki',
   3: 'Phase 3 — The Wilderness',
-  4: 'Phase 4 — Krezk & Deeper Wilderness'
+  4: 'Phase 4 — Krezk & Deeper Wilderness',
+  5: 'Phase 5 — Collecting the Artifacts',
+  6: 'Phase 6 — Castle Ravenloft & Endgame'
 };
 
+function prereqLabel(id) {
+  const s = SCENARIOS.find(x => x.id === id);
+  return s ? s.title : id;
+}
+
 function cardHtml(s) {
+  const prereqHtml = s.prereqs && s.prereqs.length
+    ? `<p class="scenario-card__prereqs"><span class="scenario-card__prereqs-dot"></span>After: ${s.prereqs.map(prereqLabel).join(', ')}</p>`
+    : '';
   return `
     <li role="listitem">
       <button
@@ -2453,6 +3184,7 @@ function cardHtml(s) {
         <span class="scenario-card__session">${s.session}</span>
         <span class="scenario-card__title">${s.title}</span>
         <p class="scenario-card__location">${s.location}</p>
+        ${prereqHtml}
         <p class="scenario-card__teaser">${s.teaser}</p>
         <span class="scenario-card__cta" aria-hidden="true">
           Trace the consequences
@@ -2466,7 +3198,7 @@ function cardHtml(s) {
 }
 
 function renderGrid() {
-  const phases = [0, 1, 2, 3, 4];
+  const phases = [0, 1, 2, 3, 4, 5, 6];
   const groups = phases
     .map(p => ({ phase: p, label: PHASE_LABELS[p], scenarios: SCENARIOS.filter(s => s.phase === p) }))
     .filter(g => g.scenarios.length > 0);
@@ -2512,10 +3244,23 @@ function renderScenario() {
         </div>
       </div>
 
+      ${s.prereqs && s.prereqs.length ? `
+      <div class="prereq-strip">
+        <span class="prereq-strip__label">Follows</span>
+        <div class="prereq-strip__links">
+          ${s.prereqs.map(pid => `<button class="prereq-link" data-goto="${pid}">${prereqLabel(pid)}</button>`).join('')}
+        </div>
+      </div>` : ''}
+
       <div class="decision-prompt">
         <p class="decision-prompt__label">The Moment of Decision</p>
         <p class="decision-prompt__text">${s.prompt}</p>
       </div>
+
+      ${s.sceneRef && s.sceneRef.length ? `
+      <div class="scenario-meta">
+        ${s.sceneRef.map(ref => `<span class="scenario-meta__tag scenario-meta__tag--scene">${ref}</span>`).join('')}
+      </div>` : ''}
 
       <p class="section-label">Which path does the party take?</p>
 
@@ -2538,6 +3283,12 @@ function renderScenario() {
   main.querySelectorAll('.path-btn').forEach(btn => {
     btn.addEventListener('click', () =>
       navigate({ view: 'cascade', pathId: btn.dataset.path })
+    );
+  });
+
+  main.querySelectorAll('.prereq-link[data-goto]').forEach(btn => {
+    btn.addEventListener('click', () =>
+      navigate({ view: 'scenario', scenarioId: btn.dataset.goto, pathId: null })
     );
   });
 }
